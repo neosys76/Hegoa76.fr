@@ -5,3 +5,5 @@ app/logs/
 vendor/
 app/config/parameters.ini
 ^vendor$
+syntax: glob
+app/web/world

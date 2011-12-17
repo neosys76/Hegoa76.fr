@@ -1,0 +1,17 @@
+libertribes_world:
+  width: 100
+  height: 100
+  directory: "%kernel.root_dir%/web/world"
+  image: "%kernel.root_dir%/config/world.png"
+  section:
+    width: 512
+    height: 512
+  lands:
+    - { color: '000000', name: black land }
+    - { color: 'ffffff', name: white land }
+  panels:
+    - name: '16x16'
+      tiles :
+        directory: "%kernel.root_dir%/tiles/16"
+        width : 16
+        height : 16

@@ -1,0 +1,3 @@
+LibertribesWorldBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: LibertribesWorldBundle:Default:index }

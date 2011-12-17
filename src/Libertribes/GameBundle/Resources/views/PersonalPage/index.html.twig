@@ -1,0 +1,16 @@
+{% extends "LibertribesGameBundle::layout.html.twig" %}
+
+{% block title %} {{ parent() }} Page personnelle{% endblock %}
+{% block connexion %}Infos connexions {{username}} {% endblock %}
+{% block navigation %}
+
+        {% for key,value in navigation|items %}
+            <a class="menugame" href="{{ value }}">{{ key }}</a>
+        {% endfor %}
+{% endblock %}
+{% block body %}
+
+	<h2>Page personnelle de {{username}}</h2>
+	
+	
+{% endblock %}

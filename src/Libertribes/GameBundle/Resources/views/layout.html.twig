@@ -1,0 +1,25 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %} {{ parent() }} Jeu{% endblock %}
+{% block stylesheet %}
+	{% stylesheets output='css/jeu.min.css'
+			'../src/Libertribes/GameBundle/Resources/public/css/*' %}
+			<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+	{% endstylesheets %}
+{% endblock %}
+{% block javascript %} 
+{% endblock %}
+{% block entete %}
+	<div id="banniere">
+		<div id="logo">
+			LOGO
+		</div>
+		<div id="connexionforum">
+			{% block connexion %}Infos connexions{% endblock %} et Vers Forum
+		</div>
+		<div id="son">
+			Barre son
+		</div>
+	</div>
+{% endblock %}
+

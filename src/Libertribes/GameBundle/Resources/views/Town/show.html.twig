@@ -1,0 +1,89 @@
+<h1>Town</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>                <td>{{ entity.id }}</td>        </tr>
+        <tr>
+            <th>Name</th>                <td>{{ entity.name }}</td>        </tr>
+        <tr>
+            <th>Coordinates_slotid</th>                <td>{{ entity.coordinatesslotId }}</td>        </tr>
+        <tr>
+            <th>Size</th>                <td>{{ entity.size }}</td>        </tr>
+        <tr>
+            <th>Defense_bonusmalus</th>                <td>{{ entity.defensebonusmalus }}</td>        </tr>
+        <tr>
+            <th>Food_bonusmalus</th>                <td>{{ entity.foodbonusmalus }}</td>        </tr>
+        <tr>
+            <th>Iron_bonus</th>                <td>{{ entity.ironbonus }}</td>        </tr>
+        <tr>
+            <th>Wood_bonus</th>                <td>{{ entity.woodbonus }}</td>        </tr>
+        <tr>
+            <th>Cyniam_bonus</th>                <td>{{ entity.cyniambonus }}</td>        </tr>
+        <tr>
+            <th>Avatar_id</th>                <td>{{ entity.avatarid }}</td>        </tr>
+        <tr>
+            <th>Building_productionwood</th>                <td>{{ entity.buildingproductionWood }}</td>        </tr>
+        <tr>
+            <th>Building_stockwood</th>                <td>{{ entity.buildingstockWood }}</td>        </tr>
+        <tr>
+            <th>Building_productioniron</th>                <td>{{ entity.buildingproductionIron }}</td>        </tr>
+        <tr>
+            <th>Building_stockiron</th>                <td>{{ entity.buildingstockIron }}</td>        </tr>
+        <tr>
+            <th>Building_productioncyniam</th>                <td>{{ entity.buildingproductionCyniam }}</td>        </tr>
+        <tr>
+            <th>Building_stockcyniam</th>                <td>{{ entity.buildingstockCyniam }}</td>        </tr>
+        <tr>
+            <th>Building_productionfood</th>                <td>{{ entity.buildingproductionFood }}</td>        </tr>
+        <tr>
+            <th>Building_stockfood</th>                <td>{{ entity.buildingstockFood }}</td>        </tr>
+        <tr>
+            <th>Building_wizardrytrainingattack</th>                <td>{{ entity.buildingwizardryTrainingAttack }}</td>        </tr>
+        <tr>
+            <th>Building_wizardrytrainingdefense</th>                <td>{{ entity.buildingwizardryTrainingDefense }}</td>        </tr>
+        <tr>
+            <th>Building_armytraininghand2hand</th>                <td>{{ entity.buildingarmyTrainingHand2hand }}</td>        </tr>
+        <tr>
+            <th>Building_armytrainingdistancefighting</th>                <td>{{ entity.buildingarmyTrainingDistancefighting }}</td>        </tr>
+        <tr>
+            <th>Building_armytrainingdefense</th>                <td>{{ entity.buildingarmyTrainingDefense }}</td>        </tr>
+        <tr>
+            <th>Building_troopcamp</th>                <td>{{ entity.buildingtroopCamp }}</td>        </tr>
+        <tr>
+            <th>Slotid_building_troopcamp</th>                <td>{{ entity.slotIdbuildingtroopCamp }}</td>        </tr>
+        <tr>
+            <th>Building_productionmotorizedunit</th>                <td>{{ entity.buildingproductionMotorizedUnit }}</td>        </tr>
+        <tr>
+            <th>Building_wizardschool</th>                <td>{{ entity.buildingwizardSchool }}</td>        </tr>
+        <tr>
+            <th>Building_manaharvesting</th>                <td>{{ entity.buildingmanaHarvesting }}</td>        </tr>
+        <tr>
+            <th>Building_science</th>                <td>{{ entity.buildingscience }}</td>        </tr>
+        <tr>
+            <th>Building_wall</th>                <td>{{ entity.buildingwall }}</td>        </tr>
+        <tr>
+            <th>Building_turret</th>                <td>{{ entity.buildingturret }}</td>        </tr>
+        <tr>
+            <th>Building_ambassy</th>                <td>{{ entity.buildingambassy }}</td>        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('town') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('town_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('town_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

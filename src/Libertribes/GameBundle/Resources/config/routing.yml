@@ -1,0 +1,11 @@
+gameAccessGate:
+    pattern:  /gate
+    defaults: { _controller: LibertribesGameBundle:GameAccess:gate}
+account_create:
+    pattern:  /create
+    defaults: { _controller: LibertribesGameBundle:Account:create }
+    requirements: { _method: post }
+gameHome:
+    pattern:  /
+    defaults: { _controller: LibertribesGameBundle:GameAccess:index }
+

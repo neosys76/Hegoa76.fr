@@ -1,0 +1,95 @@
+* {
+    padding     : 0;
+    margin      : 0; 
+	position:relative;
+}
+
+body
+{
+	font-family			: arial;
+	font-size			: 15px;
+	text-align			: center;
+}
+
+a {
+	text-decoration		: none;
+	font-weight			: bold;
+}
+
+a:hover {
+	text-decoration		: underline;
+}
+
+table {
+	border-collapse		: separate;
+	border-spacing		: 10px 20px;
+}
+
+h1, h2, h3 {padding-top: 3px; padding-bottom: 3px; font-weight: bold;}
+
+h1 {font-size: 25px;}
+h2 {font-size: 20px;}
+h3 {font-size: 17px;}
+
+.curpt {cursor		: pointer;}
+.bold {font-weight		: bold;}
+.margins10  {margin		: 10px;}
+.padtbt5 {	padding-top		: 5px;
+			padding-bottom	: 5px;}
+
+
+/* En-tête */
+#banniere
+{
+	height				:150px;
+	background-color	:#F5F5F5;
+}
+
+#logo {
+	float				: left;
+	width				: 250px;
+	height				: 150px;
+	background-color	:#CCCCCC;
+}
+
+#connexionforum {
+	position			: absolute;
+	top					: 10px;
+	height				: 20px;
+	right				: 20px;
+	background-color	:#FFFFFF;
+	font-size			: 12px;
+}
+
+#son {
+	position			: absolute;
+	top					: 40px;
+	height				: 10px;
+	right				: 20px;
+	background-color	:#FFCCCC;
+	font-size			: 12px;
+}
+
+
+/* La navigation */
+#navigation
+{
+	margin-top			: 20px;
+	height				: 100px;
+}
+
+/* Le corps de page (la partie principale quoi ^^) : */
+#corps
+{
+	margin-top			: 10px;
+	margin-bottom		: 10px;
+	padding:10px;
+}
+
+/* Le pied de page (qui se trouve tout en bas, en général pour les copyrights) : */
+#pied_de_page
+{
+	padding				: 10px;
+	text-align			: left;
+	font-size			: 11px;
+}

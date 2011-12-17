@@ -1,0 +1,30 @@
+town:
+    pattern:  /
+    defaults: { _controller: "LibertribesGameBundle:Town:index" }
+
+town_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "LibertribesGameBundle:Town:show" }
+
+town_new:
+    pattern:  /new
+    defaults: { _controller: "LibertribesGameBundle:Town:new" }
+
+town_create:
+    pattern:  /create
+    defaults: { _controller: "LibertribesGameBundle:Town:create" }
+    requirements: { _method: post }
+
+town_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "LibertribesGameBundle:Town:edit" }
+
+town_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "LibertribesGameBundle:Town:update" }
+    requirements: { _method: post }
+
+town_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "LibertribesGameBundle:Town:delete" }
+    requirements: { _method: post }

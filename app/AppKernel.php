@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Libertribes\Bundle\WorldBundle\LibertribesWorldBundle(),
+            new Libertribes\CommerceBundle\LibertribesCommerceBundle(),
+            new Libertribes\WorldsCreationBundle\LibertribesWorldsCreationBundle(),
+            new Libertribes\GameBundle\LibertribesGameBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

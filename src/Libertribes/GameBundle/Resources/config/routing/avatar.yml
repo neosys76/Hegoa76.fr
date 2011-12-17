@@ -1,0 +1,30 @@
+avatar:
+    pattern:  /
+    defaults: { _controller: "LibertribesGameBundle:Avatar:index" }
+
+avatar_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "LibertribesGameBundle:Avatar:show" }
+
+avatar_new:
+    pattern:  /new
+    defaults: { _controller: "LibertribesGameBundle:Avatar:new" }
+
+avatar_create:
+    pattern:  /create
+    defaults: { _controller: "LibertribesGameBundle:Avatar:create" }
+    requirements: { _method: post }
+
+avatar_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "LibertribesGameBundle:Avatar:edit" }
+
+avatar_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "LibertribesGameBundle:Avatar:update" }
+    requirements: { _method: post }
+
+avatar_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "LibertribesGameBundle:Avatar:delete" }
+    requirements: { _method: post }

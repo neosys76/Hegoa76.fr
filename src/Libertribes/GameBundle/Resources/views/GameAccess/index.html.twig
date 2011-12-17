@@ -1,0 +1,16 @@
+{% extends "LibertribesGameBundle::layout.html.twig" %}
+
+{% block title %} {{ parent() }} Accueil{% endblock %}
+{% block connexion %}Infos connexions{% endblock %}
+{% block navigation %}
+
+<a class="menuhome" href="http://wiki.libertribes.tuxfamily.org/">Wiki du jeu</a>
+<a class="menuhome" href="{{ path('gameAccessGate') }}">Accès au jeu</a>
+
+{% endblock %}
+{% block body %}
+
+	<h2>Corps de l'Accueil</h2>
+	
+	
+{% endblock %}

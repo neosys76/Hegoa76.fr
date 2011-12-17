@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Libertribes {% block title %}{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{% stylesheets output='css/am.min.css'
+			'../app/Resources/public/css/*' %}
+			<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+		{% endstylesheets %}
+		{% block stylesheet %}
+		{% endblock %}
+		{% javascripts
+			'../app/Resources/public/libjs/*'
+			%}
+			<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		{% block javascript %}
+		{% endblock %}
+
+	</head>
+	
+	<body>
+
+		<div id="banniere">
+			{% block entete %} 
+			{% endblock %}
+		</div> 
+			
+		<div id="navigation">
+			{% block navigation %} 
+			{% endblock %}	
+		</div>
+		<div id="corps">
+		
+			{% block body %}
+			{% endblock %}
+			
+		</div> 
+ 
+		<div id="pied_de_page">
+			<span class='bold'>Copyright:</span><br/>
+			L'ensemble de ce travail, basé sur l’œuvre de  Cédric Bacconnier, Samuel Laï, Nicolas Darras, Julien Hilmoine est sous Copyleft : cette œuvre est libre, vous pouvez la redistribuer et/ou la modifier selon les termes de la Licence Art Libre. Vous trouverez un exemplaire de cette Licence sur le site Copyleft Attitude http://www.artlibre.org/ ainsi que sur d'autres sites.
+		</div>
+	</body>
+</html>

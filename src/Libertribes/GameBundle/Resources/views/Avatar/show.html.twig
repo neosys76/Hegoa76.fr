@@ -1,0 +1,57 @@
+<h1>Avatar</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>                <td>{{ entity.id }}</td>        </tr>
+        <tr>
+            <th>Avatar_name</th>                <td>{{ entity.avatarname }}</td>        </tr>
+        <tr>
+            <th>Avatar_age</th>                <td>{{ entity.avatarage }}</td>        </tr>
+        <tr>
+            <th>Avatar_race</th>                <td>{{ entity.avatarrace }}</td>        </tr>
+        <tr>
+            <th>Account_id</th>                <td>{{ entity.accountid }}</td>        </tr>
+        <tr>
+            <th>Avatar_world</th>                <td>{{ entity.avatarworld }}</td>        </tr>
+        <tr>
+            <th>Politic_regime</th>                <td>{{ entity.politicregime }}</td>        </tr>
+        <tr>
+            <th>Player_filiation_type</th>                <td>{{ entity.playerfiliationtype }}</td>        </tr>
+        <tr>
+            <th>Player_filiation_hypot</th>                <td>{{ entity.playerfiliationhypot }}</td>        </tr>
+        <tr>
+            <th>Player_filiation_cert</th>                <td>{{ entity.playerfiliationcert }}</td>        </tr>
+        <tr>
+            <th>Level_aggressivity</th>                <td>{{ entity.levelaggressivity }}</td>        </tr>
+        <tr>
+            <th>Level_fraud</th>                <td>{{ entity.levelfraud }}</td>        </tr>
+        <tr>
+            <th>Level_commerce</th>                <td>{{ entity.levelcommerce }}</td>        </tr>
+        <tr>
+            <th>Level_efficiency</th>                <td>{{ entity.levelefficiency }}</td>        </tr>
+        <tr>
+            <th>Avatar_life</th>                <td>{{ entity.avatarlife }}</td>        </tr>
+        <tr>
+            <th>Last_connexion</th>                <td>{{ entity.lastconnexion|date('Y-m-d H:i:s') }}</td>        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('avatar') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('avatar_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('avatar_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

@@ -1,0 +1,7 @@
+parameters:
+#    libertribes_creation_mondes.example.class: Libertribes\CreationMondesBundle\Example
+
+services:
+#    libertribes_creation_mondes.example:
+#        class: %libertribes_creation_mondes.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

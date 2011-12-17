@@ -1,0 +1,30 @@
+account:
+    pattern:  /
+    defaults: { _controller: "LibertribesGameBundle:Account:index" }
+
+account_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "LibertribesGameBundle:Account:show" }
+
+account_new:
+    pattern:  /new
+    defaults: { _controller: "LibertribesGameBundle:Account:new" }
+
+account_create:
+    pattern:  /create
+    defaults: { _controller: "LibertribesGameBundle:Account:create" }
+    requirements: { _method: post }
+
+account_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "LibertribesGameBundle:Account:edit" }
+
+account_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "LibertribesGameBundle:Account:update" }
+    requirements: { _method: post }
+
+account_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "LibertribesGameBundle:Account:delete" }
+    requirements: { _method: post }

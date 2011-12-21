@@ -1,20 +1,21 @@
 parameters:
     libertribes_world.world.class: Libertribes\Component\World\World
-    libertribes_world.cartographer.class: Libertribes\Component\World\Cartographer
+    libertribes_world.cartographers.class: Libertribes\Bundle\WorldBundle\Service\CartographerManager
     libertribes_world.panels.class: Libertribes\Bundle\WorldBundle\Service\TilePanelManager
 
 services:
     libertribes_world.world:
         class: "%libertribes_world.world.class%"
-        arguments: [%libertribes_world.world.width%, %libertribes_world.world.height%, %libertribes_world.world.directory%]
+        arguments: [%libertribes_world.world.width%, %libertribes_world.world.height%]
         calls:
           - [ setImage, [ %libertribes_world.world.image% ] ]
           - [ setLandTypes, [ %libertribes_world.lands% ] ]
     libertribes_world.panels:
         class: "%libertribes_world.panels.class%"
         arguments: [%libertribes_world.panels%]
-    libertribes_world.cartographer:
-        class: "%libertribes_world.cartographer.class%"
-        arguments: [@libertribes_world.world]
+    libertribes_world.cartographers:
+        class: "%libertribes_world.cartographers.class%"
+        arguments: [@libertribes_world.world, @libertribes_world.panels]
         calls:
           - [ setSectionSize, [ %libertribes_world.section.width%, %libertribes_world.section.height%] ]
+          - [ setSectionDirectory, [ %libertribes_world.section.directory.internal%, %libertribes_world.section.directory.external%] ]

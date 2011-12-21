@@ -1,1 +1,34 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div style="
+        position: relative;
+        width: {{map.getViewWidth}}px;
+        height: {{ map.getViewHeight }}px;
+        overflow: hidden;
+        ">
+    <div style="
+        position: absolute;
+        bottom: {{ map.getOffsetBottom }}px;
+        left: {{ map.getOffsetLeft }}px;
+        width: {{map.getLayerWidth}}px;
+        height: {{map.getLayerHeight}}px;
+        ">
+    {% for section in map.getSections %}
+        <div style="
+            position: absolute;
+            left: {{section.left}}px;
+            bottom: {{section.bottom}}px;
+            width: {{map.getSectionWidth}}px;
+            height: {{map.getSectionHeight}}px;
+            background: url({{ section.path }}) no-repeat;
+            "></div>
+    {% endfor %}
+    </div>
+</div>
+<ul>
+    {% for control in controls %}
+    <li><a href="{{control.link}}">{{control.label}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

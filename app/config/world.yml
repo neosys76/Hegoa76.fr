@@ -1,9 +1,11 @@
 libertribes_world:
   width: 100
   height: 100
-  directory: "%kernel.root_dir%/web/world"
   image: "%kernel.root_dir%/config/world.png"
   section:
+    directory:
+      internal: %world_section_directory_internal%
+      external: %world_section_directory_external%
     width: 512
     height: 512
   lands:
@@ -15,3 +17,13 @@ libertribes_world:
         directory: "%kernel.root_dir%/tiles/16"
         width : 16
         height : 16
+    - name: '32x32'
+      tiles :
+        directory: "%kernel.root_dir%/tiles/32"
+        width : 32
+        height : 32
+    - name: '64x64'
+      tiles :
+        directory: "%kernel.root_dir%/tiles/64"
+        width : 64
+        height : 64

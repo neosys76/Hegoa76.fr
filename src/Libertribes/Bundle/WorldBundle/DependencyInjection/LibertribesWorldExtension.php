@@ -26,7 +26,7 @@ class LibertribesWorldExtension extends Extension
 
         $container->setParameter('libertribes_world.world.width', $config['width']);
         $container->setParameter('libertribes_world.world.height', $config['height']);
-        $container->setParameter('libertribes_world.world.directory', $config['directory']);
+        
         $container->setParameter('libertribes_world.world.image', $config['image']);
         
         $container->setParameter('libertribes_world.panels', $config['panels']);
@@ -35,6 +35,8 @@ class LibertribesWorldExtension extends Extension
         
         $container->setParameter('libertribes_world.section.width', $config['section']['width']);
         $container->setParameter('libertribes_world.section.height', $config['section']['height']);
+        $container->setParameter('libertribes_world.section.directory.internal', $config['section']['directory']['internal']);
+        $container->setParameter('libertribes_world.section.directory.external', $config['section']['directory']['external']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

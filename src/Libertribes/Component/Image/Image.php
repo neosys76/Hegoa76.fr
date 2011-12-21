@@ -83,6 +83,9 @@ class Image {
 
     public
     function getColorAt($x, $y) {
+        if (($x < 0) || ($x > ($this->mWidth - 1)) || ($y < 0) || ($y > ($this->mHeight - 1))) {
+            return null;
+        }
         $color = @imagecolorsforindex(
                         $this->mImage, @imagecolorat($this->mImage, $x, $y));
         return Color::createFromRGBA(

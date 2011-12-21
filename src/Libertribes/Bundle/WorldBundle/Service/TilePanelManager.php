@@ -32,7 +32,7 @@ class TilePanelManager {
      * @return TilePanel 
      */
     public
-    function getPanel($name){
+    function findOneByName($name){
         if (!isset($this->mPanels[$name])) {
             return null;
         }
@@ -41,11 +41,10 @@ class TilePanelManager {
     
     /**
      *
-     * @param string $name
-     * @return TilePanel 
+     * @return array 
      */
     public
-    function getPanels() {
+    function findAll() {
         return $this->mPanels;
     }
 }

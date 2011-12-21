@@ -75,7 +75,26 @@ class Box {
         }
         return $result;
     }
+    
+    /**
+     *
+     * @param int $x
+     * @param int $y
+     * @return Box 
+     */
+    public
+    function translate($x, $y){
+        return new Box(
+                new Point($this->mTopRight->x + $x, $this->mTopRight->y + $y),
+                new Point($this->mBottomLeft->x + $x, $this->mBottomLeft->y + $y)
+                );
+    }
 
+    /**
+     *
+     * @param string $string
+     * @return Box 
+     */
     public static
     function createFromQueryString($string) {
         if (preg_match(self::QUERY_STRING_PATTERN, $string) !== 1) {

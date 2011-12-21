@@ -30,12 +30,6 @@ class World {
      *
      * @var string directory
      */
-    private $mMapsDirectory = null;
-
-    /**
-     *
-     * @var string directory
-     */
     private $mImagePath = null;
 
     /**
@@ -55,10 +49,9 @@ class World {
      * @param int $height 
      */
     public
-    function __construct($width, $height, $directory) {
+    function __construct($width, $height) {
         $this->mWidth = $width;
         $this->mHeight = $height;
-        $this->mMapsDirectory = $directory;
     }
 
     /**
@@ -99,16 +92,18 @@ class World {
      * @return array 
      */
     public
-    function findAllLandContainedInBox(Box $box) {
+    function findAllTileContainedInBox(Box $box) {
         $lands = array();
         $image = $this->mImage;
-        for ($y = $box->bottom, $h = $box->top; $y < $h; $y++) {
-            for ($x = $box->left, $w = $box->right; $x < $w; $x++) {
-                $lands[] = (object) array(
-                            'longitude' => $x,
-                            'latitude' => $y,
-                            'color' => $image->getColorAt($x, $y)
-                );
+        for ($y = $box->bottom, $h = $box->top; $y <= $h; $y++) {
+            for ($x = $box->left, $w = $box->right; $x <= $w; $x++) {
+                if (($color = $image->getColorAt($x, $image->height - $y)) !== null) {
+                    $lands[] = (object) array(
+                                'longitude' => $x,
+                                'latitude' => $y,
+                                'color' => $color
+                    );
+                }
             }
         }
         return $lands;
@@ -133,7 +128,6 @@ class World {
         switch ($name) {
             case 'width': return (int) $this->mWidth;
             case 'height': return (int) $this->mHeight;
-            case 'directory': return $this->mMapsDirectory;
             default:
                 throw new \Exception();
         }

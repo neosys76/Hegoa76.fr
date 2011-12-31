@@ -51,6 +51,7 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('name')->isRequired()->end()
                             ->arrayNode('tiles')
                                 ->children()
+                                    ->scalarNode('overflow')->isRequired()->end()
                                     ->scalarNode('directory')->isRequired()->end()
                                     ->scalarNode('width')->isRequired()->end()
                                     ->scalarNode('height')->isRequired()->end()

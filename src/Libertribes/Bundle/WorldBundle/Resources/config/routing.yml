@@ -3,4 +3,4 @@ LibertribesWorldBundle_homepage:
     defaults:
       _controller: LibertribesWorldBundle:Default:index
       panel_name: 16x16
-      box: w,w,0,0
+      box: e8,e8,0,0

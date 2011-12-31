@@ -22,6 +22,7 @@ class TilePanelManager {
                 'directory' => $panel['tiles']['directory'],
                 'width' => $panel['tiles']['width'],
                 'height' => $panel['tiles']['height'],
+                'overflow' => $panel['tiles']['overflow'],
             ));
         }
     }

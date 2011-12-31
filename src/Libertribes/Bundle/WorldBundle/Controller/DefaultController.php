@@ -20,28 +20,32 @@ class DefaultController extends Controller {
         }
         $r = $this->get('router');
 
+        $move = 12;
+        
         $controls = array();
 
         $controls[] = array(
             'label' => 'north',
-            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate(0, 16)->toQueryString()))
+            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate(0, $move)->toQueryString()))
         );
         $controls[] = array(
             'label' => 'south',
-            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate(0, -16)->toQueryString()))
+            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate(0, -$move)->toQueryString()))
         );
         $controls[] = array(
             'label' => 'west',
-            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate(16, 0)->toQueryString()))
+            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate($move, 0)->toQueryString()))
         );
         $controls[] = array(
             'label' => 'east',
-            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate(-16, 0)->toQueryString()))
+            'link' => $r->generate('LibertribesWorldBundle_homepage', array('panel_name' => $panel_name, 'box' => $box->translate(-$move, 0)->toQueryString()))
         );
         
-        $map = $cartographer->createMap($box);
+        $map = $cartographer->createView($box);
         return $this->render('LibertribesWorldBundle:Default:index.html.twig', array(
+                    'box' => $box,
                     'name' => $panel_name,
+                    'sections_directory' => $cartographer->getSectionsExternalDirectory(),
                     'map' => $map,
                     'controls' => $controls
                 ));

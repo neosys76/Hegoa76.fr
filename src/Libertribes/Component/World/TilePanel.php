@@ -14,28 +14,28 @@ class TilePanel {
 
     /** @var array */
     private $mTiles = array();
-    
+
     /** @var string */
     private $mName = null;
-    
+
     /** @var int */
     private $mWidth = null;
-    
+
     /** @var int */
     private $mHeight = null;
-    
+
     /** @var string */
     private $mSettingsPath = null;
-    
+
     /** @var int */
-    private $mOverflowTop = 0;
+    private $mOverflow = 0;
 
     public function __get($name) {
         switch ($name) {
             case 'width': return $this->mWidth;
             case 'height': return $this->mHeight;
             case 'name': return $this->mName;
-            case 'overflow_top': return $this->mOverflowTop;
+            case 'overflow': return $this->mOverflow;
         }
     }
 
@@ -49,7 +49,14 @@ class TilePanel {
         if (!isset($this->mTiles[$type->id])) {
             $path = $this->mDirectory . '/'
                     . base_convert($type->id, 10, 36) . '.png';
-            $this->mTiles[$type->id] = Image::createFromFile($path);
+            $image = Image::createFromFile($path);
+            if (!((($image->height == $this->mHeight) || ($image->height == ($this->mHeight+$this->mOverflow))))) {
+                throw new \Exception('Invalid tile image height. ('.($this->mHeight+$this->mOverflow).', '.$this->mHeight.')');
+            }
+            if ($image->width != $this->mWidth){
+                throw new \Exception('Invalid tile image width.');
+            }
+            $this->mTiles[$type->id] = $image;
         }
         return $this->mTiles[$type->id];
     }
@@ -75,9 +82,9 @@ class TilePanel {
         $self->mWidth = $panel['width'];
         $self->mHeight = $panel['height'];
         $self->mName = $panel['name'];
-        
-        if (isset($panel['overflow']) && isset($panel['overflow']['top'])) {
-            $self->mOverflowTop = $panel['overflow']['top'];
+
+        if (isset($panel['overflow'])) {
+            $self->mOverflow = $panel['overflow'];
         }
         return $self;
     }

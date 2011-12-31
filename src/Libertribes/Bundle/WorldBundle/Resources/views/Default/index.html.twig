@@ -1,6 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+
+{{box}}
+
 <div style="
         position: relative;
         width: {{map.getViewWidth}}px;
@@ -21,7 +24,7 @@
             bottom: {{section.bottom}}px;
             width: {{map.getSectionWidth}}px;
             height: {{map.getSectionHeight}}px;
-            background: url({{ section.path }}) no-repeat;
+            background: url({{sections_directory}}/{{ section.box.toQueryString }}.png) no-repeat;
             "></div>
     {% endfor %}
     </div>

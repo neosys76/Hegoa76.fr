@@ -14,16 +14,19 @@ libertribes_world:
   panels:
     - name: '16x16'
       tiles :
+        overflow: 5
         directory: "%kernel.root_dir%/tiles/16"
         width : 16
         height : 16
     - name: '32x32'
       tiles :
+        overflow: 11
         directory: "%kernel.root_dir%/tiles/32"
         width : 32
         height : 32
     - name: '64x64'
       tiles :
+        overflow: 21
         directory: "%kernel.root_dir%/tiles/64"
         width : 64
         height : 64

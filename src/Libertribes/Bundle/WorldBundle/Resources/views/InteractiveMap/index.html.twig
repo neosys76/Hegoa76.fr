@@ -1,0 +1,67 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+{% javascripts
+    '@LibertribesWorldBundle/Resources/public/scripts/page.js'
+    '@LibertribesWorldBundle/Resources/public/scripts/InteractiveMap/index.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script type="text/javascript">
+    var panels = [];
+    {% for panel in panels %}
+        panels.push({
+            'name' : '{{ panel.name }}',
+            'tiles-width' : {{ panel.tilesWidth }},
+            'tiles-height' : {{ panel.tilesHeight }}
+        });
+    {% endfor %}
+    InteractiveMap_index({
+        'panels': panels,
+        'sections-directory': '{{ sections_directory }}',
+        'sections-width': {{ sections_width }},
+        'sections-height': {{ sections_height }}
+    });
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+{% stylesheets
+    '@LibertribesWorldBundle/Resources/public/styles/InteractiveMap/index.css'
+%}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+{% endstylesheets %}
+    <style type="text/css">
+            #interactive-map {
+                width: 500px;
+                height: 500px;
+
+                margin: 200px;
+
+                background: #f0f;
+                overflow: hidden;
+
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -o-user-select: none;
+                user-select: none;
+            }
+
+            body {
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -o-user-select: none;
+                user-select: none;
+            }
+        </style>
+{% endblock %}
+
+{% block body %}
+
+        <div id="interactive-map"></div>
+        <div id="javascript-debug-console"></div>
+{% endblock %}

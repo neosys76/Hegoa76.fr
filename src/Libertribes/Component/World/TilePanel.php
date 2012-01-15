@@ -38,7 +38,22 @@ class TilePanel {
             case 'overflow': return $this->mOverflow;
         }
     }
+    
+    public
+    function getName(){
+        return $this->mName;
+    }
+    
+    public
+    function getTilesWidth(){
+        return $this->mWidth;
+    }
 
+    public
+    function getTilesHeight(){
+        return $this->mHeight;
+    }
+    
     /**
      *
      * @param LandType $type

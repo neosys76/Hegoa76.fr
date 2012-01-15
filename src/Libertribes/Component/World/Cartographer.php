@@ -131,5 +131,10 @@ class Cartographer {
         $map = new View($view, $this->mSectionSize, $ts);
         return $map;
     }
+    
+    public
+    function getSectionSize() {
+        return $this->mSectionSize;
+    }
 }
 

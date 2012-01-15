@@ -22,13 +22,13 @@ class CartographerManager {
      *
      * @var int 
      */
-    private $mSectionInternalDirectory = null;
+    private $mSectionsInternalDirectory = null;
 
     /**
      *
      * @var int 
      */
-    private $mSectionExternalDirectory = null;
+    private $mSectionsExternalDirectory = null;
     
     /**
      *
@@ -59,13 +59,24 @@ class CartographerManager {
      */
     public
     function setSectionDirectory($i, $e = null) {
-        $this->mSectionInternalDirectory = $i;
+        $this->mSectionsInternalDirectory = $i;
         if (is_null($e)) {
-            $this->mSectionExternalDirectory = $i;
+            $this->mSectionsExternalDirectory = $i;
         } else {
-            $this->mSectionExternalDirectory = $e;
+            $this->mSectionsExternalDirectory = $e;
         }
     }
+    
+    public
+    function getSectionsInternalDirectory() {
+        return $this->mSectionsInternalDirectory;
+    }
+    
+    public
+    function getSectionsExternalDirectory() {
+        return $this->mSectionsExternalDirectory;
+    }
+    
     
     /**
      *
@@ -81,7 +92,7 @@ class CartographerManager {
         if (is_null($panel)) {
             return null;
         }
-        $c = new Cartographer($this->mWorld, $panel, $this->mSectionSize, $this->mSectionInternalDirectory, $this->mSectionExternalDirectory);
+        $c = new Cartographer($this->mWorld, $panel, $this->mSectionSize, $this->mSectionsInternalDirectory, $this->mSectionsExternalDirectory);
         return $this->mCartographers[$name] = $c;
     }
     

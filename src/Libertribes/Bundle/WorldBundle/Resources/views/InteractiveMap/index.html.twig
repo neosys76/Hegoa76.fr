@@ -12,15 +12,13 @@
     {% for panel in panels %}
         panels.push({
             'name' : '{{ panel.name }}',
-            'tiles-width' : {{ panel.tilesWidth }},
-            'tiles-height' : {{ panel.tilesHeight }}
+            'tile-size' : {{ panel.tileSize.toJSON|raw }},
+            'section-size' : {{ panel.sectionSize.toJSON|raw }}
         });
     {% endfor %}
     InteractiveMap_index({
         'panels': panels,
-        'sections-directory': '{{ sections_directory }}',
-        'sections-width': {{ sections_width }},
-        'sections-height': {{ sections_height }}
+        'section-directory': '{{ section_directory }}'
     });
 </script>
 {% endblock %}

@@ -1,6 +1,6 @@
 var InteractiveMap_index = (function () {
     
-    var Map = function (settings) {
+    var View = function (settings) {
         this.handlerStartDrag = page.events.handler(this.startDrag, this);
         this.handlerStopDrag = page.events.handler(this.stopDrag, this);
         this.handlerDrag = page.events.handler(this.drag, this);
@@ -14,17 +14,12 @@ var InteractiveMap_index = (function () {
         
         this.startDragLongitude = 0;
         this.startDragLatitude = 0;
-        
-        this.sectionsWidth = 512;
-        this.sectionsHeight = 512;
-        this.sectionsDirectory = '/';
+
+        this.sectionDirectory = '/';
         
         this.panels = [];
         this.panelSelected = 0;
 
-        this.tilesHeight = 16;
-        this.tilesWidth = 16;
-        
         this.element = null;
         
         this.layer = null;
@@ -34,22 +29,16 @@ var InteractiveMap_index = (function () {
         this.applySettings(settings || {});
     };
     
-    Map.prototype.applySettings = function (settings) {
-        if ('sections-width' in settings) {
-            this.sectionsWidth = settings['sections-width'];
-        }
-        if ('sections-height' in settings) {
-            this.sectionsHeight = settings['sections-height'];
-        }
-        if ('sections-directory' in settings) {
-            this.sectionsDirectory = settings['sections-directory'];
+    View.prototype.applySettings = function (settings) {
+        if ('section-directory' in settings) {
+            this.sectionDirectory = settings['section-directory'];
         }
         if ('panels' in settings) {
             this.panels = settings['panels'];
         }
     };
     
-    Map.prototype.attach = function (element) {
+    View.prototype.attach = function (element) {
         if (this.element !== null) {
             throw new Error('Al ready attach');
         }
@@ -64,13 +53,13 @@ var InteractiveMap_index = (function () {
         this.update();
     };
     
-    Map.prototype.createLayerElement = function () {
+    View.prototype.createLayerElement = function () {
         var layer = document.createElement('DIV');
         layer.setAttribute('style', 'background: #ccc; position: absolute; width: 5px; height: 5px;');
         return layer;
     };
     
-    Map.prototype.startDrag = function (event) {
+    View.prototype.startDrag = function (event) {
         page.events.bind(window, 'mousemove', this.handlerDrag);
         page.events.bind(window, 'mouseup', this.handlerStopDrag);
         
@@ -81,12 +70,12 @@ var InteractiveMap_index = (function () {
         this.startDragY = event.screenY;
     };
 
-    Map.prototype.zoom = function (event) {
+    View.prototype.zoom = function (event) {
         page.events.cancelDefault(event);
         
         var panelOldSelected = this.panelSelected;
 
-        if (event.wheelDeltaY > 0) {
+        if (event.wheelDelta > 0) {
             this.panelSelected++;
             if (this.panelSelected >= this.panels.length) {
                 this.panelSelected = this.panels.length - 1;
@@ -100,11 +89,11 @@ var InteractiveMap_index = (function () {
         
         if (panelOldSelected !== this.panelSelected) {
         
-            var pos = this.panels[panelOldSelected],
-            ps = this.panels[this.panelSelected];
+            var pos = this.panels[panelOldSelected]['tile-size'],
+            ps = this.panels[this.panelSelected]['tile-size'];
         
-            var ratioX = ps['tiles-width'] / pos['tiles-width'],
-            ratioY = ps['tiles-height'] / pos['tiles-height'];
+            var ratioX = ps.width / pos.width,
+            ratioY = ps.height / pos.height;
 
             var p = page.position(this.element);
         
@@ -119,21 +108,21 @@ var InteractiveMap_index = (function () {
         }
     };
     
-    Map.prototype.setCenter = function (longitude, latitude) {
+    View.prototype.setCenter = function (longitude, latitude) {
         this.longitude = longitude - (this.element.clientWidth / 2);
         this.latitude = latitude - (this.element.clientHeight / 2);
         
         this.update(true);
     };
     
-    Map.prototype.getCenter = function () {
+    View.prototype.getCenter = function () {
         return {
             longitude: this.longitude + (this.element.clientWidth / 2),
             latitude: this.latitude + (this.element.clientHeight / 2)
         };
     };
     
-    Map.prototype.stopDrag = function (event) {
+    View.prototype.stopDrag = function (event) {
         try {
             this.element.removeChild(this.layerOld);
         } catch (e) {
@@ -142,84 +131,81 @@ var InteractiveMap_index = (function () {
         page.events.unbind(window, 'mouseup', this.handlerStopDrag);
     };
     
-    Map.prototype.drag = function (event) {
+    View.prototype.drag = function (event) {
         this.longitude = this.startDragLongitude + this.startDragX - event.screenX;
         this.latitude = this.startDragLatitude - (this.startDragY - event.screenY);
         
         this.update();
     };
 
-    Map.prototype.createSectionElement = function (x, y) {
+    View.prototype.createSectionElement = function (x, y) {
         var panel = this.panels[this.panelSelected];
+        var sw = panel['section-size'].width;
+        var sh = panel['section-size'].height;
+        var tw = panel['tile-size'].width;
+        var th = panel['tile-size'].height;
+        
         var section = document.createElement('DIV');
-        var t = (y + this.sectionsHeight) / panel['tiles-height'],
-        b = y / panel['tiles-height'],
-        l = x / panel['tiles-width'],
-        r = (x + this.sectionsWidth) / panel['tiles-width'];
+        var t = (y + sh) / th,
+        b = y / th,
+        l = x / tw,
+        r = (x + sw) / tw;
+        
+        console.debug(y);
 
-        var image = this.sectionsDirectory+'/'+
+        var image = this.sectionDirectory+'/'+
         panel['name']+'/'+
         r.toString(36)+','+
         t.toString(36)+','+
         l.toString(36)+','+
         b.toString(36)+'.png'
-        section.setAttribute('style', 'background: url('+image+'); left: '+x+'px; bottom: '+y+'px; position: absolute; width: '+this.sectionsWidth+'px; height: '+this.sectionsHeight+'px;');
+        section.setAttribute('style', 'background:url('+image+'); left:'+x+'px; bottom:'+y+'px; position:absolute; width:'+sw+'px; height:'+sh+'px;');
         return section;
     };
     
-    Map.prototype.update = function (force_update) {
-        var t = Math.ceil((this.latitude + this.element.clientHeight) / this.sectionsHeight) * this.sectionsHeight,
-        b = Math.floor(this.latitude / this.sectionsHeight) * this.sectionsHeight,
-        l = Math.floor(this.longitude / this.sectionsWidth) * this.sectionsWidth,
-        r = Math.ceil((this.longitude  + this.element.clientWidth) / this.sectionsWidth) * this.sectionsWidth;
+    View.prototype.update = function (force_update) {
+        var panel = this.panels[this.panelSelected];
+        var sw = panel['section-size'].width;
+        var sh = panel['section-size'].height;
         
-        var h = t - b, w = r - l;
-        
-        var sh = h / this.sectionsHeight;
-        var sw = w / this.sectionsWidth;
-        
-        var layerHash = t+':'+r+':'+b+':'+l;
+        var t = Math.ceil((this.latitude + this.element.clientHeight) / sh) * sh,
+        b = Math.floor(this.latitude / sh) * sh,
+        l = Math.floor(this.longitude / sw) * sw,
+        r = Math.ceil((this.longitude  + this.element.clientWidth) / sw) * sw;
         
         this.layer.style.bottom = - this.latitude + 'px';
         this.layer.style.left = - this.longitude + 'px';
         
+        var layerHash = t+':'+r+':'+b+':'+l;
+        
         if (force_update || this.layerHash !== layerHash) {
+            var i = 0, li = (t - b) / sh;
+            var j = 0, lj = (r - l) / sw;
+            
             this.layerHash = layerHash;
             this.layer.innerHTML = '';
-            for (var i = 0; i < sh; i++) {
-                for (var j = 0; j < sw; j++) {
-                    var s = this.createSectionElement(l + (j * this.sectionsWidth), b + (i * this.sectionsHeight));
+            for (i = 0; i < li; i++) {
+                for (j = 0; j < lj; j++) {
+                    console.debug(b, i, sw);
+                    var s = this.createSectionElement(l + (j * sw), b + (i * sh));
                     if (s) {
                         this.layer.appendChild(s);
                     }
                 }
             }
         }
-    /*       
-        page.element('#javascript-debug-console').innerHTML = 
-        '<pre>t:'+t+', b:'+b+', l:'+l+', r:'+r+'</pre>' +
-        '<pre>sw:'+sw+', sh:'+sh+'</pre>' +
-        '<pre>w:'+w+', h:'+h+'</pre>' +
-        '<pre>lo:'+this.longitude+', la:'+this.latitude+'</pre>';
-*/
     };
     
     return function (settings) {
         settings = settings || {}
 
-        var map = new Map({
-            'sections-width' : settings['sections-width'],
-            'sections-height' : settings['sections-height'],
-            'sections-directory' : settings['sections-directory'],
+        var map = new View({
+            'section-directory' : settings['section-directory'],
             'panels' : settings['panels']
         });
         map.attach(page.element('#interactive-map'));
         
         map.setCenter(0,0);
-        
-        var c = map.getCenter();
-        
-        console.debug(c.longitude, c.latitude);
         
     };
 })();

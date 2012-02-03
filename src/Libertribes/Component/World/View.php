@@ -4,6 +4,7 @@ namespace Libertribes\Component\World;
 
 use Libertribes\Component\World\Box;
 use Libertribes\Component\World\BoxSize;
+use Libertribes\Component\World\TilePanel;
 
 class View {
 
@@ -44,10 +45,10 @@ class View {
      * @param BoxSize $tile_size in pixel
      */
     public
-    function __construct(Box $view, BoxSize $section_size, BoxSize $tile_size) {
+    function __construct(TilePanel $panel, Box $view) {
         $this->mViewBox = $view;
-        $this->mSectionSize = $section_size;
-        $this->mTileSize = $tile_size;
+        $this->mSectionSize = $panel->getSectionSize();
+        $this->mTileSize = $panel->getTileSize();
 
         $this->buildSections();
     }

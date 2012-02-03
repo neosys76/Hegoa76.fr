@@ -60,5 +60,12 @@ class BoxSize {
         return base_convert($this->mWidth, 10, 36) . ',' .
                 base_convert($this->mHeight, 10, 36);
     }
-
+    
+    public
+    function toJSON() {
+        return json_encode((object)array(
+            'width' => $this->mWidth,
+            'height' => $this->mHeight
+        ));
+    }
 }

@@ -23,19 +23,6 @@ class LandType {
 
     /**
      *
-     * @param type $type
-     * @return LandType 
-     */
-    public static
-    function createFromArray($type) {
-        if (!isset($type['name']) || !isset($type['color'])) {
-            throw new \InvalidArgumentException();
-        }
-        return new LandType($type['color'], $type['name']);
-    }
-
-    /**
-     *
      * @param string $color
      * @param string $name 
      */
@@ -43,6 +30,15 @@ class LandType {
     function __construct($color, $name) {
         $this->mColor = Color::createFromRGBHexa($color);
         $this->mName = $name;
+    }
+    
+    /**
+     *
+     * @return string
+     */
+    public
+    function getImagePath() {
+        return \base_convert($this->mColor->toRGBInteger(), 10, 36) . '.png';
     }
     
     public

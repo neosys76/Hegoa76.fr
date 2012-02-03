@@ -12,10 +12,7 @@ services:
           - [ setLandTypes, [ %libertribes_world.lands% ] ]
     libertribes_world.panels:
         class: "%libertribes_world.panels.class%"
-        arguments: [%libertribes_world.panels%]
+        arguments: [%libertribes_world.sections.directory%, %libertribes_world.sections.width%, %libertribes_world.sections.height%, %libertribes_world.panels%]
     libertribes_world.cartographers:
         class: "%libertribes_world.cartographers.class%"
-        arguments: [@libertribes_world.world, @libertribes_world.panels]
-        calls:
-          - [ setSectionSize, [ %libertribes_world.section.width%, %libertribes_world.section.height%] ]
-          - [ setSectionDirectory, [ %libertribes_world.section.directory.internal%, %libertribes_world.section.directory.external%] ]
+        arguments: [%libertribes_world.cartographer.directory%, @libertribes_world.world, @libertribes_world.panels]

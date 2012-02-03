@@ -20,7 +20,7 @@ class MakeMapCommand extends ContainerAwareCommand {
         $this
                 ->setName('libertribes:make:map')
                 ->setDescription('Map the word.')
-                ->addOption('panel', null, InputOption::VALUE_REQUIRED, 'TilePanel name.')
+                ->addOption('panel', null, InputOption::VALUE_OPTIONAL, 'TilePanel name.')
                 ->setHelp(<<<EOF
 The <info>libertribes:make:map</info> command make map from database.
 
@@ -34,20 +34,19 @@ EOF
     protected
     function execute(InputInterface $input, OutputInterface $output) {
         $panel_name = $input->getOption('panel');
-        if (is_null($panel_name)) {
-            throw new \InvalidArgumentException();
-        }
-        try {
-            $cartographers = $this->getContainer()->get('libertribes_world.cartographers');
-
-            $cartographer = $cartographers->findOneByTilePanelName($panel_name);
+        $manager = $this->getContainer()->get('libertribes_world.cartographers');
+        if (!is_null($panel_name)) {
+            $cartographer = $manager->findOneByTilePanelName($panel_name);
             if (is_null($cartographer)) {
                 throw new \InvalidArgumentException();
             }
             $cartographer->map();
-        } catch (\Exception $e) {
-            echo $e;
+        } else {
+            $cartographers = $manager->findAll();
+            foreach ($cartographers as $cartographer) {
+                $output->writeln('map : ' . $cartographer->getPanel()->getName());
+                $cartographer->map();
+            }
         }
     }
-
 }

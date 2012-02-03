@@ -5,7 +5,6 @@ namespace Libertribes\Bundle\WorldBundle\Service;
 use Libertribes\Component\World\TilePanel;
 use Libertribes\Component\World\Cartographer;
 use Libertribes\Component\World\World;
-use Libertribes\Component\World\BoxSize;
 
 /**
  * Description of CartographerManager
@@ -13,78 +12,31 @@ use Libertribes\Component\World\BoxSize;
  * @author JauneLaCouleur
  */
 class CartographerManager {
-    
+
     private $mPanelManager = null;
     private $mWorld = null;
     private $mCartographers = array();
-    
-    /**
-     *
-     * @var int 
-     */
-    private $mSectionsInternalDirectory = null;
+    private $mDirectory = null;
 
-    /**
-     *
-     * @var int 
-     */
-    private $mSectionsExternalDirectory = null;
-    
-    /**
-     *
-     * @var BoxSize 
-     */
-    private $mSectionSize = null;
-    
     public
-    function __construct(World $world, TilePanelManager $panels){
+    function __construct($directory, World $world, TilePanelManager $panels) {
         $this->mPanelManager = $panels;
         $this->mWorld = $world;
+        $this->mDirectory = $directory;
     }
 
-    /**
-     *
-     * @param int $w
-     * @param int $h 
-     */
     public
-    function setSectionSize($w, $h) {
-        $this->mSectionSize = new BoxSize($w, $h);
+    function getDirectory() {
+        return $this->mDirectory;
     }
-    
-    /**
-     *
-     * @param string $i
-     * @param string $e 
-     */
-    public
-    function setSectionDirectory($i, $e = null) {
-        $this->mSectionsInternalDirectory = $i;
-        if (is_null($e)) {
-            $this->mSectionsExternalDirectory = $i;
-        } else {
-            $this->mSectionsExternalDirectory = $e;
-        }
-    }
-    
-    public
-    function getSectionsInternalDirectory() {
-        return $this->mSectionsInternalDirectory;
-    }
-    
-    public
-    function getSectionsExternalDirectory() {
-        return $this->mSectionsExternalDirectory;
-    }
-    
-    
+
     /**
      *
      * @param string $name
      * @return Cartographer 
      */
     public
-    function findOneByTilePanelName($name){
+    function findOneByTilePanelName($name) {
         if (isset($this->mCartographers[$name])) {
             return $this->mCartographers[$name];
         }
@@ -92,20 +44,36 @@ class CartographerManager {
         if (is_null($panel)) {
             return null;
         }
-        $c = new Cartographer($this->mWorld, $panel, $this->mSectionSize, $this->mSectionsInternalDirectory, $this->mSectionsExternalDirectory);
+        $c = new Cartographer($this->mDirectory, $this->mWorld, $panel);
         return $this->mCartographers[$name] = $c;
     }
-    
+
+    /**
+     *
+     * @return array
+     */
+    public
+    function findAll() {
+        $result = array();
+        $panels = $this->mPanelManager->findAll();
+        foreach ($panels as $panel) {
+            $c = $this->findOneByTilePanel($panel);
+            if (!is_null($c)) {
+                $result[] = $c;
+            }
+        }
+        return $result;
+    }
+
     /**
      *
      * @param TilePanel $panel
      * @return Cartographer 
      */
     public
-    function findOneByTilePanel(TilePanel $panel){
-        return $this->findOneByTilePanelName($panel->name);
+    function findOneByTilePanel(TilePanel $panel) {
+        return $this->findOneByTilePanelName($panel->getName());
     }
 
 }
-
 

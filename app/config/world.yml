@@ -2,10 +2,10 @@ libertribes_world:
   width: 100
   height: 100
   image: "%kernel.root_dir%/config/world.png"
-  section:
-    directory:
-      internal: %world_section_directory_internal%
-      external: %world_section_directory_external%
+  cartographer:
+    directory: %world_cartographer_directory%
+  sections:
+    directory: %world_sections_directory%
     width: 512
     height: 512
   lands:
@@ -14,19 +14,21 @@ libertribes_world:
   panels:
     - name: '16x16'
       tiles :
-        overflow: 5
         directory: "%kernel.root_dir%/tiles/16"
         width : 16
         height : 16
     - name: '32x32'
       tiles :
-        overflow: 11
         directory: "%kernel.root_dir%/tiles/32"
         width : 32
         height : 32
     - name: '64x64'
       tiles :
-        overflow: 21
         directory: "%kernel.root_dir%/tiles/64"
         width : 64
         height : 64
+    - name: 'test'
+      tiles :
+        directory: "%kernel.root_dir%/tiles/test"
+        width : 64
+        height : 52         

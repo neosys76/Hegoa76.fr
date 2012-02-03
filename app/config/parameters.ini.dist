@@ -18,5 +18,5 @@
 
     secret            = ThisTokenIsNotSoSecretChangeIt
 
-    world_section_directory_external = "/world"
-    world_section_directory_internal = "%kernel.root_dir%/../web/world"
+    world_sections_directory = "/world"
+    world_cartographer_directory = "%kernel.root_dir%/../web/world"

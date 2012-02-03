@@ -13,69 +13,36 @@ use Libertribes\Component\Image\Color;
 
 class Cartographer {
 
-    /**
-     *
-     * @var World 
-     */
+    /** @var World */
     private $mWorld = null;
 
-    /**
-     *
-     * @var TilePanel 
-     */
+    /** @var TilePanel */
     private $mPanel = null;
 
-    /**
-     *
-     * @var int 
-     */
-    private $mSectionInternalDirectory = null;
-
-    /**
-     *
-     * @var int 
-     */
-    private $mSectionExternalDirectory = null;
+    /** @var string */
+    private $mDirectory = null;
     
     /**
      *
-     * @var BoxSize 
-     */
-    private $mSectionSize = null;
-
-    /**
-     *
+     * @param string $directory
      * @param World $world
      * @param TilePanel $panel
      */
     public
-    function __construct(World $world, TilePanel $panel, BoxSize $ss, $id, $ed = null) {
+    function __construct($directory, World $world, TilePanel $panel) {
         $this->mWorld = $world;
         $this->mPanel = $panel;
-        $this->mSectionSize = $ss;
-        $this->mSectionInternalDirectory = $id;
-        if (is_null($ed)) {
-            $this->mSectionExternalDirectory = $id;
-        } else {
-            $this->mSectionExternalDirectory = $ed;
-        }
+        $this->mDirectory = $directory;
     }
 
     private
-    function createSectionInternalPath(Box $box) {
-        $directory = $this->mSectionInternalDirectory . '/' . $this->mPanel->name;
-        return $directory . '/' . $box->toQueryString() . '.png';
+    function createSectionPath(Box $box) {
+        return $this->mDirectory . '/' . $this->mPanel->getName() . '/' . $box->toQueryString() . '.png';
     }
     
     public
-    function getSectionsExternalDirectory() {
-        return $this->mSectionExternalDirectory. '/' . $this->mPanel->name;
-    }
-    
-    public
-    function createSectionExternalPath(Box $box) {
-        $directory = $this->mSectionExternalDirectory . '/' . $this->mPanel->name;
-        return $directory . '/' . $box->toQueryString() . '.png';
+    function getPanel() {
+        return $this->mPanel;
     }
 
     /**
@@ -84,23 +51,26 @@ class Cartographer {
      */
     private
     function mapSection(Box $box) {
-        $image = Image::create($this->mSectionSize->width, $this->mSectionSize->height);
-        if ($image === false) {
+        $ss = $this->mPanel->getSectionSize();
+        $ts = $this->mPanel->getTileSize();
+        
+        $section = Image::create($ss->width, $ss->height);
+        if ($section === false) {
             throw new \Exception();
         }
         $lands = $this->mWorld->findAllTileContainedInBox($box);
         krsort($lands);
         foreach ($lands as $land) {
-            $x = ($land->longitude - $box->left) * $this->mPanel->width;
-            $y = ($land->latitude - $box->bottom) * $this->mPanel->height;
+            $x = ($land->longitude - $box->left) * $ts->width;
+            $y = ($land->latitude - $box->bottom) * $ts->height;
             $t = $this->mWorld->getLandType($land->color);
-            $i = $this->mPanel->getTileImage($t);
-            $y += $i->height - $this->mPanel->height;
-            $image->drawImage($x, $image->height - $y, $i);
+            $image = $this->mPanel->getTileImage($t);
+            $y += $image->height - $ts->height;
+            $section->drawImage($x, $section->height - $y, $image);
         }
-        $path = $this->createSectionInternalPath($box);
+        $path = $this->createSectionPath($box);
         @mkdir(dirname($path), 0777, true);
-        $image->save($path);
+        $section->save($path);
     }
 
     /**
@@ -108,11 +78,14 @@ class Cartographer {
      */
     public
     function map() {
-        $h = ceil(($this->mWorld->width * $this->mPanel->width) / $this->mSectionSize->width);
-        $w = ceil(($this->mWorld->height * $this->mPanel->height) / $this->mSectionSize->height);
+        $ss = $this->mPanel->getSectionSize();
+        $ts = $this->mPanel->getTileSize();
+        
+        $h = ceil(($this->mWorld->width * $ts->width) / $ss->width);
+        $w = ceil(($this->mWorld->height * $ts->height) / $ss->height);
 
-        $sw = $this->mSectionSize->width / $this->mPanel->width;
-        $sh = $this->mSectionSize->height / $this->mPanel->height;
+        $sw = $ss->width / $ts->width;
+        $sh = $ss->height / $ts->height;
 
         for ($y = 0; $y < $h; $y++) {
             for ($x = 0; $x < $w; $x++) {
@@ -123,18 +96,6 @@ class Cartographer {
                 $this->mapSection($box);
             }
         }
-    }
-
-    public
-    function createView(Box $view){
-        $ts = new BoxSize($this->mPanel->width, $this->mPanel->height);
-        $map = new View($view, $this->mSectionSize, $ts);
-        return $map;
-    }
-    
-    public
-    function getSectionSize() {
-        return $this->mSectionSize;
     }
 }
 

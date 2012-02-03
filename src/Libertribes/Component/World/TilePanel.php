@@ -4,6 +4,7 @@ namespace Libertribes\Component\World;
 
 use Symfony\Component\Yaml\Yaml;
 use Libertribes\Component\Image\Image;
+use Libertribes\Component\World\BoxSize;
 
 /**
  * @property-read int $width
@@ -12,46 +13,39 @@ use Libertribes\Component\Image\Image;
  */
 class TilePanel {
 
+    /** @var string */
+    private $mName;
+
+    /** @var string */
+    private $mSectionDirectory;
+    
+    /** @var BoxSize */
+    private $mSectionSize;
+
+    /** @var string */
+    private $mTileDirectory;
+    
+    /** @var BoxSize */
+    private $mTileSize;
+
     /** @var array */
     private $mTiles = array();
-
-    /** @var string */
-    private $mName = null;
-
-    /** @var int */
-    private $mWidth = null;
-
-    /** @var int */
-    private $mHeight = null;
-
-    /** @var string */
-    private $mSettingsPath = null;
-
-    /** @var int */
-    private $mOverflow = 0;
-
-    public function __get($name) {
-        switch ($name) {
-            case 'width': return $this->mWidth;
-            case 'height': return $this->mHeight;
-            case 'name': return $this->mName;
-            case 'overflow': return $this->mOverflow;
-        }
-    }
     
+    /**
+     *
+     * @param string $name
+     * @param string $sd
+     * @param BoxSize $ss
+     * @param string $td
+     * @param BoxSize $ts 
+     */
     public
-    function getName(){
-        return $this->mName;
-    }
-    
-    public
-    function getTilesWidth(){
-        return $this->mWidth;
-    }
-
-    public
-    function getTilesHeight(){
-        return $this->mHeight;
+    function __construct($name, $sd, BoxSize $ss, $td, BoxSize $ts) {
+        $this->mName = $name;
+        $this->mSectionDirectory = $sd;
+        $this->mSectionSize = $ss;
+        $this->mTileDirectory = $td;
+        $this->mTileSize = $ts;
     }
     
     /**
@@ -62,14 +56,13 @@ class TilePanel {
     public
     function getTileImage(LandType $type) {
         if (!isset($this->mTiles[$type->id])) {
-            $path = $this->mDirectory . '/'
-                    . base_convert($type->id, 10, 36) . '.png';
+            $path = $this->mTileDirectory.'/'.$type->getImagePath();
             $image = Image::createFromFile($path);
-            if (!((($image->height == $this->mHeight) || ($image->height == ($this->mHeight+$this->mOverflow))))) {
-                throw new \Exception('Invalid tile image height. ('.($this->mHeight+$this->mOverflow).', '.$this->mHeight.')');
+            if ($image->height < $this->getTileHeight()) {
+                throw new \Exception('Invalid tile image height. (' . $this->getTileHeight() . ')');
             }
-            if ($image->width != $this->mWidth){
-                throw new \Exception('Invalid tile image width.');
+            if ($image->width != $this->getTileWidth()) {
+                throw new \Exception('Invalid tile image width. (' . $this->getTileWidth() . ')');
             }
             $this->mTiles[$type->id] = $image;
         }
@@ -78,46 +71,73 @@ class TilePanel {
 
     /**
      *
-     * @param array $panel
-     * @return TilePanel 
+     * @return string 
      */
-    public static
-    function createFromArray($panel) {
-        if (
-                !isset($panel['name']) ||
-                !isset($panel['directory']) ||
-                !isset($panel['width']) ||
-                !isset($panel['height'])) {
-            throw new \InvalidArgumentException();
-        }
-        $self = new TilePanel();
-
-        $self->mSettingsPath = isset($panel['settings']) ? $panel['settings'] : null;
-        $self->mDirectory = $panel['directory'];
-        $self->mWidth = $panel['width'];
-        $self->mHeight = $panel['height'];
-        $self->mName = $panel['name'];
-
-        if (isset($panel['overflow'])) {
-            $self->mOverflow = $panel['overflow'];
-        }
-        return $self;
+    public
+    function getName() {
+        return $this->mName;
     }
 
     /**
      *
-     * @param string $path
-     * @return TilePanel 
+     * @return int 
      */
-    public static
-    function createFromYaml($path) {
-        $path = realpath($path);
-        if ($path === false) {
-            throw new \InvalidArgumentException();
-        }
-        $panel = Yaml::parse($path);
-        $panel['settings'] = $path;
-        return self::createFromArray($panel);
+    public
+    function getTileWidth() {
+        return $this->mTileSize->width;
     }
 
+    /**
+     *
+     * @return int 
+     */
+    public
+    function getTileHeight() {
+        return $this->mTileSize->height;
+    }
+    
+    /**
+     *
+     * @return BoxSize 
+     */
+    public
+    function getTileSize() {
+        return $this->mTileSize;
+    }
+    
+    /**
+     *
+     * @return BoxSize 
+     */
+    public
+    function getSectionSize() {
+        return $this->mSectionSize;
+    }
+
+    /**
+     *
+     * @return int 
+     */
+    public
+    function getSectionWidth() {
+        return $this->mSectionSize->width;
+    }
+
+    /**
+     *
+     * @return int 
+     */
+    public
+    function getSectionHeight() {
+        return $this->mSectionSize->height;
+    }
+    
+    /**
+     * 
+     * @return string 
+     */
+    public
+    function getSectionDirectory() {
+        return $this->mSectionDirectory;
+    }
 }

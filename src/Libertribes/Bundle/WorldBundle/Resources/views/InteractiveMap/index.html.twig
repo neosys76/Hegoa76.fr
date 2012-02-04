@@ -3,6 +3,10 @@
 {% block javascripts %}
 {% javascripts
     '@LibertribesWorldBundle/Resources/public/scripts/page.js'
+    '@LibertribesWorldBundle/Resources/public/scripts/BoxSize.js'
+    '@LibertribesWorldBundle/Resources/public/scripts/TilePanel.js'    
+    '@LibertribesWorldBundle/Resources/public/scripts/Layer.js'
+    '@LibertribesWorldBundle/Resources/public/scripts/View.js'
     '@LibertribesWorldBundle/Resources/public/scripts/InteractiveMap/index.js'
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -16,7 +20,7 @@
             'section-size' : {{ panel.sectionSize.toJSON|raw }}
         });
     {% endfor %}
-    InteractiveMap_index({
+    LibertribesWorldBundle.InteractiveMap.index({
         'panels': panels,
         'section-directory': '{{ section_directory }}'
     });
@@ -31,11 +35,20 @@
 {% endstylesheets %}
     <style type="text/css">
             #interactive-map {
-                width: 500px;
-                height: 500px;
 
+
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+
+                top: 0px;
+                left: 0px;
+/*
                 margin: 200px;
-
+                width: 600px;
+                height: 600px;
+*/
                 background: #f0f;
                 overflow: hidden;
 
@@ -46,8 +59,12 @@
                 -o-user-select: none;
                 user-select: none;
             }
-
-            body {
+            
+            html, body {
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                height: 100%;
                 -webkit-user-select: none;
                 -khtml-user-select: none;
                 -moz-user-select: none;
@@ -59,7 +76,5 @@
 {% endblock %}
 
 {% block body %}
-
         <div id="interactive-map"></div>
-        <div id="javascript-debug-console"></div>
 {% endblock %}

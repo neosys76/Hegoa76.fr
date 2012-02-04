@@ -76,6 +76,7 @@ class Image {
 
     public
     function save($path) {
+        @imageinterlace($this->mImage, true);
         if (@imagepng($this->mImage, $path) !== true) {
             throw new \Exception(' " imagepng " fail');
         }

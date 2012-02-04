@@ -6,8 +6,6 @@ use Libertribes\Component\World\World;
 use Libertribes\Component\World\TilePanel;
 use Libertribes\Component\World\Box;
 use Libertribes\Component\World\BoxSize;
-use Libertribes\Component\World\View;
-use Libertribes\Component\World\Point;
 use Libertribes\Component\Image\Image;
 use Libertribes\Component\Image\Color;
 

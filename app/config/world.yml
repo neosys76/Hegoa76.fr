@@ -6,8 +6,8 @@ libertribes_world:
     directory: %world_cartographer_directory%
   sections:
     directory: %world_sections_directory%
-    width: 512
-    height: 512
+    width: 256
+    height: 256
   lands:
     - { color: '000000', name: black land }
     - { color: 'ffffff', name: white land }

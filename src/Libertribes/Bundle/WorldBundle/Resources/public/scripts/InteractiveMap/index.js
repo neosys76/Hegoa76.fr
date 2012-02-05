@@ -14,6 +14,7 @@ LibertribesWorldBundle.InteractiveMap.index = (function () {
             var panel = settings['panels'][i];
             panels.push(new TilePanel(
                 panel['name'],
+                settings['section-directory'],
                 new BoxSize(
                     panel['section-size']['width'],
                     panel['section-size']['height']
@@ -24,9 +25,8 @@ LibertribesWorldBundle.InteractiveMap.index = (function () {
                     )
                 ));
         }
-        var map = new View(settings['section-directory'], panels);
-    
-        map.attach(page.element('#interactive-map'), 0,0);
+        var map = new View(panels);
+        map.appendTo(page.element('#interactive-map'), 0,0);
     };
     
     return main;

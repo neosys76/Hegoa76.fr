@@ -33,10 +33,6 @@ class Cartographer {
         $this->mDirectory = $directory;
     }
 
-    private
-    function createSectionPath(Box $box) {
-        return $this->mDirectory . '/' . $this->mPanel->getName() . '/' . $box->toQueryString() . '.png';
-    }
     
     public
     function getPanel() {
@@ -48,9 +44,17 @@ class Cartographer {
      * @param Box $box 
      */
     private
-    function mapSection(Box $box) {
+    function mapSection($x, $y) {
         $ss = $this->mPanel->getSectionSize();
         $ts = $this->mPanel->getTileSize();
+        
+        $sw = $ss->width / $ts->width;
+        $sh = $ss->height / $ts->height;
+        
+        $box = new Box(
+                        new Point((($x + 1) * $sw), (($y + 1) * $sh)),
+                        new Point($x * $sw, $y * $sh)
+        );
         
         $section = Image::create($ss->width, $ss->height);
         if ($section === false) {
@@ -59,14 +63,14 @@ class Cartographer {
         $lands = $this->mWorld->findAllTileContainedInBox($box);
         krsort($lands);
         foreach ($lands as $land) {
-            $x = ($land->longitude - $box->left) * $ts->width;
-            $y = ($land->latitude - $box->bottom) * $ts->height;
+            $left = ($land->longitude - $box->left) * $ts->width;
+            $bottom = ($land->latitude - $box->bottom) * $ts->height;
             $t = $this->mWorld->getLandType($land->color);
             $image = $this->mPanel->getTileImage($t);
-            $y += $image->height - $ts->height;
-            $section->drawImage($x, $section->height - $y, $image);
+            $bottom += $image->height - $ts->height;
+            $section->drawImage($left, $section->height - $bottom, $image);
         }
-        $path = $this->createSectionPath($box);
+        $path = $this->mDirectory . '/' . $this->mPanel->getName() . '/' . base_convert($x, 10, 36).'_'.base_convert($y, 10, 36) . '.png';
         @mkdir(dirname($path), 0777, true);
         $section->save($path);
     }
@@ -82,16 +86,9 @@ class Cartographer {
         $h = ceil(($this->mWorld->width * $ts->width) / $ss->width);
         $w = ceil(($this->mWorld->height * $ts->height) / $ss->height);
 
-        $sw = $ss->width / $ts->width;
-        $sh = $ss->height / $ts->height;
-
         for ($y = 0; $y < $h; $y++) {
             for ($x = 0; $x < $w; $x++) {
-                $box = new Box(
-                                new Point((($x + 1) * $sw), (($y + 1) * $sh)),
-                                new Point($x * $sw, $y * $sh)
-                );
-                $this->mapSection($box);
+                $this->mapSection($x, $y);
             }
         }
     }

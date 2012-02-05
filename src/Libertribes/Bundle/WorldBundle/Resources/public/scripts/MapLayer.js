@@ -18,7 +18,8 @@ LibertribesWorldBundle.MapLayer = (function () {
         i, li,
         j, lj,
         ll = (l / sw),
-        lb = (b / sh)
+        lb = (b / sh),
+        user_select = ' -o-user-select: none; -webkit-user-select: none; -moz-user-select: -moz-none; -khtml-user-select: none; -ms-user-select: none; user-select: none; '
         ;
         for (i = 0, li = lh / sh; i < li; i++) {
             for (j = 0, lj = lw / sw; j < lj; j++) {
@@ -28,14 +29,18 @@ LibertribesWorldBundle.MapLayer = (function () {
                     section.setAttribute('src', image);
                     section.setAttribute('width', sw);
                     section.setAttribute('height', sh);
-                    section.setAttribute('style', 'left:'+(j * sw)+'px; bottom:'+(i * sh)+'px; position:absolute; padding: 0px; margin: 0px; border: 0px;');
+                    section.setAttribute('unselectable', 'on');
+                    section.setAttribute('style', 'left:'+(j * sw)+'px; bottom:'+(i * sh)+'px; '+user_select+' position:absolute; padding: 0px; margin: 0px; border: 0px;');
                     element.appendChild(section);
                 }
             }
         }
+
         var protector = document.createElement('DIV');
-        protector.setAttribute('style', 'position: absolute; bottom:0px; left:0px; width: '+lw+'px; height: '+lh+'px;');
+        protector.setAttribute('unselectable', 'on');
+        protector.setAttribute('style', 'position: absolute; bottom:0px; left:0px; '+user_select+' width: '+lw+'px; height: '+lh+'px;');
         element.appendChild(protector);
+
     };
     
     return MapLayer;

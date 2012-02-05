@@ -34,6 +34,14 @@ var page = (function () {
             type = 'DOMMouseScroll';
         }
         //-fix gecko
+        
+        //+fix msie8
+        if (browser.msie && browser.version == 8) {
+            this.msie8HandleEvent = (function (self) { return function (e) { self.handleEvent(e); } })(this);
+            element.attachEvent('on'+type, this.msie8HandleEvent);
+            return this;
+        }
+        //-fix msie8
         element.addEventListener(type, this, false);
         return this;
     };
@@ -44,6 +52,12 @@ var page = (function () {
             type = 'DOMMouseScroll';
         }
         //-fix gecko
+        //+fix msie8
+        if (browser.msie && browser.version == 8) {
+            element.detachEvent('on'+type, this.msie8HandleEvent);
+            return this;
+        }
+        //-fix msie8
         element.removeEventListener(type, this, false);
         return this;
     };
@@ -59,7 +73,13 @@ var page = (function () {
     };
     
     Page.prototype.cancel = function (event) {
-        event.preventDefault(event);
+        //-fix msie8
+        if (browser.msie && browser.version == 8) {
+            event.returnValue = false;
+            return;
+        }
+        //-fix msie8
+        event.preventDefault();
     };
     
     /**

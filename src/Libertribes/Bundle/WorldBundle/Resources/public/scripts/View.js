@@ -63,12 +63,14 @@ LibertribesWorldBundle.View = (function () {
         x = Math.floor((x + this.mLeft) / tw);
         y = Math.floor((y + this.mBottom) / th);
         
-        console.debug(x, y);
+        alert(x +', '+ y);
+        
+//        console.debug(x, y);
     };
     
     View.prototype.startDrag = function (event) {
-        this.mHandlerDrag.bind(window, 'mousemove');
-        this.mHandlerStopDrag.bind(window, 'mouseup');
+        this.mHandlerDrag.bind(document, 'mousemove');
+        this.mHandlerStopDrag.bind(document, 'mouseup');
         
         this.mStartDragLeft = this.mLeft;
         this.mStartDragBottom = this.mBottom;
@@ -125,11 +127,14 @@ LibertribesWorldBundle.View = (function () {
     };
     
     View.prototype.stopDrag = function (event) {
-        this.mHandlerDrag.unbind(window, 'mousemove');
-        this.mHandlerStopDrag.unbind(window, 'mouseup');
+        this.mHandlerDrag.unbind(document, 'mousemove');
+        this.mHandlerStopDrag.unbind(document, 'mouseup');
     };
     
     View.prototype.drag = function (event) {
+        
+        
+        
         this.mLeft = this.mStartDragLeft + this.mStartDragX - event.screenX;
         this.mBottom = this.mStartDragBottom - (this.mStartDragY - event.screenY);
         this.updateViewport();

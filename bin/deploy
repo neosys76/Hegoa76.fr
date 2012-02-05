@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+$remote_host = 'test.hegoa.eu';
+$remote_user = 'www-test_hegoa_eu';
+$remote_root = '/var/www/test_hegoa_eu/www';
+$local_root = '/cygdrive/f/Projects/Libertribes/sources';
+
+
+$remote_sources = $remote_root . '/';
+$remote_web = $remote_root . '/web/';
+
+
+$local_sources = $local_root . '/';
+$local_web = $local_root . '/web/';
+
+$command = 'rsync -e ssh -ravz --chmod u=rwX,o=,g=rX --cvs-exclude --delete ';
+$command .= '--exclude '.escapeshellarg('/.hg*').' ';
+$command .= '--exclude '.escapeshellarg('/.rsync*').' ';
+$command .= '--exclude '.escapeshellarg('/deps*').' ';
+$command .= '--exclude '.escapeshellarg('/app/cache/*').' ';
+$command .= '--exclude '.escapeshellarg('/app/logs/*').' ';
+$command .= '--exclude '.escapeshellarg('/web').' ';
+$command .= escapeshellarg($local_sources).' '.$remote_user.'@'.$remote_host.':'.escapeshellarg($remote_sources);
+$return = null;
+var_dump(system($command, $return));
+var_dump($return);
+
+$command = 'rsync -e ssh -ravz --chmod u=rwX,o=rX,g=rX --cvs-exclude --delete ';
+$command .= '--exclude '.escapeshellarg('/world').' ';
+$command .= escapeshellarg($local_web).' '.$remote_user.'@'.$remote_host.':'.escapeshellarg($remote_web);
+$return = null;
+var_dump(system($command, $return));
+var_dump($return);

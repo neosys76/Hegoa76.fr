@@ -55,7 +55,7 @@ LibertribesWorldBundle.View = (function () {
     View.prototype.click = function (event) {
         var p = page.position(this.mElement);
         var x = event.clientX - p.clientX;
-        var y = this.mElement.clientWidth - (event.clientY - p.clientY);
+        var y = this.mElement.clientHeight - (event.clientY - p.clientY);
         var ts = this.mPanels[this.mPanelSelected].getTileSize();
         var tw = ts.getWidth();
         var th = ts.getHeight();
@@ -63,7 +63,7 @@ LibertribesWorldBundle.View = (function () {
         x = Math.floor((x + this.mLeft) / tw);
         y = Math.floor((y + this.mBottom) / th);
         
-        alert(x + ', '+ y);
+        console.debug(x, y);
     };
     
     View.prototype.startDrag = function (event) {

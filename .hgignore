@@ -11,3 +11,5 @@ app/web/world
 app/config/*.orig
 app/*.orig
 web/world
+web/css/*
+web/js/*

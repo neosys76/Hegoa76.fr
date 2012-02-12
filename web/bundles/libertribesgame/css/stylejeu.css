@@ -1,0 +1,75 @@
+body
+{
+	background-image	: url('../../bundles/libertribesgame/images/background.png');
+	background-repeat	: no-repeat;
+	background-position	: center 100px;
+	background-attachment :fixed;
+	background-color	: #555555;
+}
+
+.brunfonce {color: #441e0f;}
+.brun {color : #681f02;}
+.brunclair {color :#913511;}
+.vertclair {color: #accf8d;}
+.vert2 {color: #65a131;}
+.vertmoyen {color: #74a34b;}
+.vertfonce {color: #092001;}
+
+
+/* En-tête */
+
+
+#logo {
+	float				: left;
+	width				: 330px;
+	height				: 150px;
+	background-image	: url('../../bundles/libertribesgame/images/LTlogo.png');
+	background-repeat	: no-repeat;
+}
+
+#navigation, #corps
+{
+	float			: right;
+	margin-right	: 20px;
+	margin-left		: 20px;
+}
+
+/* La navigation */
+#navigation
+{
+	padding				: 20px;
+	background-color	: #aaaaaa;
+	width				: 200px;
+}
+
+div.menu {
+	margin-top		: 10px;
+	margin-left		: 20px;
+	border			: 2px solid #15265e;
+					  -moz-border-radius: 7px;
+					  -webkit-border-radius: 7px;
+					  border-radius: 7px;
+	background-color	: #d5d5d5;
+}
+
+a.menuhome {
+	padding-left		: 10px;
+	padding-right		: 10px;
+	color				: #3f5088;}
+	
+a.menuhome:hover {
+	color				: #15265e;}
+
+/* Le corps de page (la partie principale quoi ^^) : */
+#corps
+{
+	background-image	: url('../../bundles/libertribesgame/images/backgroundcorps.png');
+}
+
+/* Le pied de page (qui se trouve tout en bas, en général pour les copyrights) : */
+#pied_de_page
+{
+	padding				: 10px;
+	text-align			: left;
+	font-size			: 11px;
+}

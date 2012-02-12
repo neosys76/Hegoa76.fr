@@ -1,4 +1,7 @@
-web/bundles/
+web/bundles/framework
+web/bundles/sensiodistribution
+web/bundles/webprofiler
+web/bundles/acmedemo
 app/bootstrap
 app/cache/
 app/logs/
@@ -11,5 +14,3 @@ app/web/world
 app/config/*.orig
 app/*.orig
 web/world
-web/css/*
-web/js/*

@@ -14,10 +14,12 @@ body
 a {
 	text-decoration		: none;
 	font-weight			: bold;
+	color				: #40641d;
 }
 
 a:hover {
 	text-decoration		: underline;
+	color				: #e31d39;
 }
 
 table {
@@ -41,41 +43,46 @@ h3 {font-size: 17px;}
 /* En-tête */
 #banniere
 {
-	height				:150px;
-	background-color	:#F5F5F5;
+	height				: 150px;
+	width				: 550px;
+	margin				: auto;
+	background-image	: url('../../images/titreLT.png');
+	background-repeat	: no-repeat;
 }
 
 #logo {
-	float				: left;
+	position			: absolute;
 	width				: 250px;
 	height				: 150px;
-	background-color	:#CCCCCC;
 }
 
-#connexionforum {
-	position			: absolute;
-	top					: 10px;
-	height				: 20px;
-	right				: 20px;
+#sonetconnexion {
+	position		: absolute;
+	top				: 10px;
+	right			: 20px;
+	width			: 300px;
+}
+
+#son, #connexion {
+	margin-right		: 20px;
+	margin-top			: 10px;
+}
+
+#connexion {
 	background-color	:#FFFFFF;
 	font-size			: 12px;
 }
 
-#son {
-	position			: absolute;
-	top					: 40px;
-	height				: 10px;
-	right				: 20px;
-	background-color	:#FFCCCC;
-	font-size			: 12px;
+#contenant, #pied_de_page {
+	overflow	: auto;
+	width		: 100%;
+	float		: left;
 }
-
 
 /* La navigation */
 #navigation
 {
 	margin-top			: 20px;
-	height				: 100px;
 }
 
 /* Le corps de page (la partie principale quoi ^^) : */
@@ -83,13 +90,14 @@ h3 {font-size: 17px;}
 {
 	margin-top			: 10px;
 	margin-bottom		: 10px;
-	padding:10px;
+	padding				: 10px;
 }
 
 /* Le pied de page (qui se trouve tout en bas, en général pour les copyrights) : */
 #pied_de_page
 {
 	padding				: 10px;
+	margin-top			: 20px;
 	text-align			: left;
 	font-size			: 11px;
 }

@@ -1,16 +1,27 @@
 {% extends "LibertribesGameBundle::layout.html.twig" %}
 
 {% block title %} {{ parent() }} Accueil{% endblock %}
-{% block connexion %}Infos connexions{% endblock %}
 {% block navigation %}
-
-<a class="menuhome" href="http://wiki.libertribes.tuxfamily.org/">Wiki du jeu</a>
-<a class="menuhome" href="{{ path('gameAccessGate') }}">Accès au jeu</a>
+	<div class="menu">
+		<a class="menuhome" href="{{ path('gameHome') }}">Inscription</a>
+	</div>
+	<div class="menu">
+		<a class="menuhome" href="{{ path('gameHome') }}">Connexion</a>
+	</div>
+	<div class="menu">
+		<a class="menuhome" href="{{ path('gameHome') }}">Supprimer mon compte</a>
+	</div>
+	<div class="menu">
+		<a class="menuhome" href="{{ path('gameHome') }}">Faire un don</a>
+	</div>
 
 {% endblock %}
 {% block body %}
-
-	<h2>Corps de l'Accueil</h2>
-	
-	
+	<h2>Présentation du jeu</h2>
+	Blablabla<br/><br/>
+	<a href="http://wiki.libertribes.tuxfamily.org/">Wiki du jeu</a>
+	<br/><br/>
+	<h2>Présentation de la communauté</h2>
+		Blablabla<br/><br/>
+	<a  href="http://www.revevolutionnair.org/">Rev'Evolutionnair</a>
 {% endblock %}

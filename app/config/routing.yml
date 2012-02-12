@@ -1,6 +1,6 @@
 LibertribesGameBundle:
     resource: "@LibertribesGameBundle/Resources/config/routing.yml"
-    prefix:   /game
+    prefix:   /
 
 LibertribesWorldsCreationBundle:
     resource: "@LibertribesWorldsCreationBundle/Resources/config/routing.yml"

@@ -14,8 +14,18 @@ LibertribesWorldBundle:
     resource: "@LibertribesWorldBundle/Resources/config/routing.yml"
     prefix:   /
 
-    
-# Internal routing configuration to handle ESI
-#_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal
+LibertribesForumBundle:
+    resource: "@LibertribesForumBundle/Resources/config/routing.yml"
+    prefix:   /forum
+
+login:
+    pattern:  /login
+    defaults: { _controller: "LibertribesSecurityBundle:Security:login" }
+
+login_check:
+    pattern:  /login_check
+    defaults: { _controller: "LibertribesSecurityBundle:Security:login" }
+
+register:
+    pattern:  /register
+    defaults: { _controller: "LibertribesSecurityBundle:Registration:register" }

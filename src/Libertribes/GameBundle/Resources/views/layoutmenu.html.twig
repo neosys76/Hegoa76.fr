@@ -1,11 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block title %} {{ parent() }} Jeu{% endblock %}
-{% block stylesheet %}
-	{% stylesheets output='css/jeu.min.css'
-			'bundles/libertribesgame/css/*' %}
-			<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
-	{% endstylesheets %}
+	<link rel="stylesheet" href="bundles/libertribesgame/css/stylejeu.css" type="text/css" media="screen" />
 {% endblock %}
 
 {% block connexion %}{% if username|length >0 %} {{username}} connecté <span class="bold">|</span><a class="" href="/logout">Logout</a>{% endif %}{% endblock %}

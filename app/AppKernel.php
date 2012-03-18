@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new Libertribes\CommerceBundle\LibertribesCommerceBundle(),
             new Libertribes\WorldsCreationBundle\LibertribesWorldsCreationBundle(),
             new Libertribes\GameBundle\LibertribesGameBundle(),
+            new Libertribes\SecurityBundle\LibertribesSecurityBundle(),
+            new Libertribes\ForumBundle\LibertribesForumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

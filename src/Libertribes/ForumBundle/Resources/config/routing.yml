@@ -1,0 +1,34 @@
+forum_welcome:
+    pattern:  /
+    defaults: { _controller: LibertribesForumBundle:Forum:index }
+forum_category_list:
+    pattern:  /category
+    defaults: { _controller: LibertribesForumBundle:Category:index }
+forum_post_list:
+    pattern:  /post/{topicid}/{subject}
+    defaults: { _controller: LibertribesForumBundle:Post:index, topicid : 1, subject : "" }
+    requirements:
+        topicid:  \d+
+forum_topic_list:
+    pattern:  /topic/{categoryid}-{categoryname}
+    defaults: { _controller: LibertribesForumBundle:Topic:index, categoryid : 1, categoryname : "" }
+    requirements:
+        categoryid:  \d+
+forum_topic_listall:
+    pattern:  /topic/
+    defaults: { _controller: LibertribesForumBundle:Topic:listall }
+forum_new_post:
+    pattern:  /post/newpost/{topicid}
+    defaults: { _controller: LibertribesForumBundle:Post:newpost, topicid : 0 }
+    requirements:
+        topicid:  \d+
+        _method:  POST
+forum_new_topic:
+    pattern:  /topic/new
+    defaults: { _controller: LibertribesForumBundle:Topic:createnewtopic, topicid : 0 }
+forum_search:
+    pattern:  /search
+    defaults: { _controller: LibertribesForumBundle:Forum:search }
+    requirements:
+        _method:  POST
+

@@ -1,0 +1,27 @@
+{% extends 'LibertribesForumBundle::layout_forum.html.twig' %}
+    {% block title %} {{ parent() }} - Accueil{% endblock %}
+    {% block javascripts %}
+	{% endblock %}
+	{% block content %}
+		{% if categories|length > 0 %}
+	    {% for category in categories %}
+		<div class="eachcategory">
+			<div class="titrecategory">
+				{{category.name}}
+			</div>
+			<div class="presentcategory">
+				{% if topics|length > 0 %}
+					{% for topic in topics %}
+						<a href="{{path('forum_post_list',{'topicid': topic.id , 'subject': topic.subject})}}">{{topic.subject}}</a>
+					{% endfor %}
+				{% else %}
+					Il n'y a pas encore de sujet traité dans cette catégorie
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+		{% else %}
+		  Il n'y a pas encore de catégorie
+		{% endif %}
+
+	{% endblock %}

@@ -1,27 +1,17 @@
 {% extends "LibertribesGameBundle::layout.html.twig" %}
 
 {% block title %} {{ parent() }} Accueil{% endblock %}
-{% block navigation %}
-	<div class="menu">
-		<a class="menuhome" href="{{ path('gameHome') }}">Inscription</a>
-	</div>
-	<div class="menu">
-		<a class="menuhome" href="{{ path('gameHome') }}">Connexion</a>
-	</div>
-	<div class="menu">
-		<a class="menuhome" href="{{ path('gameHome') }}">Supprimer mon compte</a>
-	</div>
-	<div class="menu">
-		<a class="menuhome" href="{{ path('gameHome') }}">Faire un don</a>
-	</div>
 
-{% endblock %}
 {% block body %}
-	<h2>Présentation du jeu</h2>
-	Blablabla<br/><br/>
-	<a href="http://wiki.libertribes.tuxfamily.org/">Wiki du jeu</a>
-	<br/><br/>
-	<h2>Présentation de la communauté</h2>
-		Blablabla<br/><br/>
-	<a  href="http://www.revevolutionnair.org/">Rev'Evolutionnair</a>
+	<div id="contenant">
+		<div id="corps">
+			<h2>Présentation du jeu</h2>
+			Blablabla<br/><br/>
+			<a href="http://wiki.libertribes.tuxfamily.org/">Wiki du jeu</a>
+			<br/><br/>
+			<h2>Présentation de la communauté</h2>
+				Blablabla<br/><br/>
+			<a  href="http://www.revevolutionnair.org/">Rev'Evolutionnair</a>
+		</div>   <!-- corps   -->
+	</div>   <!-- contenant   -->
 {% endblock %}

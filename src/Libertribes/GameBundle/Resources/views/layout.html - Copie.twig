@@ -2,10 +2,16 @@
 
 {% block title %} {{ parent() }} Jeu{% endblock %}
 {% block stylesheet %}
-	<link rel="stylesheet" href="{{ asset('bundles/libertribesgame/css/stylejeu.css')}}" type="text/css" media="screen" />
+	{% stylesheets output='css/jeu.min.css'
+			'bundles/libertribesgame/css/*' %}
+			<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+	{% endstylesheets %}
 {% endblock %}
 
 {% block entete %}
+{% endblock %}
+
+{% block navigation %}
 {% endblock %}
 
 {% block javascript %} 

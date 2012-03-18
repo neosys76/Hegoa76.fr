@@ -1,0 +1,39 @@
+{% extends 'LibertribesForumBundle::layout_forum.html.twig' %}
+    {% block title %} {{ parent() }} - Sujets{% endblock %}
+    {% block javascripts %}{% endblock %}
+	{% block content %}
+		<div class="eachcategory">
+			<div class="titrecategory">
+				{% if categoryname == 'all' %}
+				Toutes les catégories confondues
+				{% else %}
+				{{categoryname}}
+				{% endif %}
+			</div>
+			<div class="presentcategory">
+				{% if topics|length > 0 %}
+					{% for topic in topics %}
+						<a href="{{path('forum_post_list',{'topicid': topic.id , 'subject': topic.subject })}}">{{topic.subject}}</a>
+					{% endfor %}
+				{% else %}
+					Il n'y a pas encore de sujet traité dans cette catégorie
+				{% endif %}
+				<div id="fornewsubject">
+					<form action="{{path('forum_new_topic',{'categoryid': categoryid })}}" method="post">
+						<input type="hidden" name="categoryid" value="{{categoryid}}" />
+						<input type="hidden" name="author" value="{{username}}" />
+						Intitulé du nouveau sujet: <input type="text" name="subject" /><br/>
+						Première note du sujet:<br/>
+						<textarea name="message" cols="50" rows="5">
+						</textarea><br/>
+						<input type="submit" value="Soumettre" />
+					</form>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+	{% block createnew %}
+		<div id="createnewtopic">
+		<button type="button" onclick="$('#fornewsubject').css('display','block')">Créer un nouveau sujet</button>
+		</div>
+	{% endblock %}

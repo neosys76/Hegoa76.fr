@@ -11,7 +11,7 @@
     <body>
 		<div id="positionneur">
 		<div id="forumbanner">
-			<h1>Le Forum de Libertirbes</h1>
+			<h1>Le Forum de Libertribes</h1>
 			<div id="connexion">
 				{{username}} 
 			</div>
@@ -30,7 +30,9 @@
 		</div>
 		<div id="forummenu">
 			{% render 'LibertribesForumBundle:Category:index' %}
-			{% block createnew %}
+			{% block createnewtopic %}
+			{% endblock %}
+			{% block createnewpost %}
 			{% endblock %}
 		</div>
 		<div id="forumbody">

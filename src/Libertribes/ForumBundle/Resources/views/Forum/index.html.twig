@@ -10,12 +10,19 @@
 				{{category.name}}
 			</div>
 			<div class="presentcategory">
-				{% if topics|length > 0 %}
+				{% if category.numTopics > 0 %}
+				<table class="part100pc">
 					{% for topic in topics %}
-						<a href="{{path('forum_post_list',{'topicid': topic.id , 'subject': topic.subject})}}">{{topic.subject}}</a>
+						<tr>
+						{% if topic.categoryid == category.id %}
+							<td class="part70pc"><a href="{{path('forum_post_list',{'topicid': topic.id , 'subject': topic.subject})}}" >{{topic.subject}}</a></td>
+							<td class="part15pc">Consulté {{topic.numViews}} fois</td><td class="part15pc">Nombre de messages: {{topic.numPosts}}</td>
+						{% endif %}
+						</tr>
 					{% endfor %}
+				</table>
 				{% else %}
-					Il n'y a pas encore de sujet traité dans cette catégorie
+					Il n'y a pas encore de sujet traité
 				{% endif %}
 			</div>
 		</div>

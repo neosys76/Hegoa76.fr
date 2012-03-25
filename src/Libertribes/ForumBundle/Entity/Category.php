@@ -50,7 +50,18 @@ class Category
      */	 
     private $position;
 
+    /**
+     * @var integer $numTopics
+     *
+     * @ORM\Column(name="num_topics", type="integer")
+     */
     private $numTopics;
+
+    /**
+     * @var integer $numPosts
+     *
+     * @ORM\Column(name="num_posts", type="integer")
+     */
     private $numPosts;
     private $lastTopic;
     private $lastPost;

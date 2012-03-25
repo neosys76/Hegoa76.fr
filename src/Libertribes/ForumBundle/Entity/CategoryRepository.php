@@ -13,17 +13,17 @@ use Doctrine\ORM\EntityRepository;
 class CategoryRepository extends ObjectRepository
 {
 
-    /**
-     * @see CategoryRepositoryInterface::findOneBySlug
-     */
     public function findOneBySlug($slug)
     {
         return $this->findOneBy(array('slug' => $slug));
     }
 
-    /**
-     * @see CategoryRepositoryInteface::findAll
-     */
+
+    public function findOneById($id)
+    {
+        return $this->findOneBy(array('id' => $id));
+    }
+
     public function findAll()
     {
         return $this->createQueryBuilder('c')
@@ -33,9 +33,7 @@ class CategoryRepository extends ObjectRepository
             ->execute();
     }
 
-    /**
-     * @see CategoryRepositoryInterface::findAllIndexById
-     */
+
     public function findAllIndexById()
     {
         return $this->getObjectManager()

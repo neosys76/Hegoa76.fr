@@ -2,6 +2,7 @@
 
 namespace Libertribes\ForumBundle\Entity;
 
+use Doctrine\ORM\EntityRepository;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 
@@ -18,7 +19,7 @@ class PostRepository extends ObjectRepository
     {
         $qb = $this->createQueryBuilder('post')
             ->orderBy('post.createdAt')
-            ->where('post.topic = :topic')
+            ->where('post.topicid = :topic')
             ->setParameter('topic', $topicid);
 
         if ($asPaginator) {
@@ -33,7 +34,7 @@ class PostRepository extends ObjectRepository
     {
         return $this->createQueryBuilder('post')
             ->orderBy('post.createdAt', 'DESC')
-            ->where('post.topic = :topic')
+            ->where('post.topicid = :topic')
             ->setMaxResults($number)
             ->setParameter('topic', $topicid)
             ->getQuery()

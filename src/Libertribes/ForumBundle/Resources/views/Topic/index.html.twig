@@ -19,7 +19,7 @@
 					Il n'y a pas encore de sujet traité dans cette catégorie
 				{% endif %}
 				<div id="fornewsubject">
-					<form action="{{path('forum_new_topic',{'categoryid': categoryid })}}" method="post">
+					<form action="{{path('forum_new_topic')}}" method="post">
 						<input type="hidden" name="categoryid" value="{{categoryid}}" />
 						<input type="hidden" name="author" value="{{username}}" />
 						Intitulé du nouveau sujet: <input type="text" name="subject" /><br/>
@@ -32,7 +32,7 @@
 			</div>
 		</div>
 	{% endblock %}
-	{% block createnew %}
+	{% block createnewtopic %}
 		<div id="createnewtopic">
 		<button type="button" onclick="$('#fornewsubject').css('display','block')">Créer un nouveau sujet</button>
 		</div>

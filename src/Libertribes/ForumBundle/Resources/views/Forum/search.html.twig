@@ -6,21 +6,19 @@
 	    {% for result in results %}
 		<div class="eachcategory">
 			<div class="titrecategory">
-				{{category.name}}
+				{% render "LibertribesForumBundle:Topic:findById" with {'topicid':result.topicid} %}
 			</div>
 			<div class="presentcategory">
-				{% if topics|length > 0 %}
-					{% for topic in topics %}
-						<a href="{{path('forum_post_list',{'topicid': topic.id })}}">{{topic.subject}}</a>
-					{% endfor %}
-				{% else %}
-					Il n'y a pas encore de sujet traité dans cette catégorie
-				{% endif %}
+				<table>
+					<tr>
+						<td>{{result.message}}</td><td>publié par {{result.author}}</td><td>le {{result.createdAt|date('Y-m-d H:m:i')}}</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 		{% endfor %}
 		{% else %}
-		  Il n'y a pas encore de catégorie
+		  Il n'y a pas encore de notes
 		{% endif %}
 
 	{% endblock %}

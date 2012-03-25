@@ -2,6 +2,7 @@
 
 namespace Libertribes\ForumBundle\Entity;
 
+use Doctrine\ORM\EntityRepository;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 
@@ -10,7 +11,7 @@ class TopicRepository extends ObjectRepository
     /**
      * Finds one topic by its categoryId and its slug
      *
-     * @param integer $category
+     * @param integer $categoryid
      * @param string $slug
      * @return Topic or NULL
      **/
@@ -18,7 +19,7 @@ class TopicRepository extends ObjectRepository
     {
         return $this->findOneBy(array(
             'slug'      => $slug,
-            'category'  => $categoryid
+            'categoryid'  => $categoryid
         ));
     }
 

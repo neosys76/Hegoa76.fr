@@ -2,6 +2,7 @@
 
 namespace Libertribes\ForumBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -42,7 +43,7 @@ class Post
      *
      * @var text $message
      *
-     * @ORM\Column(name="subject", type="text")
+     * @ORM\Column(name="message", type="text")
      */
     protected $message;
 
@@ -56,16 +57,16 @@ class Post
     protected $number = null;
 
     /**
-     * @var boolean $createdAt
+     * @var datetime $createdAt
      *
-     * @ORM\Column(name="created_at", type="boolean")
+     * @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
 
     /**
-     * @var boolean $updatedAt
+     * @var datetime $updatedAt
      *
-     * @ORM\Column(name="updated_at", type="boolean")
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
 

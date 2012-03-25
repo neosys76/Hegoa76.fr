@@ -4,22 +4,23 @@
 	{% endblock %}
 	{% block content %}
 		<div class="eachcategory">
+		<h1>{{categoryname}}</h1>
 			<div class="titrecategory">
 				{% if subject == 'all' %}
 					Toutes les notes en vrac
 				{% else %}
-					{{subject}}
+					"{{subject}}" (ouvert par {{author}})
 				{% endif %}
 			</div>
 			<div class="presentcategory">
 				{% if posts|length > 0 %}
 					<table class="posts">
 						<tr class="titresintable">
-							<td>Message</td><td>Posté par</td><td>Date</td>
+							<td>Message</td><td>PostÃ© par</td><td>Date</td>
 						</tr>
 						{% for post in posts %}
 							<tr>
-								<td>{{post.message}}</td><td>{{post.author}}</td><td>{{post.createdAt}}</td>
+								<td>{{post.message}}</td><td class="width200">{{post.author}}</td><td class="width200">{{post.createdAt|date('Y-m-d H:m:i')}}</td>
 							</tr>
 						{% endfor %}
 					</table>
@@ -28,21 +29,20 @@
 				{% endif %}
 
 			<div id="message2send">
-				<form action="{{path('forum_new_post',{'topicid': topic.id })}}" method="post">
+				<form action="{{path('forum_new_post')}}" method="post">
 					<input type="hidden" name="topicid" value="{{topicid}}" />
 					<input type="hidden" name="author" value="{{username}}" />
-					Rédigez votre message:<br/>
+					RÃ©digez votre message:<br/>
 					<textarea name="message" cols="30" rows="5">
 					</textarea><br/>
 					<input type="submit" value="Envoyer" />
 				</form>
 			</div>
 			</div>
+		</div>
 	{% endblock %}
-	{% if subject != 'all' %}
-		{% block createnew %}
+			{% block createnewpost %}
 		<div id="createnewtopic">
-			<button type="button" onclick="$('message2send').css('display','block')">Envoyer un message</button>
+			<button type="button" onclick="$('#message2send').css('display','block')">Envoyer un message</button>
 		</div>	
 		{% endblock %}
-	{% endif %}

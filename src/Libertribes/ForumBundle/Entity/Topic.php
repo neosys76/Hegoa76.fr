@@ -3,8 +3,8 @@
 namespace Libertribes\ForumBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Libertribes\Component\Inflector;
 use Gedmo\Sluggable\Util\Urlizer;
 use DateTime;
@@ -97,7 +97,7 @@ class Topic
      *
      * @ORM\Column(name="category", type="integer")
      */
-    private $categoryid;
+    protected $categoryid;
 
     /**
      * @param Category $category
@@ -429,6 +429,25 @@ class Topic
     {
         return $this->category;
     }
+    /**
+     * Sets the categoryid
+     *
+     * @return integer
+     */
+    public function setCategoryid($categoryid)
+    {
+        $this->categoryid = $categoryid;
+    }
+
+    /**
+     * Gets the categoryid
+     *
+     * @return Categoryid
+     */
+    public function getCategoryid()
+    {
+        return $this->categoryid;
+    }	
 
     public function __toString()
     {

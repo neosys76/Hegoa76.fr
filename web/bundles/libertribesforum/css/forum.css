@@ -13,6 +13,7 @@ a:hover {text-decoration:underline;color:#6f909d;}
 .bleugrisfonce  {color:#4c6c7b;}
 .bleugrismoyen {color:#6f909d;}
 .bleugrisclair  {color:#ced5d6;}
+.width200 {width:200px;}
 
 div {position:relative;}
 
@@ -20,7 +21,11 @@ div {position:relative;}
 
 h1 {font-size:30px;margin-top:5px;margin-bottom:10px;}
 
-table.posts {border-collapse:separate;border-spacing:5px 10px;}
+table.posts {border-collapse:separate;border-spacing:7px 20px;width:100%;}
+table.posts td {color:#ced5d6;border:1px solid #ced5d6;padding:5px;background-color:#2d5669;}
+table.part100pc {width:100%;}
+td.part70pc {width:70%;padding:5px;}
+td.part15pc {width:15%;padding:5px;}
 
 #positionneur {
 	width:1280px;
@@ -101,7 +106,7 @@ div.listcat {float:left;
 }
 
 
-div#cat0, div#cat1, div#cat2, div#cat3, div#cat4 {
+div#cat0, div#cat1, div#cat2, div#cat3, div#cat4, div#cat5, div#cat6 {
 	position:absolute;top:30px;left:5px;display:none;
 	border	: 1px solid #ced5d6;
 			-moz-border-radius: 7px;
@@ -126,10 +131,10 @@ div#cat0, div#cat1, div#cat2, div#cat3, div#cat4 {
 }
 
 .presentcategory  a {
-	font-size:16px;color:#163746;
+	font-size:16px;color:#a1babe;
 }
 .presentcategory  a:hover {
-	color:#b67433;
+	color:#ced5d6;
 }
 
 .titresintable {

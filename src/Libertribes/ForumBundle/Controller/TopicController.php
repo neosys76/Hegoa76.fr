@@ -4,6 +4,7 @@ namespace Libertribes\ForumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Libertribes\ForumBundle\Entity\Category;
 use Libertribes\ForumBundle\Entity\Topic;
 use Libertribes\ForumBundle\Entity\Post;
 
@@ -39,34 +40,48 @@ class TopicController extends Controller
         ));
     }
 	public function createnewtopicAction(){
-        $em = $this->getDoctrine()->getEntityManager();
-		$topic = $em->getRepository('LibertribesForumBundle:Topic')->createNewTopic();
-		$post = $em->getRepository('LibertribesForumBundle:Post')->createNewPost();
 		$request = $this->get('request')->request->all();
 		$username = $request['author'];
 		$categoryid = $request['categoryid'];
 		$subject = $request['subject'];
 		$message = $request['message'];
+        $em = $this->getDoctrine()->getEntityManager();
+		$topic = $em->getRepository('LibertribesForumBundle:Topic')->createNewTopic();
 		$topic->setAuthor($username);
 		$topic->setSubject($subject);
 		$slugtopic = $topic->getSlug();
 		$topic->setNumPosts(1);
+		$topic->setCategoryid($categoryid);
 		$em->persist($topic);
 		$em->flush();
-        $topic = $this->get('LibertribesForumBundle:Topic')->findOneByCategoryAndSlug($categoryid, $slugtopic);
+        $topic = $em->getRepository('LibertribesForumBundle:Topic')->findOneByCategoryAndSlug($categoryid, $slugtopic);
         if (!$topic) {
             throw new NotFoundHttpException(sprintf('Le Sujet correspondant à la catégorie n° "%s" et au slug "%s" non trouvé', $categoryid, $slugtopic));
         }
 		$topicid = $topic->getId();
+		$post = $em->getRepository('LibertribesForumBundle:Post')->createNewPost();
+		$post->setCreatedAt($topic->getCreatedAt());
 		$post->setAuthor($username);
 		$post->setMessage($message);
 		$post->setNumber(1);
 		$post->setTopicId($topicid);
+		$post->setTopic($topic);
 		$em->persist($post);
 		$em->flush();
+		$thecategory = $em->getRepository('LibertribesForumBundle:Category')->findOneById($categoryid);
+		$thecategory->incrementNumTopics();
+		$thecategory->incrementNumPosts();
+		$em->persist($thecategory);
+		$em->flush();
         $posts = $em->getRepository('LibertribesForumBundle:Post')->findAllByTopic($topicid,true);
-        return $this->render('LibertribesForumBundle:Post:index.html.twig', array(
-            'posts' => $posts, 'subject' => $subject, 'username'=>$username
+        return $this->redirect($this->generateUrl('forum_post_list',array('topicid'=>$topicid)));
+	} 
+	
+	public function findByIdAction($topicid){
+        $em = $this->getDoctrine()->getEntityManager();
+		$topic = $em->getRepository('LibertribesForumBundle:Topic')->findOneById($topicid);
+        return $this->render('LibertribesForumBundle:Topic:findbyid.html.twig', array(
+            'topic' => $topic
         ));
 	}
 }

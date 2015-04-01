@@ -1,0 +1,26 @@
+.ligne3{
+}
+
+.cadre_objet_image{
+  background-image: url(../images/jeu/objet/detail/background_image.png);
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 280px;
+  margin: 0px 0px 0px 0px;
+}
+
+.cadre_caracteristiques{
+  background-image: url(../images/jeu/objet/detail/background_caracteristiques.png);
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 235px;
+  margin: 0px 0px 0px 0px;
+}
+
+.cadre_attributs{
+  background-image: url(../images/jeu/objet/detail/background_attributs.png);
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 190px;
+  margin: 0px 0px 0px 0px;
+}

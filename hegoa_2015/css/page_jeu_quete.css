@@ -1,0 +1,76 @@
+  #centre > #contenu {
+    background-image: url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
+    background-position: 0px 0px, 54px 16px;
+    background-repeat: no-repeat;
+    height: 790px;
+    width: 1085px;
+    position:relative;
+    top: 30px;
+    left: 98px;
+    float: left;
+  }
+
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		margin: 22px 0 0 0;
+	}
+
+.onglet_list_current {
+    	height: 50px;
+    	width: 675px;
+    	background-image: url(../images/jeu/quete/onglet.png);
+		background-repeat: no-repeat;
+		margin: 0 auto;
+}
+
+.onglet_list_create {
+    height: 50px;
+    width: 675px;
+    background-image: url(../images/jeu/quete/onglet_create.png);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.onglet_list_finish {
+    height: 50px;
+    width: 675px;
+    background-image: url(../images/jeu/quete/onglet_finish.png);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+	.lien_current {
+		display: inline-block;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-decoration: none;
+		margin: 12px 0 0 112px;
+	}
+
+	.lien_create {
+		display: inline-block;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-decoration: none;
+		margin: 0 0 0 112px;
+	}
+
+	.lien_finish {
+		display: inline-block;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-decoration: none;
+		margin: 0 0 0 112px;
+	}
+

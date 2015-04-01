@@ -1,0 +1,13 @@
+.panneau_batiment {
+  background-image: url(../images/jeu/batiment/background.png);
+  background-repeat: no-repeat;
+  height: 420px;
+  width: 860px;
+  margin: 22px 0px 0px 80px;
+}
+
+.batiment_image {
+  background-image: url(../images/jeu/batiment/cadre_image.png);
+  background-repeat: no-repeat;
+}
+

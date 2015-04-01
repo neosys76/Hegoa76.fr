@@ -1,0 +1,66 @@
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+	
+     .lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+    	
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+  	
+	#centre > #contenu {
+		background-image: url(../images/choix_peuple/background.png);
+		background-repeat: no-repeat;
+		height: 668px;
+		width: 800px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 30px;
+	}
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		line-height: 100px;
+	}
+
+	.image_fermer {
+		float: right;
+		margin: -70px 7px 0 0;
+	}
+
+	.image_humain {
+		display: inline-block;
+		margin: 10px 0 0 28px;
+	}
+
+	.image_bunsif{
+		display: inline-block;
+		
+	}
+
+	.image_sulmis {
+		display: inline-block;
+		margin: 0px 0 0 28px;
+	}
+
+	.image_nimhsine {
+		display: inline-block;
+		
+	}
+

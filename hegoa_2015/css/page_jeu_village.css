@@ -1,0 +1,407 @@
+ .lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+
+	#centre > #contenu {
+		background-image: url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
+		background-position: 0px 0px, 54px 16px;
+		background-repeat: no-repeat;
+		height: 790px;
+		width: 1085px;
+		position:relative;
+		top: 30px;
+		left: 98px;
+		float: left;
+	}
+
+	.cadre_djun {
+  		background-image: url(../images/jeu/joueur/cadre_djun.png);
+  		background-repeat: no-repeat;
+  		padding: 0px 0px 20px 0px;
+  		margin: 46px 0px 0px 88px;
+
+	}
+
+	.image_djun {
+ 		margin: 10px 0px 0px 8px;
+	}
+
+	.djun_niveau_label {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -83px 0px 0px 166px;
+	}
+
+	.djun_niveau {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -30px 0px 0px 214px;
+	}
+
+	.djun_name {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -30px 0px 0px 260px;
+		width: 580px;
+  	 	overflow: hidden;
+    	text-overflow: ellipsis;
+    	white-space: nowrap;	/* Empêche le retour à la ligne */
+    	-o-text-overflow: ellipsis; /* pour Opera 9 */
+	}
+
+	.image_icone_mana {
+		display: block;
+		height: 45px;
+		width: 45px;
+		margin: -6px 0px 0px 162px;
+	}
+
+	.djun_mana {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -38px 0px 0px 210px;
+	}
+
+	.image_icone_cyniam {
+		display: block;
+		height: 45px;
+		width: 45px;
+		margin: -38px 0px 0px 360px;
+		}
+
+	.djun_cyniam {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -38px 0px 0px 408px;
+	}
+
+	.image_icone_bois {
+		display: block;
+		height: 45px;
+		width: 45px;
+		margin: -38px 0px 0px 560px;
+	}
+
+	.djun_bois {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -38px 0px 0px 608px;
+	}
+
+	.image_icone_metal {
+		display: block;
+		height: 45px;
+		width: 45px;
+		margin: -37px 0px 0px 760px;
+	}
+
+	.djun_metal {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -39px 0px 0px 808px;
+	}
+
+	.image_bouton_message {
+		float: left;
+		margin: -57px 0px 0px 950px;
+	}
+
+	.panneau_village {
+  		background-image: url(../images/jeu/village/background.png);
+  		background-repeat: no-repeat;
+  		height: 180px;
+		width: 860px;
+		margin: 23px 0px 0px 80px;
+	}
+
+	.cadre_village {
+  		background-image: url(../images/jeu/village/cadre_village.png);
+  		background-repeat: no-repeat;
+  		position: relative;
+  		padding: 0px 0px 10px 0px;
+  		top: 20px;
+		left: 20px;
+	}
+
+	.village_bouton_parcourir {
+		position: relative;
+		z-index:2;
+		bottom: 82px;
+		left: 6px;
+	}
+
+	.village_image {
+		position: relative;
+		z-index:1;
+		top: 6px;
+		right: 39px;
+		margin: 0px 0px 0px 0px;
+	}
+
+	.village_bouton_vendre {
+		position: relative;
+		z-index:3;
+		bottom: 102px;
+		right: 60px;
+
+	}
+
+	.village_nom {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin-top: -129px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 370px;
+  	 	overflow: hidden;
+    	text-overflow: ellipsis;
+    	white-space: nowrap;	/* Empêche le retour à la ligne */
+    	-o-text-overflow: ellipsis;  /*pour Opera 9 */
+	}
+
+	.image_village_mana {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -14px 0px 0px 184px;
+	}
+
+	.village_mana {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -32px 0px 0px 254px;
+	}
+
+	.image_village_population {
+		display: block;
+		height: 35px;
+		width: 60px;
+		margin: -32px 0px 0px 394px;
+	}
+
+	.village_population {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -32px 0px 0px 462px;
+	}
+
+	.image_village_naissance {
+		display: block;
+		height: 35px;
+		width: 55px;
+		margin: -32px 0px 0px 558px;
+	}
+
+	.village_naissance {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -31px 0px 0px 620px;
+	}
+
+	.village_naissance_temps {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -29px 0px 0px 662px;
+	}
+
+
+	.image_village_agriculteur {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: 4px 0px 0px 184px;
+	}
+
+	.village_agriculteur {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 436px 0px 0px;
+	}
+
+	.image_village_guerrier_cac {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 250px;
+	}
+
+	.village_guerrier_cac {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 306px 0px 0px;
+	}
+
+	.image_village_guerrier_distance {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 316px;
+	}
+
+	.village_guerrier_distance {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 174px 0px 0px;
+	}
+
+	.image_village_mage {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 382px;
+	}
+
+	.village_mage {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 40px 0px 0px;
+	}
+
+	.image_village_chariot_guerre {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 448px;
+	}
+
+	.village_chariot_guerre {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 0px 0px 92px;
+	}
+
+	.image_village_chariot_transport {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 514px;
+	}
+
+	.village_chariot_transport {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 0px 0px 224px;
+	}
+
+	.image_village_invoc_magique {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 580px;
+	}
+
+	.village_invoc_magique {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 0px 0px 356px;
+	}
+
+	.image_village_cyniam {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 646px;
+	}
+
+	.village_cyniam {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 0px 0px 488px;
+	}
+
+	.image_village_bois {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 712px;
+	}
+
+	.village_bois {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 0px 0px 622px;
+	}
+
+	.image_village_metal {
+		display: block;
+		height: 58px;
+		width: 60px;
+		margin: -82px 0px 0px 780px;
+	}
+
+	.village_metal {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+		margin: -6px 0px 0px 756px;
+	}
+
+

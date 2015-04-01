@@ -1,0 +1,67 @@
+	@font-face {
+    font-family: 'hegoa_regular';
+    src: url('../font/tangerine_regular-webfont.eot');
+    src: url('../font/tangerine_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/tangerine_regular-webfont.woff') format('woff'),
+         url('../font/tangerine_regular-webfont.ttf') format('truetype'),
+         url('../font/tangerine_regular-webfont.svg#tangerineregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  html, body
+	{
+		height: 100%;
+	}
+
+	body
+	{
+		margin: 0px;
+		padding: 0px;
+		background: #FFFFFF;
+		font-family: "trebuchet MS";
+		font-size: 12px;
+		font-weight: 400;
+		background-color: black;
+	}
+
+	img
+	{
+		border:0px;
+	}
+
+	#page
+	{
+		background-image: url(../images/accueil_background.jpg);
+    background-repeat: no-repeat;
+    margin: 0px auto;
+		height: 1124px;
+		width: 1280px;
+	}
+
+	#page > #header {
+    margin: 0px auto;
+    height: 100px;
+		width: 1280px;
+	}
+
+	#page > #header_outside {
+    margin: 0px auto;
+    height: 100px;
+		width: 1280px;
+	}
+
+  #page > #centre {
+    margin: 0px auto;
+		height: 1024px;
+		width: 1280px;
+    border: 2px;
+	}
+
+	#page > #footer {
+		background: #FF0000;
+		height: 100px;
+	}
+
+
+

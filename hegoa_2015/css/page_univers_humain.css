@@ -1,0 +1,111 @@
+.lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+
+  	#centre > #contenu {
+		background-image: url(../images/menu_background_ouvert.png);
+		background-repeat: no-repeat;
+		height: 800px;
+		width: 1000px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 26px;
+	}
+
+	.image_home {
+		float: left;
+		margin: -34px 0px 0 44px;
+	}
+
+	ul {
+ 		padding:0;
+ 		margin:0;
+		list-style-type:none;
+ 	}
+
+ 	li {
+
+	 	float:left; /*pour IE*/
+	 }
+
+	.menu {
+		float: left;
+		width: 100%;
+	 }
+
+	.menu ul li a {
+		display: block;
+ 		float: left;
+ 		text-decoration: none;
+		text-align: center;
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		margin: 10px 0 0 136px;
+	}
+
+	.menu li a:hover {
+		background-image: url(../images/menu_over.png);
+		background-repeat: no-repeat;
+		background-position : center bottom;
+	}
+
+	.menu_univers ul li a  {
+		display: block;
+ 		float: left;
+ 		text-decoration: none;
+		text-align: center;
+		font-size: 28px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #4c4e64;
+		margin: 25px 0 0 92px;
+		padding: 0 0 20px 0;
+	}
+
+	.menu_univers li a:hover {
+		 color: #330000;
+	}
+
+	.image_humain {
+		display: block;
+		height: 255px;
+		width: 370px;
+		margin: 0px auto;
+	}
+
+
+  .titre {
+		font-size: 28px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		line-height: 60px;
+	}
+
+	.description {
+		font-size: 28px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		line-height: 42px;
+		margin: 0 0 0 16px;
+		width: 970px;
+	}

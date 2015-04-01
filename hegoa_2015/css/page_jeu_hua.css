@@ -1,0 +1,61 @@
+  .panneau_hua {
+    background-image: url(../images/jeu/hua/background.png);
+    background-repeat: no-repeat;
+    height: 420px;
+    width: 860px;
+    margin: 22px 0px 0px 80px;
+  }
+
+  .onglet_hero {
+    height: 50px;
+    width: 675px;
+    background-image: url(../images/jeu/hua/onglet.png);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+  }
+
+  .onglet_unite {
+      height: 50px;
+      width: 675px;
+      background-image: url(../images/jeu/hua/onglet_unite.png);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+  }
+
+  .onglet_armee {
+      height: 50px;
+      width: 675px;
+      background-image: url(../images/jeu/hua/onglet_armee.png);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+  }
+
+  .lien_hero {
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'hegoa_regular';
+    font-size: 28px;
+    color: #330000;
+    text-decoration: none;
+    margin: 12px 0 0 92px;
+  }
+
+  .lien_unite {
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'hegoa_regular';
+    font-size: 28px;
+    color: #330000;
+    text-decoration: none;
+    margin: 0 0 0 44px;
+  }
+
+  .lien_armee {
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'hegoa_regular';
+    font-size: 28px;
+    color: #330000;
+    text-decoration: none;
+    margin: 0 0 0 88px;
+  }

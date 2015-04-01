@@ -1,0 +1,5 @@
+AuthUserFile /home/hegoa/public_html/administration/.htpasswd
+AuthName "Administration"
+AuthType Basic
+require valid-user
+

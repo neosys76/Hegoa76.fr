@@ -1,0 +1,21 @@
+  #centre > #contenu {
+    background-image: url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
+    background-position: 0px 0px, 54px 16px;
+    background-repeat: no-repeat;
+    height: 790px;
+    width: 1085px;
+    position:relative;
+    top: 30px;
+    left: 98px;
+    float: left;
+  }
+
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		margin: 22px 0 0 0;
+	}

@@ -1,0 +1,64 @@
+ .lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+    	
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+  	
+  	#centre > #contenu {
+		background-image: url(../images/inscription/background.png);
+		background-repeat: no-repeat;
+		height: 463px;
+		width: 492px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
+	}
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		line-height:90px;
+	}
+
+	.image_fermer {
+		float:left;
+		margin: -62px 0 0 448px;
+	}
+
+	.account_mail_label {
+		display: inline-block; 
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: 120px 0 0 60px;	
+	}
+
+	.account_mail {
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #330000;	
+	}
+
+	.bouton_valider {
+		height: 38px;
+		width: 89px;
+		display: block; 
+		margin: 160px auto;
+	}
+

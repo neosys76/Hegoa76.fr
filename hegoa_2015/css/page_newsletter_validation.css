@@ -1,0 +1,69 @@
+  .lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+    	
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+  	
+  	#centre > #contenu {
+		background-image: url(../images/newsletter_validation/background.png);
+		background-repeat: no-repeat;
+		height: 463px;
+		width: 492px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
+	}
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		line-height:90px;
+	}
+
+	.image_fermer {
+		float:left;
+		margin: -62px 0 0 448px;
+	}
+
+
+	.texte {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+	}
+
+	.image_valider {
+		height: 38px;
+		width: 89px;
+		display: block; 
+		margin: 96px auto; 
+	}
+
+
+
+
+
+
+
+
+
+
+
+

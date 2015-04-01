@@ -1,0 +1,105 @@
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+	
+     .lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+    	
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+  	
+	#centre > #contenu {
+		background-image: url(../images/choix_djun/background.png);
+		background-repeat: no-repeat;
+		height: 463px;
+		width: 492px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
+	}
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		line-height:90px;
+	}
+	
+	.image_fermer {
+		float: right;
+		margin: -62px 7px 0 0;
+	}
+	
+	.avatar_name_label {
+		display: inline-block;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: -8px 0 0 58px;
+	}
+	
+	.avatar_name_edit {
+		margin: -20px 0 0 226px;
+	}
+
+	.avatar_name {
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #330000;
+		margin: -2px 0 0 0;
+	}
+	
+	.image_avatar {
+		height: 310px;
+		width: 275px;
+		display: block; 
+		margin: -196px auto; 
+	}
+	
+	.contenu_bouton_prev {
+		display:inline-block;
+  	}
+  	
+  	.image_prev{
+  		width: 40px;
+  		height: 100px;
+  		margin: 90px 0 0 30px;
+  	}
+
+	/*.image_prev:hover {
+		background-image: url(../images/choix_djun/prev_over.png) no-repeat;
+	}*/
+	
+	.contenu_bouton_next {
+		display:inline-block;
+  	}
+  	
+  	.image_next{
+  		width: 40px;
+  		height: 100px;
+  		margin: -20px 0 0 420px;
+  	}
+
+	.image_valider {
+		display: block;
+   	 	margin-left: auto;
+    	margin-right: auto;
+    	margin-top: 106px;
+	}
+
+

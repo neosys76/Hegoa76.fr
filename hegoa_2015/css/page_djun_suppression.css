@@ -1,0 +1,63 @@
+  .lien_facebook {
+    position: relative;
+    left: 240px;
+  }
+
+  .image_logo{
+    position: relative;
+    left: 480px;
+  }
+
+  .lien_rss {
+    position: relative;
+    left: 720px;
+	}
+
+	#centre > #contenu {
+		position:relative;
+		top:  26px;
+		left: 394px;
+		background-image: url(../images/compte_suppression/background.png);
+		background-repeat: no-repeat;
+		height: 600px;
+		float: left;
+		width: 700px;
+		margin: 0px auto;
+	}
+
+	.image_fermer {
+		position: relative;
+		bottom:  5px;
+		left: 442px;
+	}
+
+	.titre {
+		position: relative;
+		left: 160px;
+		top: 30px;
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+	}
+
+	.texte {
+		position: relative;
+		top: 26px;
+		right: 108px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-align: center;
+	}
+
+
+	.image_valider {
+		position: relative;
+		top: 36px;
+		left: 178px;
+	}
+
+
+

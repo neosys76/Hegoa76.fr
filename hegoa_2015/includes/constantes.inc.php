@@ -1,0 +1,21 @@
+<?php
+// ======================================================================
+// Auteur : Donatien CELIA
+// Licence : CeCILL v2
+// ======================================================================
+
+if ( ! defined ("CONSTANTES.INC") )
+{
+	// - Déclaration de la constante
+	define ("CONSTANTES.INC", "1");
+
+
+	// - Pour la base de données
+
+	define("HOSTNAME",  "localhost"); // - ou localhost
+	define("BASE",      "hegoa");
+	define("LOGIN",     "hegoa");
+	define("PASSWORD",	"Subsystem0");
+
+}// - fin du if
+?>

@@ -1,0 +1,83 @@
+	/*.panneau_commerce {
+  		background-image: url(../images/jeu/commerce/background.png);
+  		background-repeat: no-repeat;
+  		height: 420px;
+		width: 860px;
+		margin: 23px 0px 0px 80px;
+	} */
+  #centre > #contenu {
+    background-image: url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
+		background-position: 0px 0px, 54px 16px;
+		background-repeat: no-repeat;
+		height: 790px;
+		width: 1085px;
+		position:relative;
+		top: 30px;
+		left: 98px;
+		float: left;
+	}
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		margin: 22px 0 0 0;
+	}
+
+	.onglet_cours {
+    	height: 50px;
+    	width: 675px;
+    	background-image: url(../images/jeu/commerce/onglet.png);
+		background-repeat: no-repeat;
+		margin: 0 auto;
+	}
+
+  .onglet_bourse {
+    	height: 50px;
+    	width: 675px;
+    	background-image: url(../images/jeu/commerce/onglet_bourse.png);
+		background-repeat: no-repeat;
+		margin: 0 auto;
+	}
+
+	.onglet_marche {
+    	height: 50px;
+    	width: 675px;
+    	background-image: url(../images/jeu/commerce/onglet_marche.png);
+		background-repeat: no-repeat;
+		margin: 0 auto;
+	}
+
+	.lien_cours {
+		display: inline-block;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-decoration: none;
+		margin: 12px 0 0 92px;
+	}
+
+	.lien_bourse {
+		display: inline-block;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-decoration: none;
+		margin: 0 0 0 44px;
+	}
+
+	.lien_marche {
+		display: inline-block;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		text-decoration: none;
+		margin: 0 0 0 88px;
+	}
+
+

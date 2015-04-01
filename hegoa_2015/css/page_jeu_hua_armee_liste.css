@@ -1,0 +1,65 @@
+
+  .contenu_armee_liste{
+      background-image: url(../images/jeu/hua/armee/liste/cadre_liste.png);
+      background-repeat: no-repeat;
+      background-position: 34px 0px;
+      position: absolute;
+      height: 280px;
+      width: 670px;
+
+      margin-top: 50px;
+      margin-bottom: 0px;
+      margin-right: 0px;
+      margin-left: 90px;
+  }
+
+  .image_ajouter {
+    height: 40px;
+    width: 40px;
+  }
+
+  .formarmee_liste{
+
+  }
+
+  #bouton_prev {
+    float:left;
+  }
+
+  .image_prev{
+    height: 70px;
+    width: 35px;
+    margin: 83px 0 0 0;
+  }
+
+  .liste_armee_liste {
+    font-weight: bold;
+    font-family: 'hegoa_regular';
+    font-size: 28px;
+    color: #330000;
+    margin: -20px 0px 0 78px;
+  }
+
+  #bouton_next {
+    float: right;
+  }
+
+  .image_next{
+    height: 70px;
+    width: 35px;
+    margin: 83px 0 0 0;
+  }
+
+  .numerotation {
+		position: absolute;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		height: 30px;
+		width: 30px;
+		margin: 76px 0px 0 508px;
+	}
+
+
+

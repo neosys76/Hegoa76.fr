@@ -1,0 +1,15 @@
+.contenu_niveau{
+  background-image: url(../images/jeu/hua/unite/infos/background_niveau.png);
+  background-repeat: no-repeat;
+  height: 324px;
+  width: 354px;
+  margin: 0px 0px 0px 0px;
+}
+
+.contenu_niveau_suivant{
+  background-image: url(../images/jeu/hua/unite/infos/background_niveau_suivant.png);
+  background-repeat: no-repeat;
+  height: 324px;
+  width: 163px;
+  margin: 0px 0px 0px 0px;
+}

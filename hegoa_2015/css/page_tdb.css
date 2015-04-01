@@ -1,0 +1,69 @@
+  .lien_facebook {
+    	position: relative;
+    	left: 418px;
+    	bottom: 22px;
+  	}
+
+  	.image_logo{
+   	 	position: relative;
+    	left: 471px;
+    	top: 16px;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 533px;
+    	bottom: 22px;
+  	}
+
+	#centre > #contenu {
+		position: relative;
+		top:  76px;
+    	left: 241px;
+		background-image: url(../images/tdb/background.png);
+		background-repeat: no-repeat;
+		height: 600px;
+		float: left;
+		width: 800px;
+    	margin: 0px auto;
+	}
+
+	.lien_compte {
+		position: relative;
+		top: 6px;
+		left: 38px;
+	}
+
+	.image_fermer {
+		position:relative;
+		bottom:  20px;
+		left: 655px;
+	}
+
+	.titre {
+		position: relative;
+		left: 327px;
+		top: 38px;
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+	}
+
+	.djun {
+		position: relative;
+		background-image: url(../images/tdb/cadre_djun.png);
+		background-repeat: no-repeat;
+		float: left;
+		height: 180px;
+		width: 180px;
+		top: 124px;
+		left: 36px;
+	}
+
+	.image_choix_djun {
+		position: relative;
+		top: 40px;
+		left: 42px;
+	}
+

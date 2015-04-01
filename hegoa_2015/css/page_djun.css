@@ -1,0 +1,261 @@
+  .lien_facebook {
+    	position: relative;
+    	left: 418px;
+    	bottom: 22px;
+  	}
+
+  	.image_logo{
+   	 	position: relative;
+    	left: 471px;
+    	top: 16px;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 533px;
+    	bottom: 22px;
+  	}
+
+	#centre > #contenu {
+		position:relative;
+		top: 76px;
+    	left: 241px;
+		background-image: url(../images/djun/background.png);
+		background-repeat: no-repeat;
+		height: 600px;
+		float: left;
+		width: 800px;
+    	margin: 0px auto;
+	}
+
+	.image_fermer {
+		position:relative;
+		bottom: 5px;
+		left: 728px;
+	}
+
+	.titre {
+		position: relative;
+		left: 324px;
+		top: 38px;
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+	}
+
+	.djun {
+		background-image: url(../images/djun/cadre_djun.png);
+		background-repeat: no-repeat;
+ 		position: relative;
+		top: 29px;
+		left: 52px;
+    	width: 280px;
+    	height: 410px;
+	}
+
+ 	.image_djun {
+		position: relative;
+		top: 61px;
+		right: 4px;
+	}
+
+	.djun_name {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 370px;
+		left: 350px;
+		width: 170px;
+		overflow: hidden;
+  		-o-text-overflow: ellipsis; /* pour Opera 9 */
+  		text-overflow: ellipsis; /* pour le reste du monde */
+	}
+
+	.djun_race {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 400px;
+		left: 520px;
+	}
+
+	.djun_niveau_label {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 398px;
+		left: 350px;
+	}
+
+	.djun_niveau {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 428px;
+		left: 422px;
+	}
+
+	.djun_agressivite_label {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 406px;
+		left: 350px;
+	}
+
+	.djun_agressivite {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 436px;
+		left: 444px;
+	}
+
+	.djun_efficacite_label {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 432px;
+		left: 350px;
+	}
+
+	.djun_efficacite {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 460px;
+		left: 424px;
+	}
+
+	.djun_commerce_label {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 460px;
+		left: 350px;
+	}
+
+	.djun_commerce {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 490px;
+		left: 429px;
+	}
+
+	.djun_escroquerie_label {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 488px;
+		left: 350px;
+	}
+
+	.djun_escroquerie {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 518px;
+		left: 436px;
+	}
+
+	.image_mana {
+		position: relative;
+		bottom: 490px;
+		left: 346px;
+	}
+
+	.djun_mana {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 528px;
+		left: 398px;
+	}
+
+	.image_cyniam {
+		position: relative;
+		bottom: 526px;
+		left: 346px;
+	}
+
+	.djun_cyniam {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 562px;
+		left: 398px;
+	}
+
+	.image_bois {
+		position: relative;
+		bottom: 562px;
+		left: 346px;
+	}
+
+	.djun_bois {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 600px;
+		left: 398px;
+	}
+
+	.image_metal {
+		position: relative;
+		bottom: 600px;
+		left: 346px;
+	}
+
+	.djun_metal {
+		position: relative;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		bottom: 634px;
+		left: 398px;
+	}
+
+	.lien_supprimer {
+		position: relative;
+		bottom: 640px;
+		left: 52px;
+	}
+
+	.lien_jouer {
+		position: relative;
+		bottom: 870px;
+		left: 498px;
+	}

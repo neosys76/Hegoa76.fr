@@ -1,0 +1,104 @@
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+	
+     .lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+    	
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+  	
+	#centre > #contenu {
+		background-image: url(../images/inscription/background.png);
+		background-repeat: no-repeat;
+		height: 463px;
+		width: 492px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
+	}
+
+	.titre {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+		text-align: center;
+		line-height:90px;
+		
+	}
+
+	.image_fermer {
+		float:right;
+		margin: -62px 7px 0 0;
+		
+	}
+
+	.account_mail_label {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: 86px 0 0 60px;	
+	}
+
+	.account_mail {
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #330000;
+	}
+
+	.account_password_label {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		margin: 16px 0 0 55px;
+	}
+
+	.account_password {
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #330000;
+	}
+
+
+	.lien_connexion {
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		font-size: 28px;
+		color: #330000;
+		display:block;
+		text-align:center;
+		margin: 40px 0 0 0;
+		
+	}
+
+	.bouton_valider {
+		height: 38px;
+		width: 89px;
+		display: block; 
+		margin: 72px auto; 
+	}
+
+
+
+
+
+  	
+  	
+
+
+	

@@ -1,0 +1,23 @@
+.contenu_formation{
+  background-image: url(../images/jeu/hua/unite/background_formation.png);
+  background-repeat: no-repeat;
+  height: 296px;
+  width: 779px;
+  margin: 0px 0px 0px 0px;
+}
+
+.cadre_hero{
+  background-image: url(../images/jeu/hua/hero/defaut/cadre_hero.png);
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 280px;
+  margin: 0px 0px 0px 0px;
+}
+
+.cadre_hero_caracteristiques{
+  background-image: url(../images/jeu/hua/hero/defaut/background_caracteristiques.png);
+  background-repeat: no-repeat;
+  height: 280px;
+  width: 266px;
+  margin: 0px 0px 0px 0px;
+}

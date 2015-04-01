@@ -1,0 +1,7 @@
+.panneau_objet {
+  		background-image: url(../images/jeu/objet/background.png);
+  		background-repeat: no-repeat;
+  		height: 420px;
+		width: 860px;
+		margin: 22px 0px 0px 80px;
+}

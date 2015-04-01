@@ -1,0 +1,15 @@
+.cadre_caracteristiques{
+  background-image: url(../images/jeu/objet/creer/background_caracteristiques.png);
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 235px;
+  margin: 0px 0px 0px 0px;
+}
+
+.cadre_attributs{
+  background-image: url(../images/jeu/objet/creer/background_attributs.png);
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 190px;
+  margin: 0px 0px 0px 0px;
+}

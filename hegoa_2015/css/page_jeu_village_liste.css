@@ -1,0 +1,67 @@
+.panneau_village_liste {
+  background-image: url(../images/jeu/village_liste/background.png);
+  background-repeat: no-repeat;
+  height: 420px;
+  width: 860px;
+  margin: 22px 0px 0px 80px;
+}
+
+.contenu_village_liste {
+
+  		background-image: url(../images/jeu/village_liste/cadre_liste.png);
+  		background-repeat: no-repeat;
+  		background-position: 34px 0px;
+  		position: absolute;
+  		height: 280px;
+  		width: 670px;
+
+      margin-top: 50px;
+      margin-bottom: 0px;
+      margin-right: 0px;
+      margin-left: 90px;
+}
+
+	#bouton_prev {
+		float:left;
+	}
+
+	.image_prev{
+		height: 70px;
+		width: 35px;
+		margin: 83px 0 0 0;
+	}
+
+.liste_village_liste {
+  width: 600px;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -486px;
+}
+
+.village_liste {
+	float: left;
+}
+
+	#bouton_next {
+		float: right;
+	}
+
+	.image_next{
+		height: 70px;
+		width: 35px;
+		margin: 83px 0 0 0;
+	}
+
+#numerotation {
+  font-weight: bold;
+  font-family: 'hegoa_regular';
+  font-size: 28px;
+	color: #330000;
+	height: 50px;
+	width: 600px;
+	margin-left: auto;
+ 	margin-right: auto;
+ 	margin-top: -40px;
+ 	text-align: center;
+}

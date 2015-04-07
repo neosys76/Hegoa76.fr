@@ -19,12 +19,13 @@ class Page
     private $tContenu;                                                          // Array
 
     private $db_connect;
+    
+    protected $message;  			// contiendra les messages d'erreur ou autre à transmettre aux contenus 
 
     // - Constructeur
     function __construct()
     {
       $this->strFonctionBodyOnLoad = "";
-
       $this->bAfficherHeader  = 1;
       $this->bAfficherMenu    = 1;
       $this->bAfficherFooter  = 1;
@@ -249,7 +250,8 @@ class Page
     public function Afficher()
     {
       $this->AfficherHeader();
-
+      //   message d'erreur éventuel , à afficher dans une des vues
+		$message = $this->message;
       // - On inclut les contenu
       foreach ( $this->tContenu as $strNomContenu => $strFichier)
       {

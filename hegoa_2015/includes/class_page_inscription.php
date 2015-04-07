@@ -14,7 +14,10 @@ class PageInscription extends Page
     {
       // - on appele le constructeur du parent
       parent::__construct();
-
+		// on génère le token de protection du formulaire d'inscription
+		$chaine = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQSRTUVWXYZ0123456789?+@#";
+		$chaineshuffled = str_shuffle(str_shuffle($chaine));
+		$_SESSION["inscription_token"]=substr($chaineshuffled,0,32);
       // - on renseigne qq infos du parent
       parent::SetNomPage( "inscription" );
       parent::SetAffichageHeader( -1 );

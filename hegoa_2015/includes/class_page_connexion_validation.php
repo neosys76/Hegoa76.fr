@@ -9,6 +9,8 @@ require "class_page.php";                                                       
 
 class PageConnexionValidation extends Page
 {
+	protected $token;
+	
     function __construct()
     {
       // - on appele le constructeur du parent
@@ -17,21 +19,26 @@ class PageConnexionValidation extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "connexion_validation" );
 
-      // - on ajoute les menus utiles
+      	if((isset($_POST['_token'])&&!empty($_POST['_token']))&&(isset($_SESSION['connexion_token'])&&!empty($_SESSION['connexion_token']))&&$_POST['_token']==$_SESSION['connexion_token']){
+			$this->token="OK";		
+		}
+		else {$this->token="NOTOK";}
 
     }
 
     // - Affichage de la page
     public function Afficher()
     {
+    	if($this->token=="OK"){
       // - On se connescte à la base de données
       parent::ConnecterBD();
-
+		 include "constantes.inc.php";
       // - On controle le formulaire
       $iErreur = 0;
 
       $account_mail     = $_POST["account_mail"];
-      $account_password = $_POST["account_password"];
+      //  crytage du mot de passe, avec un sel définit dans le fichier constantes
+      $account_password = crypt($_POST["account_password"],SALT);
 
       if ( $account_mail == "" || $account_password == "" )
       {
@@ -40,7 +47,7 @@ class PageConnexionValidation extends Page
       else
       {
         // - Verification de l'existence du compte
-        if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"ACCOUNT\" WHERE email = '$account_mail' and password = '$account_password'") != 1 )
+        if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"ACCOUNT\" WHERE email = '$account_mail' and password = '$account_password' and confirmation='TRUE'") != 1 )
         {
           $iErreur += 10;
         }
@@ -73,6 +80,10 @@ class PageConnexionValidation extends Page
       // - redirection vers la page d'accueil du jeu
       //parent::Afficher();
       header('Location: index.php?page=tdb');
+		}
+		else {
+			header('Location: index.php?page=connexion&erreur=2');
+			}
 
     }// - Fin de la fonction Afficher
 

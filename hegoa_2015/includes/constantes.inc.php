@@ -16,6 +16,7 @@ if ( ! defined ("CONSTANTES.INC") )
 	define("BASE",      "hegoa");
 	define("LOGIN",     "hegoa");
 	define("PASSWORD",	"Subsystem0");
+	define("SALT","?5fvyk+1DV75fT?@4Wp#KrVa");
 
 }// - fin du if
 ?>

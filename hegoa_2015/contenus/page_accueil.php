@@ -31,9 +31,3 @@ Pr&eacute;sentation de la communaut&eacute;, des auteurs.
 </p>
 
 <a class="newsletter" href="index.php?page=newsletter">Inscription &agrave; la Newsletter</a>
-
-<object type="application/x-shockwave-flash" data="http://www.hegoa.eu//music/dewplayer/dewplayer-mini.swf" width="160" height="20" id="dewplayer" name="dewplayer">
-<param name="wmode" value="transparent" />
-<param name="movie" value="dewplayer-mini.swf" />
-<param name="flashvars" value="mp3=http://www.hegoa.eu/music/dewplayer/mp3/libertribes.mp3&amp;autostart=1&amp;autoreplay=1&amp;showtime=1&amp;nopointer=1&amp;volume=50" />
-</object>

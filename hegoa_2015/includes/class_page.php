@@ -161,12 +161,21 @@ class Page
       <!DOCTYPE html>
       <html lang="fr">
       <head>
-        <title>LiberTribes - Nom de la page : <?=$this->strNomPage?></title>
+        <title>LiberTribes - <?=$this->strNomPage?></title>
         <meta http-equiv="Content-type" content="text/html;charset=ISO-8859-1" />
         <meta name="author" content="Dominique Dehareng" />
         <meta http-equiv="Pragma" content="no-cache">
 
         <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
+        <?php
+        if($this->strNomPage=="accueil"){
+        	//  on inclut ce qui concerne le player
+        ?>
+        <link rel="stylesheet" type="text/css" href="./css/style_player.css" media="screen" />
+        
+        <?php
+        }
+        ?>
 
 <?php
       foreach ( $this->tCSS as $strNom => $strCSS)
@@ -209,6 +218,13 @@ class Page
       }
 
       echo "<div id=\"centre\">\n";
+      
+			if($this->strNomPage=="accueil"){
+				//   si c'est la page d'accueil, on inclut le player
+				
+				include "contenus/player.php";
+				
+			}
 
       echo "<div id=\"contenu\">\n";
     }

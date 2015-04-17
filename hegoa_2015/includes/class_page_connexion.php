@@ -15,10 +15,10 @@ class PageConnexion extends Page
     	// on génère le token de protection du formulaire de connexion
 		$chaine = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQSRTUVWXYZ0123456789?+@#";
 		$chaineshuffled = str_shuffle(str_shuffle($chaine));
-		$_SESSION["connexion_token"]=substr($chaineshuffled,0,32);
+		
       // - on appele le constructeur du parent
       parent::__construct();
-
+		$_SESSION["connexion_token"]=substr($chaineshuffled,0,32);
       // - on renseigne qq infos du parent
       parent::SetNomPage( "connexion" );
       parent::SetAffichageHeader( -1 );

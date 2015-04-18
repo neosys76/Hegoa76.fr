@@ -74,7 +74,6 @@ class PageChoixDjunValidation extends Page
 
       if ( $avatar_action == "valider" )
       {
-        echo $avatar_name;
         if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE avatar_name = '$avatar_name'") > 0 )
         {
           header('Location: index.php?page=choix_djun&erreur=1');

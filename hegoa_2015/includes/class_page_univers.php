@@ -16,9 +16,8 @@ class PageUnivers extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "univers");
+      parent::SetNomPage( "univers","L'Univers du Jeu");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_univers.css");
@@ -27,8 +26,7 @@ class PageUnivers extends Page
       $this->AjouterContenu("contenu", "contenus/page_univers.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page

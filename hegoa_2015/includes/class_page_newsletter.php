@@ -16,7 +16,7 @@ class PageNewsletter extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "newsletter" );
+      parent::SetNomPage( "newsletter","Newsletter" );
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -27,7 +27,7 @@ class PageNewsletter extends Page
       $this->AjouterContenu("contenu", "contenus/page_newsletter.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("accueil","Accueil");
+
     }
 
     // - Affichage de la page

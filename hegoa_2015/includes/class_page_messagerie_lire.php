@@ -16,7 +16,7 @@ class PageMessagerieLire extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "messagerie_lire");
+      parent::SetNomPage( "messagerie_lire","Messagerie - lecture");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
@@ -27,22 +27,22 @@ class PageMessagerieLire extends Page
       $this->AjouterContenu("contenu", "contenus/page_messagerie_lire.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("messagerie","Messagerie");
+
     }
 
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - on récupère des infos de la session
+      // - on rÃ©cupÃ¨re des infos de la session
       $account_id = $_SESSION['account_id'];
 
-      // - on récupère les paramètres
+      // - on rÃ©cupÃ¨re les paramÃ¨tres
       $message_id = $_GET['no_message'];
 
-      // - On récupère les données
+      // - On rÃ©cupÃ¨re les donnÃ©es
       $sql  = "SELECT is_read, object, message, date_envoi FROM \"libertribes\".\"MESSAGE\" WHERE account_id = $account_id AND message_id = $message_id AND type = 1 AND is_delete = 0";
       $result = parent::Requete( $sql );
       if ($result)
@@ -63,7 +63,7 @@ class PageMessagerieLire extends Page
 
       parent::Afficher();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
 
     }// - Fin de la fonction Afficher
 

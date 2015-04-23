@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteurs : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -20,7 +20,7 @@ class PageConnexion extends Page
       parent::__construct();
 		$_SESSION["connexion_token"]=substr($chaineshuffled,0,32);
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "connexion" );
+      parent::SetNomPage( "connexion","Connexion" );
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -31,7 +31,7 @@ class PageConnexion extends Page
       $this->AjouterContenu("contenu", "contenus/page_connexion.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("accueil","Accueil");
+
     }
 
     // - Affichage de la page

@@ -6,7 +6,7 @@
 
 // - Chargement de la liste des magies
 
-      // - On récupère les informations nécessaires
+      // - On rÃ©cupÃ¨re les informations nÃ©cessaires
       $account_id = $_SESSION['djun_id'];
       $village_id = $_SESSION['village_id'];
 
@@ -88,7 +88,7 @@
       $_SESSION['magie_compteur'] = $iCpt;
 /*
       // - On charge la liste des objets (en dur pour moment )
-      // - On récupère les données
+      // - On rÃ©cupÃ¨re les donnÃ©es
       $sql  = "SELECT magie_id, titre, image, info, livre, is_active";
       $sql .= " FROM \"libertribes\".\"MAGIE\"";
       $sql .= " WHERE djun_id  = $djun_id";

@@ -19,7 +19,7 @@ class PageJeu extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "jeu");
+      parent::SetNomPage( "jeu","Le jeu - Accueil");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -53,7 +53,7 @@ class PageJeu extends Page
       $village_chariot_transport  = 0;
       $village_invoc_magique      = 0;
 
-      // - Chargement des données du village
+      // - Chargement des donnÃ©es du village
 
 
       //
@@ -94,12 +94,12 @@ class PageJeu extends Page
 
     public function charger_quete()
     {
-      $type = $_GET['type'];                                                        // On recupère le type de commerce
+      $type = $_GET['type'];                                                        // On recupÃ¨re le type de quÃªte
 
       // - Quel type ?
       if ($type == "create")
       {
-        // - Création de quete
+        // - CrÃ©ation de quete
         $_SESSION['quete_type'] = $type;
 
         // - on ajoute le contenu du panneau
@@ -111,7 +111,7 @@ class PageJeu extends Page
         // - Quel type ?
         if ($type == "read")
         {
-          // - Création de quete
+          // - CrÃ©ation de quete
           $_SESSION['quete_type'] = $type;
 
           // - on ajoute le contenu du panneau
@@ -135,7 +135,7 @@ class PageJeu extends Page
             }
             else
             {
-              // - Onglet current (par défaut)
+              // - Onglet current (par dÃ©faut)
               $_SESSION['quete_type'] = "list_current";
             }
           }
@@ -153,7 +153,7 @@ class PageJeu extends Page
 
     public function charger_commerce()
     {
-      $type = $_GET['type'];                                                        // On recupère le type de commerce
+      $type = $_GET['type'];                                                        // On recupÃ¨re le type de commerce
 
       // - Quel type de commerce ?
       if ($type == "bourse")
@@ -170,7 +170,7 @@ class PageJeu extends Page
         }
         else
         {
-          // - Onglet cours (par défaut)
+          // - Onglet cours (par dÃ©faut)
           $_SESSION['commerce_type'] = "cours";
         }
       }
@@ -183,7 +183,7 @@ class PageJeu extends Page
 
     public function charger_batiment()
     {
-      // - On récupère les informations nécessaires
+      // - On rÃ©cupÃ¨re les informations nÃ©cessaires
       $account_id = $_SESSION['djun_id'];
       $village_id = $_SESSION['village_id'];
 
@@ -265,7 +265,7 @@ class PageJeu extends Page
       $_SESSION['batiment_compteur'] = $iCpt;
 /*
       // - On charge la liste des batiments (en dur pour moment )
-      // - On récupère les données
+      // - On rÃ©cupÃ¨re les donnÃ©es
       $sql  = "SELECT batiment_id, titre, image, info, livre, is_active";
       $sql .= " FROM \"libertribes\".\"BATIMENT\"";
       $sql .= " WHERE djun_id  = $djun_id";
@@ -330,7 +330,7 @@ class PageJeu extends Page
 
     public function charger_batiment_construction()
     {
-      // - Récupération des variables
+      // - RÃ©cupÃ©ration des variables
 
       // - on ajoute le css & contenu du panneau
       $this->AjouterCSS("page_jeu_batiment_construction.css");
@@ -341,7 +341,7 @@ class PageJeu extends Page
 
     public function charger_batiment_amelioration()
     {
-      // - Récupération des variables
+      // - RÃ©cupÃ©ration des variables
 
       // - on ajoute le css & contenu du panneau
       $this->AjouterCSS("page_jeu_batiment_amelioration.css");
@@ -352,7 +352,7 @@ class PageJeu extends Page
 
     public function charger_objet()
     {
-      $type   = $_GET['type'];                                                  // - On recupère le type
+      $type   = $_GET['type'];                                                  // - On recupÃ¨re le type
 
           if ( $type == "suppression" )
           {
@@ -378,7 +378,7 @@ class PageJeu extends Page
                   $_SESSION['objet_type']   = "liste";
                   $this->AjouterCSS("page_jeu_objet_liste.css");
 
-                // - on charge les données requises
+                // - on charge les donnÃ©es requises
                 include "chargement_objet_liste.php";
               }
             }
@@ -395,10 +395,10 @@ class PageJeu extends Page
     public function charger_hua()
     {
 
-      $onglet = $_GET['onglet'];                                                // - On recupère l'onglet
-      $type   = $_GET['type'];                                                  // - On recupère le type
+      $onglet = $_GET['onglet'];                                                // - On recupÃ¨re l'onglet
+      $type   = $_GET['type'];                                                  // - On recupÃ¨re le type
 
-      // - Quel type de commerce ?
+      // - Quel type d'armÃ©e ?
       if ($onglet == "armee")
       {
           // - Onglet armee
@@ -472,7 +472,7 @@ class PageJeu extends Page
         }
         else
         {
-          // - Onglet hero (par défaut)
+          // - Onglet hero (par dÃ©faut)
           $_SESSION['hua_onglet'] = "hero";
 
 
@@ -531,7 +531,7 @@ class PageJeu extends Page
         $_SESSION['magie_type']   = "liste";
         $this->AjouterCSS("page_jeu_magie_liste.css");
 
-        // - on charge les données requises
+        // - on charge les donnÃ©es requises
         include "chargement_magie_liste.php";
       }
 
@@ -553,7 +553,7 @@ class PageJeu extends Page
         $_SESSION['science_type']   = "liste";
         $this->AjouterCSS("page_jeu_science_liste.css");
 
-        // - on charge les données requises
+        // - on charge les donnÃ©es requises
         include "chargement_science_liste.php";
       }
 
@@ -566,7 +566,7 @@ class PageJeu extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On récupère la variable de l'espace choisi
+      // - On rÃ©cupÄre la variable de l'espace choisi
       $jeu_espace = $_GET['espace'];
       $_SESSION['jeu_espace'] =  $jeu_espace;
 
@@ -609,7 +609,7 @@ class PageJeu extends Page
 
         if ( $batiment_type == "construction" )
         {
-          // - Création de quete
+          // - CrÃ©ation de quete
           $_SESSION['batiment_type'] = $batiment_type;
 
           // - redirection vers la page choix_vente
@@ -619,7 +619,7 @@ class PageJeu extends Page
         {
           if ( $batiment_type == "amelioration" )
           {
-            // - Création de quete
+            // - CrÃ©ation de quete
             $_SESSION['batiment_type'] = $batiment_type;
 
             // - redirection vers la page choix_vente
@@ -657,12 +657,12 @@ class PageJeu extends Page
       }
 
 
-      // - on ajoute le contenu du menu à gauche
+      // - on ajoute le contenu du menu Ã  gauche
       $this->AjouterContenu("contenu_menu", "contenus/page_jeu_menu.php");
 
       parent::Afficher();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
 
     }// - Fin de la fonction Afficher
 

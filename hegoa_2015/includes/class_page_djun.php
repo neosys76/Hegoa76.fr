@@ -18,7 +18,7 @@ class PageDjun extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "djun");
+      parent::SetNomPage( "djun","Mon D'jun");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -35,7 +35,7 @@ class PageDjun extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
       $account_id           = $_SESSION['account_id'];
@@ -57,9 +57,7 @@ class PageDjun extends Page
       // - On stocke le nom du djun
       $_SESSION['djun_name'] = $avatar_name;
 
-      // - On récupère les infos
-      // - On récupère les données
-      //todo créer 4 colonnes pour le mana , etc
+      // - On rÃ©cupÃ¨re les donnÃ©es
       $sql  = "SELECT race_name, level, level_agressivite, level_efficacite, level_commerce, level_escroquerie, 0 as mana, 0 as cyniam, 0 as bois, 0 as metal FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id and avatar_name = '$avatar_name'";
       $result = parent::Requete( $sql );
       if ($result)

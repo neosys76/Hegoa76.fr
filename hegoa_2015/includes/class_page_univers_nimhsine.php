@@ -16,7 +16,7 @@ class PageUniversNimhsine extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "univers_nimhsine");
+      parent::SetNomPage( "univers_nimhsine","Univers - les nihmsynés");
       parent::SetAffichageHeader( -1 );
       //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );

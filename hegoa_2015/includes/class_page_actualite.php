@@ -16,9 +16,8 @@ class PageActualite extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "actualite");
+      parent::SetNomPage( "actualite","ActualitÃ©");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_actualite.css");
@@ -27,20 +26,19 @@ class PageActualite extends Page
       $this->AjouterContenu("contenu", "contenus/page_actualite.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+      //     Pas de menu
     }
 
     // - Affichage de la page
     public function Afficher()
     {
-     // - On se connescte à la base de données
+     // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
       $_SESSION['actualite_libelle'] = array();
       $_SESSION['actualite_date_creation'] = array();
 
-      // - On récupère les données des djuns
+      // - On rÃ©cupÃ¨re les donnÃ©es des djuns
       $sql  = "SELECT libelle, date_creation FROM \"libertribes\".\"ACTUALITE\" WHERE type = 'NEWS' order by date_creation DESC";
       $result = parent::Requete( $sql );
       if ($result)

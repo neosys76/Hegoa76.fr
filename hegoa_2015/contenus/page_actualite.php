@@ -12,7 +12,6 @@
 
 <div class="onglet">
       <a class="lien_news" href="index.php?page=actualite">News</a>
-      <a class="lien_video" href="index.php?page=actualite_business">Business</a>
       <a class="lien_fond" href="index.php?page=actualite_people">People</a>
 </div>
 

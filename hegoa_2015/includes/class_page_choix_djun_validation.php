@@ -17,7 +17,7 @@ class PageChoixDjunValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "choix_djun_validation" );
+      parent::SetNomPage( "choix_djun_validation","Choix du D'jun" );
 
       // - on ajoute les menus utiles
 
@@ -26,10 +26,10 @@ class PageChoixDjunValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
       $account_id           = $_SESSION['account_id'];
       $avatar_name          = $_POST['avatar_name'];
       $avatar_action        = $_POST['avatar_action'];
@@ -40,13 +40,13 @@ class PageChoixDjunValidation extends Page
 
       if ( $avatar_action == "prev" )
       {
-        // - on décrémente que si besoin
+        // - on dÃ©crÃ©mente que si besoin
         if ( $avatar_djun_id > 1 )
         {
           $avatar_djun_id--;
         }
 
-        // - On affiche l'image de l'avatar précédente
+        // - On affiche l'image de l'avatar prÃ©cÃ©dente
         $_SESSION['avatar_djun_id'] = $avatar_djun_id;
         $_SESSION['avatar_image'] = "images/djuns/djun". $avatar_djun_id . ".png";
 
@@ -57,7 +57,7 @@ class PageChoixDjunValidation extends Page
 
       if ( $avatar_action == "next" )
       {
-        // - on incrémente que si besoin
+        // - on incrÃ©mente que si besoin
         if ( $avatar_djun_id < $_SESSION['avatar_djun_id_max'] )
         {
           $avatar_djun_id++;
@@ -83,7 +83,7 @@ class PageChoixDjunValidation extends Page
         // - On stocke l'information du nom de l'avatar
         $_SESSION['avatar_name'] = $avatar_name;
 
-        // - On insère les données
+        // - On insÃ¨re les donnÃ©es
         $sql  = "INSERT INTO \"libertribes\".\"AVATAR\" ( avatar_name, account_id )";
         $sql .= " values ('$avatar_name','$account_id')";
 

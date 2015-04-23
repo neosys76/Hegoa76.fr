@@ -6,11 +6,11 @@
 
 if ( ! defined ("CONSTANTES.INC") )
 {
-	// - Déclaration de la constante
+	// - DÃ©claration de la constante 
 	define ("CONSTANTES.INC", "1");
 
 
-	// - Pour la base de données
+	// - Pour la base de donnÃ©es
 
 	define("HOSTNAME",  "localhost"); // - ou localhost
 	define("BASE",      "hegoa");

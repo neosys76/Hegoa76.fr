@@ -1,26 +1,27 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteurs : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
 class Page
 {
-    // - Déclarations des variables
+    // - DÃ©clarations des variables
     private $strFonctionBodyOnLoad;
 
     private $bAfficherHeader;
     private $bAfficherMenu;
     private $bAfficherFooter;
 
-    private $strNomPage;                                                        // - Nom de la page
+    private $strNomPage;                                                        // - Nom de fichier de la page
+    private $strTitrePage;                                                        // - Titre de la page (Ã  dissocier du nom de page)
     private $tCSS;                                                              // Array
     private $tMenu;                                                             // Array
     private $tContenu;                                                          // Array
 
     private $db_connect;
     
-    protected $message;  			// contiendra les messages d'erreur ou autre à transmettre aux contenus 
+    protected $message;  			// contiendra les messages d'erreur ou autre Å• transmettre aux contenus 
 
     // - Constructeur
     function __construct()
@@ -30,15 +31,14 @@ class Page
       $this->bAfficherMenu    = 1;
       $this->bAfficherFooter  = 1;
 
-
-      session_cache_expire(30);                                                 // 30 minutes de session
       session_start();
     }
 
 // - Partie public
-    public function SetNomPage( $strNomPagePar )
+    public function SetNomPage( $strNomPagePar, $strTitrePagePar )
     {
       $this->strNomPage = $strNomPagePar;
+      $this->strTitrePage = $strTitrePagePar;
     }
 
     public function SetFonctionBodyOnLoad( $strNomFonctionPar )
@@ -63,7 +63,7 @@ class Page
 
 
 
-    // - Ajout d'un élément du menu
+    // - Ajout d'un Ã©lÃ©ment du menu
     public function AjouterCSS($nomCSSPar)
     {
       // - si le tableau est vide
@@ -72,12 +72,12 @@ class Page
          $this->tCSS = array();
       }
 
-      // - on ajoute l'élément
+      // - on ajoute l'Ã©lÃ©ment
        $this->tCSS[$nomCSSPar] = "<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/$nomCSSPar\" media=\"screen\" />";
 
     }
 
-    // - Ajout d'un élément du menu
+    // - Ajout d'un Ã©lÃ©ment du menu
     public function AjouterMenu($nomPagePar, $strLibellePar)
     {
       // - si le tableau est vide
@@ -86,7 +86,7 @@ class Page
          $this->tMenu = array();
       }
 
-      // - on ajoute l'élément
+      // - on ajoute l'Ã©lÃ©ment
        $this->tMenu[$nomPagePar] = $strLibellePar;
 
     }// - Fin de la fonction AjouterMenu
@@ -100,18 +100,16 @@ class Page
          $this->tContenu = array();
       }
 
-      // - on ajoute l'élément
+      // - on ajoute l'Ã©lÃ©ment
        $this->tContenu[$nomContenuPar] = $strFichierPar;
 
     }// - Fin de la fonction AjouterContenu
 
     public function ConnecterBD( )
     {
-      // - Connexion à la BD
+      // - Connexion Ã  la BD
       include "constantes.inc.php";
-      // - connexion à la base de données
-      //$db_connect     = mysql_connect(HOSTNAME, LOGIN, PASSWORD);
-      //$base_selection	= mysql_select_db(BASE, $db_connect);
+      // - connexion Ã  la base de donnÃ©es
       $this->db_connect = pg_connect("host=".HOSTNAME." dbname=".BASE." user=".LOGIN." password=".PASSWORD);
 
     }
@@ -155,15 +153,12 @@ class Page
     public function AfficherHeader()
     {
 
-//      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-//      <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-FR" lang="fr-FR">
 ?>
       <!DOCTYPE html>
       <html lang="fr">
       <head>
-        <title>LiberTribes - <?=$this->strNomPage?></title>
-        <meta http-equiv="Content-type" content="text/html;charset=ISO-8859-1" />
-        <meta name="author" content="Dominique Dehareng" />
+        <title>LiberTribes - <?=$this->strTitrePage?></title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta http-equiv="Pragma" content="no-cache">
 
         <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
@@ -236,15 +231,12 @@ class Page
 
       if ( $this->bAfficherMenu == 1 )
       {
-        //echo "<div id=\"menu\">\n";
-
         // - Gestion de l'affichage du menu
         foreach ( $this->tMenu as $strNom => $strLibelle)
         {
-          //echo "<div id=\"menu_$strNom\"><a href=\"index.php?page=$strNom\">$strLibelle</a></div>\n";
 	        echo "<div id=\"menu_$strNom\"><a href=\"index.php?page=$strNom\" alt=\"$strLibelle\"><img src=\"./images/menu_{$strNom}.png\" /></a></div>\n";
         }
-        //echo "</div>\n";
+        
       }                                                            // - fin de la balise menu
 
       echo "</div>\n";                                                            // - fin de la balise centre
@@ -266,7 +258,7 @@ class Page
     public function Afficher()
     {
       $this->AfficherHeader();
-      //   message d'erreur éventuel , à afficher dans une des vues
+      //   message d'erreur Ã©ventuel , Ã  afficher dans une vue
 		$message = $this->message;
       // - On inclut les contenu
       foreach ( $this->tContenu as $strNomContenu => $strFichier)

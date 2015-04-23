@@ -18,7 +18,7 @@ class PageTdb extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "tdb");
+      parent::SetNomPage( "tdb","Tableau de bord");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -29,7 +29,7 @@ class PageTdb extends Page
       $this->AjouterContenu("contenu", "contenus/page_tdb.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("messagerie","Messagerie");
+
     }
 
     // - Affichage de la page
@@ -39,16 +39,16 @@ class PageTdb extends Page
       $_SESSION['avatar_name'] = "";
       $_SESSION['avatar_djun_id'] = "";
 
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - on récupère des infos de la session
+      // - on rÃ©cupÃ¨re des infos de la session
       $account_id           = $_SESSION['account_id'];
 
       $_SESSION['tdb_djun_name'] = array();
       $_SESSION['tdb_djun_race'] = array();
 
-      // - On récupère les données des djuns
+      // - On rÃ©cupÃ¨re les donnÃ©es des djuns
       $sql  = "SELECT avatar_name, race_name FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id";
       $result = parent::Requete( $sql );
       if ($result)

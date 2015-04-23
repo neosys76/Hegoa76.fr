@@ -16,7 +16,7 @@ class PageMessagerie extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "messagerie");
+      parent::SetNomPage( "messagerie","Messagerie");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
@@ -30,12 +30,12 @@ class PageMessagerie extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - on récupère des infos de la session
+      // - on rÃ©cupÃ¨re des infos de la session
       $account_id = $_SESSION['account_id'];                                    // Ajouter l'avatar_name
-      $type = $_GET['type'];                                                    // On recupère le type de message
+      $type = $_GET['type'];                                                    // On recupÃ¨re le type de message
 
       // - Parcours des messages
       $_SESSION['message_compteur']    = 0;
@@ -46,13 +46,13 @@ class PageMessagerie extends Page
       $_SESSION['message_is_delete']   = array();
       $_SESSION['message_type']        = array();
 
-      // - On récupère les données
+      // - On rÃ©cupÃ¨re les donnÃ©es
       $sql  = "SELECT message_id, is_read, object, date_envoi, is_delete, type FROM \"libertribes\".\"MESSAGE\" WHERE account_id = $account_id ";
 
       // - Quel type de message ?
       if ($type == "delete")
       {
-        // - Messages supprimés
+        // - Messages supprimÃ©s
         $_SESSION['messages_type'] = $type;
         $sql .= " AND is_delete = 1";
       }
@@ -60,13 +60,13 @@ class PageMessagerie extends Page
       {
         if ($type == "send")
         {
-          // - Messages envoyés
+          // - Messages envoyÃ©s
           $_SESSION['messages_type'] = $type;
           $sql .= " AND type = 2 AND is_delete = 0";
         }
         else
         {
-          // - Messages reçus
+          // - Messages reÃ§us
           $_SESSION['messages_type'] = "receive";
           $sql .= " AND type = 1 AND is_delete = 0";
         }
@@ -98,7 +98,7 @@ class PageMessagerie extends Page
 
       parent::Afficher();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
 
     }// - Fin de la fonction Afficher
 

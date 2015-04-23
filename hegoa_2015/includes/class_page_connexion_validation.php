@@ -17,7 +17,7 @@ class PageConnexionValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "connexion_validation" );
+      parent::SetNomPage( "connexion_validation","Connexion" );
 
       	if((isset($_POST['_token'])&&!empty($_POST['_token']))&&(isset($_SESSION['connexion_token'])&&!empty($_SESSION['connexion_token']))&&$_POST['_token']==$_SESSION['connexion_token']){
 			$this->token="OK";		
@@ -30,14 +30,14 @@ class PageConnexionValidation extends Page
     public function Afficher()
     {
     	if($this->token=="OK"){
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 		 include "constantes.inc.php";
       // - On controle le formulaire
       $iErreur = 0;
 
       $account_mail     = $_POST["account_mail"];
-      //  crytage du mot de passe, avec un sel définit dans le fichier constantes
+      //  crytage du mot de passe, avec un sel dÃ©finit dans le fichier constantes
       $account_password = crypt($_POST["account_password"],SALT);
 
       if ( $account_mail == "" || $account_password == "" )
@@ -53,14 +53,14 @@ class PageConnexionValidation extends Page
         }
       }
 
-      // - Une erreur on doit retourné sur le formulaire
+      // - Une erreur on doit retournÃ© sur le formulaire
       if ( $iErreur > 0 )
       {
         header('Location: index.php?page=connexion&erreur=' . $iErreur);
         exit;
       }
 
-      // - On récupère l'id
+      // - On rÃ©cupÃ¨re l'id
       $sql  = "SELECT account_id FROM \"libertribes\".\"ACCOUNT\" WHERE email = '$account_mail'";
 
       $result = parent::Requete( $sql );
@@ -73,7 +73,7 @@ class PageConnexionValidation extends Page
         }
       }
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
       $_SESSION['account_id']   = $account_id;
       $_SESSION['account_mail'] = $account_mail;
 

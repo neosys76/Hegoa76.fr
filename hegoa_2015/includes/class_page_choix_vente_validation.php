@@ -17,7 +17,7 @@ class PageChoixVenteValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "choix_vente_validation" );
+      parent::SetNomPage( "choix_vente_validation","Choix de vente" );
 
       // - on ajoute les menus utiles
 
@@ -26,10 +26,8 @@ class PageChoixVenteValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
-      parent::ConnecterBD();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
       $account_id           = $_SESSION['account_id'];
       $choix_vente_type     = $_POST['choix_vente_type'];
 

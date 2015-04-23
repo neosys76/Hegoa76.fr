@@ -16,9 +16,8 @@ class PageForums extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "forums");
+      parent::SetNomPage( "forums","Forums");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_forums.css");
@@ -27,8 +26,7 @@ class PageForums extends Page
       $this->AjouterContenu("contenu", "contenus/page_forums.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page

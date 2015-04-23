@@ -16,7 +16,7 @@ class PageMessagerieEcrire extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "messagerie_ecrire");
+      parent::SetNomPage( "messagerie_ecrire","Messagerie - écriture");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
@@ -35,7 +35,7 @@ class PageMessagerieEcrire extends Page
     {
       parent::Afficher();
 
-      // - gestion sp�cifique de la page
+      // - gestion spécifique de la page
 
     }// - Fin de la fonction Afficher
 

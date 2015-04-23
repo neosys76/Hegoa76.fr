@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteurs : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -18,7 +18,7 @@ class PageInscriptionValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "inscription_validation" );
+      parent::SetNomPage( "inscription_validation","Inscription" );
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -30,16 +30,16 @@ class PageInscriptionValidation extends Page
 		else {$this->token="NOTOK";}
       // - on ajoute les contenus utiles
       $this->AjouterContenu("contenu", "contenus/page_inscription_validation.php");
+      
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("accueil","Accueil");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page
     public function Afficher()
     {
     	if($this->token=="OK"){
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
       // - On controle le formulaire
@@ -47,10 +47,10 @@ class PageInscriptionValidation extends Page
 		 include "constantes.inc.php";
       //$nickname = $_POST["account_nickname"];
       $courriel = $_POST["account_mail"];
-      //  crytage du mot de passe, avec un sel définit dans le fichier constantes
+      //  crytage du mot de passe, avec un sel dÃ©finit dans le fichier constantes
       $password = crypt($_POST["account_password"],SALT);
 
-      // - Verifier unicité account mail
+      // - Verifier unicitÃ© account mail
       // blocage des inscription
       $sql = "SELECT * FROM \"libertribes\".\"ACCOUNT\" WHERE email = '".$courriel."'";
       $nlines = parent::RequeteNbLignes($sql);
@@ -60,17 +60,17 @@ class PageInscriptionValidation extends Page
        
       }
 
-      // - Une erreur on doit retourné sur le formulaire
+      // - Une erreur on doit retournÃ© sur le formulaire
       if ( $bErreur > 0 )
       {
         header('Location: index.php?page=inscription&erreur=1');
         exit;
       }
 
-      // - On insère les données
+      // - On insÃ¨re les donnÃ©es
       $sql  = "INSERT INTO \"libertribes\".\"ACCOUNT\" ( email, password, confirmation, status )";
       $sql .= " values ('$courriel','$password', FALSE, 'offline')";
-      if(!parent::Requete( $sql )){$this->message .= "Erreur: L'enregistrement en base de données n'a pas pu avoir lieu.";}
+      if(!parent::Requete( $sql )){$this->message .= "Erreur: L'enregistrement en base de donnÃ©es n'a pas pu avoir lieu.";}
       // - On envoi un email
 
 		}

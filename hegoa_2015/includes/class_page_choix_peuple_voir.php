@@ -18,7 +18,7 @@ class PageChoixPeupleVoir extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "choix_peuple_voir");
+      parent::SetNomPage( "choix_peuple_voir","Présentation des peuples");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -29,14 +29,12 @@ class PageChoixPeupleVoir extends Page
       $this->AjouterContenu("contenu", "contenus/page_choix_peuple_voir.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("accueil","Accueil");
+
     }
 
     // - Affichage de la page
     public function Afficher()
     {
-
-      //$_SESSION['choix_peuple'] = $_POST['choix_peuple'];
 
       parent::Afficher();
 

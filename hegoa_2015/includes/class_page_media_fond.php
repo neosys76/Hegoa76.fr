@@ -16,7 +16,7 @@ class PageMediaFond extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "media_fond");
+      parent::SetNomPage( "media_fond","Media - Fonds d'écran");
       //parent::SetFonctionBodyOnLoad("javascript:preloadThumbnails()");
       parent::SetAffichageHeader( -1 );
       //parent::SetAffichageMenu( 0 );
@@ -29,8 +29,7 @@ class PageMediaFond extends Page
       $this->AjouterContenu("contenu", "contenus/page_media_fond.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page

@@ -16,9 +16,8 @@ class PageUnivers2 extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "univers_2");
+      parent::SetNomPage( "univers_2","Univers - Au commencement ...");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_univers.css");
@@ -27,8 +26,7 @@ class PageUnivers2 extends Page
       $this->AjouterContenu("contenu", "contenus/page_univers_2.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page

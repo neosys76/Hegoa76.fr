@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 require "class_page.php";                                              // - On inclut la class Page
 
-class PageMedia extends Page
+class PageUniversNimhsine extends Page
 {
     function __construct()
     {
@@ -16,19 +16,19 @@ class PageMedia extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "media","Media");
-      //parent::SetFonctionBodyOnLoad("javascript:preloadThumbnails()");
+      parent::SetNomPage( "univers_nihmsynes","Univers - les nihmsynés");
       parent::SetAffichageHeader( -1 );
+      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
-      $this->AjouterCSS("page_media.css");
-      $this->AjouterCSS("lightbox.css");
+      $this->AjouterCSS("page_univers_nihmsynes.css");
 
       // - on ajoute les contenus utiles
-      $this->AjouterContenu("contenu", "contenus/page_media.php");
+      $this->AjouterContenu("contenu", "contenus/page_univers_nimhsine.php");
 
       // - on ajoute les menus utiles
-
+      //$this->AjouterMenu("inscription","Inscription");
+      //$this->AjouterMenu("connexion","Connexion");
     }
 
     // - Affichage de la page

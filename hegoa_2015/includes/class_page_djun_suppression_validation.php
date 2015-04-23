@@ -17,7 +17,7 @@ class PageDjunSuppressionValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "djun_suppression_validation" );
+      parent::SetNomPage( "djun_suppression_validation" , "Suppression du D'jun");
 
       // - on ajoute les menus utiles
     }
@@ -25,15 +25,14 @@ class PageDjunSuppressionValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
       $account_id           = $_SESSION['account_id'];
       $djun_name            = $_SESSION['djun_name'];
 
-      // - On supprime le compte
-      // - On insère les données
+      // - On supprime le D'jun
       $sql  = "DELETE FROM \"libertribes\".\"AVATAR\"  WHERE account_id = $account_id and avatar_name ='$djun_name'";
 
       $result = parent::Requete( $sql );

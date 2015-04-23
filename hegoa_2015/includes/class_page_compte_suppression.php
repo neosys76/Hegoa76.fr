@@ -16,7 +16,7 @@ class PageCompteSuppression extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "compte_suppression");
+      parent::SetNomPage( "compte_suppression","Suppression de compte");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
@@ -27,7 +27,7 @@ class PageCompteSuppression extends Page
       $this->AjouterContenu("contenu", "contenus/page_compte_suppression.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("accueil","Accueil");
+ 
     }
 
     // - Affichage de la page
@@ -35,7 +35,7 @@ class PageCompteSuppression extends Page
     {
       parent::Afficher();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
 
     }// - Fin de la fonction Afficher
 

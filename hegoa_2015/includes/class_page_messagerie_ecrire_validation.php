@@ -16,7 +16,7 @@ class PageMessageEcrireValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "messagerie_ecrire_validation" );
+      parent::SetNomPage( "messagerie_ecrire_validation","Messagerie - Ã©criture" );
 
       // - on ajoute les menus utiles
     }
@@ -24,12 +24,12 @@ class PageMessageEcrireValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
       // - On controle le formulaire
 
-      // - On insère les données
+      // - On insÄre les donnÃ©es
 
       // - Gestion de l'affichage
       header('Location: index.php?page=messagerie');;

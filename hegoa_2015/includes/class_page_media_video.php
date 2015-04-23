@@ -16,10 +16,9 @@ class PageMediaVideo extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "media_video");
+      parent::SetNomPage( "media_video","Media - Videos");
       //parent::SetFonctionBodyOnLoad("javascript:preloadThumbnails()");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_media_video.css");
@@ -28,8 +27,7 @@ class PageMediaVideo extends Page
       $this->AjouterContenu("contenu", "contenus/page_media_video.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page

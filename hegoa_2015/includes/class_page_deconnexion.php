@@ -16,7 +16,7 @@ class PageDeconnexion extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "deconnexion" );
+      parent::SetNomPage( "deconnexion","Déconnexion" );
 
       $this->AjouterCSS("page_deconnexion.css");
 
@@ -29,7 +29,7 @@ class PageDeconnexion extends Page
     {
       parent::Afficher();
 
-      // - gestion sp�cifique de la page
+      // - gestion spécifique de la page
 
     }// - Fin de la fonction Afficher
 

@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteurs : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -19,7 +19,7 @@ class PageInscription extends Page
 		$chaineshuffled = str_shuffle(str_shuffle($chaine));
 		$_SESSION["inscription_token"]=substr($chaineshuffled,0,32);
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "inscription" );
+      parent::SetNomPage( "inscription" , "Inscription");
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -30,7 +30,7 @@ class PageInscription extends Page
       $this->AjouterContenu("contenu", "contenus/page_inscription.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("accueil","Accueil");
+
     }
 
     // - Affichage de la page

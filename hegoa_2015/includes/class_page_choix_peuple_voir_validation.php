@@ -17,7 +17,7 @@ class PageChoixPeupleVoirValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "choix_peuple_voir_validation" );
+      parent::SetNomPage( "choix_peuple_voir_validation","Choix du peuple" );
 
       // - on ajoute les menus utiles
 
@@ -26,16 +26,16 @@ class PageChoixPeupleVoirValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
       $account_id     = $_SESSION['account_id'];
       $avatar_name    = $_SESSION['avatar_name'];
 
       $choix_peuple   = $_POST['choix_peuple'];
 
-      // - On insère les données
+      // - On insÃ¨re les donnÃ©es
       $sql  = "UPDATE \"libertribes\".\"AVATAR\" set race_name = '$choix_peuple' ";
       $sql .= "WHERE account_id = '$account_id' and avatar_name = '$avatar_name'";
 

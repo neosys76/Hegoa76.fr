@@ -18,7 +18,7 @@ class PageChoixVente extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "choix_vente");
+      parent::SetNomPage( "choix_vente","Choix de vente");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -32,8 +32,6 @@ class PageChoixVente extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
-      //parent::ConnecterBD();
 
       parent::Afficher();
 

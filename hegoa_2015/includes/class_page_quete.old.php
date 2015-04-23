@@ -16,7 +16,7 @@ class PageQuete extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "quete");
+      parent::SetNomPage( "quete","QuÃªte");
       parent::SetAffichageHeader( 0 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
@@ -34,10 +34,10 @@ class PageQuete extends Page
       $this->AjouterMenu("messagerie","Messagerie");
       $this->AjouterMenu("carte","Carte");
       $this->AjouterMenu("commerce","Commerce");
-      $this->AjouterMenu("unite","Unités");
+      $this->AjouterMenu("unite","UnitÃ©s");
       $this->AjouterMenu("objet","Objet");
-      $this->AjouterMenu("hero","Héros");
-      $this->AjouterMenu("quete","Quêtes");
+      $this->AjouterMenu("hero","HÃ©ros");
+      $this->AjouterMenu("quete","QuÄ™tes");
       $this->AjouterMenu("guilde","Guildes");
       $this->AjouterMenu("guilde_recherche","Recherche Guilde");
       $this->AjouterMenu("diplomatie","Diplomatie");
@@ -47,13 +47,13 @@ class PageQuete extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - on récupère des infos de la session
+      // - on rÃ©cupÃ¨re des infos de la session
       $account_id = $_SESSION['account_id'];
 
-      // - on récupère les infos de l'url
+      // - on rÃ©cupÃ¨re les infos de l'url
       $type = "";
       if ( ! isset( $_GET['type'] ) )
       {
@@ -72,7 +72,7 @@ class PageQuete extends Page
       $_SESSION['quete_recompense']    = array();
       $_SESSION['quete_is_read']       = array();
 
-      // - On récupère les données
+      // - On rÃ©cupÃ¨re les donnÃ©es
       $sql  = "SELECT quete_id, is_read, titre, coord_x, coord_y, recompense FROM \"libertribes\".\"QUETE\" WHERE account_id = $account_id and type = '$type'";
       $result = parent::Requete( $sql );
       if ($result)
@@ -129,7 +129,7 @@ class PageQuete extends Page
 
       parent::Afficher();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
 
     }// - Fin de la fonction Afficher
 

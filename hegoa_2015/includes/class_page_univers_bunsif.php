@@ -16,9 +16,8 @@ class PageUniversBunsif extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "univers_bunsif");
+      parent::SetNomPage( "univers_bunsif","Univers - les bunsifs");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_univers_bunsif.css");
@@ -27,8 +26,7 @@ class PageUniversBunsif extends Page
       $this->AjouterContenu("contenu", "contenus/page_univers_bunsif.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page

@@ -18,7 +18,7 @@ class PageCompte extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "compte");
+      parent::SetNomPage( "compte", "Mon Profil");
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
@@ -29,15 +29,13 @@ class PageCompte extends Page
       $this->AjouterContenu("contenu", "contenus/page_compte.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("accueil","Accueil");
-      //$this->AjouterMenu("avatar","Avatar");
-      //$this->AjouterMenu("messagerie","Messagerie (test)");
+
     }
 
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
       $account_id           = $_SESSION['account_id'];
@@ -52,7 +50,7 @@ class PageCompte extends Page
       $account_pays         = "";
       $account_presentation = "";
 
-      // - On insère les données
+      // - On insÃ¨re les donnÃ©es
       $sql  = "SELECT lastname, firstname, email, password, date_anniv, ville, pays, presentation FROM \"libertribes\".\"ACCOUNT\" WHERE account_id = $account_id";
       $result = parent::Requete( $sql );
       if ($result)

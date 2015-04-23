@@ -16,9 +16,8 @@ class PageUniversHumain extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "univers_humain");
+      parent::SetNomPage( "univers_humain","Univers - les humains");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_univers_humain.css");
@@ -27,8 +26,7 @@ class PageUniversHumain extends Page
       $this->AjouterContenu("contenu", "contenus/page_univers_humain.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+
     }
 
     // - Affichage de la page

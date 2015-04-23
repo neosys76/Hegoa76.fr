@@ -1,12 +1,12 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteurs : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
 error_reporting(E_ALL);
 
-require "class_page.php";                                              // - On inclut la class Page
+require "class_page.php";                                              // - On inclut la class Page, classe de base
 
 class PageAccueil extends Page
 {
@@ -16,9 +16,8 @@ class PageAccueil extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "accueil");
+      parent::SetNomPage( "accueil","Accueil");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_accueil.css");
@@ -27,8 +26,7 @@ class PageAccueil extends Page
       $this->AjouterContenu("contenu", "contenus/page_accueil.php");
 
       // - on ajoute les menus utiles
-      //$this->AjouterMenu("inscription","Inscription");
-      //$this->AjouterMenu("connexion","Connexion");
+      //  		 Pas de menu
     }
 
     // - Affichage de la page

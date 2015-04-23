@@ -17,7 +17,7 @@ class PageCompteSuppressionValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "compte_suppression_validation" );
+      parent::SetNomPage( "compte_suppression_validation","Suppression de compte" );
 
       // - on ajoute les menus utiles
     }
@@ -25,14 +25,13 @@ class PageCompteSuppressionValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
       $account_id           = $_SESSION['account_id'];
 
       // - On supprime le compte
-      // - On insère les données
       $sql  = "DELETE FROM \"libertribes\".\"ACCOUNT\"  WHERE account_id = $account_id";
 
       $result = parent::Requete( $sql );

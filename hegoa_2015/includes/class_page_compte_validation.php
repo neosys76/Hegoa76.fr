@@ -16,7 +16,7 @@ class PageCompteValidation extends Page
       parent::__construct();
 
       // - on renseigne qq infos du parent
-      parent::SetNomPage( "compte_validation" );
+      parent::SetNomPage( "compte_validation","Validation du compte" );
 
       // - on ajoute les menus utiles
 
@@ -25,10 +25,10 @@ class PageCompteValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connescte à la base de données
+      // - On se connecte Ã  la base de donnÃ©es
       parent::ConnecterBD();
 
-      // - gestion spécifique de la page
+      // - gestion spÃ©cifique de la page
       $account_id           = $_SESSION['account_id'];
       $account_lastname     = $_POST['account_lastname'];
       $account_firstname    = $_POST['account_firstname'];
@@ -53,7 +53,7 @@ class PageCompteValidation extends Page
       $_SESSION['account_pays']           = $account_pays;
       $_SESSION['account_presentation']   = $account_presentation;
 
-      // - Controle des données
+      // - Controle des donnÃ©es
       if (
           ( strlen($account_jour) != 0 && strlen($account_jour) != 2) ||
           ( strlen($account_mois) != 0 && strlen($account_mois) != 2) ||
@@ -64,14 +64,14 @@ class PageCompteValidation extends Page
         exit;
       }
 
-      // - Préparation de la date
+      // - PrÃ©paration de la date
       $account_anniv = "";
       if ( strlen($account_jour) == 2 && strlen($account_mois) == 2 && strlen($account_annee) == 4 )
       {
         $account_anniv = "$account_annee-$account_mois-$account_jour";
       }
 
-      // - On insère les données
+      // - On insÃ¨re les donnÃ©es
       $sql  = "UPDATE  \"libertribes\".\"ACCOUNT\"  ";
       $sql .= " SET lastname = '$account_lastname', firstname = '$account_firstname', email = '$account_mail', password = '$account_password'";
       if ( strlen($account_anniv) == 10 )

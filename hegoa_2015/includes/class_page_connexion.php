@@ -22,7 +22,7 @@ class PageConnexion extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "connexion","Connexion" );
       parent::SetAffichageHeader( -1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_connexion.css");

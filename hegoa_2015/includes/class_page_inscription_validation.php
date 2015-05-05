@@ -20,7 +20,7 @@ class PageInscriptionValidation extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "inscription_validation","Inscription" );
       parent::SetAffichageHeader( -1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
       $this->message="";
       $this->AjouterCSS("page_inscription_validation.css");

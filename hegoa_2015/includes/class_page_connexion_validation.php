@@ -18,6 +18,9 @@ class PageConnexionValidation extends Page
 
       // - on renseigne qq infos du parent
       parent::SetNomPage( "connexion_validation","Connexion" );
+      parent::SetAffichageHeader( -1 );
+      parent::SetAffichageMenu( 0 );
+      parent::SetAffichageFooter( 0 );      
 
       	if((isset($_POST['_token'])&&!empty($_POST['_token']))&&(isset($_SESSION['connexion_token'])&&!empty($_SESSION['connexion_token']))&&$_POST['_token']==$_SESSION['connexion_token']){
 			$this->token="OK";		

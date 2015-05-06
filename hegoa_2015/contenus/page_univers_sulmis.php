@@ -34,6 +34,6 @@ De par leur histoire, les Sulmis &eacute;x&egrave;crent la violence bien qu'ils 
 
 C'est un peuple qui voue sa vie &agrave; la connaissance : f&eacute;ru d'histoire, de philosophie et de politique, leur organisation en caste d&eacute;veloppe et enrichie les talents de chacun.
 
-Les Sulmis terminent leur vie par la r&eacute;dactions d'ouvrages qui rel&acirc;tent leurs v&eacute;cus et leurs exp&eacute;riences. Attach&eacute; &agrave; la spiritualit&eacute;, ils croient en Molsrreft, "celui qui est, celui qui offre"ù.
+Les Sulmis terminent leur vie par la r&eacute;dactions d'ouvrages qui rel&acirc;tent leurs v&eacute;cus et leurs exp&eacute;riences. Attach&eacute; &agrave; la spiritualit&eacute;, ils croient en Molsrreft, "celui qui est, celui qui offre".
 
 </p>

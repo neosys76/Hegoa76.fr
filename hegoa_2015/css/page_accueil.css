@@ -1,8 +1,4 @@
-  /*/////////////////////////////////
-//    Auteur : Chris Fromont Test	//
-////////////////////////////////*/
-  
-  .lien_facebook {
+	.lien_facebook {
    		position: relative;
     	left: 418px;
     	top: 38px;
@@ -81,20 +77,20 @@
 	p.presentation {
 		text-align:center;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 32px;
+		font-family: 'Kleymissky';
+		font-size: 28px;
 		color: #330000;
-		margin: 196px 0 0 0;
+		margin: 180px 0 0 0;
 	}
 
 	p > a {
 		display:block;
 		text-align:center;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 32px;
+		font-family: 'Kleymissky';
+		font-size: 28px;
 		color: #330000;
-		margin: -176px 0 0px 0px;
+		margin: -146px 0 0px 0px;
 		text-decoration: none;
 	}
 	
@@ -106,10 +102,10 @@
 		display:block;
 		text-align:center;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 32px;
+		font-family: 'Kleymissky';
+		font-size: 28px;
 		color: #330000;
-		margin: -124px 0 0 0;
+		margin: -120px 0 0 0;
 		text-decoration: none;
 	}
 	

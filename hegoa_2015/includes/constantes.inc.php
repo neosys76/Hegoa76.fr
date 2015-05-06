@@ -8,8 +8,8 @@ if ( ! defined ("CONSTANTES.INC") )
 {
 	// - Déclaration de la constante 
 	define ("CONSTANTES.INC", "1");
-
-
+	
+	
 	// - Pour la base de données
 
 	define("HOSTNAME",  "localhost"); // - ou localhost

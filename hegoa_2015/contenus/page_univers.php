@@ -37,6 +37,7 @@ Te voici sur le point de franchir le seuil qui m&egrave;ne vers les terres d'H&e
 Comment ? Tu ne sais pas qui je suis ? Mais je suis un D'jun bien s&ucirc;r, tout comme toi !
 Tu vas me dire que tu ignores ce qu'est un D'jun...
 Bien. Si je dois t'initier aux secrets d'H&eacute;goa, autant commencer par le commencement, ou presque... "
+<br />
 1 / 3 <a href="./index.php?page=univers_2"> Suivant &gt;</a>
 </p>
 

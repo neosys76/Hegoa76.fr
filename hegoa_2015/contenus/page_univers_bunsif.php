@@ -36,7 +36,7 @@ Leur coeur est anim&eacute; par une r&eacute;action nucl&eacute;aire, celle ci c
 
 Bien qu'il ma&icirc;trisent tous les langages, les Bunsifs pr&eacute;f&egrave;rent vivre entre eux.
 
-Malgr&eacute; tout, b&acirc;tisseurs dans l'&acirc;me ils aiment participer à la r&eacute;alisation de grands &eacute;difices.
+Malgr&eacute; tout, b&acirc;tisseurs dans l'&acirc;me ils aiment participer &agrave; la r&eacute;alisation de grands &eacute;difices.
 
 Fin strat&egrave;ge militaire, cette qualit&eacute; compense une certaine sensibilit&eacute; &agrave; la magie
 

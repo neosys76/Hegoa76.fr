@@ -90,21 +90,21 @@
 	}
 
 	.titre {
-		font-size: 28px;
+		font-size: 26px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'Kleymissky';
 		color: #330000;
 		text-align: center;
-		line-height: 60px;
+		line-height: 50px;
 	}
 
 	.description {
-		font-size: 28px;
+		font-size: 26px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'Kleymissky';
 		color: #330000;
 		text-align: center;
-		line-height: 42px;
+		line-height: 36px;
 		margin: 0 0 0 16px;
 		width: 970px;
 	}

@@ -85,17 +85,17 @@
 	
 	.actualite {
 		text-decoration: none;
-		font-size: 28px;
+		font-size: 26px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'Kleymissky';
 		color: #330000;
-		margin: 40px 0 0 60px;
-		line-height: 30px;
+		margin: 40px 0 0 40px;
+		line-height: 36px;
 	}
 	
 	.actualite_date {
 		float: left;
-		padding: 0 20px 0 0;
+		font-size: 22px;
 	}
 	
 	.actualite_libelle {

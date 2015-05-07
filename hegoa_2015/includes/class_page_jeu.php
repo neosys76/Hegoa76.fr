@@ -21,7 +21,7 @@ class PageJeu extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "jeu","Le jeu - Accueil");
       parent::SetAffichageHeader( 1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_jeu.css");

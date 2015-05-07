@@ -99,6 +99,11 @@ error_reporting(E_ALL);
           $pageObject = new PageInscriptionValidation();
           break;
 
+        case "inscription_confirmation":
+          require "class_page_inscription_confirmation.php";                      // - On inclut la class PageInscriptionConfirmation
+          $pageObject = new PageInscriptionConfirmation();
+          break;
+
         case "newsletter":
           require "class_page_newsletter.php";                                  // - On inclut la class PageNewsletter
           $pageObject = new PageNewsletter();

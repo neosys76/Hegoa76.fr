@@ -19,6 +19,12 @@ elseif(isset($_GET['erreur'])&&$_GET['erreur']=='10'){
 <p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;">Soit le compte est en attente de validation, soit le compte n'existe pas et il faut alors vous inscrire, soit les données introduites sont incorrectes et il faut réessayez.</p>
 <?php
 }
+elseif(isset($message)&&!empty($message)){
+?>
+<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;"><?php echo $message; ?></p>
+<?php
+}
+else {
 ?>
 <form name="form_connexion" action="index.php?page=connexion_validation" method="post">
 <?php
@@ -38,5 +44,6 @@ else {$token = "NA";}
 
 <input class="bouton_valider"  type="image" src="images/connexion/valider.png" alt="Valider" />
 </form>
-
-
+<?php
+}
+?>

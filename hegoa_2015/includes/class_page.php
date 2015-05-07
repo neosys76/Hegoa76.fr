@@ -28,7 +28,7 @@ class Page
     {
       $this->strFonctionBodyOnLoad = "";
       $this->bAfficherHeader  = 1;
-      $this->bAfficherMenu    = 1;
+      $this->bAfficherMenu    = 0;
       $this->bAfficherFooter  = 1;
 
       session_start();

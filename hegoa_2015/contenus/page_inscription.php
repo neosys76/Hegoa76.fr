@@ -9,6 +9,12 @@ if(isset($_GET['erreur'])&&$_GET['erreur']=='1'){
 <p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;">Cette adresse email existe déjà. Seriez-vous déjà inscrit?</p>
 <?php
 }
+elseif(isset($message)&&!empty($message)){
+?>
+<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;"><?php echo $message; ?></p>
+<?php
+}
+else {
 ?>
 <form name="form_inscription" action="index.php?page=inscription_validation" method="post">
 <?php
@@ -29,3 +35,6 @@ else {$token = "NA";}
 <input class="bouton_valider"  type="image" src="images/inscription/valider.png" alt="Valider" />
 
 </form>
+<?php
+}
+?>

@@ -38,6 +38,9 @@ class PageInscriptionValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
+    /* 
+      *  traitement du formulaire d'inscription
+    */
     	if($this->token=="OK"){
       // - On se connecte à la base de données
       parent::ConnecterBD();
@@ -66,13 +69,41 @@ class PageInscriptionValidation extends Page
         header('Location: index.php?page=inscription&erreur=1');
         exit;
       }
-
+		/*
+		*  fin de traitement du formulaire d'inscription
+		*/
+		
       // - On insère les données
       $sql  = "INSERT INTO \"libertribes\".\"ACCOUNT\" ( email, password, confirmation, status )";
       $sql .= " values ('$courriel','$password', FALSE, 'offline')";
-      if(!parent::Requete( $sql )){$this->message .= "Erreur: L'enregistrement en base de données n'a pas pu avoir lieu.";}
-      // - On envoi un email
-
+      if(!parent::Requete( $sql )){
+      		$this->message .= "Erreur: L'enregistrement en base de données n'a pas pu avoir lieu.";
+			header('Location: index.php?page=inscription');
+			exit;
+      		}
+      
+		else {
+		// - On envoi un email  pour la confirmation
+		include "constantes.inc.php";
+		$admin_email = ADMIN_EMAIL;
+		$sujet = "Confirmation de votre inscription sur hegoa.eu";
+		$cle = substr($password,5,8);
+		$message = "Cher ami d'Hégoa,\nVous êtes bientôt inscrit dans la liste des joueurs et nous en sommes très heureux.\nIl ne vous reste plus qu'à confirmer votre inscription en introduisant l'adresse suivante dans votre barre de navigateur.\n";
+		$message .= "http://hegoa.eu/index.php?page=inscription_confirmation&email=".."&cle=".$cle."\nLorsque l'opération sera terminée, vous pourrez nous rejoindre dans la plateforme du jeu.\n\nA très bientôt.\n\nHEGOA\n\n";
+		$headers = "From: ".$admin_email;
+		//if(mail($courriel,$sujet,$message,$headers)){
+		if(true){
+      		$this->message .= "Un mail de confirmation vous a été envoyé avec une adresse URL pour finaliser votre inscription. ";
+			header('Location: index.php?page=inscription_validation');
+			exit;			
+		}
+		else {
+      		$this->message .= "Problème de mailer: le mail de confirmation n'a pas pu vous être envoyé.";
+			header('Location: index.php?page=inscription');
+			exit;		
+		}
+		
+		}
 		}
 		else {$this->message = "Pas de connexion possible - mauvais token";}
       // - Gestion de l'affichage

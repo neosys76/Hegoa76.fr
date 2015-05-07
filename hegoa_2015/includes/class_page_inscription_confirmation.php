@@ -42,8 +42,10 @@ class PageInscriptionConfirmation extends Page
       parent::ConnecterBD();
 		 include "constantes.inc.php";
       // les valeurs transmises dans l'URL pour la confirmation
-      $courriel = $_GET["email"];
-      $cle = $_GET["cle"];
+      $courriel = "";
+      $cle= ="";
+      if(isset($_GET["email"])){$courriel = $_GET["email"];}
+      if(isset($_GET["cle"])){$cle = $_GET["cle"];}
 
       // - Verifier l'URL transmis
       $cleok = false;

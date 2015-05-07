@@ -36,7 +36,7 @@ class PageInscription extends Page
     // - Affichage de la page
     public function Afficher()
     {
-		if($_GET['erreur']==1){$this->message = "Le formulaire d'inscription est incorrect. Recommencez.";}
+		if(isset($_GET['erreur'])&&$_GET['erreur']==1){$this->message = "Le formulaire d'inscription est incorrect. Recommencez.";}
       parent::Afficher();
 
     }// - Fin de la fonction Afficher

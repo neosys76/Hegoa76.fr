@@ -1,4 +1,8 @@
- 	 .lien_facebook {
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+
+	.lien_facebook {
    		position: relative;
     	left: 418px;
     	top: 38px;
@@ -83,7 +87,7 @@
 
 
   	.titre {
-		font-size: 26px;
+		font-size: 32px;
 		font-weight: bold;
 		font-family: 'Kleymissky';
 		color: #330000;

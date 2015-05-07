@@ -1,3 +1,7 @@
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+
 	.lien_facebook {
    		position: relative;
     	left: 418px;
@@ -32,14 +36,14 @@
 		font-family: 'Kleymissky';
 		color: #330000;
 		text-align: center;
-		line-height:90px;
+		line-height:98px;
 		
 	}
 
 	.image_fermer {
 		float:right;
-		margin: -62px 7px 0 0;
-		
+		margin-top: -66px;
+		margin-right: 10px;
 	}
 
 	.account_mail_label {

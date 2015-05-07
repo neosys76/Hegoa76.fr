@@ -31,26 +31,27 @@
 	}
 
 	.titre {
-		font-size: 32px;
+		font-size: 30px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'Kleymissky';
 		color: #330000;
 		text-align: center;
-		line-height:90px;
+		line-height:98px;
 		
 	}
 
 	.image_fermer {
 		float: right;
-		margin: -62px 7px 0 0;
+		margin-top: -66px;
+		margin-right: 10px;
 	}
 
 	.account_mail_label {
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
+		font-family: 'Kleymissky';
+		font-size: 26px;
 		color: #330000;
-		margin: 86px 0 0 103px;	
+		margin: 90px 0 0 105px;	
 	}
 
 	.account_mail {
@@ -61,10 +62,10 @@
 
 	.account_password_label {
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
+		font-family: 'Kleymissky';
+		font-size: 26px;
 		color: #330000;
-		margin: 16px 0 0 55px;
+		margin: 16px 0 0 34px;
 	}
 
 	.account_password {
@@ -76,8 +77,8 @@
 
 	.lien_inscription {
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
+		font-family: 'Kleymissky';
+		font-size: 24px;
 		color: #330000;
 		display:block;
 		text-align:center;
@@ -89,7 +90,7 @@
 		height: 38px;
 		width: 89px;
 		display: block; 
-		margin: 72px auto; 
+		margin: 80px auto; 
 	}
 
 

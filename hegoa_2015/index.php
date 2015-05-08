@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 include "includes/function_GetPageObject.php";                                  // - On inclut la function GetPageObject
 
-// - on récupère le nom de la page
+// - on rÃ©cupÃ¨re le nom de la page
 $strNomPage = "";
 if ( ! isset($_GET['page']) )
 {
@@ -18,8 +18,8 @@ else
 {
   $strNomPage = $_GET['page'];
 }
-
-// - Gestion de la page à afficher
+// - Gestion de la page Ã  afficher
 $pageCurrent = GetPageObject($strNomPage);
+
 $pageCurrent->Afficher();
 ?>

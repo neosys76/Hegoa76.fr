@@ -16,13 +16,14 @@ if(empty($message)){
 	Merci de confirmer avant d'incarner un D'jun,<br />
 	l'esprit protecteur de votre future tribu.<br />
 	</p>
-	<a class="lien_fermer" href="index.php?page=accueil">
+	<a class="lien_fermer" href="index.php?page=connexion">
 	<img class="image_valider" name="image_valider" src="images/inscription_validation/valider.png" >
 </a>
 <?php
 }
 else {
 	?>
+
 	<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;"><?php echo $message; ?></p>
 <?php
 }

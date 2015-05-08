@@ -9,7 +9,7 @@ error_reporting(E_ALL);
     function GetPageObject($strNomPagePar)
     {
       $pageObject;
-
+      
       switch ($strNomPagePar)
       {
         case "accueil":
@@ -98,7 +98,7 @@ error_reporting(E_ALL);
           require "class_page_inscription_validation.php";                      // - On inclut la class PageInscriptionValidation
           $pageObject = new PageInscriptionValidation();
           break;
-
+          
         case "inscription_confirmation":
           require "class_page_inscription_confirmation.php";                      // - On inclut la class PageInscriptionConfirmation
           $pageObject = new PageInscriptionConfirmation();
@@ -248,7 +248,6 @@ error_reporting(E_ALL);
           break;
 
       }// - Fin du switch
-
       return $pageObject;
 
     }// - Fin de la fonction GetPageObject

@@ -40,6 +40,14 @@ class PageConnexion extends Page
       // - On initialise la session
       unset($_SESSION['account_id']);
       unset($_SESSION['account_mail']);
+      $notice="";
+      	if(isset($_GET["notice"])){$notice = $_GET['notice'];}
+		switch ($notice)
+     		 {
+				case "1":
+					$this->message = "Votre inscription a été confirmée et vous pouvez vous connecter dès à présent.<br/><br/><a href='?page=connexion'>Connexion</a>";
+					break;
+			}
 
       parent::Afficher();
 

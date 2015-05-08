@@ -55,6 +55,8 @@ class PageActualitePeople extends Page
 
         $_SESSION['actualite_compteur'] = $iCpt;
       }
+      
+       else {$this->message = "Problème d'accès à la table ACTUALITE";}
 
       parent::Afficher();
     }// - Fin de la fonction Afficher

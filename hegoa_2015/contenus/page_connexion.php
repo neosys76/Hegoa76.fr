@@ -6,22 +6,22 @@
 <?php
 if(isset($_GET['erreur'])&&$_GET['erreur']=='1'){
 ?>
-<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;">Le formulaire n'est pas complet. Réessayez.</p>
+<p style="padding-left:2em;font-size:2.5em;color:#d30;margin:0;">Le formulaire n'est pas complet. Réessayez.</p>
 <?php
 }
 elseif(isset($_GET['erreur'])&&$_GET['erreur']=='2'){
 ?>
-<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;">Le token de sécurité est incorrect. Réessayez.</p>
+<p style="padding-left:2em;font-size:2.5em;color:#d30;margin:0;">Le token de sécurité est incorrect. Réessayez.</p>
 <?php
 }
 elseif(isset($_GET['erreur'])&&$_GET['erreur']=='10'){
 ?>
-<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;">Soit le compte est en attente de validation, soit le compte n'existe pas et il faut alors vous inscrire, soit les données introduites sont incorrectes et il faut réessayez.</p>
+<p style="padding-left:2em;font-size:2.5em;color:#d30;margin:0;">Soit le compte est en attente de validation, soit le compte n'existe pas et il faut alors vous inscrire, soit les données introduites sont incorrectes et il faut réessayez.</p>
 <?php
 }
 elseif(isset($message)&&!empty($message)){
 ?>
-<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;"><?php echo $message; ?></p>
+<p style="padding-left:2em;font-size:2.5em;color:#d30;margin:0;"><?php echo $message; ?></p>
 <?php
 }
 else {

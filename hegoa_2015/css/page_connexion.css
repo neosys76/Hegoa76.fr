@@ -41,6 +41,8 @@
 	}
 
 	.image_fermer {
+		height: 36px;
+		width: 37px;
 		float: right;
 		margin-top: -66px;
 		margin-right: 10px;

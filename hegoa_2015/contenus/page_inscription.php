@@ -6,12 +6,12 @@
 <?php
 if(isset($_GET['erreur'])&&$_GET['erreur']=='1'){
 ?>
-<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;">Cette adresse email existe déjà. Seriez-vous déjà inscrit?</p>
+<p style="text-align: center;font-family:Kleymissky;font-size:26px;color:#330000;margin:0;"><b>Cette adresse email existe déjà.</br> Seriez-vous déjà inscrit?</b></p>
 <?php
 }
 elseif(isset($message)&&!empty($message)){
 ?>
-<p style="padding-left:2em;font-family:hegoa_regular;font-size:2.5em;color:#d30;margin:0;"><?php echo $message; ?></p>
+<p style="text-align: center;font-family:Kleymissky;font-size:26px;color:#330000;margin:0;"><b><?php echo $message; ?></b></p>
 <?php
 }
 else {

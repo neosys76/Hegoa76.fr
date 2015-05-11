@@ -1,53 +1,64 @@
-  .lien_facebook {
-    	position: relative;
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+
+	.image_facebook {
+		height: 40px;
+		width: 40px;
+   		position: relative;
     	left: 418px;
-    	bottom: 22px;
+    	top: 38px;
+    	
   	}
 
   	.image_logo{
-   	 	position: relative;
-    	left: 471px;
-    	top: 16px;
+  		height: 100px;
+		width: 239px;
+  		display: block;
+  		margin: -32px auto;
   	}
 
-  	.lien_rss {
+  	.image_rss {
+  		height: 40px;
+		width: 40px;
     	position: relative;
-    	left: 533px;
-    	bottom: 22px;
+    	left: 820px;
+    	bottom: 42px;
   	}
 
 	#centre > #contenu {
-		position: relative;
-		top:  76px;
-    	left: 241px;
 		background-image: url(../images/tdb/background.png);
 		background-repeat: no-repeat;
 		height: 600px;
-		float: left;
-		width: 800px;
-    	margin: 0px auto;
+		width: 797px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
 	}
 
-	.lien_compte {
-		position: relative;
-		top: 6px;
-		left: 38px;
-	}
-
-	.image_fermer {
-		position:relative;
-		bottom:  20px;
-		left: 655px;
+	.image_compte {
+		height: 51px;
+		width: 70px;
+		float:left;
+		margin-top: -76px;
+		margin-left: 38px;
 	}
 
 	.titre {
-		position: relative;
-		left: 327px;
-		top: 38px;
-		font-size: 32px;
+		font-size: 30px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'Kleymissky';
 		color: #330000;
+		text-align: center;
+		line-height:116px;
+	}
+	
+	.image_fermer {
+		height: 36px;
+		width: 37px;
+		float:right;
+		margin-top: -87px;
+		margin-right: 32px;
 	}
 
 	.djun {
@@ -57,11 +68,13 @@
 		float: left;
 		height: 180px;
 		width: 180px;
-		top: 124px;
+		top: 96px;
 		left: 36px;
 	}
 
 	.image_choix_djun {
+		height: 100px;
+		width: 101px;
 		position: relative;
 		top: 40px;
 		left: 42px;

@@ -1,4 +1,8 @@
-    .lien_facebook {
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+	
+	.lien_facebook {
    		position: relative;
     	left: 418px;
     	top: 38px;
@@ -17,7 +21,7 @@
   	}
 
 	#centre > #contenu {
-		background-image: url(../images/newsletter_validation/background.png);
+		background-image: url(../images/inscription_validation/background.png);
 		background-repeat: no-repeat;
 		height: 463px;
 		width: 492px;
@@ -27,24 +31,27 @@
 	}
 
 	.titre {
-		font-size: 32px;
+		font-size: 30px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'Kleymissky';
 		color: #330000;
 		text-align: center;
-		line-height:90px;
+		line-height:98px;
 	}
 
 	.image_fermer {
-		float:left;
-		margin: -62px 0 0 448px;
+		height: 36px;
+		width: 37px;
+		float:right;
+		margin-top: -66px;
+		margin-right: 10px;
 	}
 
 
 	.texte {
+		font-size: 26px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
+		font-family: 'Kleymissky';
 		color: #330000;
 		text-align: center;
 	}
@@ -53,17 +60,5 @@
 		height: 38px;
 		width: 89px;
 		display: block; 
-		margin: 36px auto; 
+		margin: 63px auto; 
 	}
-
-
-
-
-
-
-
-
-
-
-
-

@@ -44,8 +44,11 @@ class PageChoixPeupleVoirValidation extends Page
       $_SESSION['avatar_name']    = "";
 
       // - redirection vers la page tdb
+      /*
       header('Location: index.php?page=tdb');
       exit();
+      */
+      var_dump($sql);
     }// - Fin de la fonction Afficher
 
 }// - Fin de la classe

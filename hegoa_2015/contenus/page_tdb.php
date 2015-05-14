@@ -16,12 +16,11 @@ $iNbDjun = $_SESSION['tdb_djun_compteur'];
 if ( $iNbDjun > 0 )
 {
   echo "<div class=\"liste_djun\">\n";
-}
 
 for($i = 0; $i < $iNbDjun; $i++)
 {
-  // - on récupère les infos
-  $djun_no   =  1;
+  // - on rÃ©cupÃ¨re les infos
+  $djun_no = $_SESSION['tdb_djun_image'][$i];
   $djun_name =  $_SESSION['tdb_djun_name'][$i];
   $djun_race =  $_SESSION['tdb_djun_race'][$i];
 
@@ -53,9 +52,8 @@ for($i = 0; $i < $iNbDjun; $i++)
   echo "</div>"; // fin div class djun
 }
 
-if ( $iNbDjun > 0 )
-{
   echo "</div>\n";
 }
+
 
 ?>

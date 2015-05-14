@@ -20,7 +20,7 @@ class PageTdb extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "tdb","Tableau de bord");
       parent::SetAffichageHeader( 1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_tdb.css");
@@ -41,7 +41,8 @@ class PageTdb extends Page
 
       // - On se connecte à la base de données
       parent::ConnecterBD();
-
+		include "constantes.inc.php";
+		$max_djuns_par_joueur = MAX_DJUNS;
       // - on récupère des infos de la session
       $account_id           = $_SESSION['account_id'];
 
@@ -49,25 +50,26 @@ class PageTdb extends Page
       $_SESSION['tdb_djun_race'] = array();
 
       // - On récupère les données des djuns
-      $sql  = "SELECT avatar_name, race_name FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id";
+      $sql  = "SELECT avatar_name, race_name, numero_image FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id";
       $result = parent::Requete( $sql );
-      if ($result)
+      if (isset($result)&&!empty($result))
       {
         $iCpt = 0;
         while ($row = pg_fetch_row($result) )
         {
-          // - on stocke les messages
+          // - on stocke les D'juns
           $_SESSION['tdb_djun_name'][$iCpt]    = $row[0];
           $_SESSION['tdb_djun_race'][$iCpt]    = $row[1];
+          $_SESSION['tdb_djun_image'][$iCpt]    = $row[2];
 
           $iCpt++;
         }
 
-        for( $i = $iCpt; $i < 4; $i++)
+        for( $i = $iCpt; $i < $max_djuns_par_joueur; $i++)
         {
           $_SESSION['tdb_djun_name'][$iCpt]    = "";
           $_SESSION['tdb_djun_race'][$iCpt]    = "";
-
+			$_SESSION['tdb_djun_image'][$iCpt]    = "";
           $iCpt++;
         }
 

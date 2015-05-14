@@ -20,7 +20,7 @@ class PageDjun extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "djun","Mon D'jun");
       parent::SetAffichageHeader( 1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_djun.css");
@@ -58,25 +58,28 @@ class PageDjun extends Page
       $_SESSION['djun_name'] = $avatar_name;
 
       // - On récupère les données
-      $sql  = "SELECT race_name, level, level_agressivite, level_efficacite, level_commerce, level_escroquerie, 0 as mana, 0 as cyniam, 0 as bois, 0 as metal FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id and avatar_name = '$avatar_name'";
+      $sql  = "SELECT * FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id and avatar_name = '$avatar_name'";
       $result = parent::Requete( $sql );
       if ($result)
       {
-        $row = pg_fetch_row($result);
+        //$row = pg_fetch_row($result);
+        $row = pg_fetch_array($result);
         if ($row)
         {
           // - on stocke le message
-          $_SESSION['djun_race']        = $row[0];
-          $_SESSION['djun_niveau']      = $row[1];
-          $_SESSION['djun_agressivite'] = $row[2];
-          $_SESSION['djun_efficacite']  = $row[3];
-          $_SESSION['djun_commerce']    = $row[4];
-          $_SESSION['djun_escroquerie'] = $row[5];
 
-          $_SESSION['djun_mana']        = $row[6];
-          $_SESSION['djun_cyniam']      = $row[7];
-          $_SESSION['djun_bois']        = $row[8];
-          $_SESSION['djun_metal']       = $row[9];
+          $_SESSION['djun_race']        = $row["race_name"];
+          $_SESSION['djun_niveau']      = $row["level"];
+          $_SESSION['djun_agressivite'] = $row["level_agressivite"];
+          $_SESSION['djun_efficacite']  = $row["level_efficacite"];
+          $_SESSION['djun_commerce']    = $row["level_commerce"];
+          $_SESSION['djun_escroquerie'] = $row["level_escroquerie"];
+          $_SESSION['djun_image'] = $row["numero_image"];
+				//   quid de mana, cyniam, bois, metal ??
+          $_SESSION['djun_mana']        = 0;
+          $_SESSION['djun_cyniam']      = 0;
+          $_SESSION['djun_bois']        = 0;
+          $_SESSION['djun_metal']       = 0;
          }
       }
 

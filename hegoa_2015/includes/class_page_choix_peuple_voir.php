@@ -20,7 +20,7 @@ class PageChoixPeupleVoir extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "choix_peuple_voir","Présentation des peuples");
       parent::SetAffichageHeader( 1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_choix_peuple_voir.css");

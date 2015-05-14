@@ -20,7 +20,7 @@ class PageChoixDjun extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "choix_djun","Choix du D'jun");
       parent::SetAffichageHeader( 1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_choix_djun.css");
@@ -37,18 +37,16 @@ class PageChoixDjun extends Page
     {
       // - On se connecte à la base de données
       parent::ConnecterBD();
-
+      if(!isset($_SESSION['avatar_djun_id_max'])||empty($_SESSION['avatar_djun_id_max'])){
+      		include "constantes.inc.php";
+      		$_SESSION['avatar_djun_id_max'] = MAX_DJUNS;
+      	}
+		
       $account_id           = $_SESSION['account_id'];
 
       $avatar_name          = "";
       $avatar_image         = "";
 
-      if( empty($_SESSION['avatar_djun_id']) )
-      {
-        $_SESSION['avatar_djun_id']     = 1;
-        $_SESSION['avatar_djun_id_max'] = 2;
-        $_SESSION['avatar_image']       = "images/djuns/djun1.png";
-      }
 
       parent::Afficher();
 

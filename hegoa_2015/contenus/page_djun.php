@@ -5,7 +5,7 @@
 </a>
 
 <div class="djun">
- <img class="image_djun" name="image_djun" src="images/djuns/djun1.png" >
+ <img class="image_djun" name="image_djun" src="images/djuns/djun<?php echo $_SESSION['djun_image']; ?>.png" >
 </div>
 
 <div class="djun_name" ><?=$_SESSION['djun_name']?></div>

@@ -20,7 +20,7 @@ class PageChoixPeuple extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "choix_peuple","Choix du peuple");
       parent::SetAffichageHeader( 1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_choix_peuple.css");
@@ -35,11 +35,6 @@ class PageChoixPeuple extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On récupère l'info de l'avatar_name
-      if( ! empty($_GET['avatar']) )
-      {
-        $_SESSION['avatar_name'] = $_GET['avatar'];
-      }
 
       parent::Afficher();
 

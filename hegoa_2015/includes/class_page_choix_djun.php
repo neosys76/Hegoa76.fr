@@ -37,7 +37,21 @@ class PageChoixDjun extends Page
     {
       // - On se connecte à la base de données
       parent::ConnecterBD();
-      if(!isset($_SESSION['avatar_djun_id_max'])||empty($_SESSION['avatar_djun_id_max'])){
+      
+      //   on détermine le nombre d'images associées aux D'juns 
+      	if(!isset($_SESSION['avatar_djun_images'])||empty($_SESSION['avatar_djun_images'])){
+      		$dir_images = getcwd()."/images/djuns/";
+      		$handle = opendir($dir_images);
+      		$nombre_images=0;
+      		$pattern = "/^djun[0-9]{1,3}.png$/";
+      		while($file=readdir($handle)){
+      			if($file!="."&&$file!=".."&&!is_dir($dir_images.$file)&&preg_match($pattern,$file)>0){$nombre_images++;}
+      		}
+      		$_SESSION['avatar_djun_images'] = $nombre_images;
+      	}
+      	
+      	//  On détermine le nombre maximum de D'juns par joueur
+      	if(!isset($_SESSION['avatar_djun_id_max'])||empty($_SESSION['avatar_djun_id_max'])){
       		include "constantes.inc.php";
       		$_SESSION['avatar_djun_id_max'] = MAX_DJUNS;
       	}

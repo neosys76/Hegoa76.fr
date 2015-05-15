@@ -1,3 +1,7 @@
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" >
+var left=0;
+</script>
 <?php      
        //   retour d'erreurs
        //   erreur = 1 => le nome de l'avatar existe déjà 
@@ -15,7 +19,7 @@
 <div class="titre">Incarner un D'jun</div> 
 
 <a class="lien_fermer" href="index.php?page=tdb">
-<img class="image_fermer" name="image_fermer" src="images/choix_djun/fermer.png" >
+<img class="image_fermer" src="images/choix_djun/fermer.png" >
 </a>
 <?php
 if(!isset($message)||empty($message)){
@@ -29,13 +33,21 @@ if(!isset($message)||empty($message)){
 </div>
 
 <div class="contenu_avatar_navigation">
+
+<img class="image_prev" src="images/choix_djun/prev.png" onclick="if(left>-1140){left -= 190};$('#bandeau').css('left',left);">
+<div class="fenetre_bandeau" >
+<div id="bandeau">
 <?php
-	for($i=1;$i<=$_SESSION['avatar_djun_id_max'];$i++){
+	for($i=1;$i<=$_SESSION['avatar_djun_images'];$i++){
 ?>
-  <div class="contenu_avatar_image">
+  <div class="contenu_avatar_image" >
     <input type="image" src="images/djuns/djun<?php echo $i; ?>.png" alt="Image de D'jun no <?php echo $i; ?>" name="djun<?php echo $i; ?>" />
   </div>
   <?php } ?>
+  </div>
+    </div>
+ <img class="image_next" src="images/choix_djun/next.png" onclick="if(left<0){left += 190};$('#bandeau').css('left',left);">
+
 </div> <!-- contenu_avatar_navigation -->
 
 
@@ -44,7 +56,7 @@ if(!isset($message)||empty($message)){
 }
 else {
 ?>
-<p class="erreur_djun"><?php echo $message; ?></p>
+<p class="erreur_djun" ><?php echo $message; ?></p>
 <a class="lien_valider" href="index.php?page=<?php echo $gotopage; ?>">
 <img class="image_valider"  src="images/choix_djun/valider.png" >
 </a>

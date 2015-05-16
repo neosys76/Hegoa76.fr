@@ -29,13 +29,11 @@ class PageChoixDjunValidation extends Page
       // - On se connecte à la base de données
       parent::ConnecterBD();
 
-      		
       // - gestion spécifique de la page
       $account_id           = $_SESSION['account_id'];
       $avatar_name          = $_POST['avatar_name'];
       for($i=1;$i<=$_SESSION['avatar_djun_id_max'];$i++){
       		$nom_post = "djun".$i."_x";
-      		
       		if(isset($_POST[$nom_post])){$avatar_djun_id = $i;break;}
    		}
 
@@ -49,7 +47,8 @@ class PageChoixDjunValidation extends Page
         }
 
         // - On insère les données AVEC contrôle du nombre total possible
-        if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE account_id = '".$account_id."'") >= 4 )
+        include "constantes.inc.php";
+        if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE account_id = '".$account_id."'") >= MAX_DJUNS )
         {
           header('Location: index.php?page=choix_djun&erreur=2');
           exit();
@@ -58,11 +57,10 @@ class PageChoixDjunValidation extends Page
         $sql .= " values ('$avatar_name','$account_id','$avatar_djun_id')";
 
         parent::Requete( $sql );
-
+        
         // - redirection vers la page choix du peuple
         header('Location: index.php?page=choix_peuple');
         exit();
-
     }// - Fin de la fonction Afficher
 
 }// - Fin de la classe

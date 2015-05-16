@@ -1,6 +1,6 @@
 <div class="titre">Lancement du jeu</div>
 
-<a class="lien_fermer" href="index.php?page=tdb">
+<a class="lien_fermer" href="index.php?page=tdb" title="Retour au TDB" >
 <img class="image_fermer" name="image_fermer" src="images/djun/fermer.png" >
 </a>
 

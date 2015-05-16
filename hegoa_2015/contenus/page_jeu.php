@@ -2,7 +2,7 @@
 
  <div class="cadre_djun">
   <a class="lien_djun" href="index.php?page=djun&avatar=<?=$_SESSION['djun_name']?>">
-    <img class="image_djun"   name="image_djun"  height="50" width="50" src="images/djuns/djun1.png" >
+    <img class="image_djun"   name="image_djun"  height="50" width="50" src="images/djuns/djun<?php echo $_SESSION['djun_image']; ?>.png" >
   </a>
  </div>
 

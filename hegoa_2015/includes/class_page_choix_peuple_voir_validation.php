@@ -39,16 +39,17 @@ class PageChoixPeupleVoirValidation extends Page
       $sql  = "UPDATE \"libertribes\".\"AVATAR\" set race_name = '$choix_peuple' ";
       $sql .= "WHERE account_id = '$account_id' and avatar_name = '$avatar_name'";
 
-      parent::Requete( $sql );
-
-      $_SESSION['avatar_name']    = "";
-
-      // - redirection vers la page tdb
-      /*
-      header('Location: index.php?page=tdb');
-      exit();
-      */
-      var_dump($sql);
+      if(parent::Requete( $sql )){
+      		$_SESSION['avatar_name']    = "";
+      		// - redirection vers la page tdb
+      		header('Location: index.php?page=tdb');
+      		exit();
+      }
+      else {
+       	// - redirection vers la page tdb avec un message d'erreur
+ 	     header('Location: index.php?page=tdb&erreur=1');
+ 	     exit();     	
+      	}
     }// - Fin de la fonction Afficher
 
 }// - Fin de la classe

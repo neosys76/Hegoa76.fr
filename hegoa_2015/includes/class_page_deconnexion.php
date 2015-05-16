@@ -15,21 +15,15 @@ class PageDeconnexion extends Page
       // - on appele le constructeur du parent
       parent::__construct();
 
-      // - on renseigne qq infos du parent
-      parent::SetNomPage( "deconnexion","Déconnexion" );
-
-      $this->AjouterCSS("page_deconnexion.css");
-
-      // - on ajoute les menus utiles
-      $this->AjouterMenu("accueil","Accueil");
     }
 
     // - Affichage de la page
     public function Afficher()
     {
-      parent::Afficher();
-
-      // - gestion spécifique de la page
+    		session_unset();
+       // - redirection vers la page d'accueil
+ 	   header('Location: index.php?page=accueil');
+ 	   exit();   
 
     }// - Fin de la fonction Afficher
 

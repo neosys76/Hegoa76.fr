@@ -1,3 +1,10 @@
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+
+
+/*LES POLICES*/
+
 	@font-face {
     font-family: 'hegoa_regular';
     src: url('../font/tangerine_regular-webfont.eot');
@@ -15,36 +22,9 @@
     font-weight: normal;
     font-style: normal;
   }
+  
 
-  html, body
-	{
-		height: 100%;
-	}
-
-	body
-	{
-		margin: 0px;
-		padding: 0px;
-		background: #FFFFFF;
-		font-family: "trebuchet MS";
-		font-size: 12px;
-		font-weight: 400;
-		background-color: black;
-	}
-
-	img
-	{
-		border:0px;
-	}
-
-	#page
-	{
-		background-image: url(../images/accueil_background.jpg);
-    	background-repeat: no-repeat;
-    	margin: 0px auto;
-		height: 1124px;
-		width: 1280px;
-	}
+/*HEADER*/
 
 	#page > #header {
     	margin: 0px auto;
@@ -58,12 +38,65 @@
 		width: 1280px;
 	}
 
-  #page > #centre {
+	.lien_facebook {
+   		position: relative;
+    	left: 418px;
+    	top: 38px;
+  	}
+
+  	.image_logo{
+  		display: block;
+  		margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+  	
+  	
+/*BODY*/
+
+  	html, body
+	{
+		height: 100%;
+	}
+
+	body
+	{
+		margin: 0px;
+		padding: 0px;
+		background: #FFFFFF;
+		font-family: Kleymissky,"trebuchet MS";
+		font-size: 12px;
+		font-weight: 400;
+		background-color: black;
+	}
+
+	img
+	{
+		border:0px;
+	}
+
+	#page
+	{
+		background-image: url(../images/accueil_background.jpg);		/*Image du fond*/
+    	background-repeat: no-repeat;
+    	margin: 0px auto;
+		height: 1124px;
+		width: 1280px;
+	}
+
+  	#page > #centre {
     	margin: 0px auto;
 		height: 1024px;
 		width: 1280px;
     	border: 2px;
 	}
+	
+	
+/*FOOTER*/
 
 	#page > #footer {
 		background: #FF0000;

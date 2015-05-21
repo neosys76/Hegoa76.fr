@@ -1,20 +1,6 @@
-.lien_facebook {
-   		position: relative;
-    	left: 418px;
-    	top: 38px;
-
-  	}
-
-  	.image_logo{
-  		display: block;
-  		margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
 
   	#centre > #contenu {
 		background-image: url(../images/menu_background_ouvert.png);
@@ -92,7 +78,7 @@
 	.titre {
 		font-size: 28px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'kleymisskyregular';
 		color: #330000;
 		text-align: center;
 		line-height: 60px;
@@ -101,7 +87,7 @@
 	.description {
 		font-size: 28px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'kleymisskyregular';
 		color: #330000;
 		text-align: center;
 		line-height: 42px;

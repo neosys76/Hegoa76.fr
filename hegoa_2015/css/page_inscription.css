@@ -15,7 +15,7 @@
 	.titre {
 		font-size: 30px;
 		font-weight: bold;
-		font-family: 'Kleymissky';
+		font-family: 'kleymisskyregular';
 		color: #330000;
 		text-align: center;
 		line-height:98px;
@@ -32,7 +32,7 @@
 
 	.account_mail_label {
 		font-weight: bold;
-		font-family: 'Kleymissky';
+		font-family: 'kleymisskyregular';
 		font-size: 26px;
 		color: #330000;
 		margin: 90px 0 0 40px;	
@@ -46,7 +46,7 @@
 
 	.account_password_label {
 		font-weight: bold;
-		font-family: 'Kleymissky';
+		font-family: 'kleymisskyregular';
 		font-size: 26px;
 		color: #330000;
 		margin: 16px 0 0 34px;
@@ -61,7 +61,7 @@
 
 	.lien_connexion {
 		font-weight: bold;
-		font-family: 'Kleymissky';
+		font-family: 'kleymisskyregular';
 		font-size: 24px;
 		color: #330000;
 		display:block;

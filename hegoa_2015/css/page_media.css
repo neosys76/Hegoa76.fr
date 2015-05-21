@@ -1,20 +1,6 @@
-   .lien_facebook {
-   		position: relative;
-    	left: 418px;
-    	top: 38px;
-    	
-  	}
-
-  	.image_logo{
-  		display: block;
-  		margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
   	
 	#centre > #contenu {
 		background-image: url(../images/menu_background_ouvert.png);

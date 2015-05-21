@@ -16,12 +16,17 @@
     font-style: normal;
   }
   
-  	@font-face {
-    font-family: 'Kleymissky';
-    src: url('../font/Kleymissky.otf');
+  @font-face {
+    font-family: 'kleymisskyregular';
+    src: url('../font/kleymissky-webfont.eot');
+    src: url('../font/kleymissky-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/kleymissky-webfont.woff2') format('woff2'),
+         url('../font/kleymissky-webfont.woff') format('woff'),
+         url('../font/kleymissky-webfont.ttf') format('truetype'),
+         url('../font/kleymissky-webfont.svg#kleymisskyregular') format('svg');
     font-weight: normal;
     font-style: normal;
-  }
+	}
   
 
 /*HEADER*/
@@ -68,7 +73,7 @@
 		margin: 0px;
 		padding: 0px;
 		background: #FFFFFF;
-		font-family: Kleymissky,"trebuchet MS";
+		font-family: kleymisskyregular,"trebuchet MS";
 		font-size: 12px;
 		font-weight: 400;
 		background-color: black;

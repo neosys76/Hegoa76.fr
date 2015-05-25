@@ -1,0 +1,16 @@
+  #centre > #contenu {
+    background-image: url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
+    background-position: 0px 0px, 54px 16px;
+    background-repeat: no-repeat;
+    height: 790px;
+    width: 1085px;
+    position:relative;
+    top: 30px;
+    left: 98px;
+    float: left;
+  }
+  
+.panneau_carte {position:relative;width:840px;height:600px;border:1px solid green;}
+#plage_jeu {width:100%;height:100%;overflow:hidden;position:relative;border:1px solid blue;margin:auto;}
+div.panzoom {position:relative;width:100%;height:100%;}
+canvas#carte {position:absolute;top:0;left:0;border:1px solid red;}

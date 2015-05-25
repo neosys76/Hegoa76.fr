@@ -431,10 +431,6 @@ class PageJeu extends Page
               }
             }
           }
-
-
-
-
       }
       else
       {
@@ -563,101 +559,121 @@ class PageJeu extends Page
     }
     // -------------------------------------------------------------------------
 
+    public function charger_carte()
+	{
+		
+		
+
+      // - on ajoute le css & contenu du panneau
+      $this->AjouterCSS("page_jeu_carte.css");
+      $this->AjouterContenu("contenu_carte", "contenus/page_jeu_carte.php");		
+	}
+    	
+    // -------------------------------------------------------------------------
+
     // - Affichage de la page
     public function Afficher()
     {
-      // - On récupčre la variable de l'espace choisi
-      $jeu_espace = $_GET['espace'];
-      $_SESSION['jeu_espace'] =  $jeu_espace;
-
-      if( $jeu_espace == "village" )
-      {
-        $jeu_type = $_GET['type'];
-
-        if ( $jeu_type == "vendre" )
-        {
-          // - redirection vers la page choix_vente
-          header('Location: index.php?page=choix_vente');
-          exit();
-        }
-
-        $this->charger_village();
-
-        if ( $jeu_type == "liste" )
-        {
-          // - redirection vers la page choix_vente
-          $this->charger_village_liste();
-        }
-
-      }
-
-      if( $jeu_espace == "quete" )
-      {
-        $this->charger_quete();
-      }
-
-      if( $jeu_espace == "commerce" )
-      {
-        $this->charger_commerce();
-      }
-
-      if( $jeu_espace == "batiment" )
-      {
-        $batiment_type = $_GET['type'];
-
-        $this->charger_village();
-
-        if ( $batiment_type == "construction" )
-        {
-          // - Création de quete
-          $_SESSION['batiment_type'] = $batiment_type;
-
-          // - redirection vers la page choix_vente
-          $this->charger_batiment_construction();
-        }
-        else
-        {
-          if ( $batiment_type == "amelioration" )
-          {
-            // - Création de quete
-            $_SESSION['batiment_type'] = $batiment_type;
-
-            // - redirection vers la page choix_vente
-            $this->charger_batiment_amelioration();
-          }
-          else
-          {
-            $this->charger_batiment();
-          }
-        }
-      }
-
-      if( $jeu_espace == "objet" )
-      {
-        $this->charger_village();
-        $this->charger_objet();
-      }
-
-      if( $jeu_espace == "hua" )
-      {
-        $this->charger_village();
-        $this->charger_hua();
-      }
-
-      if( $jeu_espace == "magie" )
-      {
-        $this->charger_village();
-        $this->charger_magie();
-      }
-
-      if( $jeu_espace == "science" )
-      {
-        $this->charger_village();
-        $this->charger_science();
-      }
-
-
-      // - on ajoute le contenu du menu à gauche
+      // - On récupère la variable de l'espace choisi
+		if(isset($_GET['espace'])&&!empty($_GET['espace'])){
+			$jeu_espace = $_GET['espace'];
+			$_SESSION['jeu_espace'] =  $jeu_espace;
+	
+	      if( $jeu_espace == "village" )
+	      {
+	        $jeu_type = $_GET['type'];
+	
+	        if ( $jeu_type == "vendre" )
+	        {
+	          // - redirection vers la page choix_vente
+	          header('Location: index.php?page=choix_vente');
+	          exit();
+	        }
+	
+	        $this->charger_village();
+	
+	        if ( $jeu_type == "liste" )
+	        {
+	          // - redirection vers la page choix_vente
+	          $this->charger_village_liste();
+	        }
+	
+	      }
+	
+	      if( $jeu_espace == "quete" )
+	      {
+	        $this->charger_quete();
+	      }
+	
+	      if( $jeu_espace == "commerce" )
+	      {
+	        $this->charger_commerce();
+	      }
+	
+	      if( $jeu_espace == "batiment" )
+	      {
+	        $batiment_type = $_GET['type'];
+	
+	        $this->charger_village();
+	
+	        if ( $batiment_type == "construction" )
+	        {
+	          // - Création de quete
+	          $_SESSION['batiment_type'] = $batiment_type;
+	
+	          // - redirection vers la page choix_vente
+	          $this->charger_batiment_construction();
+	        }
+	        else
+	        {
+	          if ( $batiment_type == "amelioration" )
+	          {
+	            // - Création de quete
+	            $_SESSION['batiment_type'] = $batiment_type;
+	
+	            // - redirection vers la page choix_vente
+	            $this->charger_batiment_amelioration();
+	          }
+	          else
+	          {
+	            $this->charger_batiment();
+	          }
+	        }
+	      }
+	
+	      if( $jeu_espace == "objet" )
+	      {
+	        $this->charger_village();
+	        $this->charger_objet();
+	      }
+	
+	      if( $jeu_espace == "hua" )
+	      {
+	        $this->charger_village();
+	        $this->charger_hua();
+	      }
+	
+	      if( $jeu_espace == "magie" )
+	      {
+	        $this->charger_village();
+	        $this->charger_magie();
+	      }
+	
+	      if( $jeu_espace == "science" )
+	      {
+	        $this->charger_village();
+	        $this->charger_science();
+	      }
+	      
+	      if( $jeu_espace == "etoile" )
+	      {
+	        $this->charger_carte();
+	      }
+		}
+	else {
+		$this->charger_carte();
+	}
+	      // - on ajoute le contenu du menu à gauche
       $this->AjouterContenu("contenu_menu", "contenus/page_jeu_menu.php");
 
       parent::Afficher();

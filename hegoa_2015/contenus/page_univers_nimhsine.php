@@ -3,7 +3,9 @@ include "menu_intros.php";
 include "menu_univers.php";
 ?>
 
-<img class="image_nimhsine" src="images/univers/nimhsine.png" name="image_nimsine">
+<div class="image_nimhsine">
+<img class="image_nimhsine" src="images/univers/nimhsine.png" name="image_nimsine" height="255">
+</div>
 
 <div class="titre">Nimhsin&eacute;</div>
 

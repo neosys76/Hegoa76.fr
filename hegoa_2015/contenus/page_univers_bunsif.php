@@ -3,7 +3,9 @@ include "menu_intros.php";
 include "menu_univers.php";
 ?>
 
-<img class="image_bunsif" src="images/univers/bunsif.png" name="image_bunsif">
+<div class="image_bunsif">
+<img class="image_bunsif" src="images/univers/bunsif.png" name="image_bunsif" height="255">
+</div>
 
 <div class="titre">Bunsif</div>
 

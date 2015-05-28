@@ -3,7 +3,9 @@ include "menu_intros.php";
 include "menu_univers.php";
 ?>
 
-<img class="image_humain" src="images/univers/humain.png" name="image_humain">
+<div class="image_humain">
+<img class="image_humain" src="images/univers/humain.png" name="image_humain" height="255">
+</div>
 
 <div class="titre">Humain</div>
 

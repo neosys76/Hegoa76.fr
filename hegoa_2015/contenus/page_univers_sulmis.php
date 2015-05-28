@@ -3,7 +3,9 @@ include "menu_intros.php";
 include "menu_univers.php";
 ?>
 
-<img class="image_sulmis" src="images/univers/sulmis.png" name="image_sulmis">
+<div class="image_sulmis">
+<img class="image_sulmis" src="images/univers/sulmis.png" name="image_sulmis" height="255">
+</div>
 
 <div class="titre">Sulmis</div>
 

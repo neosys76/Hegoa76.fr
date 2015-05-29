@@ -17,17 +17,16 @@
 <img class="image_connexion" src="images/accueil_connexion.png" name="image_connexion">
 </a>
 
+<a class="newsletter" href="index.php?page=newsletter">Inscription &agrave; la Newsletter</a>
+
 <p class="presentation">
 Pr&eacute;sentation de la communaut&eacute;, des auteurs.
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
 <a href="http://www.revevolutionair.org/">Revevolutionair.org</a>
 </p>
 
-<a class="newsletter" href="index.php?page=newsletter">Inscription &agrave; la Newsletter</a>
+<p class="contact">
+Nous contacter : neosys[@]tuxfamily.org
+</p>
+
+

@@ -59,14 +59,29 @@
 		display: inline-block;
 		margin: 0px 0 0 56px;
 	}
+	
+	a.newsletter {
+		display:block;
+		text-align:center;
+		font-weight: bold;
+		font-family: 'kleymisskyregular';
+		font-size: 26px;
+		color: #330000;
+		margin: 120px 0 0 0;
+		text-decoration: none;
+	}
+	
+	.newsletter:hover {
+		text-decoration:underline;
+	}
 
 	p.presentation {
 		text-align:center;
 		font-weight: bold;
 		font-family: 'kleymisskyregular';
-		font-size: 28px;
+		font-size: 26px;
 		color: #330000;
-		margin: 180px 0 0 0;
+		margin: 20px 0 0 0;
 	}
 
 	p > a {
@@ -74,9 +89,8 @@
 		text-align:center;
 		font-weight: bold;
 		font-family: 'kleymisskyregular';
-		font-size: 28px;
+		font-size: 26px;
 		color: #330000;
-		margin: -146px 0 0px 0px;
 		text-decoration: none;
 	}
 	
@@ -84,22 +98,18 @@
 		text-decoration:underline;
 	}
 
-	a.newsletter {
+	object {
+		margin: 140px 0 0 422px;
+	}
+	
+	.contact {
 		display:block;
 		text-align:center;
 		font-weight: bold;
 		font-family: 'kleymisskyregular';
-		font-size: 28px;
-		color: #330000;
-		margin: -120px 0 0 0;
+		font-size: 24px;
+		color: #d59c4f;
 		text-decoration: none;
-	}
-	
-	.newsletter:hover {
-		text-decoration:underline;
-	}
-	
-	object {
-		margin: 140px 0 0 422px;
+		margin: 290px 0 0 0;
 	}
 

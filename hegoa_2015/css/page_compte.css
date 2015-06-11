@@ -1,85 +1,71 @@
-   .lien_facebook {
-    	position: relative;
-    	left: 418px;
-    	bottom: 22px;
-  	}
-
-  	.image_logo{
-   	 	position: relative;
-    	left: 471px;
-    	top: 16px;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 533px;
-    	bottom: 22px;
-  	}
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
 
 	#centre > #contenu {
-		position: relative;
-		top:  76px;
-		left: 341px;
 		background-image: url(../images/compte/background.png);
 		background-repeat: no-repeat;
-		height: 600px;
-		float: left;
-		width: 700px;
-		margin: 0px auto;
+		height: 550px;
+		width: 600px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
 	}
 
 	.titre {
-		position: relative;
-		left: 242px;
-		top: 26px;
-		font-size: 32px;
+		font-size: 30px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'kleymisskyregular';
 		color: #330000;
+		text-align: center;
+		line-height:98px;
 	}
 
 	.image_fermer {
-		position:relative;
-		bottom: 9px;
-		left: 556px;
+		height: 36px;
+		width: 37px;
+		float:right;
+		margin-top: -68px;
+		margin-right: 10px;
 	}
 
 	form {
-		position: relative;
-		top: 10px;
-		left: 77px;
+		margin-top: -20px;
+		margin-left: 40px;
 	}
 
-	form > div {
-		position: relative;
+form > div {
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 22px;
+		font-family: 'kleymisskyregular';
+		font-size: 24px;
 		color: #330000;
 	}
 
 	input {
-		position: relative;
 		background-color: transparent;
 		border-width: 1px;
 		border-color: #330000;
 	}
 
 	textarea {
-		position: relative;
 		background-color: transparent;
 		border-width: 1px;
 		border-color: #330000;
 	}
 
 	.bouton_valider {
-		position: relative;
-		top: 61px;
-		right: 424px;
+		height: 41px;
+		width: 124px;
+		display: block; 
+		margin-top: 5px;
+		margin: 0 36px 0 0;
+		float: right; 
 	}
 
 	.lien_supprimer {
-		position: relative;
-		top: 24px;
-		left: 360px;
+		height: 41px;
+		width: 162px;
+		display: block; 
+		margin: 0 18px 0 0;
+		float: right; 
 	}

@@ -15,7 +15,7 @@
 <div class="account_mail_label" >Adresse mail :</div>
 <input class="account_mail" type="text" name="account_mail" value="<?=$_SESSION['account_mail']?>" size="50">
 
-<div class="account_password_label" ></div>Mot de passe :<br />
+<div class="account_password_label" >Mot de passe :</div>
 <input class="account_password" type="password" name="account_password" value="<?=$_SESSION['account_password']?>" size="32">
 
 <div class="account_naissance_label">Date de naissance :</div>

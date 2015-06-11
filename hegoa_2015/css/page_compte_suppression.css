@@ -1,24 +1,6 @@
 /*/////////////////////////////////
 //    Auteur : Chris Fromont	//
 ////////////////////////////////*/
-	
-     .lien_facebook {
-   		position: relative;
-    	left: 418px;
-    	top: 38px;
-    	
-  	}
-
-  	.image_logo{
-  		display: block;
-  		margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
   	
 	#centre > #contenu {
 		background-image: url(../images/compte_suppression/background.png);
@@ -31,34 +13,37 @@
 	}
 
 	.titre {
-		font-size: 32px;
+		font-size: 30px;
 		font-weight: bold;
-		font-family: 'hegoa_regular';
+		font-family: 'kleymisskyregular';
 		color: #330000;
 		text-align: center;
-		line-height:90px;
+		line-height:98px;
 		
 	}
 	
 	.image_fermer {
-		float: right;
-		margin: -62px 7px 0 0;
+		height: 36px;
+		width: 37px;
+		float:right;
+		margin-top: -68px;
+		margin-right: 10px;
 	}
 	
 	.texte {
 		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
+		font-family: 'kleymisskyregular';
+		font-size: 26px;
 		color: #330000;
 		text-align: center;
-		margin-top: 38px;
+		line-height: 33px;
 	}
 	
 	.image_valider {
 		height: 38px;
 		width: 136px;
 		display: block; 
-		margin: 60px auto; 
+		margin: 45px auto; 
 	}
 	
 

@@ -11,7 +11,7 @@ if(empty($message)){
 	<br />
 	Vous faites &agrave; pr&eacute;sent partie des tribus d'H&eacute;goa...<br />
 	<br />
-	( Un message de confirmation arrive sur votre boite mail. )<br />
+	(Un message de confirmation arrive sur votre boite mail.)<br />
 	<br/>
 	Merci de confirmer avant d'incarner un D'jun,<br />
 	l'esprit protecteur de votre future tribu.<br />

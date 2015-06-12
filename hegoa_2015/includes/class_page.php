@@ -152,7 +152,13 @@ class Page
     // - Affichage du header de la page
     public function AfficherHeader()
     {
-
+		$userAgent = $_SERVER["HTTP_USER_AGENT"];
+		if(strpos($userAgent,"Trident")||strpos($userAgent,"MSIE")){$browser = "ie";}
+		elseif(strpos($userAgent,"Firefox")) {$browser = "firefox";}
+		elseif(strpos($userAgent,"OPR")||strpos($userAgent,"Opera")) {$browser = "opera";}
+		elseif(strpos($userAgent,"Chrome")) {$browser = "chrome";}
+		elseif(strpos($userAgent,"Safari")) {$browser = "safari";}
+		else {$browser = "chrome";}
 ?>
       <!DOCTYPE html>
       <html lang="fr">
@@ -162,6 +168,7 @@ class Page
         <meta http-equiv="Pragma" content="no-cache">
 
         <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
+        
         <?php
         if($this->strNomPage=="accueil"){
         	//  on inclut ce qui concerne le player
@@ -177,7 +184,10 @@ class Page
       {
         echo "$strCSS\n";
       }
+      //  on inclut ensuite tout ce qui est spécifique aux navigateurs 
 ?>
+		<link rel="stylesheet" type="text/css" href="./css/style_specific_<?php echo $browser; ?>.css">
+		
       </head>
 
 

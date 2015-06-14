@@ -12,5 +12,13 @@
   
 .panneau_carte {position:relative;width:860px;height:600px;border:1px solid green;margin-left:80px;}
 #plage_jeu {width:100%;height:100%;overflow:hidden;position:relative;margin:auto;}
-div.panzoom {position:relative;width:100%;height:100%;}
-canvas#carte {position:absolute;top:0;left:0;width:100%;height:100%;}
+div.parent, div.panzoom {position:relative;width:100%;height:100%;}
+section#plage_jeu_1 {width:900px;height:650px;}
+section#plage_jeu_2 {width:1800px;height:1300px;}
+section#plage_jeu_3 {width:2160px;height:1560px;}
+.jeu_section {position:absolute;top:0px;left:0px;}
+.panzoom img {width:100%;height:auto;}
+canvas#panneau {position:absolute;top:0;left:0;width:100%;height:100%;}
+#actions {width:100%;position:absolute;top:0;left:0;height:100%;background-color:#ddd;}
+a.lien_in_case {color:#330000;font-size:30px;text-decoration:none;}
+a.lien_in_case:hover {color:#0e5a08;text-decoration:underline;}

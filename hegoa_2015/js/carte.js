@@ -5,6 +5,7 @@ function defineDimensions() {
 	//  dimensions des sections d'accueil HTML pour les trois niveaux, en relation avec les CSS : section1Width, section1Height, section2Width, section2Height, section3Width, section3Height
 	//  	NB: section3Width et section3Height devraient valoir 3x panelDimensions, sinon mal centré.
 	// dimensions de la carte totale du dernier zoom: carterWidth, carteHeight
+	//  dimensions d'une "case" sur la carte du dernier niveau de zoom (par exemple, 70x70px, ou 20x20px): caseWidth, caseHeight
 	
 	//  retourne l'objet  dimensions
 	var dimensions = {
@@ -17,13 +18,24 @@ function defineDimensions() {
 		section3Width: 2160,
 		section3Height : 1560,
 		carteWidth : 3600,
-		carteHeight : 2600
+		carteHeight : 2600,
+		caseWidth: 20, 
+		caseHeight: 20
 	};
 
 	return dimensions;
 }
+  
+//   fonction "chargeant" la carte correspondant au niveau de zoom plus petit  
+function charger_zoom_moins(){
+
+}  
+  
+//   fonction "chargeant" la carte correspondant au niveau de zoom plus grand 
+function charger_zoom_plus(){
+
+}  
       
-       
 //  fonction contenant l'affichage des actions sur une case
 function afficheaction(absx,ordy){
 	var textHtml = "<a class='lien_in_case' href='index.php?page=show-case-status&absx="+absx+"&ordy="+ordy+"'>Afficher l'état de la case</a><br/>";
@@ -78,12 +90,18 @@ function rgbToHex(r, g, b) {
 
 //  fonction anonyme de départ 
 (function() {
+	//   URL du site, pour des appels ajax
+	var siteurl = "http://localhost:8888/hegoa_eu/working_18-06-15/";
+	//   seul le premier niveau de zoom est visible
 	$("#actions").hide();
 	$("#plage_jeu_1").show();
 	$("#plage_jeu_2").hide();
 	$("#plage_jeu_3").hide();
 	
 	//   on est focalisé au départ sur la carte "entière", ie la première section, intégrée dans la section d'accueil
+	//  Il faut être centré sur la dernière position du joueur (appel ajax à la BDD)
+	var url = siteurl+"includes/get_last_coord.php";
+	
 	var $section1 = $('#plage_jeu_1');
 	var $panzoom = $section1.find('.panzoom').panzoom();
 	$panzoom.parent().on('mousewheel.plage_jeu', function( e ) {

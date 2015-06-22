@@ -1,5 +1,7 @@
 <?php
 include "menu_intros.php";
+$image_width_in_css = 200;
+$window_height = 620;
 ?>
 
 <div class="onglet">
@@ -19,7 +21,8 @@ include "menu_intros.php";
 
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/lightbox.min.js"></script>
-
+<div class="fenetre_galerie">
+<div id="deroulant_galerie" class="deroulant_galerie">
 <?php
 
 $dir_nom = './images/media/images'; // dossier listé (pour lister le répertoir courant : $dir_nom = '.'  --> ('point')
@@ -45,46 +48,50 @@ if(!empty($fichier))
 
     sort($fichier);// pour le tri croissant, rsort() pour le tri décroissant
 }
-
+	//  calcul du nombre de "pages" de 9 images
+	$nb_pages = floor($nb_images/9);
+	if($nb_images % 9 !=0){$nb_pages +=1;}
+	
     $iCpt = 0;
     foreach($fichier as $lien)
     {
       $iCpt++;
 
       // Image path data
-
+		
       $size = getimagesize("./images/media/images/" . $lien );
       if ( $size[0] < $size [1] )
       {
-        $width  = floor( ($size[ 0 ] / $size[1]) * 150);
-        $height = 150;
+        $width  = floor( ($size[ 0 ] / $size[1]) * $image_width_in_css);
+        $height = $image_width_in_css;
       }
       else
       {
-        $width  = 150;
-        $height = floor( ($size[ 1 ] / $size[0]) * 150);
+        $width  = $image_width_in_css;
+        $height = floor( ($size[ 1 ] / $size[0]) * $image_width_in_css);
       }
-
+      
       echo "<a href=\"images/media/images/$lien\" data-lightbox=\"hegoa\"><img width=\"$width\" height=\"$height\" class=\"example-image\" src=\"images/media/images/$lien\" alt=\"\"/></a>";
-      if ($iCpt % 4 == 0)
-      {
-        echo "<br />";
-      }
-
 
     }
 ?>
-
+	</div>
+	</div>
+	<span class="pagination">
+	Pages: &nbsp; 
+		<?php
+			for($i=1;$i<=$nb_pages;$i++){
+				$topvalue = -($i-1)*$window_height;
+				echo "<span class='numero_page' onclick=\"$('#deroulant_galerie').css('top','".$topvalue."px')\">$i</span>";
+			}
+		?>
+	</span>
   </div>
 
-  <div class="contenu_bouton_next">
-<!--
-  <a href="index.php?page=media"><img class="image_next" src="images/media/next.png" name="image_next"></a>
--->
-  </div>
 
 </div>
 
 </body>
 
 </html>
+#

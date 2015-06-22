@@ -1,25 +1,26 @@
 <div id='admin_menu'>
 <ul>
  <li>
-  <a href="obj_list.php"><span>Editer un objet</span></a>
+  <a href="./index.php?page=media_images"><span>Images (Media)</span></a>
  </li>
  <li>
-  <a href="obj_add.php"><span>Ajouter un objet</span></a>
+  <a href="./index.php?page=objets"><span>Objets</span></a>
  </li>
  <li>
-  <a href="evt_list.php"><span>Editer un &eacute;v&egrave;nement</span></a>
+  <a href="./index.php?page=heros"><span>Héros</span></a>
  </li>
  <li>
-  <a href="evt_add.php"><span>Ajouter un &eacute;v&egrave;nement</span></a>
+  <a href="./index.php?page=evenements-news"><span>&Eacute;v&egrave;nements et actualités</span></a>
+ </li>
+ <li>
+  <a href="newsletter/lettre.php"><span>Newsletter</span></a>
  </li>
   <li>
-  <a href="url_list.php"><span>Partenaires</span></a>
+  <a href="./index.php?page=partenaires"><span>Partenaires</span></a>
  </li>
   <li>
-  <a href="video_list.php"><span>Vid&eacute;os</span></a>
- </li>
- <li>
-  <a href="../index.php"><span>Retour</span></a>
+  <a href="./index.php?page=videos"><span>Vid&eacute;os</span></a>
  </li>
 </ul>
 </div>
+<hr>

@@ -26,7 +26,7 @@ elseif(isset($message)&&!empty($message)){
 }
 else {
 ?>
-<form name="form_connexion" action="index.php?page=connexion_validation" method="post">
+<form class="form_connexion" name="form_connexion" action="index.php?page=connexion_validation" method="post">
 <?php
 //  token de sécurité
 if(isset($_SESSION['connexion_token'])&&!empty($_SESSION['connexion_token'])){$token = $_SESSION['connexion_token'];}

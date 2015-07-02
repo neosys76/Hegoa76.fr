@@ -14,9 +14,9 @@
          url('../font/tangerine_regular-webfont.svg#tangerineregular') format('svg');
     font-weight: normal;
     font-style: normal;
-  }
+  	}
   
-  @font-face {
+      @font-face {
     font-family: 'kleymisskyregular';
     src: url('../font/kleymissky-webfont.eot');
     src: url('../font/kleymissky-webfont.eot?#iefix') format('embedded-opentype'),
@@ -24,6 +24,18 @@
          url('../font/kleymissky-webfont.woff') format('woff'),
          url('../font/kleymissky-webfont.ttf') format('truetype'),
          url('../font/kleymissky-webfont.svg#kleymisskyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+	}
+  
+	@font-face {
+    font-family: 'bilbo_swash_capsregular';
+    src: url('../font/bilboswashcaps-regular-webfont.eot');
+    src: url('../font/bilboswashcaps-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/bilboswashcaps-regular-webfont.woff2') format('woff2'),
+         url('../font/bilboswashcaps-regular-webfont.woff') format('woff'),
+         url('../font/bilboswashcaps-regular-webfont.ttf') format('truetype'),
+         url('../font/bilboswashcaps-regular-webfont.svg#bilbo_swash_capsregular') format('svg');
     font-weight: normal;
     font-style: normal;
 	}
@@ -73,7 +85,7 @@
 		margin: 0px;
 		padding: 0px;
 		background: #FFFFFF;
-		font-family: kleymisskyregular,"trebuchet MS";
+		font-family: bilbo_swash_capsregular,"trebuchet MS";
 		font-size: 12px;
 		font-weight: 400;
 		background-color: black;

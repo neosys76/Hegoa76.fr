@@ -15,7 +15,7 @@
 	.titre {
 		font-size: 30px;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		color: #330000;
 		text-align: center;
 		line-height:98px;
@@ -32,10 +32,10 @@
 
 	.account_mail_label {
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
-		font-size: 26px;
+		font-family: 'bilbo_swash_capsregular';
+		font-size: 24px;
 		color: #330000;
-		margin: 90px 0 0 105px;	
+		margin: 86px 0 0 108px;	
 	}
 
 	.account_mail {
@@ -46,10 +46,10 @@
 
 	.account_password_label {
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
-		font-size: 26px;
+		font-family: 'bilbo_swash_capsregular';
+		font-size: 24px;
 		color: #330000;
-		margin: 16px 0 0 34px;
+		margin: 16px 0 0 55px;
 	}
 
 	.account_password {
@@ -61,7 +61,7 @@
 
 	.lien_inscription {
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		font-size: 24px;
 		color: #330000;
 		display:block;
@@ -74,7 +74,7 @@
 		height: 38px;
 		width: 89px;
 		display: block; 
-		margin: 80px auto; 
+		margin: 70px auto; 
 	}
 
 

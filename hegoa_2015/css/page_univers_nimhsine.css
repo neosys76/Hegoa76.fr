@@ -76,19 +76,19 @@
 	.titre {
 		font-size: 32px;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		color: #330000;
 		text-align: center;
-		line-height: 50px;
+		line-height: 60px;
 	}
 
 	.description {
 		font-size: 26px;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		color: #330000;
 		text-align: center;
-		line-height: 33px;
+		line-height: 36px;
 		margin: 0 0 0 16px;
 		width: 970px;
 	}

@@ -1,5 +1,16 @@
 /*
- *			Pages univers ...
- */
+	Pages Accueil ...
+*/
+	
 
-.description {line-height:33px;font-size:26px;}
+
+/*
+ *	Pages connexion ...
+ */
+	.form_connexion > .account_password_label {
+		font-weight: bold;
+		font-family: 'bilbo_swash_capsregular';
+		font-size: 24px;
+		color: #330000;
+		margin: 16px 0 0 48px;
+	}

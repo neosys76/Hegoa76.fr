@@ -64,10 +64,10 @@
 		display:block;
 		text-align:center;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		font-size: 26px;
 		color: #330000;
-		margin: 120px 0 0 0;
+		margin: 118px 0 0 0;
 		text-decoration: none;
 	}
 	
@@ -78,17 +78,17 @@
 	p.presentation {
 		text-align:center;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		font-size: 26px;
 		color: #330000;
-		margin: 20px 0 0 0;
+		margin: 16px 0 0 0;
 	}
 
 	p > a {
 		display:block;
 		text-align:center;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		font-size: 26px;
 		color: #330000;
 		text-decoration: none;
@@ -106,10 +106,10 @@
 		display:block;
 		text-align:center;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		font-size: 24px;
 		color: #d59c4f;
 		text-decoration: none;
-		margin: 290px 0 0 0;
+		margin: 294px 0 0 0;
 	}
 

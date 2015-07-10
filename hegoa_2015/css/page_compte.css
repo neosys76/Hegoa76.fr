@@ -15,7 +15,7 @@
 	.titre {
 		font-size: 30px;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		color: #330000;
 		text-align: center;
 		line-height:98px;
@@ -34,10 +34,10 @@
 		margin-left: 40px;
 	}
 
-form > div {
+	form > div {
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
-		font-size: 24px;
+		font-family: 'bilbo_swash_capsregular';
+		font-size: 20px;
 		color: #330000;
 	}
 
@@ -48,11 +48,14 @@ form > div {
 	}
 
 	textarea {
+		width: 370px;
+		height: 100px;
 		background-color: transparent;
 		border-width: 1px;
 		border-color: #330000;
+		resize:none;
 	}
-
+	
 	.bouton_valider {
 		height: 41px;
 		width: 124px;
@@ -66,6 +69,6 @@ form > div {
 		height: 41px;
 		width: 162px;
 		display: block; 
-		margin: 0 18px 0 0;
+		margin: -30px 18px 0 0;
 		float: right; 
 	}

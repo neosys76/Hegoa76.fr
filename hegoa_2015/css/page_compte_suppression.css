@@ -3,7 +3,7 @@
 ////////////////////////////////*/
   	
 	#centre > #contenu {
-		background-image: url(../images/compte_suppression/background.png);
+		background-image: url(../images/inscription_validation/background.png);
 		background-repeat: no-repeat;
 		height: 463px;
 		width: 492px;
@@ -15,37 +15,31 @@
 	.titre {
 		font-size: 30px;
 		font-weight: bold;
-		font-family: 'kleymisskyregular';
+		font-family: 'bilbo_swash_capsregular';
 		color: #330000;
 		text-align: center;
 		line-height:98px;
-		
 	}
-	
+
 	.image_fermer {
-		height: 36px;
-		width: 37px;
 		float:right;
 		margin-top: -68px;
 		margin-right: 10px;
 	}
-	
+
+
 	.texte {
-		font-weight: bold;
-		font-family: 'kleymisskyregular';
 		font-size: 26px;
+		font-weight: bold;
+		font-family: 'bilbo_swash_capsregular';
 		color: #330000;
 		text-align: center;
-		line-height: 33px;
+		margin-top: 8px;
 	}
-	
+
 	.image_valider {
 		height: 38px;
 		width: 136px;
 		display: block; 
-		margin: 45px auto; 
+		margin: 62px auto; 
 	}
-	
-
-
-

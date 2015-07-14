@@ -13,8 +13,9 @@
 </a>
 
 <?php
+$iNbDjun = 0;
 
-$iNbDjun = $_SESSION['tdb_djun_compteur'];
+if(isset($_SESSION['tdb_djun_compteur'])&&!empty($_SESSION['tdb_djun_compteur'])){$iNbDjun = $_SESSION['tdb_djun_compteur'];}
 
 if ( $iNbDjun > 0 )
 {

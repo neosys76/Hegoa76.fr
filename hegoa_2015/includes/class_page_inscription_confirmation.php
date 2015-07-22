@@ -21,9 +21,6 @@ class PageInscriptionConfirmation extends Page
     // - Affichage de la page ou traitement des données
     public function Afficher()
     {
-      // - On se connecte à la base de données
-      include "constantes.inc.php";
-      parent::ConnecterBD();
       // les valeurs transmises dans l'URL pour la confirmation
       $courriel = "";
       $cle= "";
@@ -31,14 +28,14 @@ class PageInscriptionConfirmation extends Page
       if(isset($_GET["cle"])){$cle = urldecode($_GET["cle"]);}
 
       // - Verifier l'URL transmis
-      $sql = "SELECT * FROM \"libertribes\".\"ACCOUNT\" WHERE email = '".$courriel."'";
-      $result = parent::Requete($sql);
+      $sql = "SELECT * FROM \"libertribes\".\"COMPTE\" WHERE email = '".$courriel."'";
+      $result = $this->db_connexion->Requete($sql);
       if($result){
       		$row = pg_fetch_array($result);
       		$clef = substr($row['password'],5,8);
       		if($cle==$clef){
-				$sql = "UPDATE \"libertribes\".\"ACCOUNT\"  SET confirmation = TRUE where email = '".$courriel."'"; 
-				if(parent::Requete($sql)){
+				$sql = "UPDATE \"libertribes\".\"COMPTE\"  SET confirmation = TRUE where email = '".$courriel."'"; 
+				if($this->db_connexion->Requete($sql)){
 					header('Location: index.php?page=connexion&notice=1');
         			exit;			
 				}

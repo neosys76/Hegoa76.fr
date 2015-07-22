@@ -25,25 +25,35 @@ class PageDjunSuppressionValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
-      parent::ConnecterBD();
 
       // - gestion spécifique de la page
       $account_id           = $_SESSION['account_id'];
-      $djun_name            = $_SESSION['djun_name'];
+      $djun_name            = $_SESSION['djun_choisi']->nom;
 
       // - On supprime le D'jun
-      $sql  = "DELETE FROM \"libertribes\".\"AVATAR\"  WHERE account_id = $account_id and avatar_name ='$djun_name'";
+      $sql  = "DELETE FROM \"libertribes\".\"AVATAR\"  WHERE compte_id = $account_id and avatar_nom ='$djun_name'";
 
-      $result = parent::Requete( $sql );
-      if ( ! $result)
+      $result = $this->db_connexion->Requete( $sql );
+      if ( ! $result || pg_affected_rows($result)==0)
       {
-        // - redirection vers la page d'accueil du jeu
+        // - redirection vers la page djun_suppression avec un message d'erreur
         header('Location: index.php?page=djun_suppression&erreur=1');
         exit;
       }
-
-
+		//  restructurer la variable de session avatar s'il y a plusieurs avatars
+		$avatars = array();
+		$i=0;
+		foreach($_SESSION['avatars'] as $avatar){
+			if($avatar->nom != $_SESSION['djun_choisi']->nom){
+				$avatars[$i] = $avatar;
+				$i++;
+			}
+		}	
+		unset($_SESSION['avatars']);	
+		$_SESSION['avatars'] = $avatars;
+		unset($_SESSION['djun_choisi']);
+		unset($_SESSION["avatar_name"]);
+		
       // - redirection vers la page TDB
       header('Location: index.php?page=tdb');
     }// - Fin de la fonction Afficher

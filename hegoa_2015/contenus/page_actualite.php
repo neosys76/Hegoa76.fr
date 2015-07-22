@@ -8,8 +8,6 @@ include "menu_intros.php";
       <a class="lien_fond" href="index.php?page=actualite_people">People</a>
 </div>
 
-
-
 <?php
 
 $iNbActu = $_SESSION['actualite_compteur'];
@@ -37,5 +35,8 @@ if ( $iNbActu > 0 )
 {
   echo "</div>\n";
 }
+unset($_SESSION['actualite_libelle']);
+unset($_SESSION['actualite_date_creation']);
+unset($_SESSION['actualite_compteur']);
 
 ?>

@@ -25,19 +25,18 @@ class PageChoixPeupleValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
-      parent::ConnecterBD();
-
       // - gestion spécifique de la page
       $account_id           = $_SESSION['account_id'];
       $choix_peuple         = $_POST['choix_peuple'];
+		$test_races = true;
+		$search = array("é","è");
+		$replace = array("e","e");
+		foreach($_SESSION['races_possibles'] as $race){
+			$nom = str_replace($search,$replace,$race->nom);
+			$test_races= $test_races || ($choix_peuple==$nom);
+		}
 
-
-      if (
-        $choix_peuple == "bunsif" ||
-        $choix_peuple == "humain" ||
-        $choix_peuple == "nimhsine" ||
-        $choix_peuple == "sulmis" )
+      if ($test_races)
       {
         $_SESSION['choix_peuple'] = $choix_peuple;
 

@@ -1,0 +1,50 @@
+  .lien_facebook {
+    	position: relative;
+    	left: 418px;
+    	bottom: 22px;
+  	}
+
+  	.image_logo{
+   	 	position: relative;
+    	left: 471px;
+    	top: 16px;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 533px;
+    	bottom: 22px;
+  	}
+
+	#centre > #contenu {
+		position:relative;
+		top: 76px;
+    	left: 241px;
+		background-image: url(../images/djun/background.png);
+		background-repeat: no-repeat;
+		height: 600px;
+		float: left;
+		width: 800px;
+    	margin: 0px auto;
+	}
+
+	.image_fermer {
+		position:relative;
+		bottom: 5px;
+		left: 728px;
+	}
+
+	.titre {
+		position: relative;
+		left: 324px;
+		top: 38px;
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+	}
+
+	.compte_1 {
+		
+	}
+

@@ -16,6 +16,6 @@
 
  <img class="image_sulmis"   src="images/peuples/sulmis.png"   name="choix_peuple_sulmis"   onclick="document.form_choix.choix_peuple.value='sulmis';document.form_choix.submit();"  >
 
- <img class="image_nimhsine" src="images/peuples/nimhsine.png" name="choix_peuple_nhymsine" onclick="document.form_choix.choix_peuple.value='nimhsine';document.form_choix.submit();"  >
+ <img class="image_nimhsine" src="images/peuples/nimhsine.png" name="choix_peuple_nimhsine" onclick="document.form_choix.choix_peuple.value='nimhsine';document.form_choix.submit();"  >
 
 </form>

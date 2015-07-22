@@ -10,8 +10,6 @@ require "class_page.php";                                              // - On i
 
 class PageDjun extends Page
 {
-    private $account_nickname;
-
     function __construct()
     {
       // - on appele le constructeur du parent
@@ -35,53 +33,32 @@ class PageDjun extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
-      parent::ConnecterBD();
-
+    //  pour le calcul du niveau mana
+      include "utilitaires/calcul_mana.php";
+      
       $account_id           = $_SESSION['account_id'];
       $avatar_name          = $_GET["avatar"];
 
-      if ( $avatar_name == "" )
+      if ( !isset($avatar_name) || empty($avatar_name))
       {
         // - redirection vers la page tdb
         header('Location: index.php?page=tdb');
         exit();
       }
 
-      if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id and avatar_name = '$avatar_name'") <= 0 )
+      if ( !isset($_SESSION['avatars'])||empty($_SESSION['avatars']))
       {
         header('Location: index.php?page=tdb&erreur=no_djun');
         exit();
       }
 
-      // - On stocke le nom du djun
-      $_SESSION['djun_name'] = $avatar_name;
-
-      // - On récupère les données
-      $sql  = "SELECT * FROM \"libertribes\".\"AVATAR\" WHERE account_id = $account_id and avatar_name = '$avatar_name'";
-      $result = parent::Requete( $sql );
-      if ($result)
-      {
-        //$row = pg_fetch_row($result);
-        $row = pg_fetch_array($result);
-        if ($row)
-        {
-          // - on stocke le message
-
-          $_SESSION['djun_race']        = $row["race_name"];
-          $_SESSION['djun_niveau']      = $row["level"];
-          $_SESSION['djun_agressivite'] = $row["level_agressivite"];
-          $_SESSION['djun_efficacite']  = $row["level_efficacite"];
-          $_SESSION['djun_commerce']    = $row["level_commerce"];
-          $_SESSION['djun_escroquerie'] = $row["level_escroquerie"];
-          $_SESSION['djun_image'] = $row["numero_image"];
-				//   quid de mana, cyniam, bois, metal ??
-          $_SESSION['djun_mana']        = 0;
-          $_SESSION['djun_cyniam']      = 0;
-          $_SESSION['djun_bois']        = 0;
-          $_SESSION['djun_metal']       = 0;
-         }
-      }
+      // - On stocke le djun choisi
+      foreach($_SESSION['avatars'] as $avatar){
+      		if($avatar->nom == $avatar_name){
+      			$_SESSION['djun_choisi'] = $avatar;
+      			break;
+      		}
+	   }
 
       parent::Afficher();
 

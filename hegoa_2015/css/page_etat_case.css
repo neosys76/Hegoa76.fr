@@ -1,0 +1,20 @@
+ #centre > #contenu {
+    background-image: url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
+    background-position: 0px 0px, 54px 16px;
+    background-repeat: no-repeat;
+    height: 790px;
+    width: 1085px;
+    position:relative;
+    top: 30px;
+    left: 98px;
+    float: left;
+    font-size: 25px;
+  }
+
+	.image_bouton_message {
+		float: left;
+		margin: -57px 0px 0px 950px;
+	}
+
+.etat_case {position:relative;width:860px;height:600px;border:1px solid green;margin-left:80px;color:#ff0000;border:1px solid yellow;}
+

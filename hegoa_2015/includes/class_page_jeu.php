@@ -6,9 +6,6 @@
 
 error_reporting(E_ALL);
 
-
-
-
 require "class_page.php";                                              // - On inclut la class Page
 
 class PageJeu extends Page
@@ -561,9 +558,16 @@ class PageJeu extends Page
 
     public function charger_carte()
 	{
+		// on recherche les données concernant la dernière connexion de l'avatar
+		$derniere_position = $_SESSION["djun_choisi"]->derniere_position;
+		$parties = explode(",", $derniere_position);
+		$this->carte_x = substr($parties[0], 1);
+		$this->carte_y = substr($parties[1],0,(strlen($parties[1])-1));
+		//  détermination du panneau de la carte à télécharger
+		$panx = floor($this->carte_x/LARGEUR_CARTE)+1;
+		$pany = floor($this->carte_y/HAUTEUR_CARTE)+1;
+		$this->nom_panneau = "pan_".$panx."-".$pany;
 		
-		
-
       // - on ajoute le css & contenu du panneau
       $this->AjouterCSS("page_jeu_carte.css");
       $this->AjouterContenu("contenu_carte", "contenus/page_jeu_carte.php");		

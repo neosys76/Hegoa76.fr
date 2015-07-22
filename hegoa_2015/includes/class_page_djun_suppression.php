@@ -33,6 +33,7 @@ class PageDjunSuppression extends Page
     // - Affichage de la page
     public function Afficher()
     {
+    	if(isset($_GET['erreur'])&&$_GET['erreur']==1){$this->message = "Pas de D'jun supprimé";}
       parent::Afficher();
 
       // - gestion spécifique de la page

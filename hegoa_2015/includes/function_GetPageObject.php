@@ -242,6 +242,21 @@ error_reporting(E_ALL);
           require "class_page_jeu.php";                                         // - On inclut la class PageJeu
           $pageObject = new PageJeu();
           break;
+          
+        case "affiche-etat-case":
+          require "class_page_affiche-etat-case.php";                                         // - On inclut la class PageAfficheEtatCase
+          $pageObject = new PageAfficheEtatCase();
+          break;
+
+        case "des_supplementaires":
+          require "class_page_des_supplementaires.php";                                         // - On inclut la class PageDesSupplementaires
+          $pageObject = new PageDesSupplementaires();
+          break;
+
+        case "compte_premium":
+          require "class_page_compte_premium.php";                                         // - On inclut la class PageComptePremium
+          $pageObject = new PageComptePremium();
+          break;
 
         default:
           $pageObject = new Page();

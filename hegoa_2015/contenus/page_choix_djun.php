@@ -11,7 +11,7 @@ var left=0;
 			$message = "Ce nom d'avatar existe déjà. Choisissez un autre nom.";
 		}
 		if($_GET['erreur']==2){
-			$message = "Vous avez déjà choisi 4  D'juns et vous avez donc atteint votre quota.";
+			$message = "Vous avez déjà choisi ".MAX_DJUNS." D'juns et vous avez donc atteint votre quota.";
 			$gotopage = "tdb";
 		}
 	}

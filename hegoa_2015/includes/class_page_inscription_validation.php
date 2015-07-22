@@ -37,14 +37,10 @@ class PageInscriptionValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {	
-    	include "constantes.inc.php";
     /* 
       *  traitement du formulaire d'inscription
     */
     	if($this->token=="OK"){
-      // - On se connecte à la base de données
-      parent::ConnecterBD();
-
       // - On controle le formulaire
       $bErreur = 0;
       //$nickname = $_POST["account_nickname"];
@@ -54,8 +50,8 @@ class PageInscriptionValidation extends Page
       
       // - Verifier unicité account mail
       // blocage des inscription
-      $sql = "SELECT * FROM \"libertribes\".\"ACCOUNT\" WHERE email = '".$courriel."'";
-      $nlines = parent::RequeteNbLignes($sql);
+      $sql = "SELECT * FROM \"libertribes\".\"COMPTE\" WHERE email = '".$courriel."'";
+      $nlines = $this->db_connexion->RequeteNbLignes($sql);
       if ( $nlines > 0 )
       {
         $bErreur++;
@@ -72,10 +68,10 @@ class PageInscriptionValidation extends Page
 		*/
 		
       // - On insère les données
-      $sql  = "INSERT INTO \"libertribes\".\"ACCOUNT\" ( email, password, confirmation, status )";
+      $sql  = "INSERT INTO \"libertribes\".\"COMPTE\" ( email, password, confirmation, statut )";
       $sql .= " values ('$courriel','$password', FALSE, 'offline')";
-      if(!parent::Requete( $sql )){
-      		// L'enregistrement dans la table ACCOUNT n'a pas pu se faire
+      if(!$this->db_connexion->Requete( $sql )){
+      		// L'enregistrement dans la table COMPTE n'a pas pu se faire
 			header('Location: index.php?page=inscription&erreur=3');
 			exit;
       		}

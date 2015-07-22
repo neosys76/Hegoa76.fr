@@ -32,15 +32,13 @@ class PageActualitePeople extends Page
     // - Affichage de la page
     public function Afficher()
     {
-     // - On se connecte à la base de données
-      parent::ConnecterBD();
-
+		
       $_SESSION['actualite_libelle'] = array();
       $_SESSION['actualite_date_creation'] = array();
-
+		
       // - On récupère les données des djuns
       $sql  = "SELECT libelle, date_creation FROM \"libertribes\".\"ACTUALITE\" WHERE type = 'PEOPLE' order by date_creation DESC";
-      $result = parent::Requete( $sql );
+      $result = $this->db_connexion->Requete( $sql );
       if ($result)
       {
         $iCpt = 0;
@@ -48,8 +46,8 @@ class PageActualitePeople extends Page
         {
           // - on stocke les messages
           $_SESSION['actualite_libelle'][$iCpt]         = $row[0];
-          $_SESSION['actualite_date_creation'][$iCpt]   = $row[1];
-
+          $_SESSION['actualite_date_creation'][$iCpt]   = $row[1]; 
+          
           $iCpt++;
         }
 

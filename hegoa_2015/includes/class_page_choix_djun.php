@@ -10,8 +10,6 @@ require "class_page.php";                                              // - On i
 
 class PageChoixDjun extends Page
 {
-    private $account_nickname;
-
     function __construct()
     {
       // - on appele le constructeur du parent
@@ -35,9 +33,6 @@ class PageChoixDjun extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
-      parent::ConnecterBD();
-      
       //   on détermine le nombre d'images associées aux D'juns 
       	if(!isset($_SESSION['avatar_djun_images'])||empty($_SESSION['avatar_djun_images'])){
       		$dir_images = getcwd()."/images/djuns/";
@@ -49,18 +44,6 @@ class PageChoixDjun extends Page
       		}
       		$_SESSION['avatar_djun_images'] = $nombre_images;
       	}
-      	
-      	//  On détermine le nombre maximum de D'juns par joueur
-      	if(!isset($_SESSION['avatar_djun_id_max'])||empty($_SESSION['avatar_djun_id_max'])){
-      		include "constantes.inc.php";
-      		$_SESSION['avatar_djun_id_max'] = MAX_DJUNS;
-      	}
-		
-      $account_id           = $_SESSION['account_id'];
-
-      $avatar_name          = "";
-      $avatar_image         = "";
-
 
       parent::Afficher();
 

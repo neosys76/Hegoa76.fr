@@ -36,4 +36,8 @@ if ( $iNbActu > 0 )
   echo "</div>\n";
 }
 
+unset($_SESSION['actualite_libelle']);
+unset($_SESSION['actualite_date_creation']);
+unset($_SESSION['actualite_compteur']);
+
 ?>

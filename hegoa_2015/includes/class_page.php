@@ -4,6 +4,26 @@
 // Licence : CeCILL v2
 // ======================================================================
 
+$connexion_incluse = 0;
+$avatar_inclus = 0;
+$village_inclus = 0;
+$avatar_inclus = 0;
+$race_incluse = 0;
+
+require_once "modeles/class_connexion.php";										//   on inclut la classe Connexion
+$connexion_incluse = 1;
+require  "modeles/class_avatar.php";										//   on inclut la classe Avatar qui inclut les classes Connexion et Village
+$avatar_inclus = 1;
+if($village_inclus==0){
+require "modeles/class_village.php";										//   on inclut la classe Village, qui inclut les classes Connexion, Avatar et Race
+$village_inclus = 1;
+}
+if($race_incluse==0){
+require "modeles/class_race.php";										//   on inclut la classe Race
+$race_incluse = 1;
+}
+require "modeles/class_terrain.php";										//   on inclut la classe Terrain
+
 class Page
 {
     // - Déclarations des variables
@@ -19,10 +39,15 @@ class Page
     private $tMenu;                                                             // Array
     private $tContenu;                                                          // Array
 
-    private $db_connect;
+    protected $db_connexion	; 													//  objet Connexion
     
     protected $message;  			// contiendra les messages d'erreur ou autre ŕ transmettre aux contenus 
-
+    
+    protected $carte_x;				//   dans le jeu, contient l'abscisse x du point sélectionné à transmettre à la vue
+    protected $carte_y;				//   dans le jeu, contient l'ordonnée y du point sélectionné à transmettre à la vue
+    protected $nom_panneau;			//   nom du panneau à télécharger 
+    
+    
     // - Constructeur
     function __construct()
     {
@@ -30,8 +55,24 @@ class Page
       $this->bAfficherHeader  = 1;
       $this->bAfficherMenu    = 0;
       $this->bAfficherFooter  = 1;
-
+		$this->db_connexion = new Connexion();
+		$races_possibles = array();
       session_start();
+      //  charger les races possibles et leurs caractéristiques, et les mettre en SESSION
+      if(!isset($_SESSION['races_possibles'])||empty($_SESSION['races_possibles'])||!isset($_SESSION['races_possibles'][0]->nom)){
+			$sql  = "SELECT * FROM \"libertribes\".\"RACE\"";
+      		$result = $this->db_connexion->Requete( $sql );
+      		if (isset($result)&&!empty( $result ))
+      			{
+      				$i=0;
+      				while ($row = pg_fetch_array($result)) 
+      					{
+      						$races_possibles[$i] = new Race($row);
+      						$i++;
+      					}
+      				$_SESSION['races_possibles']=$races_possibles;
+      			}
+      	}
     }
 
 // - Partie public
@@ -104,50 +145,6 @@ class Page
        $this->tContenu[$nomContenuPar] = $strFichierPar;
 
     }// - Fin de la fonction AjouterContenu
-
-    public function ConnecterBD( )
-    {
-      // - Connexion à la BD
-      include "constantes.inc.php";
-      // - connexion à la base de données
-      $this->db_connect = pg_connect("host=".HOSTNAME." dbname=".BASE." user=".LOGIN." password=".PASSWORD);
-
-    }
-
-    public function Requete( $strSQLPar )
-    {
-      // retourne une ressource
-      return pg_query($this->db_connect, $strSQLPar);
-    }
-
-    public function RequeteNbLignes( $strSQLPar )
-    {
-      // retourne une ressource
-      $result = pg_query($this->db_connect, $strSQLPar);
-
-      return pg_num_rows( $result );
-    }
-
-    public function AfficherRequete( $resultPar )
-    {
-      if ($resultPar)
-      {
-        while ($row = pg_fetch_row($resultPar))
-        {
-          foreach( $row as $cle => $valeur )
-          {
-            echo "$cle = $valeur ";
-
-          }
-          echo "<br />\n";
-        }// - Fin du while
-      }
-      else
-      {
-        echo "AfficherRequete : pas de Ressource.\n";
-      }
-
-    }
 
     // - Affichage du header de la page
     public function AfficherHeader()
@@ -268,8 +265,17 @@ class Page
     public function Afficher()
     {
       $this->AfficherHeader();
+      
       //   message d'erreur éventuel , à afficher dans une vue
-		$message = $this->message;
+		if(isset($this->message)){$message = $this->message;}
+		
+		//  coordonnées éventuelles du point sélectionné, avec le nom du panneau à télécharger
+		if(isset($this->carte_x)){
+			$carte_x = $this->carte_x;
+			$carte_y = $this->carte_y;
+			$nom_panneau = $this->nom_panneau;
+		}
+
       // - On inclut les contenu
       foreach ( $this->tContenu as $strNomContenu => $strFichier)
       {

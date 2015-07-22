@@ -20,7 +20,11 @@ class PageDeconnexion extends Page
     // - Affichage de la page
     public function Afficher()
     {
-    		session_unset();
+    	//  mettre le joueur offline
+    	        //  on spécifie alors que le joueur est online
+        $sql = "UPDATE \"libertribes\".\"COMPTE\"  SET statut = 'offline' where compte_id = '".$_SESSION['account_id']."'"; 
+        $this->db_connexion->Requete( $sql );
+    		session_destroy();
        // - redirection vers la page d'accueil
  	   header('Location: index.php?page=accueil');
  	   exit();   

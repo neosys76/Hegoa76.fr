@@ -10,8 +10,6 @@ require "class_page.php";                                              // - On i
 
 class PageChoixPeuple extends Page
 {
-    private $account_nickname;
-
     function __construct()
     {
       // - on appele le constructeur du parent

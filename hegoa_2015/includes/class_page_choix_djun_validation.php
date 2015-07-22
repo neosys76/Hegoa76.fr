@@ -26,37 +26,33 @@ class PageChoixDjunValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
-      parent::ConnecterBD();
-
       // - gestion spécifique de la page
       $account_id           = $_SESSION['account_id'];
       $avatar_name          = $_POST['avatar_name'];
-      for($i=1;$i<=$_SESSION['avatar_djun_id_max'];$i++){
+      $max_djuns = MAX_DJUNS;
+      for($i=1;$i<=$_SESSION['avatar_djun_images'];$i++){
       		$nom_post = "djun".$i."_x";
       		if(isset($_POST[$nom_post])){$avatar_djun_id = $i;break;}
    		}
 
       // - On stocke dans la session
-      $_SESSION['avatar_name'] = $avatar_name;
+      $_SESSION['avatar_nom_update'] = $avatar_name;
 
-        if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE avatar_name = '$avatar_name'") > 0 )
+        if ( $this->db_connexion->RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE avatar_nom = '$avatar_name'") > 0 )
         {
           header('Location: index.php?page=choix_djun&erreur=1');
           exit();
         }
 
         // - On insère les données AVEC contrôle du nombre total possible
-        include "constantes.inc.php";
-        if ( parent::RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE account_id = '".$account_id."'") >= MAX_DJUNS )
+        if ( $this->db_connexion->RequeteNbLignes("SELECT * FROM \"libertribes\".\"AVATAR\" WHERE compte_id = '".$account_id."'") >=  $max_djuns)
         {
           header('Location: index.php?page=choix_djun&erreur=2');
           exit();
         }
-        $sql  = "INSERT INTO \"libertribes\".\"AVATAR\" ( avatar_name, account_id,numero_image )";
+        $sql  = "INSERT INTO \"libertribes\".\"AVATAR\" ( avatar_nom, compte_id,numero_image )";
         $sql .= " values ('$avatar_name','$account_id','$avatar_djun_id')";
-
-        parent::Requete( $sql );
+         $this->db_connexion->Requete( $sql );
         
         // - redirection vers la page choix du peuple
         header('Location: index.php?page=choix_peuple');

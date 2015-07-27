@@ -266,7 +266,6 @@ class Page
     // - Affichage de la page
     public function Afficher()
     {echo "<!DOCTYPE html>";
-    var_dump($_SESSION);
       $this->AfficherHeader();
       
       //   message d'erreur éventuel , à afficher dans une vue

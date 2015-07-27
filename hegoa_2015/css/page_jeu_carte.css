@@ -15,25 +15,18 @@
   
 .panneau_carte {position:relative;width:860px;height:600px;border:1px solid green;margin-left:80px;}
 #plage_jeu {width:100%;height:100%;overflow:hidden;position:relative;margin:auto;}
-div.parent, div.panzoom {position:relative;width:100%;height:100%;}
-section#plage_jeu_1, section#plage_jeu_2 {position:absolute;top:0;left:0;}	
+div.panzoom {position:relative;width:100%;height:100%;}
+section#plage_jeu_1, section#plage_jeu_2 {position:absolute;top:0;left:0;background-image: url(../images/jeu/plage_background.jpg);background-size:cover;}	
 #plage_jeu_1  {
 	z-index:0;
-	opacity:1;
-	filter:alpha(opacity=1); /* For IE8 and earlier */
-	/*
-	background-image:url(../images/cartes/carte_codes-couleurs.svg);
-	background-size:cover;
-	*/
 	}
-
-canvas#codes {position:absolute;top:0;left:0;width:100%;height:100%;}
+canvas#codes {position:absolute;top:0;left:0;}
+#imgcodes {display:inline-block;position:relative;z-index:0;opacity: 0.01;width:1088px;height:auto;}
 #actions {width:90%;position:absolute;top:0;left:0;height:100%;padding:30px 30px 10px 50px ;background-color:#ddd;background-image: url(../images/jeu/plage_background.jpg);background-size:cover;}
 a.lien_in_case {color:#330000;text-decoration:none;padding-left:10px;font-size: 30px;}
 a.lien_in_case:hover {color:#0e5a08;text-decoration:underline;}
 span.attention {color:#c1310f;}
-
-	.image_bouton_message {
+.image_bouton_message {
 		float: left;
 		margin: -57px 0px 0px 950px;
 	}

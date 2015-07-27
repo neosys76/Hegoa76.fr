@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1088"
+   height="750"
+   viewBox="0 0 1088 750.00001"
+   id="svg5259"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="pan_3-2-d.svg">
+  <defs
+     id="defs5261">
+    <clipPath
+       id="clipPath3718"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         y="52.362198"
+         x="1450"
+         height="1000"
+         width="1450"
+         id="rect3720"
+         style="opacity:1;fill:#56a04a;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5370">
+      <rect
+         style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5372"
+         width="1088"
+         height="750"
+         x="0"
+         y="7.1054274e-14" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="160.63812"
+     inkscape:cy="99.302815"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer9"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="957"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5264">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="Calque 2">
+    <g
+       id="g5363"
+       clip-path="url(#clipPath5370)">
+      <rect
+         y="7.1054274e-14"
+         x="0"
+         height="750"
+         width="1088"
+         id="rect5357"
+         style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cssssscccc"
+         inkscape:connector-curvature="0"
+         id="path5359"
+         d="m -10,582.85714 171.42857,0.71429 c 80.70458,0.33627 156.42857,-7.14286 242.14285,-15.71429 85.71429,-8.57143 191.91088,-20.45692 263.57144,-31.42856 C 741.13786,525.09951 827.85714,510 912.85714,500 984.30541,491.59432 1063.585,482.69968 1075,482.14285 l 29.2858,-1.42857 -0.7144,-492.857137 -1114.999972,-1.428572 z"
+         style="fill:#935e20;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cssssssssssssccc"
+         inkscape:connector-curvature="0"
+         id="path5361"
+         d="m -4.7041332,293.70885 c 28.2545352,9.23495 25.8844772,9.05076 46.2193622,11.25525 25.555839,2.7705 33.939085,2.51052 63.780631,-2.0203 25.46214,-3.8659 36.30603,-9.32161 57.7346,-14.37237 20.85704,-4.91605 28.83139,-5.02103 39.98513,-1.93365 27.87807,7.71672 54.08988,29.94138 74.61748,47.12799 52.47163,43.93155 85.98912,48.8314 112.03517,50.85171 28.48587,2.20955 75.2409,0.16078 104.61747,-7.14286 34.12727,-8.48477 86.63778,-28.64322 118.57143,-46.04605 29.81658,-16.24909 100.75019,-62.51051 132.02031,-86.30602 23.98178,-18.24932 77.04203,-68.87357 87.97969,-79.40826 16.06092,-15.46919 63.8673,-63.95396 82.43872,-85.382528 18.57143,-21.428572 42.62111,-59.446214 47.30131,-68.398115 4.96411,-9.4949235 9.76976,-19.234951 9.76976,-19.234951 L -4.8477118,-4.8625805 Z"
+         style="fill:#1e6312;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

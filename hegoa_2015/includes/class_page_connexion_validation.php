@@ -35,52 +35,44 @@ class PageConnexionValidation extends Page
     	if($this->token=="OK"){
 
       // - On controle le formulaire
-      $iErreur = 0;
-
       $account_mail     = $_POST["account_mail"];
       //  crytage du mot de passe, avec un sel définit dans le fichier constantes
       $account_password = crypt($_POST["account_password"],SALT);
 
       if ( $account_mail == "" || $account_password == "" )
       {
-        $iErreur += 1;
+			header('Location: index.php?page=connexion&erreur=1');
+        	exit;
       }
       else
       {
-        // - Verification de l'existence du compte
-        if ($this->db_connexion->RequeteNbLignes("SELECT * FROM \"libertribes\".\"COMPTE\" WHERE email = '$account_mail' and password = '$account_password' and confirmation='TRUE'") != 1 )
-        {
-          $iErreur += 10;
-        }
-      }
+			if(!isset($_SESSION["compte"])||empty($_SESSION["compte"])){
+     		 	// - On charge le compte en session à partir de la base de données
+      			$sql  = "SELECT * FROM \"libertribes\".\"COMPTE\" WHERE email = '$account_mail' and password = '$account_password' and confirmation='TRUE'";    
 
-      // - Une erreur on doit retourné sur le formulaire
-      if ( $iErreur > 0 )
-      {
-        header('Location: index.php?page=connexion&erreur=' . $iErreur);
-        exit;
-      }
-
-      // - On récupère l'id
-      $sql  = "SELECT compte_id,type_compte FROM \"libertribes\".\"COMPTE\" WHERE email = '$account_mail'";
-
-      $result = $this->db_connexion->Requete( $sql );
-      if ($result)
-      {
-        $row = pg_fetch_row($result);
-        if ($row)
-        {
-          $account_id = $row[0];
-          $type_compte = $row[1];
-        }
+      			$result = $this->db_connexion->Requete( $sql );
+      			if (isset($result)&&!empty($result))
+      			{
+      				$num_rows = pg_num_rows($result);
+      				if($num_rows !=1){
+						header('Location: index.php?page=connexion&erreur=10');
+        				exit;
+      				}
+      				else 
+      				{
+      					$row = pg_fetch_array($result);
+       				$compte = new Compte($row);
+       				$_SESSION["compte"] = $compte;
+       				}
+					}
+				} 					//  fin de test sur l'existence du compte en SESSION
         //  on spécifie alors que le joueur est online
-        $sql = "UPDATE \"libertribes\".\"COMPTE\"  SET statut = 'online' where compte_id = '".$account_id."'"; 
-        $this->db_connexion->Requete( $sql );
-      }
+			$sql = "UPDATE \"libertribes\".\"COMPTE\"  SET statut = 'online' where compte_id = '".$_SESSION["compte"]->id."'"; 
+			$this->db_connexion->Requete( $sql );
 
 		//  on charge alors les avatars et villages du joueur, une fois pour toute, pour éviter des accès trop fréquents à la BDD, ainsi que les caractéristiques des terrains possibles, le tout mis en variable de SESSION
 			//  Avatars 		
-			$sql  = "SELECT * FROM \"libertribes\".\"AVATAR\" WHERE compte_id = ".$account_id;
+			$sql  = "SELECT * FROM \"libertribes\".\"AVATAR\" WHERE compte_id = ".$_SESSION["compte"]->id;
 			$result = $this->db_connexion->Requete( $sql );
      		 if (isset($result)&&pg_num_rows( $result )>0)
      		 {
@@ -89,19 +81,18 @@ class PageConnexionValidation extends Page
       				$avatars[] = new Avatar($row);			//   NB  les villages des avatars sont inclus dans la classe
       			}
       		}
-			
-      // - gestion spécifique de la page
-      $_SESSION['account_id']   = $account_id;
-      $_SESSION['account_mail'] = $account_mail;
-      $_SESSION['compte'] = $type_compte;
+
 		if(isset($avatars)){$_SESSION['avatars'] = $avatars;}
-      // - redirection vers la page d'accueil du jeu
-      //parent::Afficher();
-      header('Location: index.php?page=tdb');
-		}
-		else {
-			header('Location: index.php?page=connexion&erreur=2');
-			}
+      			
+			// - redirection vers la page de tableau de bord du jeu
+			//parent::Afficher();
+			header('Location: index.php?page=tdb');
+		}			//    fin du processing du formulaire
+	}					//    fin de test sur le token
+	else {
+		header('Location: index.php?page=connexion&erreur=2');
+		exit;
+	}
 
     }// - Fin de la fonction Afficher
 

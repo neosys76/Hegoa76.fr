@@ -6,22 +6,37 @@
 <?php
 if(isset($_GET['erreur'])&&$_GET['erreur']=='1'){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Le formulaire n'est pas complet. Réessayez.</b></p>
+<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Le formulaire n'est pas complet. Réessayez.</b><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+</p>
 <?php
 }
 elseif(isset($_GET['erreur'])&&$_GET['erreur']=='2'){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Le token de sécurité est incorrect. Réessayez.</b></p>
+<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Le token de sécurité est incorrect. Réessayez.</b><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+</p>
+<?php
+}
+elseif(isset($_GET['erreur'])&&$_GET['erreur']=='3'){
+?>
+<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Pour accéder au jeu, il faut être connecté.</b><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+</p>
 <?php
 }
 elseif(isset($_GET['erreur'])&&$_GET['erreur']=='10'){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Soit le compte est en attente de validation, soit le compte n'existe pas et il faut alors vous inscrire, soit les données introduites sont incorrectes et il faut réessayez.</b></p>
+<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Soit le compte est en attente de validation, soit le compte n'existe pas et il faut alors vous inscrire, soit les données introduites sont incorrectes et il faut réessayez.</b><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+</p>
 <?php
 }
 elseif(isset($message)&&!empty($message)){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b><?php echo $message; ?></b></p>
+<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b><?php echo $message; ?></b><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+</p>
 <?php
 }
 else {

@@ -1,7 +1,7 @@
 <div class="panneau_joueur">
 
  <div class="cadre_djun">
-  <a class="lien_djun" href="index.php?page=djun&avatar=<?=$_SESSION['djun_name']?>">
+  <a class="lien_djun" href="index.php?page=djun&avatar=<?php echo $_SESSION['djun_choisi']->nom; ?>">
     <img class="image_djun"   name="image_djun"  height="50" width="50" src="images/djuns/djun<?php echo $_SESSION['djun_choisi']->num_image; ?>.png" >
   </a>
  </div>

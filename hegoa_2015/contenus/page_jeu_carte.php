@@ -16,9 +16,8 @@ if(!isset($carte_x)){
 		<div id="actions">
 		</div>
 		<section id="plage_jeu_1">		<!-- première section, correspondant à la carte totale en svg pour les codes couleurs-->
-			<div class="panzoom">
-				<canvas id="codes" width="1450" height="1000">Your browser does not support the HTML5 canvas tag.</canvas>
-			</div> 
+				<img id="imgcodes" src="images/cartes/panneaux/<?php  echo $nom_panneau; ?>.svg" >
+				<canvas id="codes">Your browser does not support the HTML5 canvas tag.</canvas>
 		</section>
 		<section id="plage_jeu_2">		<!-- deuxième section, correspondant au panneau à charger-->
 			<div class="panzoom">
@@ -35,7 +34,9 @@ if(!isset($carte_x)){
 <script type="text/javascript" src="js/manipulation_carte.js"></script>
 <script type="text/javascript">
 transmettre_coordonnees("<?php echo $carte_x; ?>","<?php echo $carte_y; ?>");
+transmettre_dimensions_fenetre("<?php echo LARGEUR_FENETRE; ?>","<?php echo HAUTEUR_FENETRE; ?>");
 transmettre_dimensions_carte("<?php echo LARGEUR_CARTE; ?>","<?php echo HAUTEUR_CARTE; ?>");
-transmettre_dimensions_panneau("<?php echo LARGEUR_PANNEAU; ?>","<?php echo HAUTEUR_PANNEAU; ?>");
-manipulation_carte();
+transmettre_dimensions_panneau("<?php echo LARGEUR_PANNEAU; ?>","<?php echo HAUTEUR_PANNEAU; ?>","<?php echo RATIO_AFFICH_PANNEAU; ?>");
+transmettre_dimensions_panneau_codes("<?php echo LARGEUR_PANNEAU_CODES; ?>","<?php echo HAUTEUR_PANNEAU_CODES; ?>","<?php echo RATIO_AFFICH_PANNEAU_CODES; ?>");
+manipulation_carte("<?php echo $nom_panneau; ?>");
 </script>

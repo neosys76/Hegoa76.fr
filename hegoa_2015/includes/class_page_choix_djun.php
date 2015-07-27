@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -33,19 +33,25 @@ class PageChoixDjun extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      //   on détermine le nombre d'images associées aux D'juns 
-      	if(!isset($_SESSION['avatar_djun_images'])||empty($_SESSION['avatar_djun_images'])){
-      		$dir_images = getcwd()."/images/djuns/";
-      		$handle = opendir($dir_images);
-      		$nombre_images=0;
-      		$pattern = "/^djun[0-9]{1,3}.png$/";
-      		while($file=readdir($handle)){
-      			if($file!="."&&$file!=".."&&!is_dir($dir_images.$file)&&preg_match($pattern,$file)>0){$nombre_images++;}
+    	if(isset($_SESSION["compte"])&&!empty($_SESSION["compte"])){
+      	//   on détermine le nombre d'images associées aux D'juns 
+      		if(!isset($_SESSION['avatar_djun_images'])||empty($_SESSION['avatar_djun_images'])){
+      			$dir_images = getcwd()."/images/djuns/";
+      			$handle = opendir($dir_images);
+      			$nombre_images=0;
+      			$pattern = "/^djun[0-9]{1,3}.png$/";
+      			while($file=readdir($handle)){
+      				if($file!="."&&$file!=".."&&!is_dir($dir_images.$file)&&preg_match($pattern,$file)>0){$nombre_images++;}
+      			}
+      			$_SESSION['avatar_djun_images'] = $nombre_images;
       		}
-      		$_SESSION['avatar_djun_images'] = $nombre_images;
-      	}
-
-      parent::Afficher();
+	
+	      parent::Afficher();
+		}
+		else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
+		}
 
     }// - Fin de la fonction Afficher
 

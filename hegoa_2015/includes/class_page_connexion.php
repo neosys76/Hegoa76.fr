@@ -38,8 +38,7 @@ class PageConnexion extends Page
     public function Afficher()
     {
       // - On initialise la session
-      if(isset($_SESSION['account_id'])){unset($_SESSION['account_id']);}
-      if(isset($_SESSION['account_mail'])){unset($_SESSION['account_mail']);}
+      if(isset($_SESSION['compte'])){unset($_SESSION['compte']);}
       if(isset($_SESSION['inscription_token'])){unset($_SESSION['inscription_token']);}
       $notice="";
       	if(isset($_GET["notice"])){$notice = $_GET['notice'];}

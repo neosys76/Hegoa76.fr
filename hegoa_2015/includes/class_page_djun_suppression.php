@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -33,11 +33,15 @@ class PageDjunSuppression extends Page
     // - Affichage de la page
     public function Afficher()
     {
-    	if(isset($_GET['erreur'])&&$_GET['erreur']==1){$this->message = "Pas de D'jun supprimé";}
-      parent::Afficher();
+    	if(isset($_SESSION["compte"])&&!empty($_SESSION["compte"])){
+    		if(isset($_GET['erreur'])&&$_GET['erreur']==1){$this->message = "Pas de D'jun supprimé";}
+      		parent::Afficher();
 
-      // - gestion spécifique de la page
-
+		}
+		else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
+		}
     }// - Fin de la fonction Afficher
 
 }// - Fin de la classe

@@ -36,13 +36,14 @@ class PageTdb extends Page
     public function Afficher()
     {
     	// si on n'est pas connecté, on ne peut pas afficher cette page
-    	if(isset($_SESSION['account_id'])){
+    	if(isset($_SESSION['compte'])){
     		
       parent::Afficher();
      }
-      else {
-			header("Location: ?page=connexion");
-      }
+		else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
+		}
 
     }// - Fin de la fonction Afficher
 

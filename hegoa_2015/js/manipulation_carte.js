@@ -1,13 +1,17 @@
 
-//  fonction anonyme de départ 
-function manipulation_carte() {
+//  fonction de manipulation du panneau chargé
+function manipulation_carte(nom_panneau) {
+	//   nom_panneau est l'étiquette du nom du panneau chargé
+	//  recherche des coordonnées dans le panneau
+	var deux_indices = nom_panneau.substring(4);
+	var indices = deux_indices.split("-");
+	var num_sur_y = indices[0]-1;
+	var num_sur_x = indices[1]-1;
 
+	var panneau_coord_x = carte_coord_x - num_sur_x*largeur_panneau;
+	var panneau_coord_y = carte_coord_y - num_sur_y*hauteur_panneau;
 	//  dimensions des sections 
 	var lesDims = defineDimensions();
-	//   URL du site, pour des appels ajax
-	var siteurl = "http://localhost:8888/hegoa_eu/working_21-07-15_go-on-restruct/";
-	//   seule la carte est visible
-	$("#actions").hide();
 
 	var section1 = $('#plage_jeu_2');
 	var image_carte = $('#carte');
@@ -15,7 +19,11 @@ function manipulation_carte() {
 	var cssheight = lesDims["section2Height"];
 	image_carte.css("width",csswidth);
 	image_carte.css("height",cssheight);
+	var displx = -Math.round((ratio_affich_panneau*panneau_coord_x - fenetre_visible_x/2));
+	var disply = -Math.round((ratio_affich_panneau*panneau_coord_y - fenetre_visible_y/2));
+
 	var $panzoom = section1.find('.panzoom').panzoom();
+	$panzoom.panzoom("pan",displx,disply);
 	$panzoom.parent().on('mousewheel.plage_jeu', function( e ) {
 		e.preventDefault();
 		var delta = e.delta || e.originalEvent.wheelDelta;
@@ -30,50 +38,66 @@ function manipulation_carte() {
 		
 			//   quand on double-clique, on charge le panneau associé aux 2e niveau de zoom
 	$panzoom.parent().on('dblclick', function( e ) {
+		
 		var pos1 = findPos(this);
 		var x1 = e.pageX - pos1.x;
 		var y1 = e.pageY - pos1.y;
-		//  transformation de ces coordonnées de fenêtre en "vraies" coordonnées dans la carte totale
-		var xcode,ycode;
-		//  exemple de test
-		xcode=1000; 
-		ycode=500;
 		//  chargement de la carte codes-couleurs dans le canvas pour déterminer la couleur associée aux coordonnées
 		//  NB: cette carte couleur n'est pas chargée à la "vraie" dimension, mais avec un facteur de zoom 
 		// il faut déterminer les indices correspondant à la case et déterminer si la case est une frontière (plusieurs terrains=> non constructible) ou un terrain d'un seul tenant
-		
+
 		var lesDims = defineDimensions();
-		/*
-		var largeur1 = lesDims["section1Width"];
-		var hauteur1 = lesDims["section1Height"];
-		*/
-		var largeur1 = lesDims["carteWidth"];
-		var hauteur1 = lesDims["carteHeight"];
+		var largeur_carte = lesDims["carteWidth"];
+		var hauteur_carte = lesDims["carteHeight"];
+		var largeur_panneau = lesDims["panelWidth"];
+		var hauteur_panneau = lesDims["panelHeight"];
+		var largeur_panneau_code = lesDims["panelCodeWidth"];
+		var hauteur_panneau_code = lesDims["panelCodeHeight"];
+		//   pour l'image jpg
+		var largeur_section2 = lesDims["section2Width"];				
+		var hauteur_section2 = lesDims["section2Height"];
+		//  pour les codes couleurs
+		var largeur_section1 = lesDims["section1Width"];				
+		var hauteur_section1 = lesDims["section1Height"];
+		var ratio1X = largeur_section1/largeur_panneau_code;
+		var ratio1Y = hauteur_section1/hauteur_panneau_code;
+		var ratio2X = largeur_section2/largeur_panneau;
+		var ratio2Y = hauteur_section2/hauteur_panneau;
+
+		//  transformation de ces coordonnées de fenêtre en "vraies" coordonnées dans la carte totale
+		var matrix = 	$panzoom.panzoom("getMatrix");	
+		var xp = largeur_section2*(matrix[0]-1)/2 - matrix[4];
+		var yp = hauteur_section2*(matrix[0]-1)/2 - matrix[5];
+		var ratioX = largeur_section1/largeur_section2;
+		var ratioY = hauteur_section1/hauteur_section2;
+		//   coordonnées dans le panneau couleurs-codes dans les dimensions affichées
+		var realx_in_section1 = (xp+x1)*ratioX/matrix[0];
+		var realy_in_section1 = (yp+y1)*ratioY/matrix[0];
+		//   coordonnées dans le panneau image dans les dimensions affichées
+		var realx_in_section2 = (xp+x1)/matrix[0];
+		var realy_in_section2 = (yp+y1)/matrix[0];
+		//   coordonnées dans le panneau code à dimensions réelles déclarées dans le SVG
+		var realx_in_panneauSVG = realx_in_section1/ratio1X;
+		var realy_in_panneauSVG = realy_in_section1/ratio1Y;
+		var realx_in_carte = realx_in_section2/ratio2X + num_sur_x*hauteur_panneau;
+		var realy_in_carte = realy_in_section2/ratio2Y + num_sur_y*hauteur_panneau;
 		var section2 = $('#plage_jeu_1');
-		section2.css("width",largeur1);
-		section2.css("height",hauteur1);
-		//section2.css("z-index",200);
-		//var section3 = $('#codes');
-		//section3.css("z-index",210);
+		section2.css("width",largeur_section1);
+		section2.css("height",hauteur_section1);
+		
+		var myImage=document.getElementById("imgcodes"); 
 
-		var myImage = new Image(largeur1, hauteur1);
+		myImage.style.cssheight=hauteur_section1+"px";
+		myImage.style.csswidth=largeur_section1+"px";
+		var ctx = createContextCanvas("codes",largeur_panneau_code,hauteur_panneau_code);    	
+		ctx.scale(ratio1X,ratio1Y);
+		ctx.drawImage(myImage, 0, 0); 
+		var p = ctx.getImageData(realx_in_section1, realy_in_section1, 1, 1).data; 
+   		var hex = "#" + rgbToHex(p[0], p[1], p[2]);
+   		var contenu_actions= afficheaction(realx_in_carte,realy_in_carte,hex);
+   		$("#actions").html(contenu_actions);
+   		$("#actions").css("z-index",300);
 
-		//ctx.globalAlpha = 0.1;			//   ??  nécessaire  car css ??
-	
-var ctx = createContextCanvas("codes",largeur1,hauteur1);
-    	
-    	myImage.onload = function(){
-    		alert(ycode);
-    		ctx.drawImage(myImage, 0, 0, largeur1, hauteur1, 0, 0, largeur1, hauteur1);
-    		var p = ctx.getImageData(xcode, ycode, 1, 1).data; 
-    		var hex = "#" + rgbToHex(p[0], p[1], p[2]);
-    		alert(hex);
-    		}
-    	myImage.onerror = function(){alert("PROUTTT");}
-    	
-    	myImage.src = "images/cartes/carte_codes-couleurs.svg";
-    	
    	});			//  fin de panzoom-dblclick
-
-
-}		//  fin de la fonction anonyme 
+   	
+}		//  fin de la fonction manipulation

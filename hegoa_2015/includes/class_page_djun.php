@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -33,35 +33,40 @@ class PageDjun extends Page
     // - Affichage de la page
     public function Afficher()
     {
-    //  pour le calcul du niveau mana
-      include "utilitaires/calcul_mana.php";
-      
-      $account_id           = $_SESSION['account_id'];
-      $avatar_name          = $_GET["avatar"];
+    	if(isset($_SESSION["compte"])&&!empty($_SESSION["compte"])){
+    	//  pour le calcul du niveau mana
+    	  include "utilitaires/calcul_mana.php";
+    	  
+    	  $account_id           = $_SESSION['compte']->id;
+    	  $avatar_name          = $_GET["avatar"];
+	
+	      if ( !isset($avatar_name) || empty($avatar_name))
+	      {
+	        // - redirection vers la page tdb
+	        header('Location: index.php?page=tdb');
+	        exit();
+	      }
 
-      if ( !isset($avatar_name) || empty($avatar_name))
-      {
-        // - redirection vers la page tdb
-        header('Location: index.php?page=tdb');
-        exit();
-      }
+     	 if ( !isset($_SESSION['avatars'])||empty($_SESSION['avatars']))
+     	 {
+     		   header('Location: index.php?page=tdb&erreur=no_djun');
+     		   exit();
+     	}
 
-      if ( !isset($_SESSION['avatars'])||empty($_SESSION['avatars']))
-      {
-        header('Location: index.php?page=tdb&erreur=no_djun');
-        exit();
-      }
+      		// - On stocke le djun choisi
+      		foreach($_SESSION['avatars'] as $avatar){
+      			if($avatar->nom == $avatar_name){
+      				$_SESSION['djun_choisi'] = $avatar;
+      				break;
+      			}
+	   		}
 
-      // - On stocke le djun choisi
-      foreach($_SESSION['avatars'] as $avatar){
-      		if($avatar->nom == $avatar_name){
-      			$_SESSION['djun_choisi'] = $avatar;
-      			break;
-      		}
-	   }
-
-      parent::Afficher();
-
+      		parent::Afficher();
+		}
+		else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
+		}
     }// - Fin de la fonction Afficher
 
 }// - Fin de la classe

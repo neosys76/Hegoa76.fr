@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Donatien CELIA,Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -26,8 +26,32 @@ class PageChoixPeupleVoirValidation extends Page
     public function Afficher()
     {
       // - gestion spécifique de la page
-      $account_id     = $_SESSION['account_id'];
-      $avatar_name    = $_SESSION['avatar_nom_update'];
+      $choix_peuple   = $_POST['choix_peuple'];
+      //  traitement des accents dans les noms
+      	$search = array("é","è");
+		$replace = array("e","e");
+		foreach($_SESSION['races_possibles'] as $race){
+			$nom = str_replace($search,$replace,$race->nom);
+			if($nom==$choix_peuple){$choix_peuple=$race->nom;}
+		}
+		
+      $account_id     = $_SESSION['compte']->id;
+      if(isset($_SESSION['avatar_nom_update'])&&!empty($_SESSION['avatar_nom_update'])){
+      		//   on vient de choix_djun_validation, on vient de choisir un djun
+      		$avatar_name    = $_SESSION['avatar_nom_update'];
+   		}
+   		if(isset($_SESSION['avatar_name'])&&!empty($_SESSION['avatar_name'])){
+      		//   on vient de tdb, le djun est choisi mais n'a pas nécessairement de race définie
+      		//  il faut alors mettre à jour SESSION['avatars'] avec la race de l'avatar
+      		$avatar_name    = $_SESSION['avatar_name'];
+      		foreach($_SESSION["avatars"] as $key=>$avatar){
+      			if($avatar->nom==$avatar_name){
+      				$avatar->race = $choix_peuple;
+      				$_SESSION["avatars"][$key] = $avatar;
+      				break;
+      			}
+      		}
+   		}
 
       $choix_peuple   = $_POST['choix_peuple'];
       //  traitement des accents dans les noms
@@ -39,13 +63,13 @@ class PageChoixPeupleVoirValidation extends Page
 		}
 
       // - On insère les données
-      $sql  = "UPDATE \"libertribes\".\"AVATAR\" set race = '$choix_peuple' ";
-      $sql .= "WHERE compte_id = '$account_id' and avatar_nom = '$avatar_name'";
-
+      $sql  = "UPDATE \"libertribes\".\"AVATAR\" set race = '$choix_peuple', derniere_connexion='".date('Y-m-d H:i:s')."' ";
+      $sql .= "WHERE compte_id = '".$account_id."' and avatar_nom = '".$avatar_name."'";
       
       if($this->db_connexion->Requete( $sql )){
       	
       		unset($_SESSION['avatar_nom_update']);
+      		unset($_SESSION['avatar_name']):
       		unset($_SESSION['choix_peuple']);
       		// contrôle de la mise en SESSION du nouvel avatar
       		$avatars = array();

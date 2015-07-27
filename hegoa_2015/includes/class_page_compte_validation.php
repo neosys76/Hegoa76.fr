@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -25,75 +25,131 @@ class PageCompteValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On se connecte à la base de données
-      parent::ConnecterBD();
-
-      // - gestion spécifique de la page
-      $account_id           = $_SESSION['account_id'];
-      $account_lastname     = $_POST['account_lastname'];
-      $account_firstname    = $_POST['account_firstname'];
-      $account_mail         = $_POST['account_mail'];
-      $account_password     = $_POST['account_password'];
-      $account_jour         = $_POST['account_jour'];
-      $account_mois         = $_POST['account_mois'];
-      $account_annee        = $_POST['account_annee'];
-      $account_ville        = $_POST['account_ville'];
-      $account_pays         = $_POST['account_pays'];
-      $account_presentation = $_POST['account_presentation'];
-
-      // - On stocke dans la session
-      $_SESSION['account_lastname']       = $account_lastname;
-      $_SESSION['account_firstname']      = $account_firstname;
-      $_SESSION['account_mail']           = $account_mail;
-      $_SESSION['account_password']       = $account_password;
-      $_SESSION['account_jour']           = $account_jour;
-      $_SESSION['account_mois']           = $account_mois;
-      $_SESSION['account_annee']          = $account_annee;
-      $_SESSION['account_ville']          = $account_ville;
-      $_SESSION['account_pays']           = $account_pays;
-      $_SESSION['account_presentation']   = $account_presentation;
-
-      // - Controle des données
-      if (
-          ( strlen($account_jour) != 0 && strlen($account_jour) != 2) ||
-          ( strlen($account_mois) != 0 && strlen($account_mois) != 2) ||
-          ( strlen($account_annee) != 0 && strlen($account_annee) != 4)
-         )
-      {
-        header('Location: index.php?page=compte&erreur=1');
-        exit;
-      }
-
-      // - Préparation de la date
-      $account_anniv = "";
-      if ( strlen($account_jour) == 2 && strlen($account_mois) == 2 && strlen($account_annee) == 4 )
-      {
-        $account_anniv = "$account_annee-$account_mois-$account_jour";
-      }
-
+    	if(isset($_SESSION["compte"])&&!empty($_SESSION["compte"])){
+      		// - gestion spécifique de la page
+      		$deja_ecrit = 0;
+      		$account_id           = $_SESSION['compte']->id;
+      		$sql  = "UPDATE  \"libertribes\".\"COMPTE\"  SET ";
+      		if(isset($_POST["compte_nom"])&&!empty($_POST["compte_nom"])){
+      			$nom = htmlspecialchars($_POST["compte_nom"]);
+      			$_SESSION["compte"]->nom = $nom;
+      			$sql .= "nom='".$nom."'";
+      			$deja_ecrit = 1;
+      		}
+      		if(isset($_POST["compte_prenom"])&&!empty($_POST["compte_prenom"])){
+      			$prenom = htmlspecialchars($_POST["compte_prenom"]);
+      			$_SESSION["compte"]->prenom = $prenom;
+      			if($deja_ecrit==0){
+      				$sql .= "prenom='".$prenom."'";
+      				$deja_ecrit = 1;
+      			}
+      			else {
+      				$sql .= ", prenom='".$prenom."'";
+      			}
+      		}
+      		if(isset($_POST["compte_email"])&&!empty($_POST["compte_email"])){
+      			$email = htmlspecialchars($_POST["compte_email"]);
+      			$_SESSION["compte"]->email = $email;
+      			if($deja_ecrit==0){
+      				$sql .= "email='".$email."'";
+      				$deja_ecrit = 1;
+      			}
+      			else {
+      				$sql .= ", email='".$email."'";
+      			}
+      		}
+      		if(isset($_POST["compte_ville"])&&!empty($_POST["compte_ville"])){
+      			$ville = htmlspecialchars($_POST["compte_ville"]);
+      			$_SESSION["compte"]->ville = $ville;
+      			if($deja_ecrit==0){
+      				$sql .= "ville='".$ville."'";
+      				$deja_ecrit = 1;
+      			}
+      			else {
+      				$sql .= ", ville='".$ville."'";
+      			}
+      		}
+      		if(isset($_POST["compte_pays"])&&!empty($_POST["compte_pays"])){
+      			$pays = htmlspecialchars($_POST["compte_pays"]);
+      			$_SESSION["compte"]->pays = $pays;
+      			if($deja_ecrit==0){
+      				$sql .= "pays='".$pays."'";
+      				$deja_ecrit = 1;
+      			}
+      			else {
+      				$sql .= ", pays='".$pays."'";
+      			}
+      		}
+      		if(isset($_POST["le_jour"])&&!empty($_POST["le_jour"])){
+      			$le_jour = htmlspecialchars($_POST["le_jour"]);
+      		}
+      		else {
+      			$le_jour = "00";
+      		}
+      		if(isset($_POST["le_mois"])&&!empty($_POST["le_mois"])){
+      			$le_mois = htmlspecialchars($_POST["le_mois"]);
+      		}
+      		else {
+      			$le_mois = "00";
+      		}
+      		if(isset($_POST["l_annee"])&&!empty($_POST["l_annee"])){
+      			$l_annee = htmlspecialchars($_POST["l_annee"]);
+      		}
+      		else {
+      			$l_annee = "0000";
+      		}
+      		$date_anniv = $l_annee."-".$le_mois."-".$le_jour;
+      		if($date_anniv != "0000-00-00"){
+      			$_SESSION["compte"]->date_anniv = $date_anniv;
+      			if($deja_ecrit==0){
+      				$sql .= "date_anniv='".$date_anniv."'";
+      				$deja_ecrit = 1;
+      			}
+      			else {
+      				$sql .= ", date_anniv='".$date_anniv."'";
+      			}
+      		}
+      		if(isset($_POST["compte_presentation"])&&!empty($_POST['compte_presentation'])){
+      			$presentation = htmlspecialchars($_POST["compte_presentation"]);
+      			$_SESSION["compte"]->presentation = $presentation;
+      			if($deja_ecrit==0){
+      				$sql .= "presentation='".$presentation."'";
+      				$deja_ecrit = 1;
+      			}
+      			else {
+      				$sql .= ", presentation='".$presentation."'";
+      			}
+      		}
+      		if(isset($_POST["nouveau_password"])&&!empty($_POST["nouveau_password"])){
+      			$nouveau_password = crypt($_POST["account_password"],SALT);
+      			$_SESSION["compte"]->password = $nouveau_password;
+      			if($deja_ecrit==0){
+      				$sql .= "password='".$nouveau_password."'";
+      				$deja_ecrit = 1;
+      			}
+      			else {
+      				$sql .= ", password='".$nouveau_password."'";
+      			}
+      		}
+      		$sql .= "WHERE compte_id = ".$account_id;
       // - On insère les données
-      $sql  = "UPDATE  \"libertribes\".\"ACCOUNT\"  ";
-      $sql .= " SET lastname = '$account_lastname', firstname = '$account_firstname', email = '$account_mail', password = '$account_password'";
-      if ( strlen($account_anniv) == 10 )
-      {
-            $sql .= ", date_anniv = '$account_anniv'";
-      }
-      $sql .= ", ville = '$account_ville', pays = '$account_pays', presentation = '$account_presentation'  ";
-      $sql .= " where account_id = $account_id";
 
-      echo $sql;
-      $result = parent::Requete( $sql );
+      $result = $this->db_connexion->Requete( $sql );
       if ( ! $result)
       {
         // - redirection vers la page d'accueil du jeu
-        header('Location: index.php?page=compte&erreur=2');
+        header('Location: index.php?page=compte&erreur=1');
         exit;
       }
 
       // - redirection vers la page d'accueil du jeu
       header('Location: index.php?page=tdb');
       exit;
-
+		}
+		else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
+		}
     }// - Fin de la fonction Afficher
 
 }// - Fin de la classe

@@ -564,10 +564,9 @@ class PageJeu extends Page
 		$this->carte_x = substr($parties[0], 1);
 		$this->carte_y = substr($parties[1],0,(strlen($parties[1])-1));
 		//  détermination du panneau de la carte à télécharger
-		$panx = floor($this->carte_x/LARGEUR_CARTE)+1;
-		$pany = floor($this->carte_y/HAUTEUR_CARTE)+1;
-		$this->nom_panneau = "pan_".$panx."-".$pany;
-		
+		$panx = floor(floatval($this->carte_x)/LARGEUR_PANNEAU)+1;
+		$pany = floor(floatval($this->carte_y)/HAUTEUR_PANNEAU)+1;
+		$this->nom_panneau = "pan_".$pany."-".$panx;
       // - on ajoute le css & contenu du panneau
       $this->AjouterCSS("page_jeu_carte.css");
       $this->AjouterContenu("contenu_carte", "contenus/page_jeu_carte.php");		

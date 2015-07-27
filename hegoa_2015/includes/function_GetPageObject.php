@@ -257,6 +257,11 @@ error_reporting(E_ALL);
           require "class_page_compte_premium.php";                                         // - On inclut la class PageComptePremium
           $pageObject = new PageComptePremium();
           break;
+          
+          case "compte_update":
+          require "class_page_compte_update.php";                                         // - On inclut la class PageCompteUpdate
+          $pageObject = new PageCompteUpdate();
+          break;
 
         default:
           $pageObject = new Page();

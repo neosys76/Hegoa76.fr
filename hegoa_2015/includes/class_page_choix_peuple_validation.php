@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -25,31 +25,38 @@ class PageChoixPeupleValidation extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - gestion spécifique de la page
-      $account_id           = $_SESSION['account_id'];
-      $choix_peuple         = $_POST['choix_peuple'];
-		$test_races = true;
-		$search = array("é","è");
-		$replace = array("e","e");
-		foreach($_SESSION['races_possibles'] as $race){
-			$nom = str_replace($search,$replace,$race->nom);
-			$test_races= $test_races || ($choix_peuple==$nom);
+		if(isset($_SESSION["compte"])&&!empty($_SESSION["compte"])){
+     	 // - gestion spécifique de la page
+     		$account_id           = $_SESSION['compte']->id;
+     		$choix_peuple         = $_POST['choix_peuple'];
+			$test_races = true;
+			$search = array("é","è");
+			$replace = array("e","e");
+			foreach($_SESSION['races_possibles'] as $race){
+				$nom = str_replace($search,$replace,$race->nom);
+				$test_races= $test_races || ($choix_peuple==$nom);
+			}
+
+      		if ($test_races)
+      		{
+      		  $_SESSION['choix_peuple'] = $choix_peuple;
+	
+	        // - redirection vers la page d'accueil du jeu
+	        header('Location: index.php?page=choix_peuple_voir');
+	        exit;
+	      }
+     	 else
+     	 {
+     	   $_SESSION['choix_peuple'] = "";
+     	   // - redirection vers la page TDB
+     	   header('Location: index.php?page=choix_peuple');
+     	   exit;
+     	 }
+   		}
+	else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
 		}
-
-      if ($test_races)
-      {
-        $_SESSION['choix_peuple'] = $choix_peuple;
-
-        // - redirection vers la page d'accueil du jeu
-        header('Location: index.php?page=choix_peuple_voir');
-        exit;
-      }
-      else
-      {
-        $_SESSION['choix_peuple'] = "";
-        // - redirection vers la page TDB
-        header('Location: index.php?page=choix_peuple');
-      }
     }// - Fin de la fonction Afficher
 
 }// - Fin de la classe

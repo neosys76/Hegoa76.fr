@@ -5,6 +5,7 @@
 // ======================================================================
 
 $connexion_incluse = 0;
+$compte_inclus = 0;
 $avatar_inclus = 0;
 $village_inclus = 0;
 $avatar_inclus = 0;
@@ -12,6 +13,8 @@ $race_incluse = 0;
 
 require_once "modeles/class_connexion.php";										//   on inclut la classe Connexion
 $connexion_incluse = 1;
+require_once "modeles/class_compte.php";										//   on inclut la classe Compte
+$compte_inclus = 1;
 require  "modeles/class_avatar.php";										//   on inclut la classe Avatar qui inclut les classes Connexion et Village
 $avatar_inclus = 1;
 if($village_inclus==0){
@@ -157,7 +160,6 @@ class Page
 		elseif(strpos($userAgent,"Safari")) {$browser = "safari";}
 		else {$browser = "chrome";}
 ?>
-      <!DOCTYPE html>
       <html lang="fr">
       <head>
         <title>LiberTribes - <?=$this->strTitrePage?></title>
@@ -263,7 +265,8 @@ class Page
 
     // - Affichage de la page
     public function Afficher()
-    {
+    {echo "<!DOCTYPE html>";
+    var_dump($_SESSION);
       $this->AfficherHeader();
       
       //   message d'erreur éventuel , à afficher dans une vue

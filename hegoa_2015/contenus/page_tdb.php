@@ -94,7 +94,7 @@ else {				//  $iNbDjun ==0
 	</div>
 	<?php
 	//   un cadre pour un upgrade de compte
-	if(isset($_SESSION['compte'])&&$_SESSION['compte']=="base"){
+	if(isset($_SESSION['compte']->type_compte)&&$_SESSION['compte']->type_compte=="base"){
 		?>
 	<div class="djun premium">
 		<a href="?page=compte_premium">Compte Premium</a>
@@ -102,7 +102,7 @@ else {				//  $iNbDjun ==0
 
 <?php	
 	}
-	elseif(isset($_SESSION['compte'])&&$_SESSION['compte']=="premium"){
+	elseif(isset($_SESSION['compte']->type_compte)&&$_SESSION['compte']->type_compte=="premium"){
 		?>
 		<!--   POUR LE MOMENT, compte Gold non prévu
 	<div class="djun premium">

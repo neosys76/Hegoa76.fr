@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -33,8 +33,13 @@ class PageChoixPeuple extends Page
     // - Affichage de la page
     public function Afficher()
     {
-
-      parent::Afficher();
+		if(isset($_SESSION["compte"])&&!empty($_SESSION["compte"])){
+   		   parent::Afficher();
+   		}
+   		else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
+		}
 
     }// - Fin de la fonction Afficher
 

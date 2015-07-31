@@ -6,14 +6,16 @@ if(!isset($carte_x)){
 	$carte_x = 0;
 	$carte_y = 0;
 }
-
+if(isset($_GET["rafraichi"])&&$_GET["rafraichi"]=="oui"){
+	$style_action = "style=\"display:none;\" ";
+}
 ?>
 
 <!--   le panneau_jeu est le contenant: 942x663px   -->
 <div class="panneau_carte">   <!--   container de la carte  -->
 	
 	<div id="plage_jeu"> 
-		<div id="actions">
+		<div id="actions" <?php if(isset($style_action)){echo $style_action;} ?> >
 		</div>
 		<section id="plage_jeu_1">		<!-- première section, correspondant à la carte totale en svg pour les codes couleurs-->
 				<img id="imgcodes" src="images/cartes/panneaux/<?php  echo $nom_panneau; ?>.svg" >

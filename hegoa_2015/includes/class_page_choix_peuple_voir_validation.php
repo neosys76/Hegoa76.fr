@@ -68,8 +68,8 @@ class PageChoixPeupleVoirValidation extends Page
       
       if($this->db_connexion->Requete( $sql )){
       	
-      		unset($_SESSION['avatar_nom_update']);
-      		unset($_SESSION['avatar_name']):
+      		if(isset($_SESSION['avatar_nom_update'])){unset($_SESSION['avatar_nom_update']);}
+      		if(isset($_SESSION['avatar_name'])){unset($_SESSION['avatar_name']);}
       		unset($_SESSION['choix_peuple']);
       		// contrôle de la mise en SESSION du nouvel avatar
       		$avatars = array();

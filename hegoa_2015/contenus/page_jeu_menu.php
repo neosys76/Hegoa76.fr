@@ -52,11 +52,6 @@
   <a class="lien_etoile" href="index.php?page=jeu&espace=etoile">
   <img class="image_bouton_etoile" name="image_bouton_etoile" src="images/jeu/carte_bouton_etoile.png" >
   </a>
-  
-  <span class="btn_zooms">
-  Zooms<br/>
-  <img class="change_zoom" src="images/jeu/signe-moins.png" onclick="charger_zoom_moins();"> &nbsp;&nbsp; 
-  <img class="change_zoom" src="images/jeu/signe-plus.png" onclick="charger_zoom_plus();"> 
-  </span>
+
 </div>
 

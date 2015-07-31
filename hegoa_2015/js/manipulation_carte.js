@@ -1,12 +1,15 @@
 
 //  fonction de manipulation du panneau chargé
 function manipulation_carte(nom_panneau) {
+
 	//   nom_panneau est l'étiquette du nom du panneau chargé
 	//  recherche des coordonnées dans le panneau
 	var deux_indices = nom_panneau.substring(4);
 	var indices = deux_indices.split("-");
 	var num_sur_y = indices[0]-1;
 	var num_sur_x = indices[1]-1;
+	var num_sur_x_max = Math.round(largeur_carte_totale/largeur_panneau)-1;
+	var num_sur_y_max = Math.round(hauteur_carte_totale/hauteur_panneau)-1;
 
 	var panneau_coord_x = carte_coord_x - num_sur_x*largeur_panneau;
 	var panneau_coord_y = carte_coord_y - num_sur_y*hauteur_panneau;
@@ -79,8 +82,23 @@ function manipulation_carte(nom_panneau) {
 		//   coordonnées dans le panneau code à dimensions réelles déclarées dans le SVG
 		var realx_in_panneauSVG = realx_in_section1/ratio1X;
 		var realy_in_panneauSVG = realy_in_section1/ratio1Y;
-		var realx_in_carte = realx_in_section2/ratio2X + num_sur_x*hauteur_panneau;
-		var realy_in_carte = realy_in_section2/ratio2Y + num_sur_y*hauteur_panneau;
+		if(realx_in_panneauSVG<0){realx_in_panneauSVG=0;}
+		if(realy_in_panneauSVG<0){realy_in_panneauSVG=0;}
+		if(realx_in_panneauSVG>largeur_panneau_code){realx_in_carte=largeur_panneau_code;}
+		if(realy_in_panneauSVG>hauteur_panneau_code){realy_in_carte=hauteur_panneau_code;}
+		var realx_in_carte = Math.round(realx_in_section2/ratio2X + num_sur_x*largeur_panneau);
+		var realy_in_carte = Math.round(realy_in_section2/ratio2Y + num_sur_y*hauteur_panneau);
+		var check_probleme = 0;
+		if(realx_in_carte<0){realx_in_carte=0;check_probleme=1;}
+		if(realy_in_carte<0){realy_in_carte=0;check_probleme=1;}
+		if(realx_in_carte>largeur_carte){realx_in_carte=largeur_carte;check_probleme=1;}
+		if(realy_in_carte>hauteur_carte){realy_in_carte=hauteur_carte;check_probleme=1;}
+		//  test pour contrôler que les coordonnées sont encore dans le panneau affiché
+		
+		var check_num_sur_y = Math.floor(realy_in_carte/hauteur_panneau);
+		var check_num_sur_x = Math.floor(realx_in_carte/largeur_panneau);
+		
+		
 		var section2 = $('#plage_jeu_1');
 		section2.css("width",largeur_section1);
 		section2.css("height",hauteur_section1);
@@ -93,10 +111,24 @@ function manipulation_carte(nom_panneau) {
 		ctx.scale(ratio1X,ratio1Y);
 		ctx.drawImage(myImage, 0, 0); 
 		var p = ctx.getImageData(realx_in_section1, realy_in_section1, 1, 1).data; 
-   		var hex = "#" + rgbToHex(p[0], p[1], p[2]);
-   		var contenu_actions= afficheaction(realx_in_carte,realy_in_carte,hex);
-   		$("#actions").html(contenu_actions);
-   		$("#actions").css("z-index",300);
+   		var hex = rgbToHex(p[0], p[1], p[2]);
+   		if(((check_num_sur_x!=num_sur_x)||(check_num_sur_y!=num_sur_y))||check_probleme!=0){
+   			//   les coordonnées pointées sortent du panneau affiché
+   			// contrôle de l'existence du panneau
+   			if(check_probleme==0){	
+   				window.location.href = "index.php?page=charge_nouveau_panneau&absx="+realx_in_carte+"&ordy="+realy_in_carte;
+   			}
+   			else {
+   				check_probleme=0;
+   				alert("Il n'y a pas de panneau associé à ces coordonnées");
+   				window.location.href = "index.php?page=charge_nouveau_panneau";
+   			}
+   		}
+   		else {
+   			var contenu_actions= afficheaction(realx_in_carte,realy_in_carte,hex);
+   			$("#actions").html(contenu_actions);
+   			$("#actions").css("z-index",300);
+   		}
 
    	});			//  fin de panzoom-dblclick
    	

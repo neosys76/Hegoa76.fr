@@ -89,13 +89,13 @@ function defineDimensions() {
 function afficheaction(absx,ordy,couleur){
 	var textHtml ="<h2>Ce que vous pouvez faire sur une case</h2>";
 	textHtml += "<span class='attention'>Attention: il s'agit d'une liste d'options mais la faisabilité sera contrôlée après votre choix</span><br/><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=affiche-etat-case&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Afficher l'état de la case</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=construire-village&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Construire un village</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=installer-campement&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Installer un campement de troupe</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=livraison&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Effectuer une livraison</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=espionnage&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Espionnage</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=attaquer&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Lancer une attaque</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=etablir-marche&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Installer un marché</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=affiche-etat&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Afficher l'état de la case</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=construire-village&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Construire un village</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=installer-campement&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Installer un campement de troupe</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=livraison&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Effectuer une livraison</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=espionnage&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Espionnage</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=attaquer&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Lancer une attaque</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=etablir-marche&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Installer un marché</a><br/>";
 	return textHtml;
 }
 

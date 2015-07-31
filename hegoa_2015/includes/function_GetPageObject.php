@@ -243,9 +243,9 @@ error_reporting(E_ALL);
           $pageObject = new PageJeu();
           break;
           
-        case "affiche-etat-case":
-          require "class_page_affiche-etat-case.php";                                         // - On inclut la class PageAfficheEtatCase
-          $pageObject = new PageAfficheEtatCase();
+         case "charge_nouveau_panneau":
+          require "class_page_charge_nouveau_panneau.php";                                         // - On inclut la class PageChargeNouveauPanneau
+          $pageObject = new PageChargeNouveauPanneau();
           break;
 
         case "des_supplementaires":
@@ -258,9 +258,14 @@ error_reporting(E_ALL);
           $pageObject = new PageComptePremium();
           break;
           
-          case "compte_update":
+        case "compte_update":
           require "class_page_compte_update.php";                                         // - On inclut la class PageCompteUpdate
           $pageObject = new PageCompteUpdate();
+          break;
+          
+        case "actions_case":
+          require "class_page_actions_case.php";                                         // - On inclut la class PageActionsCase
+          $pageObject = new PageActionsCase();
           break;
 
         default:

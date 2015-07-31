@@ -573,6 +573,78 @@ class PageJeu extends Page
 	}
     	
     // -------------------------------------------------------------------------
+    
+    public function coloniser()
+	{
+// - on ajoute le css & contenu du panneau
+      $this->AjouterCSS("page_jeu_colonisation.css");
+      var_dump($_POST);
+		//si les POST sont mis on est dans la procédure de validation des choix
+		if(isset($_POST['choix_colonisation_x'])&&!empty($_POST['choix_colonisation_x'])){
+			//  on a choisi le type de colonisation
+			if($_POST['type_colonisation']=="village"){
+				//  colonisation de la case par un village
+				//   en réflexion !!
+				$this->message = "Village: Page au stade gestatif ;)";
+				
+			}
+			elseif($_POST['type_colonisation']=="campement"){
+				//  colonisation de la case par un campement de troupe
+				//   en réflexion !!
+				$this->message = "Page au stade gestatif ;)";
+				
+			}
+			elseif($_POST['type_colonisation']=="livraison"){
+				//  colonisation de la case par une livraison
+				//   en réflexion !!
+				$this->message = "Page au stade gestatif ;)";
+			}
+			elseif($_POST['type_colonisation']=="espionnage"){
+				//  colonisation de la case par un espion
+				//   en réflexion !!
+				$this->message = "Page au stade gestatif ;)";
+			}
+			elseif($_POST['type_colonisation']=="attaque"){
+				//  la case est attaquée
+				//   en réflexion !!
+				$this->message = "Page au stade gestatif ;)";
+			}
+			elseif($_POST['type_colonisation']=="marche"){
+				//  colonisation de la case par un marché
+				//   en réflexion !!
+				$this->message = "Page au stade gestatif ;)";
+			}
+			else {
+				//  problème avec l'option POST['type_colonisation']
+				$this->message = "L'option n'existe pas !";
+			}	
+			//   Si on échappe à toutes ces options: directions données quand même
+			if(isset($this->message)&&!empty($this->message)){
+				$this->AjouterContenu("contenu_carte", "contenus/page_jeu_colonisation_voir.php");				
+			}
+			else {
+				header("Location:?page=jeu");
+				exit;
+			}
+			
+		}
+		else {
+			//   choix à faire
+			if((isset($_GET['absx'])&&!empty($_GET['absx']))&&(isset($_GET['ordy'])&&!empty($_GET['ordy']))){
+				$case = "(".$_GET['absx'].",".$_GET['ordy'].")";
+			}
+			elseif(isset($_GET['case'])&&!empty($_GET['case'])){$case=urldecode($_GET['case']);}
+			
+			if(!isset($_GET['terrain'])||empty($_GET['terrain'])||!isset($case)){
+				$this->message = "Il manque une donnée (terrain ou case) pour la colonisation. Recommencez le processus.";
+			}
+			
+			$this->AjouterContenu("contenu_carte", "contenus/page_jeu_colonisation_voir.php");	
+		}
+		
+	}
+    	
+    // -------------------------------------------------------------------------
 
     // - Affichage de la page
     public function Afficher()
@@ -672,13 +744,18 @@ class PageJeu extends Page
 	      {
 	        $this->charger_carte();
 	      }
+	      
+	      if($jeu_espace == "colonisation" )
+	      {
+	      		$this->coloniser();
+	      }
 		}
 	else {
 		$this->charger_carte();
 	}
 	      // - on ajoute le contenu du menu à gauche
       $this->AjouterContenu("contenu_menu", "contenus/page_jeu_menu.php");
-
+		
       parent::Afficher();
 
       // - gestion spécifique de la page

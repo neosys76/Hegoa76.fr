@@ -1,5 +1,5 @@
 //   variables globales 
-	carte_coord_x = 0;
+	carte_coord_x = 0;			//  ce sont les coordonnées du milieu de la dernière case visitée
 	carte_coord_y = 0;
 	fenetre_visible_x = 0;
 	fenetre_visible_y = 0;
@@ -9,6 +9,7 @@
 	hauteur_panneau = 0;
 	largeur_panneau_codes = 0;
 	hauteur_panneau_codes = 0;
+	cote_case = 0;
 	ratio_affich_panneau = 1.0;			//   facteur de "dézoom" entre dimensions des panneaux images jpg et la dimension de la balise img qui les accueille
 	ratio_affich_panneau_codes = 1.0;			//   facteur de "dézoom" entre dimensions des panneaux codes et la dimension de la balise img qui les accueille
 
@@ -31,6 +32,11 @@ function transmettre_dimensions_fenetre(le_x,le_y){
 function transmettre_dimensions_carte(sur_x,sur_y){
 	largeur_carte_totale = parseInt(sur_x);
 	hauteur_carte_totale = parseInt(sur_y);
+}
+
+//   fonction transmettant les dimensions d'une case: la variable dimension_case est accessible partour dans le script
+function transmettre_cote_casa(cote){
+	cote_case  = parseInt(cote);
 }
 
 //   fonction transmettant les dimensions d'un panneau: les variables largeur_panneau et hauteur_panneau sont accessibles partour dans le script
@@ -76,9 +82,7 @@ function defineDimensions() {
 		section2Width: largeur_affiche_panneau_initial,
 		section2Height : hauteur_affiche_panneau_initial,
 		carteWidth : largeur_carte_totale,
-		carteHeight : hauteur_carte_totale,
-		caseWidth: 50, 
-		caseHeight: 50
+		carteHeight : hauteur_carte_totale
 	};
 
 	return dimensions;

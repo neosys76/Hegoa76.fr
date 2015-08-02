@@ -60,6 +60,11 @@ class PageDjun extends Page
       				break;
       			}
 	   		}
+	   		
+			//  on indique l'heure de connexion dans la table AVATAR (dernière_connexion)
+			$le_moment = date("Y-m-d H:i:s");
+			$sql = "UPDATE \"libertribes\".\"AVATAR\"  SET derniere_connexion = '".$le_moment."' where avatar_id = '".$_SESSION["djun_choisi"]->id."'"; 
+			$this->db_connexion->Requete( $sql );
 
       		parent::Afficher();
 		}

@@ -9,6 +9,17 @@ if(!isset($carte_x)){
 if(isset($_GET["rafraichi"])&&$_GET["rafraichi"]=="oui"){
 	$style_action = "style=\"display:none;\" ";
 }
+//  pour transmettre les cases occupées par l'avatar au script JS manipulation_carte.js, on récupère toutes les cases occupées et mises en SESSION, sous forme JSON
+$classe_vide = new stdClass();
+$json_array_vide = array($classe_vide);
+$mes_cases_occupees_json = json_encode($json_array_vide);
+if(!empty($_SESSION['djun_choisi']->mes_cases)&&(isset($_SESSION['djun_choisi']->mes_cases[0])&&!empty($_SESSION['djun_choisi']->mes_cases[0]))){
+	$mes_cases_occupees_json = json_encode($_SESSION['djun_choisi']->mes_cases);
+}
+
+//  on calcule le top, left and co pour la div d'emphase de la case centrale
+$coin_ajuste = -DIM_CASE/2;			//  valable pour top et left
+$taille = DIM_CASE;
 ?>
 
 <!--   le panneau_jeu est le contenant: 942x663px   -->
@@ -23,12 +34,18 @@ if(isset($_GET["rafraichi"])&&$_GET["rafraichi"]=="oui"){
 		</section>
 		<section id="plage_jeu_2">		<!-- deuxième section, correspondant au panneau à charger-->
 			<div class="panzoom">
-				<img id="carte" src="images/cartes/panneaux/<?php  echo $nom_panneau; ?>.jpg" alt="dernière position sur la carte"/>
+				<img id="carte" src="images/cartes/panneaux/<?php  echo $nom_panneau; ?>.jpg" alt="dernière position sur la carte">
 			</div> 
 		</section>
+		<div id="entoure_case">
+			<div id="commentaire">
+				Ceci est la dernière case visitée			
+			</div>
+		</div>
 	</div>
 
 </div><!-- panneau_carte -->
+<noscript>MERDEEEEEEEEEEE</noscript>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/jquery.panzoom.js"></script>
 <script src="js/jquery.mousewheel.js"></script>
@@ -40,5 +57,14 @@ transmettre_dimensions_fenetre("<?php echo LARGEUR_FENETRE; ?>","<?php echo HAUT
 transmettre_dimensions_carte("<?php echo LARGEUR_CARTE; ?>","<?php echo HAUTEUR_CARTE; ?>");
 transmettre_dimensions_panneau("<?php echo LARGEUR_PANNEAU; ?>","<?php echo HAUTEUR_PANNEAU; ?>","<?php echo RATIO_AFFICH_PANNEAU; ?>");
 transmettre_dimensions_panneau_codes("<?php echo LARGEUR_PANNEAU_CODES; ?>","<?php echo HAUTEUR_PANNEAU_CODES; ?>","<?php echo RATIO_AFFICH_PANNEAU_CODES; ?>");
-manipulation_carte("<?php echo $nom_panneau; ?>");
+transmettre_cote_casa("<?php echo DIM_CASE; ?>");
+manipulation_carte("<?php echo $nom_panneau; ?>","<?php echo $mes_cases_occupees_json; ?>");
+var newtop = (parseInt($("#entoure_case").css("top"))+parseInt("<?php echo $coin_ajuste; ?>")).toString()+"px";
+var newleft = (parseInt($("#entoure_case").css("left"))+parseInt("<?php echo $coin_ajuste; ?>")).toString()+"px";
+var newtaille = (parseInt("<?php echo $taille; ?>")).toString()+"px";
+$("#entoure_case").css("top",newtop);
+$("#entoure_case").css("left",newleft);
+$("#entoure_case").css("width",newtaille);
+$("#entoure_case").css("height",newtaille);
+setTimeout(function(){ $("#entoure_case").remove(); }, 3900);
 </script>

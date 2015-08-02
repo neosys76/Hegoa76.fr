@@ -13,6 +13,7 @@ $case = urldecode($_GET['case']);
 <input type="hidden" value="<?php echo $_GET['terrain']; ?>" name="terrain">
 <input type="hidden" value="<?php echo $case; ?>" name="case">
 <input id="village" type="radio" name="type_colonisation" value="village" checked><label for="village"><span><span></span></span>: Construire un village</label> <br/>
+<span>&nbsp;&nbsp;&nbsp;Nom du village: </span><input type="text" name="nom_village"><br/>
 <input id="campement" type="radio" name="type_colonisation" value="campement"><label for="campement"><span><span></span></span>: Installer un campement de troupe</label><br/> 
 <input  id="livraison" type="radio" name="type_colonisation" value="livraison"><label for="livraison"><span><span></span></span>: Effectuer une livraison</label><br/> 
 <input  id="espionnage" type="radio" name="type_colonisation" value="espionnage"><label for="espionnage"><span><span></span></span>: Espionner</label><br/> 

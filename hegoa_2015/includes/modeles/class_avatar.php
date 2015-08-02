@@ -13,6 +13,10 @@ if($village_inclus==0){
 require   "class_village.php";                                                       // - On inclut la class Village
 $village_inclus=1;
 }
+if($caza_incluse==0){
+require   "class_caza.php";                                                       // - On inclut la class Caza
+$caza_incluse=1;
+}
 
 class Avatar
 {	
@@ -37,6 +41,7 @@ class Avatar
 	public $mana_total;
 	public $lien_regles;
 	public $villages;								//   tous les villages de l'avatar
+	public $mes_cases;								//   toutes les cases occupées par l'avatar, y compris les cases villages
 	
     function __construct($row)
     {
@@ -110,13 +115,12 @@ class Avatar
       		$this->derniere_connexion = $row['derniere_connexion'];    			
       	}
       	
-      	//  on charge tous les villages de l'avatar
+      	//  on charge tous les villages de l'avatar, ainsi que toutes les autres cases occupées
 
      	if(!isset($connexion)){$connexion = new Connexion();}
      	$villages = array();
      	$i=0;
 		$sql  = "SELECT * FROM \"libertribes\".\"VILLAGE\" WHERE avatar_iden = '".$this->id."'";
-		
 		
       	$result = $connexion->Requete( $sql );
       	if (isset($result)&&!empty( $result ))
@@ -128,7 +132,22 @@ class Avatar
       		}
       	}
       	
+      	$mes_cases = array();
+     	$i=0;
+		$sql  = "SELECT * FROM \"libertribes\".\"CASE\" WHERE occupant_id = '".$this->id."'";
+		
+      	$result = $connexion->Requete( $sql );
+      	if (isset($result)&&!empty( $result ))
+      	{
+      		while ($row = pg_fetch_array($result)) 
+      		{
+      			$mes_cases[$i] = new Caza($row);
+      			$i++;
+      		}
+      	}
+      	
      $this->villages = $villages;
+     $this->mes_cases = $mes_cases;
      $this->calculProductionVillages();
      $this->calculManaTotal();
      

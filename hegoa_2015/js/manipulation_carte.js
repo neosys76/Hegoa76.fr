@@ -1,8 +1,17 @@
 
 //  fonction de manipulation du panneau chargé
-function manipulation_carte(nom_panneau) {
+function manipulation_carte(nom_panneau,cases_occupees) {
 
-	//   nom_panneau est l'étiquette du nom du panneau chargé
+
+	/*   
+	 *		Arguments de la fonction:
+	 *			nom_panneau est l'étiquette du nom du panneau chargé
+	 *			cases_occupees:  objet json, tableau d'objets json, avec par défaut un seul élément contenant un seul objet, vide
+	 *				sinon, le tableau contient toutes les cases occupées par l'avatar qui joue
+	*/	
+
+	var mes_cases_occupees = JSON.parse(cases_occupees);
+
 	//  recherche des coordonnées dans le panneau
 	var deux_indices = nom_panneau.substring(4);
 	var indices = deux_indices.split("-");
@@ -22,12 +31,16 @@ function manipulation_carte(nom_panneau) {
 	var cssheight = lesDims["section2Height"];
 	image_carte.css("width",csswidth);
 	image_carte.css("height",cssheight);
+	//   recentrer sur le milieu de la case de la dernière position
+	
 	var displx = -Math.round((ratio_affich_panneau*panneau_coord_x - fenetre_visible_x/2));
 	var disply = -Math.round((ratio_affich_panneau*panneau_coord_y - fenetre_visible_y/2));
 
 	var $panzoom = section1.find('.panzoom').panzoom();
 	$panzoom.panzoom("pan",displx,disply);
+
 	$panzoom.parent().on('mousewheel.plage_jeu', function( e ) {
+		//   on efface les idv qui spécifiaient la position initiale
 		e.preventDefault();
 		var delta = e.delta || e.originalEvent.wheelDelta;
 		var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
@@ -38,7 +51,8 @@ function manipulation_carte(nom_panneau) {
 			minScale:1
 			});
 	});
-		
+
+
 			//   quand on double-clique, on charge le panneau associé aux 2e niveau de zoom
 	$panzoom.parent().on('dblclick', function( e ) {
 		
@@ -93,6 +107,8 @@ function manipulation_carte(nom_panneau) {
 		if(realy_in_carte<0){realy_in_carte=0;check_probleme=1;}
 		if(realx_in_carte>largeur_carte){realx_in_carte=largeur_carte;check_probleme=1;}
 		if(realy_in_carte>hauteur_carte){realy_in_carte=hauteur_carte;check_probleme=1;}
+		var numero_case_x = Math.floor(realx_in_carte/cote_case) + 1;
+		var numero_case_y = Math.floor(realy_in_carte/cote_case) + 1;
 		//  test pour contrôler que les coordonnées sont encore dans le panneau affiché
 		
 		var check_num_sur_y = Math.floor(realy_in_carte/hauteur_panneau);
@@ -116,7 +132,7 @@ function manipulation_carte(nom_panneau) {
    			//   les coordonnées pointées sortent du panneau affiché
    			// contrôle de l'existence du panneau
    			if(check_probleme==0){	
-   				window.location.href = "index.php?page=charge_nouveau_panneau&absx="+realx_in_carte+"&ordy="+realy_in_carte;
+   				window.location.href = "index.php?page=charge_nouveau_panneau&absx="+numero_case_x+"&ordy="+numero_case_y;
    			}
    			else {
    				check_probleme=0;
@@ -125,11 +141,16 @@ function manipulation_carte(nom_panneau) {
    			}
    		}
    		else {
-   			var contenu_actions= afficheaction(realx_in_carte,realy_in_carte,hex);
+   			//   il faut tester si la case est occupée déjà par l'avatar. Si non, on passe à la présentation des actions possibles
+   			if(mes_cases_occupees.length>=1 && (typeof mes_cases_occupees[0].id != 'undefined')){
+			//  il y a au moins une case occupée par l'avatar
+			}
+   			var contenu_actions= afficheaction(numero_case_x,numero_case_y,hex);
    			$("#actions").html(contenu_actions);
    			$("#actions").css("z-index",300);
    		}
 
    	});			//  fin de panzoom-dblclick
+   	
    	
 }		//  fin de la fonction manipulation

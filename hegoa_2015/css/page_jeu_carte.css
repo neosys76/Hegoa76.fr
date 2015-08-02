@@ -30,3 +30,23 @@ span.attention {color:#c1310f;}
 		float: left;
 		margin: -57px 0px 0px 950px;
 	}
+
+/* le code d'animation */
+@-webkit-keyframes devenir_transparent {
+    0%   {opacity: 0.6;}
+    40%   {opacity: 0.6;}
+    100%  {opacity: 0;}
+}
+@keyframes devenir_transparent {
+    0%   {opacity: 0.6;}
+    40%   {opacity: 0.6;}
+    100%  {opacity: 0;}
+}
+div#entoure_case {position:absolute;top:300px;left:430px;width:10px;height:10px;border:2px solid #700;
+	background-color:#888;opacity:0.6;
+	-webkit-animation-name: devenir_transparent;
+	-webkit-animation-duration:4s;
+	animation-name: devenir_transparent;
+	animation-duration:4s;
+}
+div#commentaire {position:absolute;top:-30px;left:-60px;padding:5px;width:400%;color:#dfd;font-size:0.8em;}

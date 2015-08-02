@@ -6,10 +6,10 @@
 
 $connexion_incluse = 0;
 $compte_inclus = 0;
-$avatar_inclus = 0;
 $village_inclus = 0;
 $avatar_inclus = 0;
 $race_incluse = 0;
+$caza_incluse = 0;
 
 require_once "modeles/class_connexion.php";										//   on inclut la classe Connexion
 $connexion_incluse = 1;
@@ -24,6 +24,10 @@ $village_inclus = 1;
 if($race_incluse==0){
 require "modeles/class_race.php";										//   on inclut la classe Race
 $race_incluse = 1;
+}
+if($caza_incluse==0){
+require   "class_caza.php";                                                       // - On inclut la class Caza; NB: on ne peut pas donner le nom Case car ça provoque un problème 
+$caza_incluse=1;
 }
 require "modeles/class_terrain.php";										//   on inclut la classe Terrain
 
@@ -74,6 +78,21 @@ class Page
       						$i++;
       					}
       				$_SESSION['races_possibles']=$races_possibles;
+      			}
+      	}
+      	//  charger les terrains possibles et leurs caractéristiques, et les mettre en SESSION
+      if(!isset($_SESSION['terrains_possibles'])||empty($_SESSION['terrains_possibles'])||!isset($_SESSION['terrains_possibles'][0]->nom)){
+			$sql  = "SELECT * FROM \"libertribes\".\"TERRAIN\"";
+      		$result = $this->db_connexion->Requete( $sql );
+      		if (isset($result)&&!empty( $result ))
+      			{
+      				$i=0;
+      				while ($row = pg_fetch_array($result)) 
+      					{
+      						$terrains_possibles[$i] = new Terrain($row);
+      						$i++;
+      					}
+      				$_SESSION['terrains_possibles']=$terrains_possibles;
       			}
       	}
     }
@@ -267,7 +286,6 @@ class Page
     public function Afficher()
     {
     	echo "<!DOCTYPE html>";
-		
       $this->AfficherHeader();
       
       //   message d'erreur éventuel , à afficher dans une vue

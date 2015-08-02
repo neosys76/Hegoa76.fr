@@ -559,15 +559,19 @@ class PageJeu extends Page
     public function charger_carte()
 	{
 		// on recherche les données concernant la dernière connexion de l'avatar
-		$derniere_position = $_SESSION["djun_choisi"]->derniere_position;
+		$derniere_position = $_SESSION["djun_choisi"]->derniere_position;			//   position == indices de case
+		//  on détermine le panneau à charger et les coordonnées du milieu de la case
 		$parties = explode(",", $derniere_position);
-		$this->carte_x = substr($parties[0], 1);
-		$this->carte_y = substr($parties[1],0,(strlen($parties[1])-1));
+		$num_case_x = substr($parties[0], 1);
+		$num_case_y = substr($parties[1],0,(strlen($parties[1])-1));
+		$this->carte_x = (round(floatval($num_case_x)) - 1 )*DIM_CASE + round(DIM_CASE/2);
+		$this->carte_y =  (round(floatval($num_case_y)) - 1 )*DIM_CASE + round(DIM_CASE/2);
 		//  détermination du panneau de la carte à télécharger
-		$panx = floor(floatval($this->carte_x)/LARGEUR_PANNEAU)+1;
-		$pany = floor(floatval($this->carte_y)/HAUTEUR_PANNEAU)+1;
+		$panx = floor($this->carte_x/LARGEUR_PANNEAU)+1;
+		$pany = floor($this->carte_y/HAUTEUR_PANNEAU)+1;
 		$this->nom_panneau = "pan_".$pany."-".$panx;
-      // - on ajoute le css & contenu du panneau
+
+      // - on ajoute le css & contenu 
       $this->AjouterCSS("page_jeu_carte.css");
       $this->AjouterContenu("contenu_carte", "contenus/page_jeu_carte.php");		
 	}
@@ -578,15 +582,18 @@ class PageJeu extends Page
 	{
 // - on ajoute le css & contenu du panneau
       $this->AjouterCSS("page_jeu_colonisation.css");
-      var_dump($_POST);
 		//si les POST sont mis on est dans la procédure de validation des choix
 		if(isset($_POST['choix_colonisation_x'])&&!empty($_POST['choix_colonisation_x'])){
 			//  on a choisi le type de colonisation
 			if($_POST['type_colonisation']=="village"){
 				//  colonisation de la case par un village
-				//   en réflexion !!
-				$this->message = "Village: Page au stade gestatif ;)";
-				
+				$url = "index.php?page=actions_case&action=construire-village&case=".urlencode($_POST['case'])."&terrain=".$_POST['terrain'];
+				if(isset($_POST['nom_village'])&&!empty($_POST['nom_village'])){
+					$nom_village = urlencode(htmlspecialchars($_POST['nom_village']));
+					$url .= "&nom=".$nom_village;
+				}		
+				header("Location: ".$url);
+				exit;
 			}
 			elseif($_POST['type_colonisation']=="campement"){
 				//  colonisation de la case par un campement de troupe
@@ -623,7 +630,7 @@ class PageJeu extends Page
 				$this->AjouterContenu("contenu_carte", "contenus/page_jeu_colonisation_voir.php");				
 			}
 			else {
-				header("Location:?page=jeu");
+				header("Location:index.php?page=jeu");
 				exit;
 			}
 			
@@ -649,116 +656,123 @@ class PageJeu extends Page
     // - Affichage de la page
     public function Afficher()
     {
-      // - On récupère la variable de l'espace choisi
-		if(isset($_GET['espace'])&&!empty($_GET['espace'])){
-			$jeu_espace = $_GET['espace'];
-			$_SESSION['jeu_espace'] =  $jeu_espace;
-	
-	      if( $jeu_espace == "village" )
-	      {
-	        $jeu_type = $_GET['type'];
-	
-	        if ( $jeu_type == "vendre" )
-	        {
-	          // - redirection vers la page choix_vente
-	          header('Location: index.php?page=choix_vente');
-	          exit();
-	        }
-	
-	        $this->charger_village();
-	
-	        if ( $jeu_type == "liste" )
-	        {
-	          // - redirection vers la page choix_vente
-	          $this->charger_village_liste();
-	        }
-	
-	      }
-	
-	      if( $jeu_espace == "quete" )
-	      {
-	        $this->charger_quete();
-	      }
-	
-	      if( $jeu_espace == "commerce" )
-	      {
-	        $this->charger_commerce();
-	      }
-	
-	      if( $jeu_espace == "batiment" )
-	      {
-	        $batiment_type = $_GET['type'];
-	
-	        $this->charger_village();
-	
-	        if ( $batiment_type == "construction" )
-	        {
-	          // - Création de quete
-	          $_SESSION['batiment_type'] = $batiment_type;
-	
-	          // - redirection vers la page choix_vente
-	          $this->charger_batiment_construction();
-	        }
-	        else
-	        {
-	          if ( $batiment_type == "amelioration" )
-	          {
-	            // - Création de quete
-	            $_SESSION['batiment_type'] = $batiment_type;
-	
-	            // - redirection vers la page choix_vente
-	            $this->charger_batiment_amelioration();
-	          }
-	          else
-	          {
-	            $this->charger_batiment();
-	          }
-	        }
-	      }
-	
-	      if( $jeu_espace == "objet" )
-	      {
-	        $this->charger_village();
-	        $this->charger_objet();
-	      }
-	
-	      if( $jeu_espace == "hua" )
-	      {
-	        $this->charger_village();
-	        $this->charger_hua();
-	      }
-	
-	      if( $jeu_espace == "magie" )
-	      {
-	        $this->charger_village();
-	        $this->charger_magie();
-	      }
-	
-	      if( $jeu_espace == "science" )
-	      {
-	        $this->charger_village();
-	        $this->charger_science();
-	      }
-	      
-	      if( $jeu_espace == "etoile" )
-	      {
-	        $this->charger_carte();
-	      }
-	      
-	      if($jeu_espace == "colonisation" )
-	      {
-	      		$this->coloniser();
-	      }
-		}
-	else {
-		$this->charger_carte();
-	}
-	      // - on ajoute le contenu du menu à gauche
-      $this->AjouterContenu("contenu_menu", "contenus/page_jeu_menu.php");
+      // - gestion spécifique de la page, si on est connecté
+		if(isset($_SESSION['compte'])){
+			
+			// - On récupère la variable de l'espace choisi
+			if(isset($_GET['espace'])&&!empty($_GET['espace'])){
+				$jeu_espace = $_GET['espace'];
+				$_SESSION['jeu_espace'] =  $jeu_espace;
 		
-      parent::Afficher();
-
-      // - gestion spécifique de la page
+		      if( $jeu_espace == "village" )
+		      {
+		        $jeu_type = $_GET['type'];
+		
+		        if ( $jeu_type == "vendre" )
+		        {
+		          // - redirection vers la page choix_vente
+		          header('Location: index.php?page=choix_vente');
+		          exit();
+		        }
+		
+		        $this->charger_village();
+		
+		        if ( $jeu_type == "liste" )
+		        {
+		          // - redirection vers la page choix_vente
+		          $this->charger_village_liste();
+		        }
+		
+		      }
+		
+		      if( $jeu_espace == "quete" )
+		      {
+		        $this->charger_quete();
+		      }
+		
+		      if( $jeu_espace == "commerce" )
+		      {
+		        $this->charger_commerce();
+		      }
+		
+		      if( $jeu_espace == "batiment" )
+		      {
+		        $batiment_type = $_GET['type'];
+		
+		        $this->charger_village();
+		
+		        if ( $batiment_type == "construction" )
+		        {
+		          // - Création de quete
+		          $_SESSION['batiment_type'] = $batiment_type;
+			
+	          	// - redirection vers la page choix_vente
+	   	       	$this->charger_batiment_construction();
+	    	    }
+	    	    else
+	    	    {
+	    	      if ( $batiment_type == "amelioration" )
+	    	      {
+	    	        // - Création de quete
+	    	        $_SESSION['batiment_type'] = $batiment_type;
+		
+		            // - redirection vers la page choix_vente
+		            $this->charger_batiment_amelioration();
+		          }
+		          else
+		          {
+		            $this->charger_batiment();
+		          }
+		        }
+		      }
+		
+		      if( $jeu_espace == "objet" )
+		      {
+		        $this->charger_village();
+		        $this->charger_objet();
+		      }
+		
+		      if( $jeu_espace == "hua" )
+		      {
+		        $this->charger_village();
+		        $this->charger_hua();
+		      }
+		
+		      if( $jeu_espace == "magie" )
+		      {
+		        $this->charger_village();
+		        $this->charger_magie();
+		      }
+		
+		      if( $jeu_espace == "science" )
+		      {
+		        $this->charger_village();
+		        $this->charger_science();
+		      }
+		      
+		      if( $jeu_espace == "etoile" )
+		      {
+		        $this->charger_carte();
+		      }
+		      
+		      if($jeu_espace == "colonisation" )
+		      {
+		      		$this->coloniser();
+		      }
+			}
+			else {
+				$this->charger_carte();
+			}
+		      // - on ajoute le contenu du menu à gauche
+   	   		$this->AjouterContenu("contenu_menu", "contenus/page_jeu_menu.php");
+		
+   	   parent::Afficher();
+   	   
+     	}		//   fin du if sur le compte 
+		else {
+			header('Location: index.php?page=connexion&erreur=3');
+			exit;
+		}
 
     }// - Fin de la fonction Afficher
 

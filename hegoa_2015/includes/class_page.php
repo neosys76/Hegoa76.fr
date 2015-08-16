@@ -54,6 +54,8 @@ class Page
     protected $carte_y;				//   dans le jeu, contient l'ordonnée y du point sélectionné à transmettre à la vue
     protected $nom_panneau;			//   nom du panneau à télécharger 
     
+    protected $traductions_debut;					//  contiendra les traductions associées à ce qui est commun
+    protected $traductions;					//  contiendra les traductions associées à chaque contrôleur/page
     
     // - Constructeur
     function __construct()
@@ -95,6 +97,10 @@ class Page
       				$_SESSION['terrains_possibles']=$terrains_possibles;
       			}
       	}
+      	
+      	//  les traductions de début
+      $this->traductions_debut = $this->getTraductionsDebut();
+      
     }
 
 // - Partie public
@@ -171,6 +177,10 @@ class Page
     // - Affichage du header de la page
     public function AfficherHeader()
     {
+    	//  On récupère les traductions définies
+		$les_traductions_debut = $this->traductions_debut;
+		$les_traductions = $this->traductions;
+
 		$userAgent = $_SERVER["HTTP_USER_AGENT"];
 		if(strpos($userAgent,"Trident")||strpos($userAgent,"MSIE")){$browser = "ie";}
 		elseif(strpos($userAgent,"Firefox")) {$browser = "firefox";}
@@ -179,7 +189,7 @@ class Page
 		elseif(strpos($userAgent,"Safari")) {$browser = "safari";}
 		else {$browser = "chrome";}
 ?>
-      <html lang="fr">
+      <html lang="<?php echo $_SESSION['lang'] ?>">
       <head>
         <title>LiberTribes - <?=$this->strTitrePage?></title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -250,11 +260,16 @@ class Page
 			}
 
       echo "<div id=\"contenu\">\n";
+      
     }
 
     // - Affichage du footer de la page
     public function AfficherFooter()
     {
+    	//  On récupère les traductions définies
+		$les_traductions_debut = $this->traductions_debut;
+		$les_traductions = $this->traductions;
+
       echo "</div>\n";                                                            // - fin de la balise contenu
 
       if ( $this->bAfficherMenu == 1 )
@@ -281,10 +296,88 @@ class Page
 
       echo "</html>\n";
     }
+    
+    public function getTraductionsDebut(){
+    	$traductions["Univers"] = array(
+    		"fr" => "Univers",
+			"en" => "Universe",
+			"es" => "Universo",	
+			"de" => "Universum"
+			);
+		$traductions["Medias"] = array(
+			"fr" => "Médias",
+			"en" => "Media",
+			"es" => "Medios",	
+			"de" => "Medien"
+			);
+		$traductions["News"] = array(
+			"fr" => "Actualités",
+			"en" => "News",
+			"es" => "Noticias",	
+			"de" => "Nachrichten"
+			);
+		$traductions["GalerieImages"] = array(
+			"fr" => "Galerie d&#39;images",
+			"en" => "Image Gallery",
+			"es" => "Galería de imágenes",	
+			"de" => "Fotogalerie"
+			);
+		$traductions["Videos"] = array(
+			"fr" => "Vidéos",
+			"en" => "Videos",
+			"es" => "Videos",	
+			"de" => "Videos"
+			);
+			
+		$traductions["Histoire"] = array(
+    		"fr"=>"Histoire",
+    		"en"=>"History",
+    		"es"=>"",
+    		"de"=>"Geschichte"
+    	);
+    	$traductions["humain"] = array(
+    		"fr"=>"Les Humains",
+    		"en"=>"The Humans",
+    		"es"=>"Los Humanos",
+    		"de"=>"Die Menschen"
+    	);
+    	$traductions["bunsif"] = array(
+    		"fr"=>"Les Bunsifs",
+    		"en"=>"The Bunsifs",
+    		"es"=>"Los Bunsifs",
+    		"de"=>"Die Bunsifs"
+    	);
+    	$traductions["sulmis"] = array(
+    		"fr"=>"Les Sulmis",
+    		"en"=>"The Sulmis",
+    		"es"=>"Los Sulmis",
+    		"de"=>"Die Sulmis"
+    	);
+    	$traductions["nimhsines"] = array(
+    		"fr"=>"Les Nimhsinés",
+    		"en"=>"The Nimhsinés",
+    		"es"=>"Las Nimhsinés",
+    		"de"=>"Die Nimhsinés"
+    	);
+    	
+		return $traductions;
+    }
 
     // - Affichage de la page
     public function Afficher()
-    {
+    {var_dump($_SESSION['djun_choisi']);
+		if(!isset($_SESSION['lang'])||empty($_SESSION['lang'])){
+			$accept_lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+			$lang = substr($accept_lang,0,2);
+			//   Ceci sera OK quand toutes les langues seront implémentées
+			if($lang!="fr"||$lang!="en"||$lang!="es"||$lang!="de"){
+				$lang = "en";
+			}
+			//   Actuellement, seul le fr est implémenté =>
+			$lang = "fr";
+			$_SESSION['lang'] = $lang;
+		}
+		
     	echo "<!DOCTYPE html>";
       $this->AfficherHeader();
       
@@ -297,6 +390,10 @@ class Page
 			$carte_y = $this->carte_y;
 			$nom_panneau = $this->nom_panneau;
 		}
+		
+		//  On récupère les traductions définies
+		$les_traductions_debut = $this->traductions_debut;
+		$les_traductions = $this->traductions;
 
       // - On inclut les contenu
       foreach ( $this->tContenu as $strNomContenu => $strFichier)

@@ -58,7 +58,8 @@ CREATE TABLE "AVATAR" (
     niveau numeric DEFAULT 0,
     numero_image integer,
     derniere_position point,
-    derniere_connexion timestamp without time zone
+    derniere_connexion timestamp without time zone,
+    histoire text
 );
 
 

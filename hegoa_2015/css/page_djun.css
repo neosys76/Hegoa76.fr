@@ -1,19 +1,18 @@
   .lien_facebook {
     	position: relative;
     	left: 418px;
-    	bottom: 22px;
+    	bottom: 38px;
   	}
 
   	.image_logo{
-   	 	position: relative;
-    	left: 471px;
-    	top: 16px;
+   	 	display: block;
+   	 	margin: -32px auto;
   	}
 
   	.lien_rss {
     	position: relative;
-    	left: 533px;
-    	bottom: 22px;
+    	left: 820px;
+    	bottom: 42px;
   	}
 
 	#centre > #contenu {

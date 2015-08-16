@@ -1,0 +1,62 @@
+  .lien_facebook {
+    	position: relative;
+    	left: 418px;
+    	bottom: 38px;
+  	}
+
+  	.image_logo{
+   	 	display: block;
+   	 	margin: -32px auto;
+  	}
+
+  	.lien_rss {
+    	position: relative;
+    	left: 820px;
+    	bottom: 42px;
+  	}
+
+	#centre > #contenu {
+		position:relative;
+		top: 76px;
+    	left: 241px;
+		background-image: url(../images/djun/background.png);
+		background-repeat: no-repeat;
+		height: 600px;
+		float: left;
+		width: 800px;
+    	margin: 0px auto;
+	}
+
+	.image_fermer {
+		position:relative;
+		bottom: 5px;
+		left: 728px;
+	}
+
+	.titre {
+		width:100%;
+		text-align:center;
+		margin-top: 38px;
+		font-size: 32px;
+		font-weight: bold;
+		font-family: 'hegoa_regular';
+		color: #330000;
+	}
+	
+	.avatar_cadres {
+		width:80%;
+		margin-left:10%;
+		margin-top:1.5em;
+		margin-bottom:2em;
+		font-size:2em;
+		color:#400;
+	}
+
+	.avatar_index_libelle, .avatar_index_valeur {float:left;margin-left:5%;}
+	.avatar_index_libelle {width:25%;}
+	.avatar_index_valeur {width:60%;}
+	
+	.message {position:absolute;left:52%;top:5em;width:38%;border:2px solid #bb5222;background-color: rgba(102,0,0,0.2);}
+	
+	
+	

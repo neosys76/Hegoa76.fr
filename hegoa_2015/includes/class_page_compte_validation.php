@@ -110,7 +110,7 @@ class PageCompteValidation extends Page
       			}
       		}
       		if(isset($_POST["compte_presentation"])&&!empty($_POST['compte_presentation'])){
-      			$presentation = htmlspecialchars($_POST["compte_presentation"]);
+      			$presentation = str_replace("'","&#39",htmlentities($_POST["compte_presentation"]));
       			$_SESSION["compte"]->presentation = $presentation;
       			if($deja_ecrit==0){
       				$sql .= "presentation='".$presentation."'";
@@ -121,7 +121,7 @@ class PageCompteValidation extends Page
       			}
       		}
       		if(isset($_POST["nouveau_password"])&&!empty($_POST["nouveau_password"])){
-      			$nouveau_password = crypt($_POST["account_password"],SALT);
+      			$nouveau_password = crypt($_POST["nouveau_password"],SALT);
       			$_SESSION["compte"]->password = $nouveau_password;
       			if($deja_ecrit==0){
       				$sql .= "password='".$nouveau_password."'";
@@ -131,7 +131,7 @@ class PageCompteValidation extends Page
       				$sql .= ", password='".$nouveau_password."'";
       			}
       		}
-      		$sql .= "WHERE compte_id = ".$account_id;
+      		$sql .= " WHERE compte_id = ".$account_id;
       // - On insère les données
 
       $result = $this->db_connexion->Requete( $sql );

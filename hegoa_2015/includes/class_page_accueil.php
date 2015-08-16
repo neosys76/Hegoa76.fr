@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 require "class_page.php";                                              // - On inclut la class Page, classe de base
 
 class PageAccueil extends Page
-{
+{	
     function __construct()
     {
       // - on appele le constructeur du parent
@@ -20,8 +20,14 @@ class PageAccueil extends Page
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageFooter( 0 );
 
+      	//  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
+      
       $this->AjouterCSS("page_accueil.css");
 
+		//  On récupère les traductions définies
+		$les_traductions = $this->traductions;
+		
       // - on ajoute les contenus utiles
       $this->AjouterContenu("contenu", "contenus/page_accueil.php");
 
@@ -34,6 +40,30 @@ class PageAccueil extends Page
     {
       parent::Afficher();
     }// - Fin de la fonction Afficher
+    
+	public function getTraductions(){
+    	$traductions["inscription_newsletter"] = array(
+    		"fr"=>"Inscription à la Newsletter",
+    		"en"=>"Registration to the Newsletter",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["presente_communaute"] = array(
+    		"fr"=>"Présentation de la communauté, des auteurs",
+    		"en"=>"Introduction to the community and the authors",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["nous_contacter"] = array(
+    		"fr"=>"Nous contacter",
+    		"en"=>"Contact us",
+    		"es"=>"",
+    		"de"=>""
+    	);
+
+    	return $traductions;
+    }
+    	
 
 }// - Fin de la classe
 

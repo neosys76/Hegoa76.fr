@@ -13,7 +13,7 @@
 <input class="account_firstname" type="text" name="compte_prenom" value="<?php if(isset($_SESSION['compte']->prenom)){echo $_SESSION['compte']->prenom;} ?>" size="30">
 
 <div class="account_mail_label" >Adresse mail :</div>
-<input class="account_mail" type="text" name="compte_email" value="<?php if(isset($_SESSION['compte']->email)){echo $_SESSION['compte']->email;} ?>" size="50">
+<input class="account_mail" type="email" name="compte_email" value="<?php if(isset($_SESSION['compte']->email)){echo $_SESSION['compte']->email;} ?>" size="50">
 
 <div class="account_naissance_label">Date de naissance (jour-mois-année):</div>
 <?php

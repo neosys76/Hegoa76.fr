@@ -180,7 +180,15 @@ error_reporting(E_ALL);
           $pageObject = new PageChoixDjunValidation();
           break;
 
-
+		  case "avatar":
+          require "class_page_avatar.php";                                				// - On inclut la class PageAvatar
+          $pageObject = new PageAvatar();
+          break;
+          
+        case "avatar_histoire":
+          require "class_page_avatar_histoire.php";                                				// - On inclut la class PageAvatarHistoire
+          $pageObject = new PageAvatarHistoire();
+          break;
 
         case "choix_peuple":
           require "class_page_choix_peuple.php";                                // - On inclut la class PageChoixPeuple

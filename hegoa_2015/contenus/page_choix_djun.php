@@ -4,19 +4,19 @@ var left=0;
 </script>
 <?php      
        //   retour d'erreurs
-       //   erreur = 1 => le nome de l'avatar existe déjà 
+       //   erreur = 1 => le nom de l'avatar existe déjà 
 	if(isset($_GET['erreur'])){
 		if($_GET['erreur']==1){
 			$gotopage = "choix_djun";
-			$message = "Ce nom d'avatar existe déjà. Choisissez un autre nom.";
+			$message = $les_traductions["nom_existe"][$_SESSION['lang']];
 		}
 		if($_GET['erreur']==2){
-			$message = "Vous avez déjà choisi ".MAX_DJUNS." D'juns et vous avez donc atteint votre quota.";
+			$message = $les_traductions["quota_atteint_1"][$_SESSION['lang']].MAX_DJUNS.$les_traductions["quota_atteint_2"][$_SESSION['lang']];
 			$gotopage = "tdb";
 		}
 	}
 ?>
-<div class="titre">Incarner un D'jun</div> 
+<div class="titre"><?php echo $les_traductions["titre_djun"][$_SESSION['lang']]; ?></div> 
 
 <a class="lien_fermer" href="index.php?page=tdb">
 <img class="image_fermer" src="images/choix_djun/fermer.png" >
@@ -27,9 +27,9 @@ if(!isset($message)||empty($message)){
 <form name="formChoix" action="index.php?page=choix_djun_validation" method="post">
 
 <div class="contenu_avatar_name">
-  <div class="avatar_name_label">Nom de votre D'jun :</div>
+  <div class="avatar_name_label"><?php echo $les_traductions["nom_djun"][$_SESSION['lang']]; ?> :</div>
   <div class="avatar_name_edit"><input class="avatar_name" type="text" name="avatar_name"  size="30"></div>
-  <p class="explication_avatar">Cliquez sur l'image qui représentera votre D'jun</p>
+  <p class="explication_avatar"><?php echo $les_traductions["clic_image"][$_SESSION['lang']]; ?></p>
 </div>
 
 <div class="contenu_avatar_navigation">

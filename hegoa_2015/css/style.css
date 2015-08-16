@@ -40,10 +40,17 @@
     font-style: normal;
 	}
   
+  
+.clearfix {clear:both;}
+
+
 /*  classes générales de couleur */
-.colvert1 {color:#215e0b;}
+.colvert1 {color:#215e0b;}			/*  vert n° 1 */
+.colvert2 {color:#24461a;}			/*  vert n° 2 */
+.colbrun1 {color:#bd5319;}				/*  brun n° 1  */
 
 /*  classes générales de font size */
+.ftsz1p2em {font-size:1.2em;}
 .ftsz1p3em {font-size:1.3em;}
 
 

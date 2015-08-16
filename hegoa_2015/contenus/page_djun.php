@@ -4,7 +4,7 @@
 </a>
 
 <div class="djun">
- <img class="image_djun" name="image_djun" src="images/djuns/djun<?php echo $_SESSION['djun_choisi']->num_image; ?>.png" >
+ <a href="?page=avatar"><img class="image_djun" name="image_djun" src="images/djuns/djun<?php echo $_SESSION['djun_choisi']->num_image; ?>.png" ></a>
 </div>
 
 <div class="djun_name" ><?php echo $_SESSION['djun_choisi']->nom; ?></div>

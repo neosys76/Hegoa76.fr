@@ -20,6 +20,9 @@ class PageChoixVente extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
+      
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
       $this->AjouterCSS("page_choix_vente.css");
 
@@ -39,7 +42,30 @@ class PageChoixVente extends Page
 		}
 
     }// - Fin de la fonction Afficher
-
+    
+    public function getTraductions(){
+		$traductions["mise_en_vente"] = array(
+    		"fr"=>"Mise en vente",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["point_de_vendre"] = array(
+    		"fr"=>"Vous êtes sur le point de vendre",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);  
+    	$traductions["choix_mode"] = array(
+    		"fr"=>"Choisissez le mode de vente.",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	); 
+    	  
+   		return $traductions;
+    
+	}
 }// - Fin de la classe
 
 ?>

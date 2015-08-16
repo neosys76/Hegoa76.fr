@@ -10,7 +10,6 @@ require "class_page.php";                                              // - On i
 
 class PageCompte extends Page
 {
-    private $account_nickname;
 
     function __construct()
     {
@@ -20,7 +19,7 @@ class PageCompte extends Page
       // - on renseigne qq infos du parent
       parent::SetNomPage( "compte", "Mon Profil");
       parent::SetAffichageHeader( 1 );
-      parent::SetAffichageMenu( 1 );
+      parent::SetAffichageMenu(0);
       parent::SetAffichageFooter( 0 );
 
       $this->AjouterCSS("page_compte.css");

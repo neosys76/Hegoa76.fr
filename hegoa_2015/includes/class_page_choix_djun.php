@@ -21,8 +21,11 @@ class PageChoixDjun extends Page
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
-      $this->AjouterCSS("page_choix_djun.css");
+		//  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
+      $this->AjouterCSS("page_choix_djun.css");
+		
       // - on ajoute les contenus utiles
       $this->AjouterContenu("contenu", "contenus/page_choix_djun.php");
 
@@ -45,7 +48,7 @@ class PageChoixDjun extends Page
       			}
       			$_SESSION['avatar_djun_images'] = $nombre_images;
       		}
-	
+
 	      parent::Afficher();
 		}
 		else {
@@ -54,6 +57,48 @@ class PageChoixDjun extends Page
 		}
 
     }// - Fin de la fonction Afficher
+    
+    public function getTraductions(){
+    	$traductions["nom_existe"] = array(
+    		"fr"=>"Ce nom d'avatar existe déjà. Choisissez un autre nom.",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["quota_atteint_1"] = array(
+    		"fr"=>"Vous avez déjà choisi ",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["quota_atteint_2"] = array(
+    		"fr"=>" D'juns et vous avez donc atteint votre quota.",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["titre_djun"] = array(
+    		"fr"=>"Incarner un D'jun",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["nom_djun"] = array(
+    		"fr"=>"Nom de votre D'jun",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["clic_image"] = array(
+    		"fr"=>"Cliquez sur l'image qui représentera votre D'jun",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    	
+    }
 
 }// - Fin de la classe
 

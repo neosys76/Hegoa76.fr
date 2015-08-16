@@ -33,6 +33,7 @@ class Avatar
 	public $num_image;
 	public $derniere_position;
 	public $derniere_connexion;
+	public $histoire;
 	//   les 4 propriétés suivantes ne proviennent pas de la table AVATAR mais sont mises à jour à chaque connexion, dans la page connexion
 	public $bois;
 	public $fer;
@@ -70,6 +71,7 @@ class Avatar
       				$this->num_image = $row['numero_image'];
       				$this->derniere_position = $row['derniere_position'];
       				$this->derniere_connexion = $row['derniere_connexion'];
+      				$this->histoire = $row['histoire'];
       			}
       		}
       		
@@ -94,6 +96,7 @@ class Avatar
       					$this->num_image = $row['numero_image'];
       					$this->derniere_position = $row['derniere_position'];
       					$this->derniere_connexion = $row['derniere_connexion'];
+      					$this->histoire = $row['histoire'];
       				}
       			}    
       		}  		
@@ -112,7 +115,8 @@ class Avatar
       		$this->niveau = $row['niveau'];
       		$this->num_image = $row['numero_image'];
       		$this->derniere_position = $row['derniere_position'];
-      		$this->derniere_connexion = $row['derniere_connexion'];    			
+      		$this->derniere_connexion = $row['derniere_connexion'];    		
+      		$this->histoire = $row['histoire'];	
       	}
       	
       	//  on charge tous les villages de l'avatar, ainsi que toutes les autres cases occupées

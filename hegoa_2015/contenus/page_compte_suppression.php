@@ -4,7 +4,7 @@ if(isset($_GET['erreur'])){
 	if($_GET['erreur']==1){
 		?>
 		<p class="erreur">
-			Votre compte n'a pas pu être supprimer correctement. Réessayez.<br/>
+			Votre compte n'a pas pu être supprimé correctement. Réessayez.<br/>
 			<a href="index.php?page=compte_suppression"><img src="images/compte_suppression/valider.png" alt="Supprimer"></a>
 		</p>
 		<?php

@@ -21,6 +21,9 @@ class PageChoixPeuple extends Page
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
 
+		//  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
+		
       $this->AjouterCSS("page_choix_peuple.css");
 
       // - on ajoute les contenus utiles
@@ -42,6 +45,18 @@ class PageChoixPeuple extends Page
 		}
 
     }// - Fin de la fonction Afficher
+    
+        public function getTraductions(){
+        	$traductions["titre_choix"] = array(
+    		"fr"=>"Choisir un peuple",
+    		"en"=>"Choose a race",
+    		"es"=>"",
+    		"de"=>""
+    	);
+        	
+			return $traductions;
+        	
+        }
 
 }// - Fin de la classe
 

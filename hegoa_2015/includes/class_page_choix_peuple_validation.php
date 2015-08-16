@@ -48,7 +48,7 @@ class PageChoixPeupleValidation extends Page
      	 else
      	 {
      	   $_SESSION['choix_peuple'] = "";
-     	   // - redirection vers la page TDB
+     	   // - redirection vers la page choix_peuple
      	   header('Location: index.php?page=choix_peuple');
      	   exit;
      	 }

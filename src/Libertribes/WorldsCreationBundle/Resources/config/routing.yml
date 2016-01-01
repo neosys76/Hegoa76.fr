@@ -1,3 +1,0 @@
-WorldsCreationHome:
-    pattern:  /hello/{name}
-    defaults: { _controller: LibertribesWorldsCreationBundle:Home:index }

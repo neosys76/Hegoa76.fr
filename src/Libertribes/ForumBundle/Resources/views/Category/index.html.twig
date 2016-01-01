@@ -1,9 +1,0 @@
-
-<div class="list_categories">
-    {% for category in categories %}
-        <div class="listcat" onmouseover="$('#cat{{ category.id }}').css('display','inline');" onmouseout="$('#cat{{ category.id }}').css('display','none');"><a  href="{{ path('forum_topic_list', { 'categoryid': category.id, 'categoryname': category.name }) }}">{{ category.name }}</a>
-		<div id="cat{{ category.id }}" >{{ category.description }}</div>
-		</div>
-    {% endfor %}
-</div>
-

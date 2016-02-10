@@ -1,23 +1,16 @@
-<div class="titre">Inscription</div>
-
-<a class="lien_fermer" href="index.php?page=accueil">
-<img class="image_fermer" name="image_fermer" src="images/inscription_validation/fermer.png" >
+<div class="titre">Inscription
+<a class="lien_fermer" href="index.php?page=accueil" title="<?php echo $this->traductions_debut['retour-accueil'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
 </a>
+</div>
 <?php
 if(empty($message)){
 	?>
-	<p class="texte">
-	F&eacute;licitations !<br />
-	<br />
-	Vous faites &agrave; pr&eacute;sent partie des tribus d'H&eacute;goa...<br />
-	<br />
-	(Un message de confirmation arrive sur votre boite mail.)<br />
-	<br/>
-	Merci de confirmer avant d'incarner un D'jun,<br />
-	l'esprit protecteur de votre future tribu.<br />
+	<p class="texte_validation">
+	<?php echo $this->traductions['message-bienvenue'][$_SESSION['lang']]; ?>
 	</p>
-	<a class="lien_fermer" href="index.php?page=connexion">
-	<img class="image_valider" name="image_valider" src="images/inscription_validation/valider.png" >
+	<a  href="index.php?page=connexion">
+	<img class="image_valider" src="images/connexion_inscription/btn_ok.png" >
 </a>
 <?php
 }

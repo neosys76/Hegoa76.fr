@@ -26,7 +26,6 @@ class PageChoixDjun extends Page
 
       $this->AjouterCSS("page_choix_djun.css");
 		
-      // - on ajoute les contenus utiles
       $this->AjouterContenu("contenu", "contenus/page_choix_djun.php");
 
       // - on ajoute les menus utiles
@@ -71,6 +70,12 @@ class PageChoixDjun extends Page
     		"es"=>"",
     		"de"=>""
     	);
+    	$traductions["nom-manquant"] = array(
+    		"fr"=>"Vous devez donner un nom à votre D&#39;jun",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
     	$traductions["quota_atteint_2"] = array(
     		"fr"=>" D'juns et vous avez donc atteint votre quota.",
     		"en"=>"",
@@ -78,23 +83,25 @@ class PageChoixDjun extends Page
     		"de"=>""
     	);
     	$traductions["titre_djun"] = array(
-    		"fr"=>"Incarner un D'jun",
+    		"fr"=>"Incarner un D&#39;jun",
     		"en"=>"",
     		"es"=>"",
     		"de"=>""
     	);
     	$traductions["nom_djun"] = array(
-    		"fr"=>"Nom de votre D'jun",
+    		"fr"=>"Nom de votre D&#39;jun",
     		"en"=>"",
     		"es"=>"",
     		"de"=>""
     	);
     	$traductions["clic_image"] = array(
-    		"fr"=>"Cliquez sur l'image qui représentera votre D'jun",
+    		"fr"=>"Cliquez sur l&#39;image qui représentera votre D&#39;jun",
     		"en"=>"",
     		"es"=>"",
     		"de"=>""
     	);
+    		
+    		
     	
     	return $traductions;
     	

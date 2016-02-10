@@ -1,0 +1,110 @@
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
+  	
+	#centre > #contenu {
+		background-image: url(../images/connexion_inscription/background.png);
+		background-repeat: no-repeat;
+		height: 463px;
+		width: 492px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
+	}
+
+	.titre {
+		font-size: 30px;
+		text-align: center;
+		line-height:98px;
+		position:relative;
+	}
+
+a.lien_fermer {
+	position:absolute;top:30px;left:0;
+	display:block;
+	width:100%;
+}
+a.lien_fermer img {
+	float:right;
+	margin: 0 15px 0 0;
+	width:36px;height:auto;
+}
+
+
+	.account_mail_label_inscription {
+		font-size: 24px;
+		margin: 86px 0 0 62px;	
+	}
+
+	.account_mail_label_connexion {
+		font-size: 24px;
+		margin: 0 0 0 62px;	
+	}
+
+	.account_mail {
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #550000;
+	}
+
+	.account_password_label {
+		font-size: 24px;
+		margin: 16px 0 0 56px;
+	}
+
+	.account_password {
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #550000;
+	}
+
+
+	.lien_connexion {
+		font-size: 24px;
+		display:block;
+		text-align:center;
+		margin: 30px 0 0 0;
+		
+	}
+
+	.bouton_valider {
+		height: 38px;
+		width: 89px;
+		display: block; 
+		margin: 40px auto; 
+	}
+
+p.message {text-align: center;font-size:26px;margin:0;color:#cc4000;}
+
+a.lien_connexion {color:#bb4400;}
+a.lien_connexion:hover {color:#446600;}
+
+.texte_validation {
+		font-size: 26px;
+		text-align: center;
+		margin-top: 8px;
+	}
+
+.image_valider {
+		height: auto;
+		width: 89px;
+		display: block; 
+		margin: 30px auto; 
+	}
+input[type="submit"].sub_nouveau_mdp {
+	border-radius:5px;
+	border:1px solid #550000;
+	background-color: transparent;
+	padding:5px;
+	font-family: bilbo_swash_capsregular,"trebuchet MS";
+	font-size:20px;
+	color:#550000;
+	margin: 0 0 0 62px;	
+	cursor:pointer;
+}
+
+  	
+  	
+
+
+	

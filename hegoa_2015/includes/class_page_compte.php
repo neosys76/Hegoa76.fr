@@ -21,6 +21,8 @@ class PageCompte extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu(0);
       parent::SetAffichageFooter( 0 );
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
       $this->AjouterCSS("page_compte.css");
 
@@ -43,6 +45,38 @@ class PageCompte extends Page
 			exit;
 		}
     }// - Fin de la fonction Afficher
+    
+    public function getTraductions(){
+		$traductions["data-non-mises-en-bdd-re-essai"] = array(
+    		"fr"=>"Vos données n&#39;ont pas pu être insérées dans la base de données. Réessayez",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["mise-a-jour-compte"] = array(
+    		"fr"=>"Mettre le compte à jour",
+    		"en"=>"Update the account",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["suppression-compte"] = array(
+    		"fr"=>"Supprimer le compte",
+    		"en"=>"Remove the account",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["mon-compte-gestion"] = array(
+    		"fr"=>"Mon compte: gestion",
+    		"en"=>"My account: management",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	
+    	return $traductions;
+    }    
+    
+    
 
 }// - Fin de la classe
 

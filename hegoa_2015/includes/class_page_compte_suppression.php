@@ -20,8 +20,10 @@ class PageCompteSuppression extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
-      $this->AjouterCSS("page_compte_suppression.css");
+      $this->AjouterCSS("page_compte.css");
 
       // - on ajoute les contenus utiles
       $this->AjouterContenu("contenu", "contenus/page_compte_suppression.php");
@@ -45,6 +47,30 @@ class PageCompteSuppression extends Page
       // - gestion spécifique de la page
 
     }// - Fin de la fonction Afficher
+    
+    public function getTraductions(){
+		$traductions["erreur-suppression-compte-re-essai"] = array(
+    		"fr"=>"Votre compte n&#39;a pas pu être supprimé correctement. Réessayez.",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["suppression-compte"] = array(
+    		"fr"=>"Suppression du compte",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["texte-avertissement"] = array(
+    		"fr"=>"vous êtes sur le point de supprimer votre compte !!<br /><br />Etes-vous sûr de vouloir le supprimer ?<br /><br />Cette opération est irréversible !<br />Vous perdrez tous vos D&#39;juns créés.",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	
+    	return $traductions;
+    }   
 
 }// - Fin de la classe
 

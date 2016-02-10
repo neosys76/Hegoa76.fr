@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA
+// Auteur : Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -27,8 +27,6 @@ class PageAvatar extends Page
       
       $this->AjouterCSS("page_avatar.css");
 
-      // - on ajoute les contenus utiles et on récupère les traductions définies
-		$les_traductions = $this->traductions;
       $this->AjouterContenu("contenu", "contenus/page_avatar.php");
 
       // - on ajoute les menus utiles
@@ -75,24 +73,7 @@ class PageAvatar extends Page
     		"es"=>"",
     		"de"=>""
     	);
-    	$traductions["nom"] = array(
-    		"fr"=>"Nom",
-    		"en"=>"Name",
-    		"es"=>"Nombre",
-    		"de"=>"Name"
-    	);
-    	$traductions["peuple"] = array(
-    		"fr"=>"Peuple",
-    		"en"=>"People",
-    		"es"=>"Pueblos",
-    		"de"=>""
-    	);
-    	$traductions["guilde"] = array(
-    		"fr"=>"Guilde",
-    		"en"=>"Guild",
-    		"es"=>"Gremio",
-    		"de"=>"Gilde"
-    	);
+
     	$traductions["mon_histoire"] = array(
     		"fr"=>"Mon histoire",
     		"en"=>"My history",

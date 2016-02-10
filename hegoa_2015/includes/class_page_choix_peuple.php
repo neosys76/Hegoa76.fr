@@ -25,8 +25,7 @@ class PageChoixPeuple extends Page
       $this->traductions = $this->getTraductions();
 		
       $this->AjouterCSS("page_choix_peuple.css");
-
-      // - on ajoute les contenus utiles
+		
       $this->AjouterContenu("contenu", "contenus/page_choix_peuple.php");
 
       // - on ajoute les menus utiles
@@ -46,8 +45,8 @@ class PageChoixPeuple extends Page
 
     }// - Fin de la fonction Afficher
     
-        public function getTraductions(){
-        	$traductions["titre_choix"] = array(
+	public function getTraductions(){
+		$traductions["titre_choix"] = array(
     		"fr"=>"Choisir un peuple",
     		"en"=>"Choose a race",
     		"es"=>"",

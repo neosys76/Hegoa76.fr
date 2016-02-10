@@ -1,24 +1,29 @@
-<div class="titre">Tableau de bord</div>
 
-<a class="lien_compte" href="index.php?page=compte" title="Retour au compte" >
-<img class="image_compte" name="image_compte" src="images/tdb/compte.png" >
+<div class="titre"><?php echo ucfirst($this->traductions['tableau-de-bord'][$_SESSION['lang']]); ?>
+<a class="lien_fermer" href="index.php?page=accueil" title="<?php echo $this->traductions_debut['retour-accueil'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
 </a>
 
-<a class="lien_fermer" href="index.php?page=accueil" title="Retour l'accueil" >
-<img class="image_fermer" name="image_fermer" src="images/tdb/fermer.png" >
+
+<a class="lien_compte" href="index.php?page=compte" title="<?php echo $this->traductions['vers-le-compte'][$_SESSION['lang']]; ?>" >
+<img src="images/tdb/compte.png" alt="Compte">
 </a>
 
-<a class="lien_deconnexion" href="index.php?page=accueil" title="Déconnexion" >
-<img class="image_deconnexion" src="images/deconnexion.png" >
-</a>
 
+<a class="lien_deconnexion" href="index.php?page=deconnexion" title="<?php echo ucfirst($this->traductions_debut['deconnexion'][$_SESSION['lang']]); ?>" >
+<img src="images/deconnexion.png"  alt="Déconnexion">
+</a>
+</div>
 <?php
 
+if(!isset($this->message)||empty($this->message)){
+	
 $iNbDjun = 0;
 
 if(isset($_SESSION['avatars'])&&!empty($_SESSION['avatars'])){
 	$iNbDjun = count($_SESSION['avatars']);
 	}
+
 if($iNbDjun>MAX_DJUNS){$iNbDjun=MAX_DJUNS;}
 
 if ( $iNbDjun > 0 )
@@ -27,12 +32,17 @@ if ( $iNbDjun > 0 )
 
   // - on récupère les infos: NB  on reste sur des tableaux pour le cas où on reviendrait à plusieurs D'juns (voir la classe)
 
-for($i = 0; $i < $iNbDjun; $i++)
+for($i = 0; $i < MAX_DJUNS; $i++)
 {
+  $djun_no = "";
+  $djun_name =  "";
+  $djun_race =  "";
 
+if(isset($_SESSION['avatars'][$i])&&!empty($_SESSION['avatars'][$i])){
   $djun_no = $_SESSION['avatars'][$i]->num_image;
   $djun_name =  $_SESSION['avatars'][$i]->nom;
   $djun_race =  $_SESSION['avatars'][$i]->race;
+  }
 
   echo "<div class=\"djun\">";
 
@@ -40,7 +50,7 @@ for($i = 0; $i < $iNbDjun; $i++)
   if ($djun_name != "" )
   {
   	?>
-  	<p class="titre_djun">Cliquez pour jouer</p>
+  	<p class="choix"><?php echo $this->traductions["cliquez-pour-jouer"][$_SESSION['lang']]; ?></p>
   	<?php
     $image = "images/djuns/djun".$djun_no.".png";
     if ( $djun_race != "")
@@ -56,48 +66,49 @@ for($i = 0; $i < $iNbDjun; $i++)
   else
   {
 ?>  	
-  	<p class="titre_djun">Choix du D'jun</p>
+  	<p class="choix"><?php echo $this->traductions["choix-du-djun"][$_SESSION['lang']]; ?></p>
 <?php
     $page = "choix_djun";
     $image = "images/tdb/djun_vide.png";
   }
 ?>
+	<a href = "index.php?page=<?php echo $page; ?>">
+   <img src="<?php echo $image; ?>" alt="<?php echo $this->traductions['choix-du-djun'][$_SESSION['lang']]; ?>" >
+  </a>
 
-<?php
-  echo "<a class=\"lien_choix_djun\" href=\"index.php?page=$page\">\n";
-  echo "  <img class=\"image_choix_djun\" width=100 height=100 name=\"image_choix_djun\" src=\"$image\" >\n";
-  echo "</a>\n";
-
-  echo "</div>"; // fin div class djun
+  </div>   <!--    fin div class djun   -->
+  <?php
 	}  			//	Fin  de la boucle for sur le nombre de D'jun
 
 }			//   fin du if sur ( $iNbDjun > 0 )
-else {				//  $iNbDjun ==0
+else {				//  $iNbDjun ==0, pas encore choisi de Djun
+for($j=0;$j<MAX_DJUNS;$j++){
 ?>
 	<div class="djun">
-  		<p class="titre_djun">Choix du D'jun</p>
+  		<p class="choix"><?php echo $this->traductions["choix-du-djun"][$_SESSION['lang']]; ?></p>
 		<?php
    			 $page = "choix_djun";
    			 $image = "images/tdb/djun_vide.png";
 		?>
-		<a class="lien_choix_djun" href="index.php?page=<?php echo $page; ?>" >
-		<img class="image_choix_djun" width=100 height=100 name="image_choix_djun" src="<?php echo $image; ?>" >
+		<a  href="index.php?page=<?php echo $page; ?>" >
+			<img  src="<?php echo $image; ?>" alt="<?php echo $this->traductions['choix-du-djun'][$_SESSION['lang']]; ?>">
 		</a>
 	</div>
 <?php
+}		//   fin de boucle du MAX_DJUNS
 } 				//  fin du else
 
 	//   cadres pour passage compte premium et achat de dés supplémentaires.
 ?>
 	<div class="djun des_sup">
-		<a href="?page=des_supplementaires">Achat de dés</a>
+		<a class="marges"  href="?page=des_supplementaires"><?php echo $this->traductions["achat-de-des"][$_SESSION['lang']]; ?></a>
 	</div>
 	<?php
 	//   un cadre pour un upgrade de compte
 	if(isset($_SESSION['compte']->type_compte)&&$_SESSION['compte']->type_compte=="base"){
 		?>
 	<div class="djun premium">
-		<a href="?page=compte_premium">Compte Premium</a>
+		<a class="marges" href="?page=compte_premium"><?php echo $this->traductions["compte-premium"][$_SESSION['lang']]; ?></a>
 	</div>
 
 <?php	
@@ -106,7 +117,7 @@ else {				//  $iNbDjun ==0
 		?>
 		<!--   POUR LE MOMENT, compte Gold non prévu
 	<div class="djun premium">
-		<a href="?page=compte_gold">Compte Gold</a>
+		<a href="?page=compte_gold"><?php echo $this->traductions["compte-gold"][$_SESSION['lang']]; ?></a>
 	</div>
 	-->
 <?php	
@@ -115,14 +126,14 @@ else {				//  $iNbDjun ==0
 //    place pour un message d'erreur
 
 if(isset($_GET['erreur'])){
-	$message = "Erreur inconnue";
+	$message = $this->traductions_debut["probleme-non-identifie"][$_SESSION['lang']];
 	if($_GET['erreur']==1){
 			//   erreur = 1   signifie pas de mise à jour du peuple dans la BDD
-		$message = "La mise à jour du choix du peuple n'a pas pu avoir lieu dans la BDD";	
+		$message = $this->traductions["erreur-1"][$_SESSION['lang']];
 	}
 	if($_GET['erreur']=="no_djun"){
 		//   erreur = "no_djun"  vient de la page djun, on n'a pas encore mis les avatars en mémoire, ou il n'y en a pas encore 
-		$message = "Pas encore d'avatar défini? ";	
+		$message = $this->traductions["erreur-2"][$_SESSION['lang']];
 	}
 ?>
 	<div class="tdb_erreur">
@@ -133,5 +144,15 @@ if(isset($_GET['erreur'])){
 
 ?>
   </div>			<!--  fermeture de div  liste_djun -->
+<?php
+}
+else {
+?>
+	<div class="tdb_erreur">
+	<?php echo $this->message; ?>
+	</div>
+<?php
+}
+?>
 
 

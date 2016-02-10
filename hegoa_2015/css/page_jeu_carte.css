@@ -1,27 +1,21 @@
-  #centre > #contenu {
-    background-image: url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
-    background-position: 0px 0px, 54px 16px;
-    background-repeat: no-repeat;
-    height: 790px;
-    width: 1085px;
-    position:relative;
-    top: 30px;
-    left: 98px;
-    float: left;
-    font-size: 25px;
-  }
-  
+
   h2 {font-size:40px;}
   
-.panneau_carte {position:relative;width:860px;height:600px;border:1px solid green;margin-left:80px;}
-#plage_jeu {width:100%;height:100%;overflow:hidden;position:relative;margin:auto;}
+.panneau_carte, .waiting {width:860px;height:605px;margin-left:80px;}
+.panneau_carte {position:relative;}
+.waiting {position:absolute;top:0;left:0;background-image: url(../images/jeu/plage_background.jpg);background-size:cover;}
+.waiting img {width:40%;display:inline-block;margin:50px 30% 0 30%;}
+
+#plage_jeu {width:100%;height:100%;overflow:hidden;position:relative;margin:auto;background-image: url(../images/jeu/plage_background.jpg);background-size:cover;}
+
 div.panzoom {position:relative;width:100%;height:100%;}
-section#plage_jeu_1, section#plage_jeu_2 {position:absolute;top:0;left:0;background-image: url(../images/jeu/plage_background.jpg);background-size:cover;}	
+section#plage_jeu_1, section#plage_jeu_2 {position:absolute;top:0;left:0;}			/*   width fixée dans le contrôleur class_page.php, en fonction des données dans constantes.inc.php  		*/	
 #plage_jeu_1  {
 	z-index:0;
 	}
-canvas#codes {position:absolute;top:0;left:0;}
-#imgcodes {display:inline-block;position:relative;z-index:0;opacity: 0.01;width:1088px;height:auto;}
+canvas#codes, img.cases_joueurs, .rayon {position:absolute;top:0;left:0;}
+img.cases_joueurs {width:100%;height:auto;}
+#imgcodes {display:inline-block;position:relative;visibility:hidden;width:100%;height:auto;}
 #actions {width:90%;position:absolute;top:0;left:0;height:100%;padding:30px 30px 10px 50px ;background-color:#ddd;background-image: url(../images/jeu/plage_background.jpg);background-size:cover;}
 a.lien_in_case {color:#330000;text-decoration:none;padding-left:10px;font-size: 30px;}
 a.lien_in_case:hover {color:#0e5a08;text-decoration:underline;}
@@ -33,20 +27,27 @@ span.attention {color:#c1310f;}
 
 /* le code d'animation */
 @-webkit-keyframes devenir_transparent {
-    0%   {opacity: 0.6;}
-    40%   {opacity: 0.6;}
-    100%  {opacity: 0;}
+    0%   {opacity: 0.0;}
+    50%   {opacity: 0.6;}
+    80% 	{opacity: 0.6;}
+    100%  {opacity: 0.0;}
 }
 @keyframes devenir_transparent {
-    0%   {opacity: 0.6;}
-    40%   {opacity: 0.6;}
-    100%  {opacity: 0;}
+    0%   {opacity: 0.0;}
+    50%   {opacity: 0.6;}
+    80%   {opacity: 0.6;}
+    100%  {opacity: 0.0;}
 }
-div#entoure_case {position:absolute;top:300px;left:430px;width:10px;height:10px;border:2px solid #700;
+div#entoure_case {position:absolute;top:-3000px;left:-3000px;width:10px;height:10px;border:2px solid #700;}
+div#entoure_case.entoure_case {top:300px;left:430px;
 	background-color:#888;opacity:0.6;
 	-webkit-animation-name: devenir_transparent;
-	-webkit-animation-duration:4s;
+	-webkit-animation-duration:5s;
 	animation-name: devenir_transparent;
-	animation-duration:4s;
+	animation-duration:5s;
 }
 div#commentaire {position:absolute;top:-30px;left:-60px;padding:5px;width:400%;color:#dfd;font-size:0.8em;}
+.message_chargement {font-size:30px;color:#aa5300;text-align:center;}
+
+
+

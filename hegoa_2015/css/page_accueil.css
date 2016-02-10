@@ -4,50 +4,8 @@
   	
 	#centre > #contenu {
 		background-image: url(../images/menu_background.png);
-		background-repeat: no-repeat;
-		height: 790px;
-		width: 1000px;
-		margin-left: auto;
- 		margin-right: auto;
- 		margin-top: 26px;
-	}
-
-	.image_home {
-		float: left;
-		margin: -34px 0px 0 44px;
-	} 
-	
-	ul {
- 		padding:0;
- 		margin:0;
-		list-style-type:none;
- 	}
-
- 	li {
-
-	 	float:left;
-	 }
-
-	.menu {
-    	float: left;
-		width: 100%;
-	 }
-
-	ul li a {
-		display: block;
- 		text-decoration: none;
-		text-align: center;
-		font-size: 32px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #330000;
-		margin: 10px 0 0 136px;
-	}
-
-	li a:hover {
-		background-image: url(../images/menu_over.png);
-		background-repeat: no-repeat;
-		background-position : center bottom;
+		background-position:center top;
+		background-size: 100% 12%;
 	}
 
 	.lien_inscription {
@@ -63,8 +21,6 @@
 	a.newsletter {
 		display:block;
 		text-align:center;
-		font-weight: bold;
-		font-family: 'bilbo_swash_capsregular';
 		font-size: 26px;
 		color: #330000;
 		margin: 118px 0 0 0;
@@ -77,8 +33,6 @@
 
 	p.presentation {
 		text-align:center;
-		font-weight: bold;
-		font-family: 'bilbo_swash_capsregular';
 		font-size: 26px;
 		color: #330000;
 		margin: 16px 0 0 0;
@@ -87,8 +41,6 @@
 	p > a {
 		display:block;
 		text-align:center;
-		font-weight: bold;
-		font-family: 'bilbo_swash_capsregular';
 		font-size: 26px;
 		color: #330000;
 		text-decoration: none;
@@ -105,11 +57,9 @@
 	.contact {
 		display:block;
 		text-align:center;
-		font-weight: bold;
-		font-family: 'bilbo_swash_capsregular';
 		font-size: 24px;
 		color: #d59c4f;
 		text-decoration: none;
-		margin: 294px 0 0 0;
+		margin: 200px 0 0 0;
 	}
 

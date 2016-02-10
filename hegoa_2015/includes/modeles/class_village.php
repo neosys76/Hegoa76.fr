@@ -47,6 +47,7 @@ class Village
     function __construct($row)
     {
     	$this->lien_regles = "http://wiki.hegoa.eu/Village";
+    	if(isset($row)&&!empty($row)){
     	if(!is_array($row)){
       		// - on  établit une connexion car on n'a pas transmis de données venant déjà de la BDD; la variable row est l'ID du village ou son nom
       		//  premier test, sur l'ID
@@ -64,7 +65,7 @@ class Village
       				$this->fer = $row['niveau_fer'];
       				$this->bois = $row['niveau_bois'];
       				$this->cyniam = $row['niveau_cyniam'];
-      				$this->case_village = $row['case'];
+      				$this->case_village = $row['casa'];
      				$this->avatar_id = $row['avatar_iden'];   
      				$this->valeur_mana = $row['valeur_mana'];
      				$this->paysans = $row['paysans'];
@@ -93,7 +94,7 @@ class Village
       					$this->fer = $row['niveau_fer'];
       					$this->bois = $row['niveau_bois'];
       					$this->cyniam = $row['niveau_cyniam'];
-      					$this->case_village = $row['case'];
+      					$this->case_village = $row['casa'];
      					$this->avatar_id = $row['avatar_iden'];   
      					$this->valeur_mana = $row['valeur_mana'];
      					$this->paysans = $row['paysans'];
@@ -118,7 +119,7 @@ class Village
       				$this->fer = $row['niveau_fer'];
       				$this->bois = $row['niveau_bois'];
       				$this->cyniam = $row['niveau_cyniam'];
-      				$this->case_village = $row['case'];
+      				$this->case_village = $row['casa'];
      				$this->avatar_id = $row['avatar_iden'];
      				$this->valeur_mana = $row['valeur_mana'];
      				$this->paysans = $row['paysans'];
@@ -132,6 +133,26 @@ class Village
       	}
       	//  sont calcules sur base de l'avatar
       	$this->obtenirTauxNatalite($this->avatar_id);
+      	}
+      	else {
+      		$this->id = 0;
+      		$this->nom = "";
+      		$this->taille = "";
+      		$this->defense = "";
+      		$this->fer = "";
+      		$this->bois = "";
+      		$this->cyniam = "";
+      		$this->case_village ="";
+     		$this->avatar_id = "";
+     		$this->valeur_mana = "";
+     		$this->paysans = "";
+     		$this->guerriers_cac = "";
+     		$this->guerriers_dist = "";
+     		$this->mages = "";
+     		$this->chariots_guerre ="";
+     		$this->chariots_transport = "";
+     		$this->invocations = "";
+      	}
      }
  
  	private function obtenirTauxNatalite($avatar_id){
@@ -158,6 +179,16 @@ class Village
      public function calculPopulation(){
      	$population = 0;
      	return $population;
+     }
+     
+	public function calculNaissances(){
+     	$naissances = 0;
+     	return $naissances;
+     }
+     
+	public function calculTempsExistence(){
+     	$temps = 0;
+     	return $temps;
      }
           
  }

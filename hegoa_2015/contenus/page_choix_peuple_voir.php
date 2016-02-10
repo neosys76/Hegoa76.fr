@@ -1,10 +1,12 @@
-<div class="titre">Choisir un peuple Description</div>
-
-<a class="lien_fermer" href="index.php?page=choix_peuple">
-<img class="image_fermer" name="image_fermer" src="images/choix_peuple_voir/fermer.png" >
+<div class="titre"><?php echo $this->traductions["titre_choix"][$_SESSION['lang']]; ?>
+<a class="lien_fermer" href="index.php?page=choix_peuple" title="<?php echo $this->traductions_debut['retour-choix-peuple'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
 </a>
 
-<div class="contenu_choix_peuple">
+<a class="lien_deconnexion" href="index.php?page=deconnexion" title="<?php echo ucfirst($this->traductions_debut['deconnexion'][$_SESSION['lang']]); ?>" >
+<img src="images/deconnexion.png"  alt="Déconnexion">
+</a>
+</div>
 
 <?php
 
@@ -24,13 +26,7 @@
       }
 
 ?>
+<a class="bouton_action" href="index.php?page=choix_peuple_voir_validation&choix_peuple=<?php echo $_SESSION['choix_peuple']; ?>">OK</a>
+<p>&nbsp;</p>
 
-</div>
 
-<form name="form_choix" action="index.php?page=choix_peuple_voir_validation" method="post">
-
-<input type="hidden" name="choix_peuple" value="<?php echo $_SESSION['choix_peuple']; ?>">
-
-<img class="image_valider" src="images/choix_peuple_voir/valider.png" name="choix_peuple_valider" onclick="document.form_choix.submit();"  >
-
-</form>

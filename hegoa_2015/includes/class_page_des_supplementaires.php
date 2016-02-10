@@ -20,6 +20,8 @@ class PageDesSupplementaires extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
       $this->AjouterCSS("page_des_supplementaires.css");
 
@@ -36,6 +38,23 @@ class PageDesSupplementaires extends Page
       parent::Afficher();
 
     }// - Fin de la fonction Afficher
+    
+    public function getTraductions(){
+		$traductions["des-supplementaires"] = array(
+    		"fr"=>"dés supplémentaires",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["presentation-1"] = array(
+    		"fr"=>"L&#39;achat de dés supplémentaires vous permet d&#39;obtenir ou de choisir la meilleure solution parmi trois tirages",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    }
 
 }// - Fin de la classe
 

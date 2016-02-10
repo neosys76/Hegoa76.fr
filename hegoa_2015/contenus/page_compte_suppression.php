@@ -1,11 +1,19 @@
-<div class="titre">Suppression du compte</div>
+<div class="titre"><?php echo $this->traductions['suppression-compte'][$_SESSION['lang']]; ?>
+<a class="lien_fermer" href="index.php?page=tdb" title="<?php echo $this->traductions_debut['retour-tdb'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
+</a>
+
+<a class="lien_deconnexion" href="index.php?page=deconnexion" title="<?php echo ucfirst($this->traductions_debut['deconnexion'][$_SESSION['lang']]); ?>" >
+<img src="images/deconnexion.png"  alt="Déconnexion">
+</a>
+</div>
 <?php
 if(isset($_GET['erreur'])){
 	if($_GET['erreur']==1){
 		?>
 		<p class="erreur">
-			Votre compte n'a pas pu être supprimé correctement. Réessayez.<br/>
-			<a href="index.php?page=compte_suppression"><img src="images/compte_suppression/valider.png" alt="Supprimer"></a>
+			<?php echo $this->traductions['erreur-suppression-compte-re-essai'][$_SESSION['lang']]; ?><br/>
+			<a class="bouton_action" href="index.php?page=compte_suppression"><?php echo ucfirst($this->traductions_debut['supprimer'][$_SESSION['lang']]); ?></a>
 		</p>
 		<?php
 	}
@@ -13,22 +21,13 @@ if(isset($_GET['erreur'])){
 }
 else {
 ?>
-<a class="lien_fermer" href="index.php?page=compte">
-<img class="image_fermer" name="image_fermer" src="images/compte_suppression/fermer.png" >
-</a>
 
-<p class="texte">Attention,<br />
-vous &ecirc;tes sur le point de supprimer votre compte !!<br />
-<br />
-Etes-vous s&ucirc;r de vouloir le supprimer ?<br />
-<br />
-Cette op&eacute;ration est irr&eacute;versible !<br />
-Vous perdrez tous vos D'juns cr&eacute;&eacute;s.
+<p class="texte"><?php echo $this->traductions_debut['attention-avertir'][$_SESSION['lang']]; ?>,<br />
+<?php echo $this->traductions_debut['texte-avertissement'][$_SESSION['lang']]; ?>
 </p>
 
-<form name="form_suppression" action="index.php?page=compte_suppression_validation" method="post">
-<input class="image_valider" type="image" src="images/compte_suppression/valider.png" alt="Supprimer" >
-</form>
+<a class="bouton_action" href="index.php?page=compte_suppression_validation"><?php echo ucfirst($this->traductions_debut['supprimer'][$_SESSION['lang']]); ?></a>
+
 <?php
 }
 ?>

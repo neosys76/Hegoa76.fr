@@ -5,70 +5,82 @@
 	#centre > #contenu {
 		background-image: url(../images/compte/background.png);
 		background-repeat: no-repeat;
-		height: 550px;
+		background-size: 100% 100%;
+		min-height: 550px;
 		width: 600px;
 		margin-left: auto;
  		margin-right: auto;
  		margin-top: 76px;
+ 		position:relative;
 	}
 
-	.titre {
+.titre {
 		font-size: 30px;
-		font-weight: bold;
-		font-family: 'bilbo_swash_capsregular';
-		color: #330000;
 		text-align: center;
 		line-height:98px;
-	}
-
-	.image_fermer {
-		height: 36px;
-		width: 37px;
-		float:right;
-		margin-top: -68px;
-		margin-right: 10px;
-	}
-
-	form {
-		margin-top: -20px;
-		margin-left: 40px;
-	}
-
-	form > div {
-		font-weight: bold;
-		font-family: 'bilbo_swash_capsregular';
-		font-size: 20px;
-		color: #330000;
-	}
-
-	input {
-		background-color: transparent;
-		border-width: 1px;
-		border-color: #330000;
-	}
-
-	textarea {
-		width: 370px;
-		height: 100px;
-		background-color: transparent;
-		border-width: 1px;
-		border-color: #330000;
-		resize:none;
+		padding:0;
 	}
 	
-	.bouton_valider {
-		height: 41px;
-		width: 124px;
-		display: block; 
-		margin-top: 5px;
-		margin: 0 36px 0 0;
-		float: right; 
+.titre_update {
+		font-size: 30px;
+		text-align: center;
+		line-height:98px;
+		padding:10px 0 0 0;
 	}
 
-	.lien_supprimer {
-		height: 41px;
-		width: 162px;
-		display: block; 
-		margin: -30px 18px 0 0;
-		float: right; 
+
+a.lien_fermer, a.lien_deconnexion {
+	position:absolute;top:10px;
+	display:inline-block;float:right;
+	padding:0 5px 0 5px;
+}
+a.lien_fermer  {right:5px;}
+a.lien_deconnexion {right:35px;}
+a.lien_fermer img, a.lien_deconnexion img  {
+	margin: 0;
+	width:32px;height:auto;
+}	
+
+form {
+		margin: 0.5em 0 0 40px;
 	}
+
+form > div, form > span {
+		font-family: 'bilbo_swash_capsregular';
+		font-size: 22px;
+		color: #550000;
+		margin:0.5em 0 0 0;
+	}
+
+input {
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #550000;
+	}
+
+textarea {
+		width: 400px;
+		height: 80px;
+		background-color: transparent;
+		border-width: 1px;
+		border-color: #550000;
+	}
+	
+.bouton_action {
+		width:40%;margin: 2em auto 2em auto;
+		padding: 10px;
+		font-size:30px;
+	}
+
+.texte {
+		font-size: 26px;
+		text-align: center;
+		margin-top: 8px;
+	}
+	
+.attention {color:#f04a00;font-size:26px;}
+	
+.mot_de_passe {color:#993300;}
+
+.texte_premium {width:90%;margin-left:5%;font-size:25px;}
+

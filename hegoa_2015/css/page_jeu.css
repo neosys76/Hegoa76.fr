@@ -1,219 +1,77 @@
-  	    .lien_facebook {
-   		position: relative;
-    	left: 418px;
-    	top: 38px;
+/*/////////////////////////////////
+//    Auteur : Chris Fromont	//
+////////////////////////////////*/
 
-  	}
-
-  	.image_logo{
-  		display: block;
-  		margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
-
-	#centre > #contenu {
-		background-image: url(../images/jeu/cadre.png);
-		background-position: 0px 0px 0 0;
+#centre > #contenu {
+    background-image:  url(../images/jeu/cadre.png), url(../images/jeu/carte_background.jpg);
+    background-size: 100% 100%, 90% 95%;
 		background-repeat: no-repeat;
 		height: 790px;
 		width: 1085px;
 		position:relative;
-		top: 30px;
-		left: 98px;
-		float: left;
-
-    border-style: solid;
-     border-width: 1px;
-     border-color: green;
-	}
-
-	.cadre_djun {
-  		background-image: url(../images/jeu/joueur/cadre_djun.png);
-  		background-repeat: no-repeat;
-  		padding: 0px 0px 20px 0px;
-  		margin: 46px 0px 0px 88px;
-
-	}
-
-	.image_djun {
- 		margin: 10px 0px 0px 8px;
-	}
-
-	.djun_niveau_label {
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -83px 0px 0px 166px;
-	}
-
-	.djun_niveau {
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -30px 0px 0px 214px;
-	}
-
-	.djun_name {
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -30px 0px 0px 260px;
-		width: 580px;
-  	 	overflow: hidden;
-    	text-overflow: ellipsis;
-    	white-space: nowrap;	/* Empêche le retour à la ligne */
-    	-o-text-overflow: ellipsis; /* pour Opera 9 */
-	}
-
-	.image_icone_mana {
-		display: block;
-		height: 45px;
-		width: 45px;
-		margin: -6px 0px 0px 162px;
-	}
-
-	.djun_mana {
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -38px 0px 0px 210px;
-	}
-
-	.image_icone_cyniam {
-		display: block;
-		height: 45px;
-		width: 45px;
-		margin: -38px 0px 0px 360px;
-		}
-
-	.djun_cyniam {
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -38px 0px 0px 408px;
-	}
-
-	.image_icone_bois {
-		display: block;
-		height: 45px;
-		width: 45px;
-		margin: -38px 0px 0px 560px;
-	}
-
-	.djun_bois {
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -38px 0px 0px 608px;
-	}
-
-	.image_icone_metal {
-		display: block;
-		height: 45px;
-		width: 45px;
-		margin: -37px 0px 0px 760px;
-	}
-
-	.djun_metal {
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -39px 0px 0px 808px;
-	}
+		margin: 0 auto 0 auto;
+		font-size:26px;
+}
 
 .panneau_joueur
 {
-		height: 125px;
-		width: 1084px;
-
-    border-style: solid;
-     border-width: 1px;
-     border-color: blue;
+	width:100%;
+	height: 125px;
+	margin:35px 0 0 0;
+	position:relative;
 }
+.djun_caract_ligne1, .djun_caract_ligne2 {display:inline-block;position:relative;width:800px;font-size:23px;}
+.djun_caract_ligne1 {height:40px;left:120px;top:-10px;}
+.djun_caract_ligne1 p {display:inline-block;width:25%;text-align:left;margin:0;}
+.djun_caract_ligne1 p span {padding:0 0.3em 0 0;}
+.djun_caract_ligne1 p.messagerie {width:45%;text-align:right;margin-left:3%;}
+.djun_caract_ligne1 p.messagerie a.lien_deconnexion {display:inline-block;width:35px;}
+.djun_caract_ligne1 p.messagerie a.lien_deconnexion img {width:100%;height:auto;}
+.djun_caract_ligne2 {height:50px;top:-20px;left:200px;}
+.djun_caract_ligne2 p {display:inline-block;width:25%;margin:0;float:left;}
+.djun_caract_ligne2 img {width:40px;height:auto;}
+.djun_caract_ligne2 span {padding:0 0 0 0.3em;vertical-align:10px;}
 
 .panneau_jeu
 {
     float:left;
-		height: 663px;
-		width: 942px;
-
-    border-style: solid;
-    border-width: 1px;
-    border-color: yellow;
+	height: 663px;
+	/*width: 942px;   */
+	width:100%;
+	position:relative;
 }
 
 .menu_gauche
 {
     float:right;
 		height: 663px;
-		width: 138px;
-
-    border-style: solid;
-    border-width: 1px;
-    border-color: red;
+		width: 145px;
 }
 
-	.image_bouton_message {
-		float: left;
-		/*margin: -57px 0px 0px 950px;*/
-	}
+.menu_gauche a {
+	display:block;float:left;width:60%;line-height:0px;
+}
 
-	.image_bouton_village {
-		float: left;
-		/*margin: 47px 0px 0px 940px;*/
-	}
+.menu_gauche a img {
+	width:100%;height:auto;margin:0;
+}
 
-	.image_bouton_quete{
-		float: left;
-		/*margin: 0px 0px 0px 940px;*/
-	}
+.cadre_djun {
+  	background-image: url(../images/jeu/joueur/cadre_djun.png);
+  	background-repeat: no-repeat;
+  	background-size:100% 100%;
+  	padding: 0;
+  	left: 100px;
+  	top:45px;
+  	width:70px;
+  	height:70px;
+  	position:relative;
+  	display:inline-block;
+}
 
-	.image_bouton_commerce {
-		float: left;
-		/*margin: 0px 0px 32px 940px;*/
-	}
+.cadre_djun a {display:block;width:100%;}
+.cadre_djun a img {width:90%;height:auto;margin-left:5%;}
 
-	.image_bouton_batiment {
-		float: left;
-		/*margin: 0px 0px 0px 940px;*/
-	}
-
-	.image_bouton_objet {
-		float: left;
-		/*margin: 0px 0px 0px 940px;*/
-	}
-
-	.image_bouton_hua {
-		float: left;
-		/*margin: 0px 0px 0px 940px;*/
-	}
-
-	.image_bouton_magie {
-		float: left;
-		/*margin: 0px 0px 0px 940px;*/
-	}
-
-	.image_bouton_science {
-		float: left;
-		/*margin: 0px 0px 0px 940px;*/
-	}
-
-	.image_bouton_etoile {
-		float: left;
-		/*margin: 8px 0px 0px 942px;*/
-	}
 
 /*
  *   concerne les boutons de zoom
@@ -221,3 +79,4 @@
  
  span.btn_zooms {display:inline-block;width:80px;font-size:23px;color:#682e0f;padding:2px;margin-top:3px;border:1px solid #682e0f;}
  img.change_zoom {width:30%;height:auto;display:inline-block;cursor:pointer;}
+

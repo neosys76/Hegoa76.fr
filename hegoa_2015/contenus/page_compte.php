@@ -1,26 +1,30 @@
-<div class="titre">Mon compte: gestion</div>
-
-<a class="lien_fermer" href="index.php?page=tdb">
-<img class="image_fermer" name="image_fermer" src="images/compte/fermer.png" >
+<div class="titre"><?php echo $this->traductions["mon-compte-gestion"][$_SESSION['lang']]; ?>
+<a class="lien_fermer" href="index.php?page=tdb" title="<?php echo $this->traductions_debut['retour-tdb'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
 </a>
+
+<a class="lien_deconnexion" href="index.php?page=deconnexion" title="<?php echo ucfirst($this->traductions_debut['deconnexion'][$_SESSION['lang']]); ?>" >
+<img src="images/deconnexion.png"  alt="Déconnexion">
+</a>
+</div>
 <?php
 if(isset($_GET["erreur"])){
 	if($_GET["erreur"]==1){
 	?>
-	<p class="erreur">Vos données n'ont pas pu être insérées dans la base de données. Réessayez</p><br/>
+	<p class="erreur"><?php echo $this->traductions['data-non-mises-en-bdd-re-essai'][$_SESSION['lang']]; ?></p><br/>
 	<a href="index.php?page=compte"><img src="images/compte/valider.png" alt="OK"></a>
 	<?php
 	}
 }
 else {
 ?>
-<a class="lien_update" href="index.php?page=compte_update">
-<img class="image_supprimer" name="image_supprimer" src="images/compte/update.png" >
+<a class="bouton_action" href="index.php?page=compte_update">
+<?php echo $this->traductions['mise-a-jour-compte'][$_SESSION['lang']]; ?>
 </a>
 
 
-<a class="lien_supprimer" href="index.php?page=compte_suppression">
-<img class="image_supprimer" name="image_supprimer" src="images/compte/supprimer.png" >
+<a class="bouton_action" href="index.php?page=compte_suppression">
+<?php echo $this->traductions['suppression-compte'][$_SESSION['lang']]; ?>
 </a>
 <?php
 }

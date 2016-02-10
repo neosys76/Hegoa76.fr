@@ -3,19 +3,14 @@ include "menu_intros.php";
 include "menu_univers.php";
 ?>
 
-<div class="image_nimhsine">
-<img class="image_nimhsine" src="images/univers/nimhsine.png" name="image_nimsine" height="255">
+<div class="contenu_presentation">
+<div class="image_race">
+	<img src="images/univers/nimhsine.png" >
 </div>
 
-<div class="titre">Nimhsin&eacute;</div>
+<div class="titre_race_presentation"><?php  echo $this->traductions_debut["nimhsines"][$_SESSION['lang']]; ?></div>
 
-<p class="description">
-Lors de l'Eqyast, les humains et les Sulmis ont &eacute;t&eacute; contraints de se retrancher dans les souterrains d'H&eacute;goa.
-Dans leur laboratoire, ils ont cherch&eacute; une solution pour d&eacute;geler leur plan&egrave;te et vont r&eacute;ussir &agrave; cr&eacute;er un v&eacute;g&eacute;tal intelligent : les Nimhsin&eacute;.
-Elles sont fertiles et tr&egrave;s r&eacute;sistantes aux intemp&eacute;ries. Leur faiblesse est d'&ecirc;tre fr&ecirc;les physiquement. Malgr&eacute; un aspect diff&eacute;rent selon leur graine d'origine, elles ont deux particularit&eacute;s communes : une grande main avec cinq doigts ac&eacute;r&eacute;s ainsi que des racines afin de se mouvoir et d'extraire le Cyniam pour sa magie. Pour se reproduire, deux Nimhsin&eacute;s se pol&eacute;nisent et enterrent la graine f&eacute;cond&eacute;e.
-Sa germination va d&eacute;geler H&eacute;goa.
-Ils communiquent oralement.
-Leur nature sauvage leur donne la r&eacute;putation d'&ecirc;tre aggressives et virulentes.
-Elles vivent dans le respect et l'ob&eacute;issance de leurs a&icirc;n&eacute;s.
-Leur science du vivant leur permet de faire pousser leur habitat.
+<p class="description_race_presentation">
+<?php  echo $this->traductions["presentation-nimhsines"][$_SESSION['lang']]; ?>
 </p>
+</div>

@@ -1,21 +1,24 @@
-<div class="titre">Mon compte: mise à jour</div>
-
-<a class="lien_fermer" href="index.php?page=tdb">
-<img class="image_fermer" name="image_fermer" src="images/compte/fermer.png" >
+<div class="titre_update"><?php echo $this->traductions['mon-compte-mise-a-jour'][$_SESSION['lang']]; ?>
+<a class="lien_fermer" href="index.php?page=tdb" title="<?php echo $this->traductions_debut['retour-tdb'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
 </a>
 
-<form name="form_compte" action="index.php?page=compte_validation" method="post">
+<a class="lien_deconnexion" href="index.php?page=deconnexion" title="<?php echo ucfirst($this->traductions_debut['deconnexion'][$_SESSION['lang']]); ?>" >
+<img src="images/deconnexion.png"  alt="Déconnexion">
+</a>
+</div>
 
-<div class="account_lastname_label" >Nom :</div>
-<input class="account_lastname" type="text" name="compte_nom" value="<?php if(isset($_SESSION['compte']->nom)){echo $_SESSION['compte']->nom;} ?>" size="30">
+<form action="index.php?page=compte_validation" method="post">
 
-<div class="account_firstname_label" >Pr&eacute;nom :</div>
-<input class="account_firstname" type="text" name="compte_prenom" value="<?php if(isset($_SESSION['compte']->prenom)){echo $_SESSION['compte']->prenom;} ?>" size="30">
+<span><?php echo ucfirst($this->traductions_debut['nom-de-famille'][$_SESSION['lang']]); ?> :</span>&nbsp;&nbsp;&nbsp;
+<input type="text" name="compte_nom" value="<?php if(isset($_SESSION['compte']->nom)){echo $_SESSION['compte']->nom;} ?>" size="30">&nbsp;&nbsp;&nbsp;
+<span ><?php echo ucfirst($this->traductions_debut['prenom'][$_SESSION['lang']]); ?> :</span>&nbsp;&nbsp;&nbsp;
+<input type="text" name="compte_prenom" value="<?php if(isset($_SESSION['compte']->prenom)){echo $_SESSION['compte']->prenom;} ?>" size="30">
 
-<div class="account_mail_label" >Adresse mail :</div>
-<input class="account_mail" type="email" name="compte_email" value="<?php if(isset($_SESSION['compte']->email)){echo $_SESSION['compte']->email;} ?>" size="50">
+<div >Email :</div>
+<input  type="email" name="compte_email" value="<?php if(isset($_SESSION['compte']->email)){echo $_SESSION['compte']->email;} ?>" size="50">
 
-<div class="account_naissance_label">Date de naissance (jour-mois-année):</div>
+<div ><?php echo $this->traductions['naissance-j-m-a'][$_SESSION['lang']]; ?>:</div>
 <?php
 	if(isset($_SESSION['compte']->date_anniv)){
 		$jour = substr($_SESSION["compte"]->date_anniv,8,2);
@@ -23,22 +26,23 @@
 		$annee =substr($_SESSION["compte"]->date_anniv,0,4);
 	}
 ?>
-<input class="account_jour"  type="text" name="le_jour"  size="2" pattern="[0-9]{2}" value="<?php if(isset($jour)){echo $jour;} ?>"  > /
-<input class="account_mois"  type="text" name="le_mois"  size="2" pattern="[0-9]{2}"  value="<?php if(isset($mois)){echo $mois;} ?>"  > /
-<input class="account_annee" type="text" name="l_annee" size="4" pattern="[0-9]{4}"  value="<?php if(isset($annee)){echo $annee;} ?>" >
+<input  type="text" name="le_jour"  size="2" pattern="[0-9]{2}" value="<?php if(isset($jour)){echo $jour;} ?>"  > /
+<input type="text" name="le_mois"  size="2" pattern="[0-9]{2}"  value="<?php if(isset($mois)){echo $mois;} ?>"  > /
+<input  type="text" name="l_annee" size="4" pattern="[0-9]{4}"  value="<?php if(isset($annee)){echo $annee;} ?>" >
 
-<div class="account_ville_label" >Ville :</div>
-<input class="account_ville" type="text" name="compte_ville" value="<?php if(isset($_SESSION['compte']->ville)){echo $_SESSION['compte']->ville;} ?>">
+<div ><?php echo ucfirst($this->traductions_debut['ville'][$_SESSION['lang']]); ?> :</div>
+<input type="text" name="compte_ville" value="<?php if(isset($_SESSION['compte']->ville)){echo $_SESSION['compte']->ville;} ?>">
 
-<div class="account_pays_label" >Pays :</div>
-<input class="account_pays" type="text" name="compte_pays" value="<?php if(isset($_SESSION['compte']->pays)){echo $_SESSION['compte']->pays;} ?>">
+<div ><?php echo ucfirst($this->traductions_debut['pays'][$_SESSION['lang']]); ?> :</div>
+<input  type="text" name="compte_pays" value="<?php if(isset($_SESSION['compte']->pays)){echo $_SESSION['compte']->pays;} ?>">
 
-<div class="account_presentation_label">Votre pr&eacute;sentation :</div>
+<div ><?php echo ucfirst($this->traductions['votre-presentation'][$_SESSION['lang']]); ?> :</div>
 <textarea class="account_presentation" name="compte_presentation" rows="5" cols="50"><?php if(isset($_SESSION['compte']->presentation)){echo $_SESSION['compte']->presentation;} ?></textarea>
+<br/><br/>
+<span><span class="attention"><?php echo $this->traductions["uniquement-si-change-mot-de-passe"][$_SESSION['lang']]; ?> ! ! </span><br/><span class="mot_de_passe"><?php echo ucfirst($this->traductions_debut['mot-de-passe'][$_SESSION['lang']]); ?> :</span></span>
+<input type="password" name="nouveau_password"  size="32">
+<br/><br/>
 
-<div class="account_password_label" ><span style="color:#f00;">Uniquement Si Vous Voulez Changer De Mot De Passe ! ! </span><br/>Mot de passe :</div>
-<input class="account_password" type="password" name="nouveau_password"  size="32">
-<br/>
-
-<input class="bouton_valider"  type="image" src="images/compte/enregistrer.png"  alt="Soumettre" >
+<input class="bouton_valider"  type="image" src="images/compte/enregistrer.png"  alt="<?php echo ucfirst($this->traductions_debut['soumettre'][$_SESSION['lang']]); ?>" >
 </form>
+<p>&nbsp;<br/></p>

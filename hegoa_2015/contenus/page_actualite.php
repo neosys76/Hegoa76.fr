@@ -2,12 +2,12 @@
 include "menu_intros.php";
 ?>
 
-
-<div class="onglet">
-      <a class="lien_news" href="index.php?page=actualite">News</a>
-      <a class="lien_fond" href="index.php?page=actualite_people">People</a>
+<div class="sous_menu">
+<span><a class="lien_news" href="index.php?page=actualite">News</a></span>
+<span><a class="lien_fond" href="index.php?page=actualite_people">People</a></span>
 </div>
 
+<div class="contenu_presentation">
 <?php
 
 $iNbActu = $_SESSION['actualite_compteur'];
@@ -40,3 +40,4 @@ unset($_SESSION['actualite_date_creation']);
 unset($_SESSION['actualite_compteur']);
 
 ?>
+</div>

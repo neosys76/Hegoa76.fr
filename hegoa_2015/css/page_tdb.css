@@ -2,31 +2,7 @@
 //    Auteur : Chris Fromont	//
 ////////////////////////////////*/
 
-	.image_facebook {
-		height: 40px;
-		width: 40px;
-   		position: relative;
-    	left: 418px;
-    	top: 38px;
-    	
-  	}
-
-  	.image_logo{
-  		height: 100px;
-		width: 239px;
-  		display: block;
-  		margin: -32px auto;
-  	}
-
-  	.image_rss {
-  		height: 40px;
-		width: 40px;
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
-
-	#centre > #contenu {
+#centre > #contenu {
 		background-image: url(../images/tdb/background.png);
 		background-repeat: no-repeat;
 		height: 600px;
@@ -34,50 +10,59 @@
 		margin-left: auto;
  		margin-right: auto;
  		margin-top: 76px;
+ 		position:relative;
 	}
+	
+a.lien_fermer, a.lien_deconnexion {
+	position:absolute;top:0px;
+	display:inline-block;float:right;
+	padding:0 10px 0 10px;
+}
 
-	.image_compte {
-		height: 51px;
-		width: 70px;
-		float:left;
-		margin-top: -76px;
-		margin-left: 38px;
-	}
+a.lien_fermer  {right:20px;}
+	
+a.lien_deconnexion {right:60px;}
+
+a.lien_compte {
+	position:absolute;top:20px;left:30px;
+}
+a.lien_compte img{
+	width:70px;height:auto;
+}
+
+a.lien_fermer img, a.lien_deconnexion img  {
+	margin: 0;
+	width:36px;height:auto;
+}
 
 	.titre {
 		font-size: 30px;
-		font-weight: bold;
-		font-family: 'Kleymissky';
-		color: #330000;
 		text-align: center;
 		line-height:116px;
-	}
-	
-	.image_fermer {
-		height: 36px;
-		width: 37px;
-		float:right;
-		margin-top: -87px;
-		margin-right: 32px;
 	}
 
 	.djun {
 		position: relative;
 		background-image: url(../images/tdb/cadre_djun.png);
 		background-repeat: no-repeat;
+		background-size: 100% 100%;
 		float: left;
-		height: 180px;
-		width: 180px;
-		top: 96px;
-		left: 36px;
+		height: 200px;
+		width: 200px;
+		margin: 70px 0 0 50px;
 	}
 
-	.image_choix_djun {
-		height: 100px;
-		width: 101px;
+.djun > a img {
+		height: auto;
+		width: 110px;
 		position: relative;
-		top: 40px;
-		left: 42px;
 	}
 
-	p.choix {}
+p.choix, .djun > a {
+	display:block;
+	font-size:26px;
+	text-align:center;
+	color:#550000;
+}
+.djun > a.marges {margin: 0.8em 0 0.8em 0;}
+p.choix {margin: 0.8em 0 0.2em 0;}

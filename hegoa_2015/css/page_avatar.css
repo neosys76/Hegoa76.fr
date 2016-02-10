@@ -1,62 +1,54 @@
-  .lien_facebook {
-    	position: relative;
-    	left: 418px;
-    	bottom: 38px;
-  	}
-
-  	.image_logo{
-   	 	display: block;
-   	 	margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
-
-	#centre > #contenu {
+#centre > #contenu {
 		position:relative;
-		top: 76px;
-    	left: 241px;
 		background-image: url(../images/djun/background.png);
 		background-repeat: no-repeat;
-		height: 600px;
-		float: left;
+		background-size: 100% 100%;
+		min-height: 600px;
 		width: 800px;
-    	margin: 0px auto;
+    	margin: 38px auto;
 	}
 
-	.image_fermer {
-		position:relative;
-		bottom: 5px;
-		left: 728px;
-	}
-
-	.titre {
+.titre {
 		width:100%;
 		text-align:center;
-		margin-top: 38px;
-		font-size: 32px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #330000;
+		padding: 38px 0 0 0;
+		font-size: 35px;
 	}
 	
-	.avatar_cadres {
+.avatar_cadres {
 		width:80%;
 		margin-left:10%;
 		margin-top:1.5em;
 		margin-bottom:2em;
-		font-size:2em;
+		font-size:28px;
 		color:#400;
 	}
 
-	.avatar_index_libelle, .avatar_index_valeur {float:left;margin-left:5%;}
-	.avatar_index_libelle {width:25%;}
-	.avatar_index_valeur {width:60%;}
+.avatar_index_libelle, .avatar_index_valeur {float:left;margin-left:5%;}
+.avatar_index_libelle {width:25%;}
+.avatar_index_valeur {width:60%;}
 	
-	.message {position:absolute;left:52%;top:5em;width:38%;border:2px solid #bb5222;background-color: rgba(102,0,0,0.2);}
+.message {position:absolute;left:52%;top:5em;width:38%;border:2px solid #bb5222;background-color: rgba(102,0,0,0.2);}
 	
-	
+.avatar_histoire_valeur  textarea {background-color:transparent;border:1px solid #550000;}
+input[type="submit"] {
+	border-radius:5px;
+	border:1px solid #550000;
+	background-color:rgba(255,185,35,0.4);
+	padding:5px;
+	font-size:0.8em;
+	font-family: 'bilbo_swash_capsregular';
+	color:#550000;	
+	}
+a.lien_fermer, a.lien_deconnexion {
+	position:absolute;top:30px;
+	display:inline-block;float:right;
+	padding:0 10px 0 10px;;
+}
+a.lien_fermer  {right:30px;}
+a.lien_deconnexion {right:70px;}
+a.lien_fermer img, a.lien_deconnexion img  {
+	margin: 0;
+	width:36px;height:auto;
+}	
 	

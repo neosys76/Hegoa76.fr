@@ -48,10 +48,26 @@
 .colvert1 {color:#215e0b;}			/*  vert n° 1 */
 .colvert2 {color:#24461a;}			/*  vert n° 2 */
 .colbrun1 {color:#bd5319;}				/*  brun n° 1  */
+.colbrun2 {color:#c95b09;}				/*  orange-brun lien   */
 
 /*  classes générales de font size */
 .ftsz1p2em {font-size:1.2em;}
 .ftsz1p3em {font-size:1.3em;}
+.ftsz2em {font-size:2em;}
+.ftsz2p5em {font-size:2.5em;}
+.ftsz3em {font-size:3em;}
+
+
+/*   vertical align pour certains spans  */
+.v_align_m0p15em {vertical-align:-0.15em;}
+
+
+/*   les liens  */
+a {color:#c95b09;text-decoration:none;} 
+a:hover {text-decoration:underline;color:#235000;}
+
+/*  formatage  */
+.text_align_center {text-align:center;}
 
 
 /*HEADER*/
@@ -97,11 +113,10 @@
 	{
 		margin: 0px;
 		padding: 0px;
-		background: #FFFFFF;
 		font-family: bilbo_swash_capsregular,"trebuchet MS";
-		font-size: 12px;
-		font-weight: 400;
-		background-color: black;
+		font-size: 16px;
+		color:#550000;
+		background-color: #000;
 	}
 
 	img
@@ -133,5 +148,81 @@
 		height: 100px;
 	}
 
+/*  Spécifique mais commun aux pages d'intro: accueil, univers, media, actualités */
+#centre > #contenu {
+	width:1000px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:100% 100%;
+	margin:auto;
+	margin-top:26px;
+}
+.menu , .sous_menu {width:100%;text-align:center;position:relative;}
+/* .menu {padding-top:10px;} */
+.sous_menu {margin:2em 0 1em 0;}
+.menu span {
+	display:inline-block;
+	padding: 15px 0 0px 0;
+	margin: 0 5% 0 7%;
+}
+.sous_menu span {
+	display:inline-block;
+	margin: 0 5% 0 5%;
+}
 
+.menu a, .sous_menu a {
+		text-decoration: none;
+		display:block;
+		font-family: 'hegoa_regular';
+		font-weight: bold;
+		text-align:center;
+}
+.menu a  {
+		font-size: 32px;
+		color: #330000;
+}
+.sous_menu a {
+		font-size: 28px;
+		color: #4c4e64;
+}
+.sous_menu a:hover {
+		color: #330000;
+}
+.menu span:hover {
+		background-image: url(../images/menu_over.png);
+		background-repeat: no-repeat;
+		background-position : center bottom;
+		}
+a.lien_home {position:absolute;top:15px;left:50px;}
 
+.contenu_presentation {position:relative;width:100%;padding: 0 0 3em 0;min-height:700px;}
+
+.image_race {position:relative;width:54%;margin:0 23% 1em 23%;}
+.image_race img {width:100%;height:auto;}
+
+.titre_race_presentation {
+		font-size:50px;
+		color: #330000;
+		text-align: center;
+		line-height: 70px;
+	}
+
+.description_race_presentation {
+		font-size: 26px;
+		color: #330000;
+		text-align: center;
+		line-height: 40px;
+		margin: 0 0 0 16px;
+		width: 970px;
+	}
+.bouton_action {
+		background-image:url("../images/connexion_inscription/btn_contour.png");
+		background-repeat: no-repeat;
+		background-size: 90% 90%;
+		background-position: center center;
+		display: block; 
+		padding: 10px;
+		font-size:30px;
+		text-align:center;
+		color:#660000;
+	}

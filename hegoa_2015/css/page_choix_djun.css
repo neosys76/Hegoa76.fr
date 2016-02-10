@@ -2,25 +2,7 @@
 //    Auteur : Chris Fromont	//
 ////////////////////////////////*/
 	
-     .lien_facebook {
-   		position: relative;
-    	left: 418px;
-    	top: 38px;
-    	
-  	}
-
-  	.image_logo{
-  		display: block;
-  		margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
-  	
-	#centre > #contenu {
+#centre > #contenu {
 		background-image: url(../images/choix_djun/background.png);
 		background-repeat: no-repeat;
 		height: 463px;
@@ -28,78 +10,73 @@
 		margin-left: auto;
  		margin-right: auto;
  		margin-top: 76px;
+ 		position:relative
 	}
+	
+a.lien_fermer, a.lien_deconnexion {
+	position:absolute;top:10px;
+	display:inline-block;float:right;
+	padding:0 5px 0 5px;
+}
+
+a.lien_fermer  {right:0px;}
+	
+a.lien_deconnexion {right:30px;}
+a.lien_fermer img, a.lien_deconnexion img  {
+	margin: 0;
+	width:30px;height:auto;
+}
 
 	.titre {
 		font-size: 32px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #330000;
 		text-align: center;
 		line-height:90px;
 	}
+
 	
-	.image_fermer {
-		float: right;
-		margin: -62px 7px 0 0;
-	}
-	
-	.avatar_name_label {
+.avatar_name_label {
 		display: inline-block;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		margin: -8px 0 0 58px;
-	}
-	
-	.avatar_name_edit {
-		margin: -20px 0 0 226px;
+		font-size: 23px;
+		margin: 0 0 0 30px;
 	}
 
-	.avatar_name {
+.avatar_name {
 		background-color: transparent;
 		border-width: 1px;
-		border-color: #330000;
-		margin: -2px 0 0 0;
+		border-color: #550000;
 	}
-	
-	.image_avatar {
-		height: 310px;
-		width: 275px;
-		display: block; 
-		margin: -196px auto; 
+
+p.explication_avatar {
+	margin: 0.5em 0 0.3em 0;
+	font-size:20px;text-align:center;
+}
+
+.contenu_avatar_navigation {width:100%;position:relative;}
+.contenu_avatar_image {
+		width: 200px;
+		display: inline-block;float:left; margin:0 10px 0 10px;
 	}
+.contenu_avatar_image  input[type="image"]{
+	width:100%;height:auto;
+}
 	
-	.contenu_bouton_prev {
-		display:inline-block;
+.image_prev, .image_next, .fenetre_bandeau {
+		float:left;position:relative;display:inline-block;
   	}
   	
-  	.image_prev{
+.image_prev, .image_next {
   		width: 40px;
   		height: 100px;
-  		margin: 90px 0 0 30px;
+  		cursor:pointer;
+  		margin:90px 30px 0 30px;
   	}
 
-	/*.image_prev:hover {
-		background-image: url(../images/choix_djun/prev_over.png) no-repeat;
-	}*/
-	
-	.contenu_bouton_next {
-		display:inline-block;
-  	}
-  	
-  	.image_next{
-  		width: 40px;
-  		height: 100px;
-  		margin: -20px 0 0 420px;
-  	}
+.fenetre_bandeau {
+	padding:0;margin:1em 30px 1em 30px;border:1px solid #550000;width:220px;overflow:hidden;
+}
 
-	.image_valider {
-		display: block;
-   	 	margin-left: auto;
-    	margin-right: auto;
-    	margin-top: 106px;
-	}
+#bandeau {width:1000%;position:relative;top:0;}
 
+p.erreur_djun {font-size:30px;color:#dc5000;text-align:center;}
 
+.bouton_action {width:20%;margin-left:40%;}

@@ -1,41 +1,57 @@
-<div class="titre">Connexion</div>
 
-<a class="lien_fermer" href="index.php?page=accueil">
-<img class="image_fermer" name="image_fermer" src="images/connexion/fermer.png" >
+<div class="titre"><?php echo ucfirst($this->traductions_debut['connexion'][$_SESSION['lang']]); ?>
+<a class="lien_fermer" href="index.php?page=accueil" title="<?php echo $this->traductions_debut['retour-accueil'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
 </a>
+</div>
+
 <?php
-if(isset($_GET['erreur'])&&$_GET['erreur']=='1'){
+if(isset($_GET['erreur'])&&$_GET['erreur']=='0'){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Le formulaire n'est pas complet. Réessayez.</b><br/><br/>
-<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+<p class="message"><?php echo $this->traductions_debut['il-manque-votre-mot-de-passe'][$_SESSION['lang']]. ". ".$this->traductions_debut["recommencez"][$_SESSION['lang']]; ?><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion_inscription/btn_ok.png" alt="OK"></a>
+</p>
+<?php
+}
+elseif(isset($_GET['erreur'])&&$_GET['erreur']=='1'){
+?>
+<p class="message"><?php echo $this->traductions["form-incomplet-re-essai"][$_SESSION['lang']] ; ?><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion_inscription/btn_ok.png" alt="OK"></a>
 </p>
 <?php
 }
 elseif(isset($_GET['erreur'])&&$_GET['erreur']=='2'){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Le token de sécurité est incorrect. Réessayez.</b><br/><br/>
-<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+<p class="message"><?php echo $this->traductions["token-incorrect-re-essai"][$_SESSION['lang']] ; ?><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion_inscription/btn_ok.png" alt="OK"></a>
 </p>
 <?php
 }
 elseif(isset($_GET['erreur'])&&$_GET['erreur']=='3'){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Pour accéder au jeu, il faut être connecté.</b><br/><br/>
-<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+<p class="message"><?php echo $this->traductions["pour-acceder-jeu-faut-etre-connecte"][$_SESSION['lang']] ; ?><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion_inscription/btn_ok.png" alt="OK"></a>
 </p>
 <?php
 }
 elseif(isset($_GET['erreur'])&&$_GET['erreur']=='10'){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b>Soit le compte est en attente de validation, soit le compte n'existe pas et il faut alors vous inscrire, soit les données introduites sont incorrectes et il faut réessayez.</b><br/><br/>
-<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+<p class="message"><?php echo $this->traductions["erreur-1"][$_SESSION['lang']] ; ?><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion_inscription/btn_ok.png" alt="OK"></a>
+</p>
+<?php
+}
+elseif(isset($_GET['erreur'])&&$_GET['erreur']=='100'){
+?>
+<p class="message"><?php echo $this->traductions["erreur-2"][$_SESSION['lang']] ; ?><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion_inscription/btn_ok.png" alt="OK"></a>
 </p>
 <?php
 }
 elseif(isset($message)&&!empty($message)){
 ?>
-<p style="text-align: center;font-family:bilbo_swash_capsregular;font-size:26px;font-weight: bold;color:#330000;margin:0;"><b><?php echo $message; ?></b><br/><br/>
-<a href="index.php?page=connexion"><img src="images/connexion/valider.png" alt="OK"></a>
+<p class="message"><?php echo $message; ?><br/><br/>
+<a href="index.php?page=connexion"><img src="images/connexion_inscription/btn_ok.png" alt="OK"></a>
 </p>
 <?php
 }
@@ -48,17 +64,17 @@ if(isset($_SESSION['connexion_token'])&&!empty($_SESSION['connexion_token'])){$t
 else {$token = "NA";}
 ?>
 <input type="hidden" name="_token" value="<?php echo $token; ?>" />
-<div class="account_mail_label" >Mail :
+<div class="account_mail_label_connexion" >Email :
 <input class="account_mail" type="email" name="account_mail" size=20 required></div>
 
-<div class="account_password_label" >Mot de passe :
-<input class="account_password" type="password" name="account_password" size=20 required></div>
+<div class="account_password_label" ><?php echo ucfirst($this->traductions_debut["mot-de-passe"][$_SESSION['lang']]) ; ?> :
+<input class="account_password" type="password" name="account_password" size=20 ></div>
 
-
-<a class="lien_inscription" href="index.php?page=inscription">Pas encore inscrit ? Cliquez ici.</a>
-
-<input class="bouton_valider"  type="image" src="images/connexion/valider.png" alt="Valider" />
+<input class="bouton_valider"  type="image" src="images/connexion_inscription/btn_connexion.png" alt="<?php echo ucfirst($this->traductions_debut['connexion'][$_SESSION['lang']]) ; ?>" />
 </form>
+<a class="lien_connexion" href="index.php?page=inscription"><?php echo $this->traductions["pas-encore-inscrit-cliquez-ici"][$_SESSION['lang']]; ?>.</a>
+<a class="lien_connexion" href="index.php?page=nouveau_mdp"><?php echo $this->traductions["mot-de-passe-oublie-email-re-initialiser"][$_SESSION['lang']]; ?> ! </a>
+
 <?php
 }
 ?>

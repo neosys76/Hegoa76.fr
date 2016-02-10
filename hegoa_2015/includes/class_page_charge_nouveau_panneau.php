@@ -14,6 +14,9 @@ class PageChargeNouveauPanneau extends Page
     {
       // - on appele le constructeur du parent
       parent::__construct();
+ 		//  les traductions spécifiques
+       $this->traductions = $this->getTraductions();   
+      
 		if(isset($_GET['absx'])&&isset($_GET['ordy'])){
 			//   On met les coordonnées transmises par GET dans la BDD et dans l'avatar sauvé en SESSION
 			$point = "(".$_GET['absx'].",".$_GET['ordy'].")";
@@ -21,7 +24,7 @@ class PageChargeNouveauPanneau extends Page
    		   $sql .= "WHERE avatar_id = '".$_SESSION['djun_choisi']->id."'";
    		   $_SESSION['djun_choisi']->derniere_position = $point;
    		   if(!$this->db_connexion->Requete( $sql )){
-   		   		$this->message = "<span style='color:#f00;'>!!! Cette position n'a pas pu être sauvegardée comme votre 'dernière position' en base de données</span>";
+   		   		$this->message = "<span style='color:#f00;'>!!! ".$this->traductions["cette-position-pas-sauvegardee"][$_SESSION['lang']]."</span>";
    		   }		
    		}
     }
@@ -39,6 +42,17 @@ class PageChargeNouveauPanneau extends Page
     	}
     	
     }// - Fin de la fonction Afficher
+    
+   	public function getTraductions(){
+    	$traductions["cette-position-pas-sauvegardee"] = array(
+    		"fr"=>"Cette position n&#39;a pas pu être sauvegardée comme votre &quot;dernière position &quot; en base de données",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    }
 
 }// - Fin de la classe
 

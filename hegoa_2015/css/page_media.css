@@ -4,86 +4,11 @@
   	
 	#centre > #contenu {
 		background-image: url(../images/menu_background_ouvert.png);
-		background-repeat: no-repeat;
-		height: 800px;
-		width: 1000px;
-		margin-left: auto;
- 		margin-right: auto;
- 		margin-top: 26px;
 	}
 
-	.image_home {
-		float: left;
-		margin: -34px 0px 0 44px;
-	}
-	
-	ul {
- 		padding:0;
- 		margin:0;
-		list-style-type:none;
- 	}
-
- 	li {
-
-	 	float:left; /*pour IE*/
-	 }
-
-	.menu {
-		float: left;
-		width: 100%;
-	 }
-
-	.menu ul li a {
-		display: block;
- 		float: left;
- 		text-decoration: none;
-		text-align: center;
-		font-size: 32px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #330000;
-		margin: 10px 0 0 136px;
-	}
-
-	.menu li a:hover {
-		background-image: url(../images/menu_over.png);
-		background-repeat: no-repeat;
-		background-position : center bottom;
-	}
-	
-	table {
-		margin: 0px auto;
-		padding: 30px 0 0 0;
-	}
-	
-	.onglet {
-		text-align: center;
-	}
-	
-	.onglet a {
-		display: inline-block;
-		text-decoration: none;
-		font-size: 28px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #4c4e64;
-		margin: 48px 50px 0 54px;	
-	}
-	
-	.onglet a:hover {
-		 color: #330000;
-	}
-	
-	
-	.bouton_prec {
-		float: left;
-		margin: 190px 0 0 40px;
-		visibility: hidden;
-	}
-	
 	.galerie {
 		width: 700px;
-		height: 650px;
+		height: 660px;
 		margin-left: auto;
  		margin-right: auto;
  		margin-top: 10px;
@@ -94,7 +19,7 @@
 	
 	.galerie div.fenetre_galerie{
 		width:100%;
-		height: 620px;
+		height: 630px;
  		text-align: center;
  		overflow:hidden;
  		position:relative;
@@ -113,22 +38,24 @@
 		height: 200px;
 		width: 200px;
 		line-height:200px;
-		margin:0 15px 6px 0; 
+		margin:0 25px 10px 0; 
 		background-color:#fff;
 		text-align:center;
+		float:left;
 	}
 	
 	.galerie div.deroulant_galerie a img {
+		display:inline-block;
 		vertical-align:middle;
 	}
 	
-	.galerie span.pagination {display:inline-block;position:absolute;top:620px;left:0;width:100%;height:30px;font-size:20px;}
-	
-	.bouton_next {
-		float: right;
-		margin: -460px 40px 0 0;
-		visibility: hidden;
+	span.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;	
 	}
+	
+	.galerie span.pagination {display:inline-block;position:absolute;top:630px;left:0;width:100%;height:30px;font-size:20px;}
 	
 	span.numero_page {padding:3px 5px 0 5px;border-radius:5px;border:1px solid #000;margin-right:2px;cursor: pointer;}
 

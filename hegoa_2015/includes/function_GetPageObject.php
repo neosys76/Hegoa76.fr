@@ -123,6 +123,11 @@ error_reporting(E_ALL);
           require "class_page_connexion_validation.php";                        // - On inclut la class PageConnexionValidation
           $pageObject = new PageConnexionValidation();
           break;
+          
+        case "nouveau_mdp":
+          require "class_page_nouveau_mdp.php";                        // - On inclut la class PageNouveauMdp
+          $pageObject = new PageNouveauMdp();
+          break;
 
         case "tdb":
           require "class_page_tdb.php";                                         // - On inclut la class PageTdb
@@ -274,6 +279,11 @@ error_reporting(E_ALL);
         case "actions_case":
           require "class_page_actions_case.php";                                         // - On inclut la class PageActionsCase
           $pageObject = new PageActionsCase();
+          break;
+  
+         case "mise-a-jour-case":
+          require "class_page_mise_a_jour_case.php";                                         // - On inclut la class PageUpdateCase
+          $pageObject = new PageUpdateCase();
           break;
 
         default:

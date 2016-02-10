@@ -6,12 +6,11 @@ if(isset($message)&&!empty($message)){
 	echo $message;
 }
 else {
-$case = urldecode($_GET['case']);
 ?>
 <h2>Choisissez votre type de colonisation ou d'action sur la case choisie</h2>
 <form action="?page=jeu&espace=colonisation" method="POST">
-<input type="hidden" value="<?php echo $_GET['terrain']; ?>" name="terrain">
-<input type="hidden" value="<?php echo $case; ?>" name="case">
+<input type="hidden" value="<?php echo $coord_case; ?>" name="coordonnees">
+<input type="hidden" value="<?php echo $terrain; ?>" name="terrain">
 <input id="village" type="radio" name="type_colonisation" value="village" checked><label for="village"><span><span></span></span>: Construire un village</label> <br/>
 <span>&nbsp;&nbsp;&nbsp;Nom du village: </span><input type="text" name="nom_village"><br/>
 <input id="campement" type="radio" name="type_colonisation" value="campement"><label for="campement"><span><span></span></span>: Installer un campement de troupe</label><br/> 

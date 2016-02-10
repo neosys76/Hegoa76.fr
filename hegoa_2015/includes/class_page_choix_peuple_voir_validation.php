@@ -53,7 +53,7 @@ class PageChoixPeupleVoirValidation extends Page
       		}
    		}
 
-      $choix_peuple   = $_POST['choix_peuple'];
+      $choix_peuple   = $_GET['choix_peuple'];
       //  traitement des accents dans les noms
       	$search = array("é","è");
 		$replace = array("e","e");

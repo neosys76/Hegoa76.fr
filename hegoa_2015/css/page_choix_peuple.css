@@ -2,25 +2,7 @@
 //    Auteur : Chris Fromont	//
 ////////////////////////////////*/
 	
-     .lien_facebook {
-   		position: relative;
-    	left: 418px;
-    	top: 38px;
-    	
-  	}
-
-  	.image_logo{
-  		display: block;
-  		margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
-  	
-	#centre > #contenu {
+#centre > #contenu {
 		background-image: url(../images/choix_peuple/background.png);
 		background-repeat: no-repeat;
 		height: 668px;
@@ -28,39 +10,37 @@
 		margin-left: auto;
  		margin-right: auto;
  		margin-top: 30px;
+ 		position:relative
 	}
+	
+a.lien_fermer, a.lien_deconnexion {
+	position:absolute;top:10px;
+	display:inline-block;float:right;
+	padding:0 10px 0 10px;;
+}
 
-	.titre {
+a.lien_fermer  {right:0px;}
+	
+a.lien_deconnexion {right:40px;}
+a.lien_fermer img, a.lien_deconnexion img  {
+	margin: 0;
+	width:36px;height:auto;
+}
+
+.titre {
 		font-size: 32px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #330000;
 		text-align: center;
-		line-height: 100px;
+		line-height:90px;
 	}
 
-	.image_fermer {
-		float: right;
-		margin: -70px 7px 0 0;
-	}
+form {
+	margin:10px 0 0 3%;width:94%;
+}
 
-	.image_humain {
-		display: inline-block;
-		margin: 10px 0 0 28px;
-	}
+.choix_race {
+	float:left;
+	cursor:pointer;
+	width:50%;height:auto;
+}
 
-	.image_bunsif{
-		display: inline-block;
-		
-	}
-
-	.image_sulmis {
-		display: inline-block;
-		margin: 0px 0 0 28px;
-	}
-
-	.image_nimhsine {
-		display: inline-block;
-		
-	}
 

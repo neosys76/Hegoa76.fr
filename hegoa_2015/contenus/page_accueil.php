@@ -11,16 +11,16 @@ include "menu_intros.php";
 <img class="image_connexion" src="images/accueil_connexion.png" name="image_connexion">
 </a>
 
-<a class="newsletter" href="index.php?page=newsletter"><?php echo $les_traductions["inscription_newsletter"][$_SESSION['lang']]; ?></a>
+<a class="newsletter" href="index.php?page=newsletter"><?php echo $this->traductions["inscription_newsletter"][$_SESSION['lang']]; ?></a>
 
 <p class="presentation">
-<?php echo $les_traductions["presente_communaute"][$_SESSION['lang']]; ?>
+<?php echo $this->traductions["presente_communaute"][$_SESSION['lang']]; ?>
 
 <a href="http://www.revevolutionair.org/">Revevolutionair.org</a>
 </p>
 
 <p class="contact">
-<?php echo $les_traductions["nous_contacter"][$_SESSION['lang']]; ?>  : neosys[@]tuxfamily.org
+<?php echo $this->traductions["nous_contacter"][$_SESSION['lang']]; ?>  : neosys[@]tuxfamily.org
 </p>
 
 

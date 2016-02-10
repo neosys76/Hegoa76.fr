@@ -124,7 +124,7 @@ class Avatar
      	if(!isset($connexion)){$connexion = new Connexion();}
      	$villages = array();
      	$i=0;
-		$sql  = "SELECT * FROM \"libertribes\".\"VILLAGE\" WHERE avatar_iden = '".$this->id."'";
+		$sql  = "SELECT * FROM \"libertribes\".\"VILLAGE\" WHERE avatar_iden = '".$this->id."' ORDER BY date_creation DESC";
 		
       	$result = $connexion->Requete( $sql );
       	if (isset($result)&&!empty( $result ))

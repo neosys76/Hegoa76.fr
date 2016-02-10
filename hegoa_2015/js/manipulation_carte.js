@@ -1,6 +1,6 @@
 
 //  fonction de manipulation du panneau chargé
-function manipulation_carte(nom_panneau,cases_occupees) {
+function manipulation_carte(nom_panneau,cases_occupees,langage) {
 
 
 	/*   
@@ -35,6 +35,7 @@ function manipulation_carte(nom_panneau,cases_occupees) {
 	
 	var displx = -Math.round((ratio_affich_panneau*panneau_coord_x - fenetre_visible_x/2));
 	var disply = -Math.round((ratio_affich_panneau*panneau_coord_y - fenetre_visible_y/2));
+	
 
 	var $panzoom = section1.find('.panzoom').panzoom();
 	$panzoom.panzoom("pan",displx,disply);
@@ -48,7 +49,7 @@ function manipulation_carte(nom_panneau,cases_occupees) {
 			increment: 0.1,
 			animate: false,
 			focal: e,
-			minScale:1
+			minScale:0.1
 			});
 	});
 
@@ -85,21 +86,18 @@ function manipulation_carte(nom_panneau,cases_occupees) {
 		var matrix = 	$panzoom.panzoom("getMatrix");	
 		var xp = largeur_section2*(matrix[0]-1)/2 - matrix[4];
 		var yp = hauteur_section2*(matrix[0]-1)/2 - matrix[5];
+		
+		//   coordonnées dans le panneau couleurs-codes dans les dimensions affichées
+		//   cas où la section d'affichage pour les codes et cell pour les images ne sont pas de même dimension => remise à l'échelle 
 		var ratioX = largeur_section1/largeur_section2;
 		var ratioY = hauteur_section1/hauteur_section2;
-		//   coordonnées dans le panneau couleurs-codes dans les dimensions affichées
 		var realx_in_section1 = (xp+x1)*ratioX/matrix[0];
 		var realy_in_section1 = (yp+y1)*ratioY/matrix[0];
+		
 		//   coordonnées dans le panneau image dans les dimensions affichées
 		var realx_in_section2 = (xp+x1)/matrix[0];
 		var realy_in_section2 = (yp+y1)/matrix[0];
-		//   coordonnées dans le panneau code à dimensions réelles déclarées dans le SVG
-		var realx_in_panneauSVG = realx_in_section1/ratio1X;
-		var realy_in_panneauSVG = realy_in_section1/ratio1Y;
-		if(realx_in_panneauSVG<0){realx_in_panneauSVG=0;}
-		if(realy_in_panneauSVG<0){realy_in_panneauSVG=0;}
-		if(realx_in_panneauSVG>largeur_panneau_code){realx_in_carte=largeur_panneau_code;}
-		if(realy_in_panneauSVG>hauteur_panneau_code){realy_in_carte=hauteur_panneau_code;}
+		
 		var realx_in_carte = Math.round(realx_in_section2/ratio2X + num_sur_x*largeur_panneau);
 		var realy_in_carte = Math.round(realy_in_section2/ratio2Y + num_sur_y*hauteur_panneau);
 		var check_probleme = 0;
@@ -109,6 +107,17 @@ function manipulation_carte(nom_panneau,cases_occupees) {
 		if(realy_in_carte>hauteur_carte){realy_in_carte=hauteur_carte;check_probleme=1;}
 		var numero_case_x = Math.floor(realx_in_carte/cote_case) + 1;
 		var numero_case_y = Math.floor(realy_in_carte/cote_case) + 1;
+		
+		//     coordonnées dans le panneau code à dimensions réelles déclarées dans le SVG
+		var realx_in_panneauSVG = realx_in_carte - largeur_panneau_code*(Math.floor(realx_in_carte/largeur_panneau_code));
+		var realy_in_panneauSVG = realy_in_carte - hauteur_panneau_code*(Math.floor(realy_in_carte/hauteur_panneau_code));
+		if(realx_in_panneauSVG<0){realx_in_panneauSVG=0;}
+		if(realy_in_panneauSVG<0){realy_in_panneauSVG=0;}
+		if(realx_in_panneauSVG>largeur_panneau_code){realx_in_panneauSVG=largeur_panneau_code;}
+		if(realy_in_panneauSVG>hauteur_panneau_code){realy_in_panneauSVG=hauteur_panneau_code;}
+		var svg_x_in_imgcode = realx_in_panneauSVG*ratio1X;
+		var svg_y_in_imgcode = realy_in_panneauSVG*ratio1Y;
+		
 		//  test pour contrôler que les coordonnées sont encore dans le panneau affiché
 		
 		var check_num_sur_y = Math.floor(realy_in_carte/hauteur_panneau);
@@ -118,15 +127,12 @@ function manipulation_carte(nom_panneau,cases_occupees) {
 		var section2 = $('#plage_jeu_1');
 		section2.css("width",largeur_section1);
 		section2.css("height",hauteur_section1);
-		
 		var myImage=document.getElementById("imgcodes"); 
-
 		myImage.style.cssheight=hauteur_section1+"px";
 		myImage.style.csswidth=largeur_section1+"px";
-		var ctx = createContextCanvas("codes",largeur_panneau_code,hauteur_panneau_code);    	
-		ctx.scale(ratio1X,ratio1Y);
+		var ctx = createContextCanvas("codes",largeur_section1,hauteur_section1);    
 		ctx.drawImage(myImage, 0, 0); 
-		var p = ctx.getImageData(realx_in_section1, realy_in_section1, 1, 1).data; 
+		var p = ctx.getImageData(svg_x_in_imgcode, svg_y_in_imgcode, 1, 1).data; 
    		var hex = rgbToHex(p[0], p[1], p[2]);
    		if(((check_num_sur_x!=num_sur_x)||(check_num_sur_y!=num_sur_y))||check_probleme!=0){
    			//   les coordonnées pointées sortent du panneau affiché
@@ -145,7 +151,7 @@ function manipulation_carte(nom_panneau,cases_occupees) {
    			if(mes_cases_occupees.length>=1 && (typeof mes_cases_occupees[0].id != 'undefined')){
 			//  il y a au moins une case occupée par l'avatar
 			}
-   			var contenu_actions= afficheaction(numero_case_x,numero_case_y,hex);
+   			var contenu_actions= afficheaction(numero_case_x,numero_case_y,hex,langage);
    			$("#actions").html(contenu_actions);
    			$("#actions").css("z-index",300);
    		}

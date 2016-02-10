@@ -22,7 +22,10 @@ class PageInscriptionValidation extends Page
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
-      $this->AjouterCSS("page_inscription_validation.css");
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
+      
+      $this->AjouterCSS("page_inscription_connexion.css");
 		if((isset($_POST['_token'])&&!empty($_POST['_token']))&&(isset($_SESSION['inscription_token'])&&!empty($_SESSION['inscription_token']))&&$_POST['_token']==$_SESSION['inscription_token']){
 			$this->token="OK";		
 		}
@@ -78,10 +81,10 @@ class PageInscriptionValidation extends Page
 		else {
 			// - On envoi un email  pour la confirmation
 			$admin_email = ADMIN_EMAIL;
-			$sujet = "Confirmation de votre inscription sur hegoa.eu";
+			$sujet = $this->traductions["sujet"][$_SESSION['lang']];
 			$cle = substr($password,5,8);
-			$email_message = "Cher ami d'Hégoa,\nVous êtes bientôt inscrit dans la liste des joueurs et nous en sommes très heureux.\nIl ne vous reste plus qu'à confirmer votre inscription en introduisant l'adresse suivante dans votre barre de navigateur.\n";
-			$email_message .= "http://hegoa.eu/index.php?page=inscription_confirmation&email=".urlencode($courriel)."&cle=".urlencode($cle)."\nLorsque l'opération sera terminée, vous pourrez nous rejoindre dans la plateforme du jeu.\n\nA très bientôt.\n\nHEGOA\n\n";
+			$email_message = $this->traductions["email-message-1"][$_SESSION['lang']];
+			$email_message .= "http://hegoa.eu/index.php?page=inscription_confirmation&email=".urlencode($courriel)."&cle=".urlencode($cle)."\n".$this->traductions["email-message-2"][$_SESSION['lang']]."\n\nHEGOA\n\n";       
 			$headers = "From: ".$admin_email."\n";
 			//if(!mail($courriel,$sujet,$email_message,$headers)){
 			if(false){
@@ -100,6 +103,37 @@ class PageInscriptionValidation extends Page
 			exit;
       	}
     }// - Fin de la fonction Afficher
+    
+    
+	public function getTraductions(){
+		$traductions["email-message-1"] = array(
+    		"fr"=>"Cher ami d&#39;Hégoa,\nVous êtes bientôt inscrit dans la liste des joueurs et nous en sommes très heureux.\nIl ne vous reste plus qu&#39;à confirmer votre inscription en introduisant l&#39;adresse suivante dans votre barre de navigateur.\n",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["email-message-2"] = array(
+    		"fr"=>"Lorsque l&#39;opération sera terminée, vous pourrez nous rejoindre dans la plateforme du jeu.\n\nA très bientôt.",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["sujet"] = array(
+    		"fr"=>"Confirmation de votre inscription sur hegoa.eu",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["message-bienvenue"] = array(
+    		"fr"=>"Félicitations !<br /><br />Vous faites à présent partie des tribus d&#39;&nbsp;Hégoa...<br /><br />(Un message de confirmation arrive sur votre boite mail.)<br /><br/>Merci de confirmer avant d&#39;incarner un D&#39;jun,<br />l&#39;esprit protecteur de votre future tribu.<br />",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	
+    	return $traductions;
+    }
 
 }// - Fin de la classe
 

@@ -1,260 +1,78 @@
-  .lien_facebook {
-    	position: relative;
-    	left: 418px;
-    	bottom: 38px;
-  	}
-
-  	.image_logo{
-   	 	display: block;
-   	 	margin: -32px auto;
-  	}
-
-  	.lien_rss {
-    	position: relative;
-    	left: 820px;
-    	bottom: 42px;
-  	}
-
-	#centre > #contenu {
-		position:relative;
-		top: 76px;
-    	left: 241px;
+#centre > #contenu {
 		background-image: url(../images/djun/background.png);
 		background-repeat: no-repeat;
 		height: 600px;
-		float: left;
 		width: 800px;
-    	margin: 0px auto;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 76px;
+ 		position:relative;
 	}
+	
+a.lien_fermer, a.lien_deconnexion {
+	position:absolute;top:0px;
+	display:inline-block;float:right;
+	padding:0 10px 0 10px;;
+}
+a.lien_fermer  {right:20px;}
+a.lien_deconnexion {right:60px;}
+a.lien_fermer img, a.lien_deconnexion img  {
+	margin: 0;
+	width:36px;height:auto;
+}
 
-	.image_fermer {
-		position:relative;
-		bottom: 5px;
-		left: 728px;
-	}
+.titre {
+		font-size: 30px;
+		text-align: center;
+		line-height:116px;
+}	
 
-	.titre {
-		position: relative;
-		left: 324px;
-		top: 38px;
-		font-size: 32px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #330000;
-	}
+.djun_image, .djun_caracteristiques {
+	position:relative;
+	float:left;
+}
 
-	.djun {
-		background-image: url(../images/djun/cadre_djun.png);
+.djun_image {
+		background-image: url("../images/djun/cadre_djun.png");
 		background-repeat: no-repeat;
- 		position: relative;
-		top: 29px;
-		left: 52px;
-    	width: 280px;
-    	height: 410px;
-	}
+		background-size: 100% 100%;
+		margin:0 0 0 40px;
+		padding:0;
+		width:300px;
+		height:390px;
+}
+.djun_image a {display:block;width:100%;}
+.djun_image a img {width:90%;margin: 60px 2% 0 8%;}
 
- 	.image_djun {
-		position: relative;
-		top: 61px;
-		right: 4px;
-	}
+.djun_caracteristiques {
+	margin:0 0 0 30px;
+	width:400px;
+	font-size:26px;
+}
+.djun_name, .djun_race {
+	float:left;
+	width:50%;
+	font-size:38px;
+}
+.djun_caracteristiques > span {display:inline-block;width:43%;}
+.djun_caracteristiques > p {margin:-15px 0 0 0;}
+.djun_caracteristiques > p img {width:11%;height:auto;}
+.djun_caracteristiques > p > span {vertical-align:15px;margin:0 0 0 20px;}
 
-	.djun_name {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 370px;
-		left: 350px;
-		width: 170px;
-		overflow: hidden;
-  		-o-text-overflow: ellipsis; /* pour Opera 9 */
-  		text-overflow: ellipsis; /* pour le reste du monde */
+span.jouer {display:inline-block;position:absolute;top:60%;left:50%;}
+.djun_image a.bouton_action {
+		width:40%;margin: 25px 0 0 25%;
 	}
+.bouton_jouer {
+		background-image:url("../images/djun/btn_jouer.png");
+		background-repeat: no-repeat;
+		background-size: 80% 90%;
+		background-position: center center;
+		display: block; 
+		padding: 10px;
+		font-size:30px;
+		text-align:center;
+		color:#660000;
+	}
+	
 
-	.djun_race {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 400px;
-		left: 520px;
-	}
-
-	.djun_niveau_label {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 398px;
-		left: 350px;
-	}
-
-	.djun_niveau {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 428px;
-		left: 422px;
-	}
-
-	.djun_agressivite_label {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 406px;
-		left: 350px;
-	}
-
-	.djun_agressivite {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 436px;
-		left: 444px;
-	}
-
-	.djun_efficacite_label {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 432px;
-		left: 350px;
-	}
-
-	.djun_efficacite {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 460px;
-		left: 424px;
-	}
-
-	.djun_commerce_label {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 460px;
-		left: 350px;
-	}
-
-	.djun_commerce {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 490px;
-		left: 429px;
-	}
-
-	.djun_escroquerie_label {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 488px;
-		left: 350px;
-	}
-
-	.djun_escroquerie {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 518px;
-		left: 436px;
-	}
-
-	.image_mana {
-		position: relative;
-		bottom: 490px;
-		left: 346px;
-	}
-
-	.djun_mana {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 528px;
-		left: 398px;
-	}
-
-	.image_cyniam {
-		position: relative;
-		bottom: 526px;
-		left: 346px;
-	}
-
-	.djun_cyniam {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 562px;
-		left: 398px;
-	}
-
-	.image_bois {
-		position: relative;
-		bottom: 562px;
-		left: 346px;
-	}
-
-	.djun_bois {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 600px;
-		left: 398px;
-	}
-
-	.image_metal {
-		position: relative;
-		bottom: 600px;
-		left: 346px;
-	}
-
-	.djun_metal {
-		position: relative;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
-		bottom: 634px;
-		left: 398px;
-	}
-
-	.lien_supprimer {
-		position: relative;
-		bottom: 640px;
-		left: 52px;
-	}
-
-	.lien_jouer {
-		position: relative;
-		bottom: 870px;
-		left: 498px;
-	}

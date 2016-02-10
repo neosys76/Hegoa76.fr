@@ -19,7 +19,9 @@ class PageActualite extends Page
       parent::SetNomPage( "actualite","Actualité");
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageFooter( 0 );
-
+      /*  Les traductions   */  
+       $this->traductions = $this->getTraductions();
+		 
       $this->AjouterCSS("page_actualite.css");
 
       // - on ajoute les contenus utiles
@@ -38,7 +40,9 @@ class PageActualite extends Page
 
       // - On récupère les données des djuns
       $sql  = "SELECT libelle, date_creation FROM \"libertribes\".\"ACTUALITE\" WHERE type = 'NEWS' order by date_creation DESC";
+      
       $result = $this->db_connexion->Requete( $sql );
+       
       if ($result)
       {
         $iCpt = 0;
@@ -53,10 +57,22 @@ class PageActualite extends Page
 
         $_SESSION['actualite_compteur'] = $iCpt;
       }
-      else {$this->message = "Problème d'accès à la table ACTUALITE";}
+     
+      else {$this->message = $this->traductions["probleme-acces-table-actualite"][$_SESSION['lang']];}
 
       parent::Afficher();
     }// - Fin de la fonction Afficher
+    
+	public function getTraductions(){
+    	$traductions["probleme-acces-table-actualite"] = array(
+    		"fr"=>"Problème d&#39;accès à la table ACTUALITE",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    }
 
 }// - Fin de la classe
 

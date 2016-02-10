@@ -20,8 +20,10 @@ class PageComptePremium extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
-      $this->AjouterCSS("page_compte_premium.css");
+      $this->AjouterCSS("page_compte.css");
 
       // - on ajoute les contenus utiles
       $this->AjouterContenu("contenu", "contenus/page_compte_premium.php");
@@ -36,6 +38,23 @@ class PageComptePremium extends Page
       parent::Afficher();
 
     }// - Fin de la fonction Afficher
+    
+    public function getTraductions(){
+		$traductions["compte-premium"] = array(
+    		"fr"=>"compte Premium",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["presentation-1"] = array(
+    		"fr"=>"Le compte Premium, c&#39;est la possibilité d&#39;augmenter toutes les caractéristiques de vos villages et de vos actions ....",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    	}    
 
 }// - Fin de la classe
 

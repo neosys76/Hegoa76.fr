@@ -1,6 +1,6 @@
 <?php
 // ======================================================================
-// Auteur : Donatien CELIA, Dominique Dehareng
+// Auteurs : Donatien CELIA, Dominique Dehareng
 // Licence : CeCILL v2
 // ======================================================================
 
@@ -20,6 +20,8 @@ class PageDjun extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
       $this->AjouterCSS("page_djun.css");
 
@@ -43,7 +45,7 @@ class PageDjun extends Page
 	      if ( !isset($avatar_name) || empty($avatar_name))
 	      {
 	        // - redirection vers la page tdb
-	        header('Location: index.php?page=tdb');
+	        header('Location: index.php?page=tdb&erreur=no_djun');
 	        exit();
 	      }
 
@@ -53,7 +55,10 @@ class PageDjun extends Page
      		   exit();
      	}
 
-      		// - On stocke le djun choisi
+      		// - On stocke le djun choisi, avec mise à jour de Djun online, si le choix de plusieurs Djuns est possible
+      		if(isset($_SESSION['djun_choisi'])&&!empty($_SESSION['djun_choisi'])){
+      			$avatar_precedent = $_SESSION['djun_choisi'];
+      		}
       		foreach($_SESSION['avatars'] as $avatar){
       			if($avatar->nom == $avatar_name){
       				$_SESSION['djun_choisi'] = $avatar;
@@ -63,7 +68,11 @@ class PageDjun extends Page
 	   		
 			//  on indique l'heure de connexion dans la table AVATAR (dernière_connexion)
 			$le_moment = date("Y-m-d H:i:s");
-			$sql = "UPDATE \"libertribes\".\"AVATAR\"  SET derniere_connexion = '".$le_moment."' where avatar_id = '".$_SESSION["djun_choisi"]->id."'"; 
+			if(isset($avatar_precedent)&&($avatar_precedent->id != $_SESSION["djun_choisi"]->id)){
+				$sql = "UPDATE \"libertribes\".\"AVATAR\"  SET derniere_connexion = '".$le_moment."', statut='offline' where avatar_id = '".$avatar_precedent->id."'"; 
+				$this->db_connexion->Requete( $sql );
+			}
+			$sql = "UPDATE \"libertribes\".\"AVATAR\"  SET derniere_connexion = '".$le_moment."', statut='online' where avatar_id = '".$_SESSION["djun_choisi"]->id."'"; 
 			$this->db_connexion->Requete( $sql );
 
       		parent::Afficher();
@@ -73,6 +82,17 @@ class PageDjun extends Page
 			exit;
 		}
     }// - Fin de la fonction Afficher
+    
+    public function getTraductions(){
+		$traductions["lancement-du-jeu"] = array(
+    		"fr"=>"lancement du jeu",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    }
 
 }// - Fin de la classe
 

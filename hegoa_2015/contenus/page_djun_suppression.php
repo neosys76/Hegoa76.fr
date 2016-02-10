@@ -1,24 +1,22 @@
-<div class="titre">Suppression du djun</div>
-
-<a class="lien_fermer" href="index.php?page=tdb">
-<img class="image_fermer" name="image_fermer" src="images/djun_suppression/fermer.png" >
+<div class="titre"><?php echo $this->traductions['suppression-du-djun'][$_SESSION['lang']]; ?>
+<a class="lien_fermer" href="index.php?page=tdb" title="<?php echo $this->traductions_debut['retour-tdb'][$_SESSION['lang']]; ?>">
+<img src="images/connexion_inscription/fermer.png" alt="Close" >
 </a>
+
+<a class="lien_deconnexion" href="index.php?page=deconnexion" title="<?php echo ucfirst($this->traductions_debut['deconnexion'][$_SESSION['lang']]); ?>" >
+<img src="images/deconnexion.png"  alt="Déconnexion">
+</a>
+</div>
+
 <?php
 if(!isset($message)||empty($message)){
 ?>
-<p class="texte">Attention,<br />
-vous &ecirc;tes sur le point de supprimer votre Djun !!<br />
-<br />
-Etes-vous s&ucirc;r de vouloir le supprimer ?<br />
-<br />
-Cette op&eacute;ration est irr&eacute;versible !<br />
-Vous perdrez votre exp&eacute;rience, vos villages, vos objets, vos h&eacute;ros, ...
+<p class="texte_suppression_djun">
+<?php echo  $this->traductions['message-attention'][$_SESSION['lang']]; ?>
 </p>
 
-<form name="form_suppression" action="index.php?page=djun_suppression_validation" method="post">
+<a class="bouton_action" href="index.php?page=djun_suppression_validation"><?php echo ucfirst($this->traductions_debut['supprimer'][$_SESSION['lang']]); ?></a>
 
-<img class="image_valider" src="images/djun_suppression/valider.png" name="bouton_valider" onclick="document.form_suppression.submit();"  >
-</form>
 <?php
 }
 else {

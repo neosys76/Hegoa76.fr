@@ -20,6 +20,8 @@ class PageDjunSuppression extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
       $this->AjouterCSS("page_djun_suppression.css");
 
@@ -43,6 +45,24 @@ class PageDjunSuppression extends Page
 			exit;
 		}
     }// - Fin de la fonction Afficher
+    
+    
+    public function getTraductions(){
+		$traductions["suppression-du-djun"] = array(
+    		"fr"=>"Suppression du D&#39;jun",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["message-attention"] = array(
+    		"fr"=>"Attention,<br />vous êtes sur le point de supprimer votre D&#39;jun !!<br /><br />Êtes-vous sûr de vouloir le supprimer ?<br /><br />Cette opération est irréversible !<br />Vous perdrez votre expérience, vos villages, vos objets, vos héros, ...",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    }
 
 }// - Fin de la classe
 

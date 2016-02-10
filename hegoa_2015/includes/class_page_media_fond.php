@@ -17,10 +17,9 @@ class PageMediaFond extends Page
 
       // - on renseigne qq infos du parent
       parent::SetNomPage( "media_fond","Media - Fonds d'écran");
-      //parent::SetFonctionBodyOnLoad("javascript:preloadThumbnails()");
       parent::SetAffichageHeader( -1 );
-      //parent::SetAffichageMenu( 0 );
       parent::SetAffichageFooter( 0 );
+      //$this->traductions = $this->getTraductions();
 
       $this->AjouterCSS("page_media_fond.css");
       $this->AjouterCSS("lightbox.css");
@@ -37,6 +36,9 @@ class PageMediaFond extends Page
     {
       parent::Afficher();
     }// - Fin de la fonction Afficher
+    
+    
+
 
 }// - Fin de la classe
 

@@ -1,63 +1,47 @@
-  .lien_facebook {
-    position: relative;
-    left: 240px;
-  }
-
-  .image_logo{
-    position: relative;
-    left: 480px;
-  }
-
-  .lien_rss {
-    position: relative;
-    left: 720px;
-	}
-
-	#centre > #contenu {
-		position:relative;
-		top:  26px;
-		left: 394px;
-		background-image: url(../images/compte_suppression/background.png);
+#centre > #contenu {
+		background-image: url(../images/choix_djun/background.png);
 		background-repeat: no-repeat;
-		height: 600px;
-		float: left;
-		width: 700px;
-		margin: 0px auto;
+		min-height: 470px;
+		width: 550px;
+		margin-left: auto;
+ 		margin-right: auto;
+ 		margin-top: 30px;
+ 		position:relative;
 	}
+	
+a.lien_fermer, a.lien_deconnexion {
+	position:absolute;top:15px;
+	display:inline-block;float:right;
+	padding:0;
+}
 
-	.image_fermer {
-		position: relative;
-		bottom:  5px;
-		left: 442px;
-	}
+a.lien_fermer  {right:10px;}
+	
+a.lien_deconnexion {right:50px;}
 
-	.titre {
-		position: relative;
-		left: 160px;
-		top: 30px;
-		font-size: 32px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		color: #330000;
-	}
+a.lien_fermer img, a.lien_deconnexion img  {
+	margin: 0;
+	width:34px;height:auto;
+}
 
-	.texte {
-		position: relative;
-		top: 26px;
-		right: 108px;
-		font-weight: bold;
-		font-family: 'hegoa_regular';
-		font-size: 28px;
-		color: #330000;
+.titre {
+		font-size: 30px;
 		text-align: center;
+		line-height:90px;
 	}
 
+.texte_suppression_djun {font-size:25px;text-align:center;}
 
-	.image_valider {
-		position: relative;
-		top: 36px;
-		left: 178px;
+.bouton_action {
+		background-image:url("../images/connexion_inscription/btn_contour.png");
+		background-repeat: no-repeat;
+		background-size: 90% 90%;
+		background-position: center center;
+		display: block; 
+		width:20%;margin: 0.3em auto 0.5em auto;
+		padding: 10px;
+		font-size:30px;
+		text-align:center;
+		color:#660000;
 	}
-
-
 

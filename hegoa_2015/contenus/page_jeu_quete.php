@@ -1,12 +1,8 @@
-<?php
-if( $_SESSION['jeu_espace'] == "quete" )
-{
-?>
 
   <div class="panneau_quete">
     <div class="titre">Qu&ecirc;tes</div>
 
-    <div class="onglet_<?=$_SESSION['quete_type']?>">
+    <div class="onglet_<?php echo $_SESSION['quete_type']; ?>">
 
         <a class="lien_ajouter" href="index.php?page=jeu&espace=quete&type=create">
           <img class="image_ajouter" name="image_ajouter" src="images/quete/ajouter.png" >
@@ -115,7 +111,6 @@ if ( $iNoPage > $iNbPages )
 
 <?php
   echo "<div class=\"quete_pages\">" . $iNoPage . " / " . $iNbPages . "</div>";
-}
 ?>
 
 </div><!-- panneau_quete -->

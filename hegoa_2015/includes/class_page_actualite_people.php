@@ -19,7 +19,11 @@ class PageActualitePeople extends Page
       parent::SetNomPage( "actualite","Actualité - People");
       parent::SetAffichageHeader( -1 );
       parent::SetAffichageFooter( 0 );
-
+      /*  Les traductions   */  
+       $this->traductions = $this->getTraductions();
+		//  On récupère les traductions définies
+		 $les_traductions = $this->traductions;
+		 
       $this->AjouterCSS("page_actualite.css");
 
       // - on ajoute les contenus utiles
@@ -54,10 +58,21 @@ class PageActualitePeople extends Page
         $_SESSION['actualite_compteur'] = $iCpt;
       }
       
-       else {$this->message = "Problème d'accès à la table ACTUALITE";}
+       else {$this->message = $this->traductions["probleme-acces-table-actualite"][$_SESSION['lang']];}
 
       parent::Afficher();
     }// - Fin de la fonction Afficher
+    
+	public function getTraductions(){
+    	$traductions["probleme-acces-table-actualite"] = array(
+    		"fr"=>"Problème d&#39;accès à la table ACTUALITE",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	
+    	return $traductions;
+    }
 
 }// - Fin de la classe
 

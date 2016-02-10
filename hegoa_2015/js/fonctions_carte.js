@@ -90,16 +90,71 @@ function defineDimensions() {
 
       
 //  fonction contenant l'affichage des actions sur une case
-function afficheaction(absx,ordy,couleur){
-	var textHtml ="<h2>Ce que vous pouvez faire sur une case</h2>";
-	textHtml += "<span class='attention'>Attention: il s'agit d'une liste d'options mais la faisabilité sera contrôlée après votre choix</span><br/><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=affiche-etat&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Afficher l'état de la case</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=construire-village&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Construire un village</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=installer-campement&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Installer un campement de troupe</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=livraison&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Effectuer une livraison</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=espionnage&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Espionnage</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=attaquer&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Lancer une attaque</a><br/>";
-	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=etablir-marche&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>Installer un marché</a><br/>";
+function afficheaction(absx,ordy,couleur,langage){
+	var les_possibilites = {
+		"fr":"Ce que vous pouvez faire sur une case",
+		"en":"What you can do on a box",
+		"es":"Lo que puede hacer en una caja",
+		"de":""
+	};
+	var attention_liste_options = {
+		"fr":"Attention: il s&#39;agit d&#39;une liste d&#39;options mais la faisabilité sera contrôlée après votre choix",
+		"en":"Warning: this is a list of options, but the feasibility will be checked after your choice",
+		"es":"Advertencia: se trata de una lista de opciones, pero la viabilidad se verificará después de su elección",
+		"de":""
+	};
+	var afficher_etat = {
+		"fr":"Afficher l&#39;état de la case",
+		"en":"Show the status of the box",
+		"es":"Ver el estado de la caja",
+		"de":""
+	};
+	var construire_village = {
+		"fr":"Construire un village",
+		"en":"Build a village",
+		"es":"Construir un pueblo",
+		"de":""
+	};
+	var installer_troupe = {
+		"fr":"Installer un campement de troupe",
+		"en":"Install a troop camp",
+		"es":"Instalar un campamento de tropa",
+		"de":""
+	};
+	var livraison = {
+		"fr":"Effectuer une livraison",
+		"en":"Make a delivery",
+		"es":"Realizar una entrega",
+		"de":""
+	};
+	var espionnage = {
+		"fr":"Espionnage",
+		"en":"Espionage",
+		"es":"Espionaje",
+		"de":""
+	};
+	var attaque = {
+		"fr":"Lancer une attaque",
+		"en":"Attack",
+		"es":"Atacar",
+		"de":""
+	};
+	var installer_marche = {
+		"fr":"Installer un marché",
+		"en":"Install a market",
+		"es":"Instalar un mercado",
+		"de":""
+	};
+	
+	var textHtml ="<h2>"+les_possibilites[langage]+"</h2>";
+	textHtml += "<span class='attention'>"+attention_liste_options[langage]+"</span><br/><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=affiche-etat&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>"+afficher_etat[langage]+"</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=construire-village&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>"+construire_village[langage]+"</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=installer-campement&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>"+installer_troupe[langage]+"</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=livraison&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>"+livraison[langage]+"</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=espionnage&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>"+espionnage[langage]+"</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=attaquer&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>"+attaque[langage]+"</a><br/>";
+	textHtml += "<a class='lien_in_case' href='index.php?page=actions_case&action=etablir-marche&absx="+absx+"&ordy="+ordy+"&couleur="+couleur+"'>"+installer_marche[langage]+"</a><br/>";
 	return textHtml;
 }
 

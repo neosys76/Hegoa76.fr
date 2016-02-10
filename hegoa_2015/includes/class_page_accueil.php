@@ -23,11 +23,7 @@ class PageAccueil extends Page
       	//  les traductions spécifiques
       $this->traductions = $this->getTraductions();
       
-      $this->AjouterCSS("page_accueil.css");
-
-		//  On récupère les traductions définies
-		$les_traductions = $this->traductions;
-		
+      $this->AjouterCSS("page_accueil.css");		
       // - on ajoute les contenus utiles
       $this->AjouterContenu("contenu", "contenus/page_accueil.php");
 

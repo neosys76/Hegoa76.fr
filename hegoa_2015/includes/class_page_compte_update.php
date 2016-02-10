@@ -22,6 +22,8 @@ class PageCompteUpdate extends Page
       parent::SetAffichageHeader( 1 );
       parent::SetAffichageMenu( 1 );
       parent::SetAffichageFooter( 0 );
+      //  les traductions spécifiques
+      $this->traductions = $this->getTraductions();
 
       $this->AjouterCSS("page_compte.css");
 
@@ -44,6 +46,36 @@ class PageCompteUpdate extends Page
 			exit;
 		}
     }// - Fin de la fonction Afficher
+    
+    public function getTraductions(){
+    	$traductions["mon-compte-mise-a-jour"] = array(
+    		"fr"=>"Mon compte: mise à jour",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+		$traductions["naissance-j-m-a"] = array(
+    		"fr"=>"Date de naissance (jour-mois-année)",
+    		"en"=>"",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["votre-presentation"] = array(
+    		"fr"=>"Votre présentation",
+    		"en"=>"Your introduction",
+    		"es"=>"",
+    		"de"=>""
+    	);
+    	$traductions["uniquement-si-change-mot-de-passe"] = array(
+    		"fr"=>"Uniquement Si Vous Voulez Changer De Mot De Passe",
+    		"en"=>"Only If You Want To Change Your Password",
+    		"es"=>"Sólo Si Desea Cambiar Su Contraseña",
+    		"de"=>"Nur, wenn Sie wollen Passwort ändern"
+    	);
+    	
+    	return $traductions;
+    }    
+    
 
 }// - Fin de la classe
 

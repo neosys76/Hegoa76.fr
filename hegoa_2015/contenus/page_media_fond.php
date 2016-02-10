@@ -2,18 +2,13 @@
 include "menu_intros.php";
 ?>
 
-<div class="onglet">
-      <a class="lien_image" href="index.php?page=media">Galerie d'images</a>
-      <a class="lien_video" href="index.php?page=media_video">Vid&eacute;os</a>
-      <a class="lien_fond" href="index.php?page=media_fond">Fonds d'&eacute;crans</a>
+<div class="sous_menu">
+    <span><a href="index.php?page=media"><?php  echo $this->traductions_debut["GalerieImages"][$_SESSION['lang']]; ?></a></span>
+    <span><a href="index.php?page=media_video"><?php  echo $this->traductions_debut["Videos"][$_SESSION['lang']]; ?></a></span>
+    <span><a href="index.php?page=media_fond"><?php  echo $this->traductions_debut["FondsEcran"][$_SESSION['lang']]; ?></a></span>
 </div>
 
-<div class="contenu_media">
-<!--
-  <div class="contenu_bouton_prec">
-    <a href="index.php?page=media"><img class="image_prev" src="images/media/prev.png" name="image_prev"></a>
-  </div>
--->
+<div class="contenu_presentation">
 
 <div class="galerie">
 
@@ -77,11 +72,6 @@ if(!empty($fichier))
 
   </div>
 
-  <div class="contenu_bouton_next">
-<!--
-  <a href="index.php?page=media"><img class="image_next" src="images/media/next.png" name="image_next"></a>
--->
-  </div>
 
 </div>
 

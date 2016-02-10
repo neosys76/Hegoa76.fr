@@ -12,8 +12,6 @@ class Connexion
 
     public function __construct()
     {
-      // - Connexion à la BD
-      require_once "constantes.inc.php";
       // - connexion à la base de données
       $this->db_connect = pg_connect("host=".HOSTNAME." dbname=".BASE." user=".LOGIN." password=".PASSWORD);
 
